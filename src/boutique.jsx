@@ -6,10 +6,13 @@ import {
   ArrowUpRight,
   CaretDown,
   Check,
+  EnvelopeSimple,
   FunnelSimple,
   List,
   MagnifyingGlass,
+  MapPin,
   Plus,
+  Phone,
   ShoppingBag,
   SlidersHorizontal,
   Sparkle,
@@ -130,7 +133,6 @@ function Boutique() {
             <a href="/#formations">Formations</a>
           </nav>
           <div className="shop-header-actions">
-            <a className="account-link" href="/#contact">Compte</a>
             <button className="cart-button" type="button" onClick={() => setNotice(cart.length ? `${cart.length} équipement${cart.length > 1 ? 's' : ''} dans votre demande.` : 'Votre demande est encore vide.')} aria-label="Voir votre demande">
               <ShoppingBag weight="duotone" />
               <span>Demande</span>
@@ -207,10 +209,15 @@ function Boutique() {
         </section>
       </main>
 
-      <footer className="shop-footer">
-        <Brand />
+      <footer className="site-footer">
+        <div className="footer-main">
+          <div className="footer-brand"><Brand /><p>Formons, accompagnons et entretenons avec passion.</p></div>
+          <div className="footer-column"><strong>Expertises</strong><a href="#catalogue">Matériels</a><a href="/#maintenance">SAV</a><a href="/#formations">Formations</a><a href="/#expertises">Audit</a></div>
+          <div className="footer-column"><strong>ExpertCN</strong><a href="/#engagements">À propos</a><a href="/#contact">Contact</a><a href="/#engagements">Engagement RSE</a><a href="/#formations">Certification Qualiopi</a></div>
+          <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33667676929"><Phone weight="duotone" /> 06 67 67 69 29</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Nous écrire</a></div>
+        </div>
         <p>Équipements, maintenance et formations pour les professionnels des télécoms.</p>
-        <div><a href="/">Accueil</a><a href="/#maintenance">Maintenance</a><a href="/#contact">Contact</a></div>
+        <div className="footer-bottom"><span>© 2026 Expert Center Networks</span><div><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div></div>
         <span>© 2026 Expert Center Networks</span>
       </footer>
 
