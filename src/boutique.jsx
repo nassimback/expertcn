@@ -1,227 +1,217 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@fontsource-variable/outfit'
 import {
+  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   CaretDown,
   Check,
-  EnvelopeSimple,
   FunnelSimple,
-  List,
   MagnifyingGlass,
-  MapPin,
+  Package,
   Plus,
-  Phone,
-  ShoppingBag,
   SlidersHorizontal,
   Sparkle,
+  Tag,
   Wrench,
-  X,
 } from '@phosphor-icons/react'
+import { catalogueCategories, partnerPage, products } from './catalogue.generated'
+import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
 import './boutique.css'
 
-const categories = [
-  { name: 'Tous les équipements', key: 'all' },
-  { name: 'Soudeuses fibre optique', key: 'Soudeuses fibre optique' },
-  { name: 'Tests et mesures', key: 'Tests et mesures' },
-  { name: 'Raccordement optique', key: 'Raccordement optique' },
-  { name: 'Tirage et sécurité', key: 'Tirage et sécurité' },
-  { name: 'Identification de réseau', key: 'Identification de réseau' },
-  { name: 'Consommables', key: 'Consommables' },
-  { name: 'Autres équipements', key: 'Autres équipements' },
+const allCategories = [
+  { name: 'Tous les équipements', key: 'all', description: 'Parcourez toute la sélection ExpertCN.' },
+  ...catalogueCategories.map((category) => ({ ...category, key: category.name })),
 ]
 
-const products = [
-  { name: 'Soudeuse optique Fujikura 90S+', category: 'Soudeuses fibre optique', image: '/images/expertcn-maintenance.jpg', badge: 'Fibre optique', description: 'Soudeuse de précision pour les chantiers exigeants.' },
-  { name: 'Soudeuse Sumitomo T-57C', category: 'Soudeuses fibre optique', image: '/images/shop/shop-hero.jpg', badge: 'Fibre optique', description: 'Une solution robuste pour le raccordement terrain.' },
-  { name: 'Cliveuse Sumitomo FC-8R', category: 'Soudeuses fibre optique', image: '/images/shop/shop-hero.jpg', badge: 'Préparation fibre', description: 'Clivage fiable pour des raccordements constants.' },
-  { name: 'OTDR ECN50', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'Mesure', description: 'Réflectomètre compact pour vos diagnostics optiques.' },
-  { name: 'Réflectomètre OTDR VeEX FX150', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'Mesure', description: 'Analyse terrain des réseaux fibre optique.' },
-  { name: 'Analyseur PON FX120 VeEX', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'PON', description: 'Mesures PON précises et exploitables sur site.' },
-  { name: 'Stylo laser Fiberpoint 250', category: 'Tests et mesures', image: '/images/shop/shop-hero.jpg', badge: 'Test fibre', description: 'Localisation visuelle des défauts et ruptures.' },
-  { name: 'Etiqueteuse M210 Brady', category: 'Identification de réseau', image: '/images/shop/etiqueteuse-m210.png', badge: 'Identification', description: 'Étiquetage durable des câbles, panneaux et repères.' },
-  { name: 'Etiqueteuse M710 Brady', category: 'Identification de réseau', image: '/images/shop/etiqueteuse-m210.png', badge: 'Identification', description: 'Une imprimante mobile conçue pour les interventions.' },
-  { name: 'Breakout monomode', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Câblage', description: 'Câble préconnectorisé pour les déploiements optiques.' },
-  { name: 'Jarretières optiques', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Câblage', description: 'Raccordement fiable du tiroir à l’équipement actif.' },
-  { name: 'Tiroir optique coulissant', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Baie réseau', description: 'Organisation et protection de vos fibres en baie.' },
-  { name: 'Aiguille de tirage 100 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Tirage', description: 'Aiguille fibre 6-7 mm pour le passage des câbles.' },
-  { name: 'Aiguille de tirage 150 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Tirage', description: 'Longueur adaptée aux parcours techniques étendus.' },
-  { name: 'Recharge aiguille de tirage 60 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Tirage', description: 'Recharge de remplacement pour vos outils terrain.' },
-  { name: 'Colliers de serrage', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Sécurité', description: 'Fixation propre et durable de vos faisceaux.' },
-  { name: 'Électrodes Fujikura', category: 'Consommables', image: '/images/expertcn-maintenance.jpg', badge: 'Maintenance', description: 'Électrodes de remplacement pour soudeuses Fujikura.' },
-  { name: 'Électrodes Sumitomo ER-10', category: 'Consommables', image: '/images/expertcn-maintenance.jpg', badge: 'Maintenance', description: 'Pièces d’entretien pour équipements Sumitomo.' },
-  { name: 'Smooves 60 mm', category: 'Consommables', image: '/images/shop/shop-hero.jpg', badge: 'Protection fibre', description: 'Protection d’épissure pour raccordement optique.' },
-  { name: 'Pigtails optiques', category: 'Consommables', image: '/images/shop/shop-hero.jpg', badge: 'Connectique', description: 'Finition propre et fiable de vos connexions fibre.' },
-  { name: 'Aiguille de tirage 30 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Tirage', description: 'Format compact pour les parcours de proximité.' },
-  { name: 'Aiguille de tirage 60 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Tirage', description: 'Outil polyvalent pour le passage de câbles.' },
-  { name: 'Aiguille de tirage 300 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Tirage', description: 'Grande longueur pour les chantiers de réseau.' },
-  { name: 'Embout pour aiguille de tirage', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Accessoire', description: 'Embout de remplacement pour guider le tirage.' },
-  { name: 'Recharge aiguille de tirage 30 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Recharge', description: 'Recharge adaptée à vos aiguilles de tirage.' },
-  { name: 'Recharge aiguille de tirage 100 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Recharge', description: 'Consommable de rechange pour les parcours longs.' },
-  { name: 'Recharge aiguille de tirage 150 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Recharge', description: 'Recharge professionnelle pour les opérations terrain.' },
-  { name: 'Recharge aiguille de tirage 300 m', category: 'Tirage et sécurité', image: '/images/shop/aiguille.png', badge: 'Recharge', description: 'Recharge grand format pour les déploiements étendus.' },
-  { name: 'MPO', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Connectique', description: 'Connectique haute densité pour infrastructures optiques.' },
-  { name: 'Breakout multimode', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Câblage', description: 'Câble multimode pour vos architectures réseau.' },
-  { name: 'Tiroir optique actif', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Baie réseau', description: 'Tiroir actif pour l’organisation des liaisons fibre.' },
-  { name: 'Tiroir optique pivotant', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Baie réseau', description: 'Accès simplifié aux raccordements en baie.' },
-  { name: 'PTO 1, 2 ou 4 FO', category: 'Raccordement optique', image: '/images/shop/shop-hero.jpg', badge: 'Terminaison', description: 'Prise terminale optique pour les raccordements fibre.' },
-  { name: 'Module optique SFP compatible', category: 'Raccordement optique', image: '/images/shop/analyseur-pon.png', badge: 'Actif réseau', description: 'Module compatible pour la connectivité optique active.' },
-  { name: 'Soudeuse Fujikura 41S', category: 'Soudeuses fibre optique', image: '/images/expertcn-maintenance.jpg', badge: 'Fibre optique', description: 'Soudeuse compacte destinée aux opérations terrain.' },
-  { name: 'Soudeuse Sumitomo T-502S', category: 'Soudeuses fibre optique', image: '/images/expertcn-maintenance.jpg', badge: 'Fibre optique', description: 'Raccordement de qualité pour les installations exigeantes.' },
-  { name: 'Soudeuse Sumitomo T-402S', category: 'Soudeuses fibre optique', image: '/images/expertcn-maintenance.jpg', badge: 'Fibre optique', description: 'Soudeuse fiable pensée pour les chantiers télécoms.' },
-  { name: 'Soudeuse Sumitomo T72C', category: 'Soudeuses fibre optique', image: '/images/expertcn-maintenance.jpg', badge: 'Fibre optique', description: 'Équipement de raccordement pour les interventions rapides.' },
-  { name: 'Cliveuse Sumitomo FC-6+', category: 'Soudeuses fibre optique', image: '/images/shop/shop-hero.jpg', badge: 'Préparation fibre', description: 'Cliveuse professionnelle pour une coupe de fibre nette.' },
-  { name: 'Photomètre PON 10G FX41XT VeEX', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'PON', description: 'Contrôle de puissance pour les réseaux PON 10G.' },
-  { name: 'Mini OTDR VeEX OPX-BOXe', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'Mesure', description: 'Réflectométrie compacte pour vos diagnostics terrain.' },
-  { name: 'Analyseur PON VeEX PX92', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'PON', description: 'Analyse avancée des réseaux optiques passifs.' },
-  { name: 'Compteur VeEX PX90', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'Mesure', description: 'Mesure opérationnelle pour les interventions réseau.' },
-  { name: 'Logiciel VeEX R-Server', category: 'Tests et mesures', image: '/images/shop/analyseur-pon.png', badge: 'Logiciel', description: 'Centralisation et exploitation des résultats de test.' },
-  { name: 'Stylo laser Fiberpoint 250HP', category: 'Tests et mesures', image: '/images/shop/shop-hero.jpg', badge: 'Test fibre', description: 'Localisateur visuel haute puissance pour la fibre.' },
-  { name: 'Etiqueteuse M211 Brady', category: 'Identification de réseau', image: '/images/shop/etiqueteuse-m210.png', badge: 'Identification', description: 'Étiquetage mobile pour les environnements professionnels.' },
-  { name: 'Etiqueteuse M210 Lab Brady', category: 'Identification de réseau', image: '/images/shop/etiqueteuse-m210.png', badge: 'Identification', description: 'Étiqueteuse dédiée aux besoins de laboratoire et terrain.' },
-  { name: 'Kit étiqueteuse M211 Brady', category: 'Identification de réseau', image: '/images/shop/etiqueteuse-m210.png', badge: 'Identification', description: 'Kit complet pour démarrer l’étiquetage immédiatement.' },
-  { name: 'Etiqueteuse M510 Brady', category: 'Identification de réseau', image: '/images/shop/etiqueteuse-m210.png', badge: 'Identification', description: 'Identification industrielle pour les câbles et panneaux.' },
-  { name: 'Etiqueteuse M610 Brady', category: 'Identification de réseau', image: '/images/shop/etiqueteuse-m210.png', badge: 'Identification', description: 'Solution d’étiquetage performante pour interventions terrain.' },
-  { name: 'Tête Flex', category: 'Autres équipements', image: '/images/shop/shop-hero.jpg', badge: 'Accessoire', description: 'Accessoire professionnel pour vos équipements télécoms.' },
-  { name: 'Smooves 45 mm', category: 'Consommables', image: '/images/shop/shop-hero.jpg', badge: 'Protection fibre', description: 'Protection d’épissure compacte pour fibre optique.' },
+const categoryImages = [
+  '/images/shop/products/analyseur-pon-px92.png',
+  '/images/expertcn-maintenance.jpg',
+  '/images/shop/products/tiroirs-optiques-coulissants.png',
+  '/images/shop/products/module-optique-sfp-compatible.png',
+  '/images/shop/products/aiguille-de-tirage-150m-9mm.png',
+  '/images/shop/products/etiqueteuse-m710-brady.png',
+  '/images/shop/products/smooves-60mm.png',
 ]
 
-function Brand() {
+function ProductCard({ product, onAdd }) {
   return (
-    <a className="shop-brand" href="/" aria-label="ExpertCN, accueil">
-      <img src="/images/expertcn-logo.png" alt="" />
-      <span>EXPERT<span>CN</span></span>
-    </a>
+    <article className="product-card">
+      <a className={`product-image ${product.imageMode === 'cover' ? 'is-cover' : ''}`} href={`/produit.html?produit=${product.slug}`} aria-label={`Voir ${product.name}`}>
+        <img src={product.image} alt={product.name} loading="lazy" />
+      </a>
+      <div className="product-details">
+        <div className="product-meta"><span>{product.brand}</span><span>{product.subcategory}</span></div>
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <span className="product-type"><Tag weight="duotone" />{product.type === 'Variable' ? 'Plusieurs variantes' : 'Référence professionnelle'}</span>
+      </div>
+      <div className="product-actions">
+        <button type="button" onClick={() => onAdd(product)}><Plus weight="bold" /> Ajouter</button>
+        <a className="details-button" href={`/produit.html?produit=${product.slug}`}>Détails <ArrowUpRight weight="bold" /></a>
+      </div>
+    </article>
   )
 }
 
 function Boutique() {
   const [category, setCategory] = useState('all')
+  const [subcategory, setSubcategory] = useState('all')
   const [query, setQuery] = useState('')
-  const [cart, setCart] = useState([])
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [sort, setSort] = useState('featured')
+  const [visibleCount, setVisibleCount] = useState(12)
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [notice, setNotice] = useState('')
+  const { requestItems, addRequestItem } = useRequestList()
+
+  const selectedCategory = catalogueCategories.find((item) => item.name === category)
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase('fr')
-    return products.filter((product) => {
+    const result = products.filter((product) => {
       const matchesCategory = category === 'all' || product.category === category
-      const searchable = `${product.name} ${product.category} ${product.badge}`.toLocaleLowerCase('fr')
-      return matchesCategory && (!normalizedQuery || searchable.includes(normalizedQuery))
+      const matchesSubcategory = subcategory === 'all' || product.subcategory === subcategory
+      const searchable = `${product.name} ${product.brand} ${product.category} ${product.subcategory} ${product.description}`.toLocaleLowerCase('fr')
+      return matchesCategory && matchesSubcategory && (!normalizedQuery || searchable.includes(normalizedQuery))
     })
-  }, [category, query])
+    return result.toSorted((a, b) => {
+      if (sort === 'name') return a.name.localeCompare(b.name, 'fr')
+      if (sort === 'brand') return a.brand.localeCompare(b.brand, 'fr') || a.name.localeCompare(b.name, 'fr')
+      return products.indexOf(a) - products.indexOf(b)
+    })
+  }, [category, subcategory, query, sort])
 
-  const addToCart = (product) => {
-    setCart((items) => [...items, product.name])
+  const showPartnerPage = useMemo(() => {
+    if (!partnerPage || !['all', 'Équipements Actifs'].includes(category)) return false
+    if (!['all', 'Modules optiques'].includes(subcategory)) return false
+    const normalizedQuery = query.trim().toLocaleLowerCase('fr')
+    return !normalizedQuery || `${partnerPage.name} ${partnerPage.brand} ${partnerPage.subcategory}`.toLocaleLowerCase('fr').includes(normalizedQuery)
+  }, [category, subcategory, query])
+
+  useEffect(() => setVisibleCount(12), [category, subcategory, query, sort])
+
+  useEffect(() => {
+    if (!notice) return undefined
+    const timer = window.setTimeout(() => setNotice(''), 2800)
+    return () => window.clearTimeout(timer)
+  }, [notice])
+
+  const chooseCategory = (nextCategory, scroll = false) => {
+    setCategory(nextCategory)
+    setSubcategory('all')
+    setFiltersOpen(false)
+    if (scroll) window.requestAnimationFrame(() => document.querySelector('#catalogue')?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+  }
+
+  const addToRequest = (product) => {
+    addRequestItem(product.name)
     setNotice(`${product.name} a été ajouté à votre demande.`)
-    window.setTimeout(() => setNotice(''), 2600)
   }
 
   const categoryCount = (key) => key === 'all' ? products.length : products.filter((product) => product.category === key).length
+  const resultLabel = `${filteredProducts.length} équipement${filteredProducts.length > 1 ? 's' : ''}${showPartnerPage ? ' + 1 gamme partenaire' : ''}`
 
   return (
     <div className="shop-page">
-      <header className="shop-header">
-        <div className="shop-header-inner">
-          <Brand />
-          <nav className="shop-nav" aria-label="Navigation principale">
-            <a href="/">Accueil</a>
-            <a className="is-active" href="/boutique.html">Boutique</a>
-            <a href="/#maintenance">Maintenance</a>
-            <a href="/#formations">Formations</a>
-          </nav>
-          <div className="shop-header-actions">
-            <button className="cart-button" type="button" onClick={() => setNotice(cart.length ? `${cart.length} équipement${cart.length > 1 ? 's' : ''} dans votre demande.` : 'Votre demande est encore vide.')} aria-label="Voir votre demande">
-              <ShoppingBag weight="duotone" />
-              <span>Demande</span>
-              <b>{cart.length}</b>
-            </button>
-            <button className="shop-menu-button" type="button" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}>
-              {menuOpen ? <X /> : <List />}
-            </button>
-          </div>
-        </div>
-        {menuOpen && <nav className="shop-mobile-nav" aria-label="Navigation mobile"><a href="/">Accueil</a><a href="/boutique.html">Boutique</a><a href="/#maintenance">Maintenance</a><a href="/#formations">Formations</a></nav>}
-      </header>
+      <SiteHeader active="boutique" requestCount={requestItems.length} onRequest={setNotice} />
 
       <main>
         <section className="shop-hero">
           <div className="shop-hero-copy">
-            <p className="shop-eyebrow">Matériels télécoms professionnels</p>
-            <h1>Équipez vos interventions avec précision.</h1>
-            <p>Du raccordement aux tests terrain, retrouvez les équipements et consommables qui accompagnent vos équipes au quotidien.</p>
-            <a className="shop-primary-link" href="#catalogue">Voir le catalogue <ArrowRight weight="bold" /></a>
+            <p className="shop-eyebrow">Catalogue professionnel</p>
+            <h1>Équipez vos chantiers.</h1>
+            <p>Fibre, mesure et réseau: une sélection structurée pour les équipes de terrain.</p>
+            <a className="shop-primary-link" href="#catalogue">Explorer le catalogue <ArrowRight weight="bold" /></a>
           </div>
-          <div className="shop-hero-visual"><img src="/images/shop/shop-hero.jpg" alt="Sélection d’équipements professionnels pour la fibre optique" fetchPriority="high" /></div>
+          <div className="shop-hero-visual"><img src="/images/shop/shop-hero.jpg" alt="Équipements professionnels de raccordement et de mesure fibre optique" fetchPriority="high" /></div>
         </section>
 
         <section className="shop-assurances" aria-label="Services ExpertCN">
-          <div><Check weight="bold" /><span><strong>Conseil avant achat</strong>Une sélection adaptée à votre usage.</span></div>
+          <div><Check weight="bold" /><span><strong>Sélection terrain</strong>Des références choisies pour un usage professionnel.</span></div>
           <div><Wrench weight="duotone" /><span><strong>Maintenance spécialisée</strong>Un SAV qui connaît vos équipements.</span></div>
-          <div><Sparkle weight="duotone" /><span><strong>Solutions professionnelles</strong>Des matériels choisis pour le terrain.</span></div>
+          <div><Sparkle weight="duotone" /><span><strong>Conseil technique</strong>Une équipe disponible avant votre choix.</span></div>
+        </section>
+
+        <section className="category-explorer" aria-labelledby="category-title">
+          <div className="category-grid">
+            <div className="category-intro">
+              <p className="category-kicker">Nos univers métiers</p>
+              <h2 id="category-title">Sept familles, un seul partenaire.</h2>
+              <p>Accédez directement à chaque univers métier et à ses références techniques.</p>
+            </div>
+            {catalogueCategories.map((item, index) => (
+              <button key={item.name} className={`category-card ${category === item.name ? 'is-active' : ''}`} type="button" onClick={() => chooseCategory(item.name, true)}>
+                <span className="category-card-image"><img src={categoryImages[index]} alt={`Équipements de la famille ${item.name}`} loading="lazy" /></span>
+                <span className="category-card-copy">
+                  <span className="category-card-top"><strong>{item.name}</strong><b>{categoryCount(item.name)}</b></span>
+                  <small>{item.description}</small>
+                  <span className="category-card-action">Voir les produits <ArrowRight weight="bold" /></span>
+                </span>
+              </button>
+            ))}
+          </div>
         </section>
 
         <section className="shop-catalogue" id="catalogue">
           <div className="catalogue-heading">
-            <div><p className="shop-eyebrow">Catalogue ExpertCN</p><h2>Le bon équipement, au bon moment.</h2></div>
-            <p>Une sélection de matériels télécoms destinée aux techniciens, intégrateurs et équipes d’exploitation.</p>
+            <p className="shop-eyebrow">Catalogue ExpertCN</p>
+            <h2>Trouvez votre prochaine référence.</h2>
+            <p>Filtrez par famille ou usage, puis ajoutez les équipements à votre demande.</p>
           </div>
 
           <div className="catalogue-toolbar">
-            <label className="shop-search"><MagnifyingGlass weight="bold" /><span className="sr-only">Rechercher un produit</span><input value={query} onChange={(event) => setQuery(event.target.value)} type="search" placeholder="Rechercher un équipement" /></label>
+            <label className="shop-search"><MagnifyingGlass weight="bold" /><span className="sr-only">Rechercher un produit</span><input value={query} onChange={(event) => setQuery(event.target.value)} type="search" placeholder="Produit, marque ou usage" /></label>
+            <label className="sort-select"><span className="sr-only">Trier le catalogue</span><select value={sort} onChange={(event) => setSort(event.target.value)}><option value="featured">Sélection ExpertCN</option><option value="name">Nom A-Z</option><option value="brand">Marque</option></select><CaretDown weight="bold" /></label>
             <button className="filters-toggle" type="button" onClick={() => setFiltersOpen((open) => !open)}><FunnelSimple weight="bold" /> Filtres <CaretDown weight="bold" /></button>
-            <span className="result-count">{filteredProducts.length} équipement{filteredProducts.length > 1 ? 's' : ''}</span>
+            <span className="result-count">{resultLabel}</span>
           </div>
 
           <div className="catalogue-layout">
             <aside className={`shop-filters ${filtersOpen ? 'is-open' : ''}`}>
-              <div className="filter-title"><SlidersHorizontal weight="duotone" /><span>Catégories</span></div>
+              <div className="filter-title"><SlidersHorizontal weight="duotone" /><span>Familles</span></div>
               <div className="category-list">
-                {categories.map((item) => <button key={item.key} className={category === item.key ? 'is-selected' : ''} type="button" onClick={() => { setCategory(item.key); setFiltersOpen(false) }}><span>{item.name}</span><b>{categoryCount(item.key)}</b></button>)}
+                {allCategories.map((item) => <button key={item.key} className={category === item.key ? 'is-selected' : ''} type="button" onClick={() => chooseCategory(item.key)}><span>{item.name}</span><b>{categoryCount(item.key)}</b></button>)}
               </div>
-              <div className="filter-help"><strong>Besoin d’un conseil?</strong><p>Notre équipe vous oriente vers la solution adaptée.</p><a href="/#contact">Parler à un expert <ArrowUpRight weight="bold" /></a></div>
+              {selectedCategory && <div className="subcategory-filter"><strong>Usages</strong><button className={subcategory === 'all' ? 'is-selected' : ''} type="button" onClick={() => setSubcategory('all')}>Tous</button>{selectedCategory.subcategories.map((item) => <button className={subcategory === item ? 'is-selected' : ''} key={item} type="button" onClick={() => { setSubcategory(item); setFiltersOpen(false) }}>{item}</button>)}</div>}
+              <div className="filter-help"><Package weight="duotone" /><strong>Besoin d’un conseil?</strong><p>Notre équipe vérifie la compatibilité de votre sélection.</p><a href="/#contact">Parler à un expert <ArrowUpRight weight="bold" /></a></div>
             </aside>
 
             <div className="product-area">
+              {showPartnerPage && (
+                <article className="partner-feature">
+                  <div className="partner-image"><img src={partnerPage.image} alt="Modules optiques compatibles Newlinks" /></div>
+                  <div><span>Partenaire modules optiques</span><h3>La gamme SFP Newlinks</h3><p>Modules SFP, SFP+ et QSFP compatibles multi-constructeurs, avec programmation autonome via la Newlinks Coding Box.</p><a href="https://newlinks.tech" target="_blank" rel="noreferrer">Découvrir Newlinks <ArrowUpRight weight="bold" /></a></div>
+                </article>
+              )}
               {filteredProducts.length ? (
-                <div className="product-grid">
-                  {filteredProducts.map((product) => (
-                    <article className="product-card" key={product.name}>
-                      <div className="product-image"><img src={product.image} alt={product.name} loading="lazy" /><span>{product.badge}</span></div>
-                      <div className="product-details"><p>{product.category}</p><h3>{product.name}</h3><span>{product.description}</span></div>
-                      <div className="product-actions"><button type="button" onClick={() => addToCart(product)} aria-label={`Ajouter ${product.name} à la demande`}><Plus weight="bold" /> Ajouter au devis</button><a href="/#contact" aria-label={`Demander des informations sur ${product.name}`}>Détails <ArrowUpRight weight="bold" /></a></div>
-                    </article>
-                  ))}
-                </div>
-              ) : (
-                <div className="empty-products"><MagnifyingGlass weight="duotone" /><h3>Aucun équipement trouvé.</h3><p>Essayez un autre terme ou explorez toutes les catégories.</p><button type="button" onClick={() => { setQuery(''); setCategory('all') }}>Réinitialiser les filtres</button></div>
+                <>
+                  <div className="product-grid">
+                    {filteredProducts.slice(0, visibleCount).map((product) => <ProductCard product={product} key={product.name} onAdd={addToRequest} />)}
+                  </div>
+                  {visibleCount < filteredProducts.length && <button className="load-more" type="button" onClick={() => setVisibleCount((count) => count + 12)}>Afficher plus de produits <ArrowDown weight="bold" /></button>}
+                </>
+              ) : !showPartnerPage && (
+                <div className="empty-products"><MagnifyingGlass weight="duotone" /><h3>Aucun équipement trouvé.</h3><p>Essayez un autre terme ou revenez à toutes les familles.</p><button type="button" onClick={() => { setQuery(''); chooseCategory('all') }}>Réinitialiser les filtres</button></div>
               )}
             </div>
           </div>
         </section>
 
         <section className="shop-support">
-          <div><p className="shop-eyebrow">Un doute sur la compatibilité?</p><h2>Nous vous aidons à constituer le bon ensemble.</h2></div>
-          <p>Décrivez votre chantier, votre environnement ou votre matériel existant. Nous vous aidons à choisir les équipements compatibles et les consommables adaptés.</p>
-          <a className="shop-primary-link" href="/#contact">Parler à un expert <ArrowRight weight="bold" /></a>
+          <div className="shop-support-image">
+            <img src="/images/expertcn-hero.jpg" alt="Technicien ExpertCN intervenant sur un équipement fibre optique" loading="lazy" />
+          </div>
+          <div className="shop-support-copy">
+            <h2>Validez votre sélection avec un expert.</h2>
+            <p>Compatibilité, variantes et usages terrain : nous vérifions chaque point avant votre demande.</p>
+            <a className="shop-primary-link" href="/#contact">Parler à un expert <ArrowRight weight="bold" /></a>
+          </div>
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="footer-main">
-          <div className="footer-brand"><Brand /><p>Formons, accompagnons et entretenons avec passion.</p></div>
-          <div className="footer-column"><strong>Expertises</strong><a href="#catalogue">Matériels</a><a href="/#maintenance">SAV</a><a href="/#formations">Formations</a><a href="/#expertises">Audit</a></div>
-          <div className="footer-column"><strong>ExpertCN</strong><a href="/#engagements">À propos</a><a href="/#contact">Contact</a><a href="/#engagements">Engagement RSE</a><a href="/#formations">Certification Qualiopi</a></div>
-          <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33667676929"><Phone weight="duotone" /> 06 67 67 69 29</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Nous écrire</a></div>
-        </div>
-        <p>Équipements, maintenance et formations pour les professionnels des télécoms.</p>
-        <div className="footer-bottom"><span>© 2026 Expert Center Networks</span><div><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div></div>
-        <span>© 2026 Expert Center Networks</span>
-      </footer>
-
-      {notice && <div className="shop-notice" role="status"><Check weight="bold" /> {notice}</div>}
+      <SiteFooter />
+      <SiteNotice message={notice} />
     </div>
   )
 }

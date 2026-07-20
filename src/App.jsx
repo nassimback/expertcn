@@ -9,13 +9,11 @@ import {
   Check,
   EnvelopeSimple,
   GraduationCap,
-  List,
-  MapPin,
   Phone,
   Quotes,
   Wrench,
-  X,
 } from '@phosphor-icons/react'
+import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
 
 const services = [
   {
@@ -66,19 +64,11 @@ const testimonials = [
   },
 ]
 
-function Logo({ light = false }) {
-  return (
-    <a className={`brand ${light ? 'brand-light' : ''}`} href="#accueil" aria-label="ExpertCN, retour à l’accueil">
-      <img src="/images/expertcn-logo.png" alt="" />
-      <span>EXPERT<span>CN</span></span>
-    </a>
-  )
-}
-
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
   const [formStatus, setFormStatus] = useState('idle')
+  const [headerNotice, setHeaderNotice] = useState('')
   const testimonialsRef = useRef(null)
+  const { requestItems } = useRequestList()
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -104,7 +94,11 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
-  const closeMenu = () => setMenuOpen(false)
+  useEffect(() => {
+    if (!headerNotice) return undefined
+    const timer = window.setTimeout(() => setHeaderNotice(''), 2800)
+    return () => window.clearTimeout(timer)
+  }, [headerNotice])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -125,39 +119,7 @@ function App() {
 
   return (
     <div className="site-shell">
-      <header className="site-header">
-        <div className="header-inner">
-          <Logo />
-          <nav className="desktop-nav" aria-label="Navigation principale">
-            <a href="/boutique.html">Boutique</a>
-            <a href="#expertises">Expertises</a>
-            <a href="#maintenance">Maintenance</a>
-            <a href="#formations">Formations</a>
-            <a href="#engagements">À propos</a>
-          </nav>
-          <a className="button button-small header-cta" href="#contact">
-            Nous contacter <ArrowUpRight weight="bold" />
-          </a>
-          <button
-            className="menu-button"
-            type="button"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-navigation"
-            aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-          >
-            {menuOpen ? <X /> : <List />}
-          </button>
-        </div>
-        <div id="mobile-navigation" className={`mobile-nav ${menuOpen ? 'is-open' : ''}`}>
-          <a onClick={closeMenu} href="/boutique.html">Boutique</a>
-          <a onClick={closeMenu} href="#expertises">Expertises</a>
-          <a onClick={closeMenu} href="#maintenance">Maintenance</a>
-          <a onClick={closeMenu} href="#formations">Formations</a>
-          <a onClick={closeMenu} href="#engagements">À propos</a>
-          <a onClick={closeMenu} href="#contact">Nous contacter</a>
-        </div>
-      </header>
+      <SiteHeader active="home" requestCount={requestItems.length} onRequest={setHeaderNotice} />
 
       <main>
         <section className="hero" id="accueil">
@@ -368,18 +330,8 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="footer-main">
-          <div className="footer-brand">
-            <Logo light />
-            <p>Formons, accompagnons et entretenons avec passion.</p>
-          </div>
-          <div className="footer-column"><strong>Expertises</strong><a href="#expertises">Matériels</a><a href="#maintenance">SAV</a><a href="#formations">Formations</a><a href="#expertises">Audit</a></div>
-          <div className="footer-column"><strong>ExpertCN</strong><a href="#engagements">À propos</a><a href="#contact">Contact</a><a href="#engagements">Engagement RSE</a><a href="#formations">Certification Qualiopi</a></div>
-          <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33667676929"><Phone weight="duotone" /> 06 67 67 69 29</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Nous écrire</a></div>
-        </div>
-        <div className="footer-bottom"><span>© 2026 Expert Center Networks</span><div><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div></div>
-      </footer>
+      <SiteFooter />
+      <SiteNotice message={headerNotice} />
     </div>
   )
 }

@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         home: fileURLToPath(new URL('./index.html', import.meta.url)),
         boutique: fileURLToPath(new URL('./boutique.html', import.meta.url)),
+        product: fileURLToPath(new URL('./produit.html', import.meta.url)),
       },
     },
   },
