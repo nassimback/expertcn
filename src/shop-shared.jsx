@@ -56,8 +56,8 @@ export function SiteHeader({ active = '', requestCount = 0, onRequest }) {
         <nav className="shop-nav" aria-label="Navigation principale">
           <a className={active === 'home' ? 'is-active' : ''} href="/">Accueil</a>
           <a className={active === 'boutique' ? 'is-active' : ''} href="/boutique.html">Boutique</a>
-          <a href="/#maintenance">Maintenance</a>
-          <a href="/#formations">Formations</a>
+          <a className={active === 'sav' ? 'is-active' : ''} href="/sav/">Maintenance</a>
+          <a className={active === 'formations' ? 'is-active' : ''} href="/formations/">Formations</a>
         </nav>
         <div className="shop-header-actions">
           <button className="cart-button" type="button" onClick={() => onRequest?.(requestMessage)} aria-label="Voir votre demande">
@@ -72,8 +72,8 @@ export function SiteHeader({ active = '', requestCount = 0, onRequest }) {
         <nav className="shop-mobile-nav" aria-label="Navigation mobile">
           <a href="/">Accueil</a>
           <a href="/boutique.html">Boutique</a>
-          <a href="/#maintenance">Maintenance</a>
-          <a href="/#formations">Formations</a>
+          <a href="/sav/">Maintenance</a>
+          <a href="/formations/">Formations</a>
         </nav>
       )}
     </header>
@@ -90,11 +90,11 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-main">
         <div className="footer-brand"><ShopBrand /><p>Formons, accompagnons et entretenons avec passion.</p></div>
-        <div className="footer-column"><strong>Expertises</strong><a href="/boutique.html">Matériels</a><a href="/#maintenance">SAV</a><a href="/#formations">Formations</a><a href="/#expertises">Audit</a></div>
-        <div className="footer-column"><strong>ExpertCN</strong><a href="/#engagements">À propos</a><a href="/#contact">Contact</a><a href="/#engagements">Engagement RSE</a><a href="/#formations">Certification Qualiopi</a></div>
+        <div className="footer-column"><strong>Expertises</strong><a href="/materiel-telecom-fibre-optique/">Matériels</a><a href="/sav/">SAV</a><a href="/formations/">Formations</a><a href="/audit-telecoms/">Audit</a></div>
+        <div className="footer-column"><strong>ExpertCN</strong><a href="/a-propos-de-notre-mission/">À propos</a><a href="/#contact">Contact</a><a href="/a-propos-de-notre-mission/#rse">Engagement RSE</a><a href="/formations/#qualite">Certification Qualiopi</a></div>
         <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33667676929"><Phone weight="duotone" /> 06 67 67 69 29</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Nous écrire</a></div>
       </div>
-      <div className="footer-bottom"><span>© 2026 Expert Center Networks</span><div><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div></div>
+      <div className="footer-bottom"><span>© 2026 Expert Center Networks</span><div><a href="/mentions-legales/">Mentions légales</a><a href="/conditions-generales-dutilisation/">Conditions générales d’utilisation</a><a href="/politique-de-confidentialite/">Politique de confidentialité</a></div></div>
     </footer>
   )
 }

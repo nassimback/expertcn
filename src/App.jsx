@@ -62,6 +62,21 @@ const testimonials = [
     name: 'Nabil',
     role: 'Technicien fibre optique',
   },
+  {
+    quote: 'Le diagnostic de notre infrastructure a débouché sur un plan d’action clair et des économies mesurables.',
+    name: 'Aïssa',
+    role: 'Responsable de projet',
+  },
+  {
+    quote: 'Une équipe technique qui comprend le terrain, anticipe les contraintes et reste disponible après la livraison.',
+    name: 'Mélanie',
+    role: 'Responsable exploitation',
+  },
+  {
+    quote: 'Du choix de l’équipement à sa mise en service, nous avons été accompagnés avec méthode et transparence.',
+    name: 'Karim',
+    role: 'Chef d’équipe fibre',
+  },
 ]
 
 function App() {
