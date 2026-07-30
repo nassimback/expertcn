@@ -1,0 +1,42 @@
+[
+  [
+    "Page Newlinks — brief pour Nassim",
+    null
+  ],
+  [
+    null,
+    null
+  ],
+  [
+    "Type",
+    "Page WordPress classique. PAS une fiche produit WooCommerce, PAS une catégorie produit."
+  ],
+  [
+    "Objectif",
+    "Présenter la gamme de modules optiques Newlinks (SFP / SFP+ / QSFP, transceivers compatibles) et rediriger le trafic vers newlinks.tech."
+  ],
+  [
+    "Ce qu'elle N'EST PAS",
+    "Pas de prix, pas de \"Ajouter au panier\", pas de \"Demander un devis\". Aucune transaction sur expertcn.fr."
+  ],
+  [
+    "CTA principal",
+    "Bouton \"Découvrir la gamme Newlinks\" → https://newlinks.tech (ouverture dans un nouvel onglet)."
+  ],
+  [
+    "Contenu suggéré",
+    "1) Accroche : la gamme de modules optiques compatibles multi-constructeurs. 2) Les familles (SFP, SFP+, QSFP). 3) Le différenciateur : la Newlinks Coding Box (reprogrammateur de modules autonome et portable). 4) CTA vers newlinks.tech."
+  ],
+  [
+    "Emplacement dans le menu",
+    "⚠ À TRANCHER. Deux options : (a) hors boutique, dans le menu principal (ex : \"Nos marques\" / \"Partenaires\") — le plus propre et le plus logique pour l'utilisateur ; (b) en entrée du menu boutique sous Équipements Actifs > \"Modules optiques\", en forçant le lien vers cette page WordPress au lieu d'une archive de catégorie WooCommerce. Option (b) retenue par défaut pour respecter ta demande, mais l'option (a) est plus saine."
+  ],
+  [
+    "SEO",
+    "Attention à la cannibalisation : cette page ne doit PAS se positionner sur les requêtes visées par newlinks.tech (ex : \"SFP compatible\"). La cibler sur une intention de marque/partenariat plutôt que produit."
+  ],
+  [
+    "Suivi",
+    "Prévoir un tracking sur le clic sortant vers newlinks.tech, pour mesurer le trafic réellement transféré."
+  ]
+]

@@ -18,6 +18,7 @@ export default defineConfig({
         about: fileURLToPath(new URL('./a-propos-de-notre-mission/index.html', import.meta.url)),
         materials: fileURLToPath(new URL('./materiel-telecom-fibre-optique/index.html', import.meta.url)),
         formations: fileURLToPath(new URL('./formations/index.html', import.meta.url)),
+        formation: fileURLToPath(new URL('./formation.html', import.meta.url)),
       },
     },
   },

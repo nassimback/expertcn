@@ -6,6 +6,8 @@ import {
   ArrowRight,
   ArrowUpRight,
   CaretDown,
+  CaretLeft,
+  CaretRight,
   Check,
   FunnelSimple,
   MagnifyingGlass,
@@ -35,11 +37,45 @@ const categoryImages = [
   '/images/shop/products/smooves-60mm.png',
 ]
 
+const campaignSlides = [
+  { image: '/images/veex_px92_banner.png', alt: 'Analyseur PON 10G VeEX PX92', href: '/produit.html?produit=analyseur-pon-veex-px92' },
+  { image: '/images/Veex-2-scaled.webp', alt: 'Gamme professionnelle VeEX pour le test et la mesure télécom', href: '/boutique.html?categorie=Tests+et+mesures#catalogue' },
+  { image: '/images/Ecovadis.png', alt: 'ExpertCN médaille Platinum EcoVadis', href: '/a-propos-de-notre-mission/#rse' },
+  { image: '/images/Banner-raisecom-1.webp', alt: 'Gamme de produits actifs Raisecom', href: '/boutique.html?categorie=%C3%89quipements+Actifs#catalogue' },
+]
+
+function CampaignCarousel() {
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (paused) return undefined
+    const timer = window.setInterval(() => setCurrent((index) => (index + 1) % campaignSlides.length), 5600)
+    return () => window.clearInterval(timer)
+  }, [paused])
+
+  const goTo = (index) => setCurrent((index + campaignSlides.length) % campaignSlides.length)
+  const slide = campaignSlides[current]
+
+  return (
+    <section className="campaign-carousel" aria-label="Actualités ExpertCN" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <a className="campaign-slide" href={slide.href}>
+        <img src={slide.image} alt={slide.alt} fetchPriority={current === 0 ? 'high' : 'auto'} />
+      </a>
+      <div className="campaign-controls">
+        <button type="button" onClick={() => goTo(current - 1)} aria-label="Bannière précédente"><CaretLeft weight="bold" /></button>
+        <div>{campaignSlides.map((item, index) => <button className={index === current ? 'is-active' : ''} type="button" onClick={() => goTo(index)} aria-label={`Afficher ${item.alt}`} key={item.image} />)}</div>
+        <button type="button" onClick={() => goTo(current + 1)} aria-label="Bannière suivante"><CaretRight weight="bold" /></button>
+      </div>
+    </section>
+  )
+}
+
 function ProductCard({ product, onAdd }) {
   return (
     <article className="product-card">
       <a className={`product-image ${product.imageMode === 'cover' ? 'is-cover' : ''}`} href={`/produit.html?produit=${product.slug}`} aria-label={`Voir ${product.name}`}>
-        <img src={product.image} alt={product.name} loading="lazy" />
+        <img src={product.image} alt={product.name} loading="lazy" onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/images/shop/shop-hero.jpg' }} />
       </a>
       <div className="product-details">
         <div className="product-meta"><span>{product.brand}</span><span>{product.subcategory}</span></div>
@@ -56,14 +92,19 @@ function ProductCard({ product, onAdd }) {
 }
 
 function Boutique() {
-  const [category, setCategory] = useState('all')
-  const [subcategory, setSubcategory] = useState('all')
-  const [query, setQuery] = useState('')
+  const urlParams = new URLSearchParams(window.location.search)
+  const requestedCategory = urlParams.get('categorie')
+  const initialCategory = catalogueCategories.some((item) => item.name === requestedCategory) ? requestedCategory : 'all'
+  const initialCategoryData = catalogueCategories.find((item) => item.name === initialCategory)
+  const requestedSubcategory = urlParams.get('sous-categorie')
+  const [category, setCategory] = useState(initialCategory)
+  const [subcategory, setSubcategory] = useState(initialCategoryData?.subcategories.includes(requestedSubcategory) ? requestedSubcategory : 'all')
+  const [query, setQuery] = useState(urlParams.get('q') || '')
   const [sort, setSort] = useState('featured')
   const [visibleCount, setVisibleCount] = useState(12)
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [notice, setNotice] = useState('')
-  const { requestItems, addRequestItem } = useRequestList()
+  const { requestItems, addRequestItem, removeRequestItem, clearRequestItems } = useRequestList()
 
   const selectedCategory = catalogueCategories.find((item) => item.name === category)
 
@@ -92,6 +133,15 @@ function Boutique() {
   useEffect(() => setVisibleCount(12), [category, subcategory, query, sort])
 
   useEffect(() => {
+    const params = new URLSearchParams()
+    if (category !== 'all') params.set('categorie', category)
+    if (subcategory !== 'all') params.set('sous-categorie', subcategory)
+    if (query.trim()) params.set('q', query.trim())
+    const queryString = params.toString()
+    window.history.replaceState({}, '', `${window.location.pathname}${queryString ? `?${queryString}` : ''}${window.location.hash}`)
+  }, [category, subcategory, query])
+
+  useEffect(() => {
     if (!notice) return undefined
     const timer = window.setTimeout(() => setNotice(''), 2800)
     return () => window.clearTimeout(timer)
@@ -106,7 +156,7 @@ function Boutique() {
 
   const addToRequest = (product) => {
     addRequestItem(product.name)
-    setNotice(`${product.name} a été ajouté à votre demande.`)
+    setNotice(`${product.name} a été ajouté à votre panier.`)
   }
 
   const categoryCount = (key) => key === 'all' ? products.length : products.filter((product) => product.category === key).length
@@ -114,7 +164,7 @@ function Boutique() {
 
   return (
     <div className="shop-page">
-      <SiteHeader active="boutique" requestCount={requestItems.length} onRequest={setNotice} />
+      <SiteHeader active="boutique" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
 
       <main>
         <section className="shop-hero">
@@ -126,6 +176,8 @@ function Boutique() {
           </div>
           <div className="shop-hero-visual"><img src="/images/shop/shop-hero.jpg" alt="Équipements professionnels de raccordement et de mesure fibre optique" fetchPriority="high" /></div>
         </section>
+
+        <CampaignCarousel />
 
         <section className="shop-assurances" aria-label="Services ExpertCN">
           <div><Check weight="bold" /><span><strong>Sélection terrain</strong>Des références choisies pour un usage professionnel.</span></div>
@@ -157,7 +209,7 @@ function Boutique() {
           <div className="catalogue-heading">
             <p className="shop-eyebrow">Catalogue ExpertCN</p>
             <h2>Trouvez votre prochaine référence.</h2>
-            <p>Filtrez par famille ou usage, puis ajoutez les équipements à votre demande.</p>
+            <p>Filtrez par famille ou usage, puis ajoutez les équipements à votre panier.</p>
           </div>
 
           <div className="catalogue-toolbar">
@@ -180,7 +232,7 @@ function Boutique() {
             <div className="product-area">
               {showPartnerPage && (
                 <article className="partner-feature">
-                  <div className="partner-image"><img src={partnerPage.image} alt="Modules optiques compatibles Newlinks" /></div>
+                  <div className="partner-image"><img src="/images/newlinks_cover_page.jpg" alt="Modules optiques compatibles Newlinks" /></div>
                   <div><span>Partenaire modules optiques</span><h3>La gamme SFP Newlinks</h3><p>Modules SFP, SFP+ et QSFP compatibles multi-constructeurs, avec programmation autonome via la Newlinks Coding Box.</p><a href="https://newlinks.tech" target="_blank" rel="noreferrer">Découvrir Newlinks <ArrowUpRight weight="bold" /></a></div>
                 </article>
               )}
@@ -204,7 +256,7 @@ function Boutique() {
           </div>
           <div className="shop-support-copy">
             <h2>Validez votre sélection avec un expert.</h2>
-            <p>Compatibilité, variantes et usages terrain : nous vérifions chaque point avant votre demande.</p>
+            <p>Compatibilité, variantes et usages terrain : nous vérifions chaque point avant la validation.</p>
             <a className="shop-primary-link" href="/#contact">Parler à un expert <ArrowRight weight="bold" /></a>
           </div>
         </section>

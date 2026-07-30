@@ -83,7 +83,7 @@ function App() {
   const [formStatus, setFormStatus] = useState('idle')
   const [headerNotice, setHeaderNotice] = useState('')
   const testimonialsRef = useRef(null)
-  const { requestItems } = useRequestList()
+  const { requestItems, removeRequestItem, clearRequestItems } = useRequestList()
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -134,7 +134,7 @@ function App() {
 
   return (
     <div className="site-shell">
-      <SiteHeader active="home" requestCount={requestItems.length} onRequest={setHeaderNotice} />
+      <SiteHeader active="home" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
 
       <main>
         <section className="hero" id="accueil">
@@ -157,7 +157,7 @@ function App() {
 
         <section className="proof-strip" aria-label="Chiffres clés">
           <div className="proof-intro">
-            <img src="/images/trust-medallion.jpg" alt="Médaillon de confiance ExpertCN" />
+            <img src="/images/trust-results.jpg" alt="Signature d’un document professionnel" />
             <span>La confiance se construit sur des résultats.</span>
           </div>
           <div className="proof-number"><strong>494+</strong><span>projets réalisés</span></div>
@@ -272,8 +272,8 @@ function App() {
               <a className="text-link" href="#contact">Découvrir nos engagements <ArrowRight weight="bold" /></a>
             </div>
             <div className="commitment-proof" aria-label="Repères RSE">
-              <div><img src="/images/ecovadis-medallion.jpg" alt="Médaillon visuel pour le repère Platinum EcoVadis" /><strong>Platinum EcoVadis</strong><span>Parmi les 1 % les plus performantes</span></div>
-              <div><img src="/images/iso26000-medallion.jpg" alt="Médaillon visuel pour la démarche ISO 26000" /><strong>ISO 26000</strong><span>Une démarche RSE structurée</span></div>
+              <div><img src="/images/ecovadis-expertcn.png" alt="Médaille Platinum EcoVadis obtenue par ExpertCN" /><strong>Platinum EcoVadis</strong><span>Parmi les 1 % les plus performantes</span></div>
+              <div><img src="/images/expertcn-trust-photo.png" alt="Équipe réunie autour d’un projet environnemental" /><strong>ISO 26000</strong><span>Une démarche RSE structurée</span></div>
             </div>
           </div>
         </section>
@@ -306,7 +306,7 @@ function App() {
             <h2>Un besoin précis ou une simple question?</h2>
             <p>Notre équipe vous oriente vers la solution, le service ou la formation qui vous correspond.</p>
             <div className="contact-links">
-              <a href="tel:+33667676929"><Phone weight="duotone" /> 06 67 67 69 29</a>
+              <a href="tel:+33189624501"><Phone weight="duotone" /> +33 1 89 62 45 01</a>
               <a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> service.client@expertcn.fr</a>
             </div>
           </div>

@@ -1,0 +1,350 @@
+[
+  {
+    "productName": "Étiqueteuse M510 BRADY",
+    "imageFilename": "brady-m510-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 76741
+  },
+  {
+    "productName": "Étiqueteuse M210 Brady",
+    "imageFilename": "brady-m210-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 78933
+  },
+  {
+    "productName": "Étiqueteuse M710 BRADY",
+    "imageFilename": "brady-m710-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 39142
+  },
+  {
+    "productName": "Étiqueteuse M610 BRADY",
+    "imageFilename": "brady-m610-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 41852
+  },
+  {
+    "productName": "Étiqueteuse M210-LAB BRADY",
+    "imageFilename": "brady-m210-lab-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 27716
+  },
+  {
+    "productName": "Étiqueteuse M211 Brady",
+    "imageFilename": "brady-m211-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 57063
+  },
+  {
+    "productName": "Kit Étiqueteuse M211 BRADY",
+    "imageFilename": "brady-m211-kit-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 1741537
+  },
+  {
+    "productName": "Logiciel Vesion R-Server VeEX",
+    "imageFilename": "veex-vesion-r-server-logiciel.jpg",
+    "status": "downloaded",
+    "bytes": 529555
+  },
+  {
+    "productName": "Mini OTDR VeEX OPX-BOXe",
+    "imageFilename": "veex-opx-boxe-mini-otdr.jpg",
+    "status": "downloaded",
+    "bytes": 26272
+  },
+  {
+    "productName": "OTDR ECN50",
+    "imageFilename": "otdr-ecn50.jpg",
+    "status": "downloaded",
+    "bytes": 32338
+  },
+  {
+    "productName": "Recharge",
+    "imageFilename": "recharge-aiguille-de-tirage.jpg",
+    "status": "downloaded",
+    "bytes": 53293
+  },
+  {
+    "productName": "Compteur VeEX PX90",
+    "imageFilename": "veex-px90-photometre.jpg",
+    "status": "downloaded",
+    "bytes": 19924
+  },
+  {
+    "productName": "Aiguille de tirage",
+    "imageFilename": "aiguille-de-tirage.jpg",
+    "status": "downloaded",
+    "bytes": 40481
+  },
+  {
+    "productName": "Soudeuse Fujikura 41S+",
+    "imageFilename": "fujikura-41s-plus-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 202209
+  },
+  {
+    "productName": "Photomètre PON 10G FX41xT VeEX",
+    "imageFilename": "veex-fx41xt-photometre-pon-10g.jpg",
+    "status": "downloaded",
+    "bytes": 58126
+  },
+  {
+    "productName": "Réflectomètre OTDR VeEX FX150+",
+    "imageFilename": "veex-fx150-plus-otdr.jpg",
+    "status": "downloaded",
+    "bytes": 66274
+  },
+  {
+    "productName": "Tête flex",
+    "imageFilename": "tete-flex-aiguille-de-tirage.jpg",
+    "status": "downloaded",
+    "bytes": 6066
+  },
+  {
+    "productName": "Embout pour aiguille de tirage",
+    "imageFilename": "embout-aiguille-de-tirage.jpg",
+    "status": "downloaded",
+    "bytes": 12048
+  },
+  {
+    "productName": "Analyseur PON VeEX PX92",
+    "imageFilename": "veex-px92-analyseur-pon.jpg",
+    "status": "downloaded",
+    "bytes": 463559
+  },
+  {
+    "productName": "Cliveuse Sumitomo FC-8R",
+    "imageFilename": "sumitomo-fc-8r-cliveuse.jpg",
+    "status": "downloaded",
+    "bytes": 36602
+  },
+  {
+    "productName": "Stylo laser Fiberpoint 250HP",
+    "imageFilename": "fiberpoint-250hp-stylo-laser-vfl.jpg",
+    "status": "downloaded",
+    "bytes": 9263
+  },
+  {
+    "productName": "Stylo laser Fiberpoint 250",
+    "imageFilename": "fiberpoint-250-stylo-laser-vfl.jpg",
+    "status": "downloaded",
+    "bytes": 11743
+  },
+  {
+    "productName": "Soudeuse Sumitomo T-402S",
+    "imageFilename": "sumitomo-t-402s-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 25190
+  },
+  {
+    "productName": "Cliveuse Sumitomo FC-6+",
+    "imageFilename": "sumitomo-fc-6-plus-cliveuse.jpg",
+    "status": "downloaded",
+    "bytes": 42544
+  },
+  {
+    "productName": "Soudeuse Sumitomo T-502S",
+    "imageFilename": "sumitomo-t-502s-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 96816
+  },
+  {
+    "productName": "Soudeuse Sumitomo T-57C+",
+    "imageFilename": "sumitomo-t-57c-plus-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 128533
+  },
+  {
+    "productName": "Soudeuse Sumitomo T72C+",
+    "imageFilename": "sumitomo-t-72c-plus-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 59436
+  },
+  {
+    "productName": "Tiroirs Optiques Actifs",
+    "imageFilename": "tiroir-optique-actif.jpg",
+    "status": "downloaded",
+    "bytes": 51568
+  },
+  {
+    "productName": "Tiroirs optiques pivotants",
+    "imageFilename": "tiroir-optique-pivotant.jpg",
+    "status": "downloaded",
+    "bytes": 20976
+  },
+  {
+    "productName": "Analyseur PON FX120 VeEX",
+    "imageFilename": "veex-fx120-analyseur-pon.jpg",
+    "status": "downloaded",
+    "bytes": 138324
+  },
+  {
+    "productName": "PTO",
+    "imageFilename": "pto-point-terminaison-optique.jpg",
+    "status": "downloaded",
+    "bytes": 14930
+  },
+  {
+    "productName": "Électrodes Fujikura",
+    "imageFilename": "fujikura-electrodes.jpg",
+    "status": "downloaded",
+    "bytes": 4984
+  },
+  {
+    "productName": "Pigtails",
+    "imageFilename": "pigtails-fibre-optique.jpg",
+    "status": "downloaded",
+    "bytes": 17652
+  },
+  {
+    "productName": "Tiroirs optiques coulissants",
+    "imageFilename": "tiroir-optique-coulissant.jpg",
+    "status": "downloaded",
+    "bytes": 30259
+  },
+  {
+    "productName": "Jarretières Optiques",
+    "imageFilename": "jarretieres-optiques.jpg",
+    "status": "remote-fallback",
+    "error": "HTTP 403"
+  },
+  {
+    "productName": "Colliers de Serrage",
+    "imageFilename": "colliers-de-serrage.jpg",
+    "status": "downloaded",
+    "bytes": 45955
+  },
+  {
+    "productName": "Électrodes Sumitomo ER-10",
+    "imageFilename": "sumitomo-er-10-electrodes.jpg",
+    "status": "downloaded",
+    "bytes": 15612
+  },
+  {
+    "productName": "Multimètre optique VeEX FL150 FaultScout",
+    "imageFilename": "veex-fl150-faultscout-multimetre-optique.jpg",
+    "status": "downloaded",
+    "bytes": 36276
+  },
+  {
+    "productName": "Breakout",
+    "imageFilename": "breakout-optique.jpg",
+    "status": "downloaded",
+    "bytes": 50440
+  },
+  {
+    "productName": "MPO",
+    "imageFilename": "mpo-mtp-raccordement.jpg",
+    "status": "downloaded",
+    "bytes": 25164
+  },
+  {
+    "productName": "SMOOVES 60MM",
+    "imageFilename": "smooves-60mm-protections-epissure.jpg",
+    "status": "downloaded",
+    "bytes": 26316
+  },
+  {
+    "productName": "Étiqueteuse M410 BRADY",
+    "imageFilename": "brady-m410-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 55987
+  },
+  {
+    "productName": "Analyseur de canaux CWDM VeEX FX180X",
+    "imageFilename": "veex-fx180x-analyseur-cwdm.jpg",
+    "status": "downloaded",
+    "bytes": 40792
+  },
+  {
+    "productName": "Analyseur de canaux DWDM VeEX FX92",
+    "imageFilename": "veex-fx92-analyseur-dwdm.jpg",
+    "status": "downloaded",
+    "bytes": 21226
+  },
+  {
+    "productName": "Analyseur de canaux xWDM VeEX FX182",
+    "imageFilename": "veex-fx182-analyseur-xwdm.jpg",
+    "status": "downloaded",
+    "bytes": 53280
+  },
+  {
+    "productName": "Photomètre PON VeEX FX81 / FX81T",
+    "imageFilename": "veex-fx81-photometre-pon.jpg",
+    "status": "downloaded",
+    "bytes": 54122
+  },
+  {
+    "productName": "Mini OTDR VeEX FX160 FiberBEAST",
+    "imageFilename": "veex-fx160-fiberbeast-mini-otdr.jpg",
+    "status": "downloaded",
+    "bytes": 71220
+  },
+  {
+    "productName": "Cartouches étiquettes Brady M21 (M210 / M211)",
+    "imageFilename": "brady-m21-cartouches-etiquettes.jpg",
+    "status": "downloaded",
+    "bytes": 24200
+  },
+  {
+    "productName": "Étiquettes & rubans Brady M6/M7 (M610 / M611 / M710)",
+    "imageFilename": "brady-m6-m7-etiquettes-rubans.jpg",
+    "status": "downloaded",
+    "bytes": 13538
+  },
+  {
+    "productName": "Étiqueteuse M611 BRADY",
+    "imageFilename": "brady-m611-etiqueteuse.jpg",
+    "status": "downloaded",
+    "bytes": 28656
+  },
+  {
+    "productName": "Soudeuse Fujikura 31S+",
+    "imageFilename": "fujikura-31s-plus-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 47660
+  },
+  {
+    "productName": "CPE Ethernet Raisecom RAX711",
+    "imageFilename": "raisecom-rax711-r-cpe-ethernet.jpg",
+    "status": "downloaded",
+    "bytes": 11975
+  },
+  {
+    "productName": "Soudeuse Sumitomo Q102-CA+ Quantum",
+    "imageFilename": "sumitomo-q102-ca-plus-quantum-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 273809
+  },
+  {
+    "productName": "Soudeuse Sumitomo Type-82C+",
+    "imageFilename": "sumitomo-type-82c-plus-soudeuse.jpg",
+    "status": "downloaded",
+    "bytes": 197667
+  },
+  {
+    "productName": "CPE Ethernet Raisecom RAX721",
+    "imageFilename": "raisecom-rax711-r-cpe-ethernet.jpg",
+    "status": "downloaded",
+    "bytes": 11975
+  },
+  {
+    "productName": "Étiquettes & rubans Brady M4/M5 (M410 / M510 / M511)",
+    "imageFilename": "brady-m4-m5-etiquettes-rubans.jpg",
+    "status": "downloaded",
+    "bytes": 206965
+  },
+  {
+    "productName": "Soudeuse Fujikura 90S+",
+    "imageFilename": "fujikura-90s-plus-soudeuse.jpg",
+    "status": "remote-fallback",
+    "error": "terminated"
+  },
+  {
+    "productName": "Soudeuse Fujikura 90R (rubans)",
+    "imageFilename": "fujikura-90r-soudeuse-rubans.jpg",
+    "status": "remote-fallback",
+    "error": "terminated"
+  }
+]

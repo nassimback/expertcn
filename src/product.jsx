@@ -29,14 +29,14 @@ function RelatedProduct({ product }) {
   )
 }
 
-function ProductNotFound({ requestItems, notice, setNotice }) {
+function ProductNotFound({ requestItems, notice, removeRequestItem, clearRequestItems }) {
   useEffect(() => {
     document.title = 'Produit introuvable | ExpertCN'
   }, [])
 
   return (
     <div className="shop-page">
-      <SiteHeader active="boutique" requestCount={requestItems.length} onRequest={setNotice} />
+      <SiteHeader active="boutique" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
       <main className="product-not-found">
         <Package weight="duotone" />
         <h1>Ce produit n’est pas disponible.</h1>
@@ -53,8 +53,9 @@ function ProductPage() {
   const slug = new URLSearchParams(window.location.search).get('produit')
   const product = products.find((item) => item.slug === slug)
   const [selections, setSelections] = useState({})
+  const [activeImage, setActiveImage] = useState(product?.image || '')
   const [notice, setNotice] = useState('')
-  const { requestItems, addRequestItem } = useRequestList()
+  const { requestItems, addRequestItem, removeRequestItem, clearRequestItems } = useRequestList()
 
   const relatedProducts = useMemo(() => {
     if (!product) return []
@@ -67,6 +68,7 @@ function ProductPage() {
     if (!product) return
     document.title = `${product.name} | ExpertCN`
     setSelections({})
+    setActiveImage(product.image)
   }, [product])
 
   useEffect(() => {
@@ -75,11 +77,12 @@ function ProductPage() {
     return () => window.clearTimeout(timer)
   }, [notice])
 
-  if (!product) return <ProductNotFound requestItems={requestItems} notice={notice} setNotice={setNotice} />
+  if (!product) return <ProductNotFound requestItems={requestItems} notice={notice} removeRequestItem={removeRequestItem} clearRequestItems={clearRequestItems} />
 
   const configurableOptions = product.options.filter((option) => !option.pending)
   const allRequiredOptionsSelected = configurableOptions.every((option) => selections[option.name])
   const hasPendingOptions = product.options.some((option) => option.pending)
+  const galleryImages = product.gallery?.length ? product.gallery : [product.image]
 
   const addConfiguredProduct = () => {
     if (!allRequiredOptionsSelected) {
@@ -89,12 +92,12 @@ function ProductPage() {
     const optionSummary = configurableOptions.map((option) => selections[option.name]).filter(Boolean).join(', ')
     const requestLabel = optionSummary ? `${product.name} - ${optionSummary}` : product.name
     addRequestItem(requestLabel)
-    setNotice(`${product.name} a été ajouté à votre demande.`)
+    setNotice(`${product.name} a été ajouté à votre panier.`)
   }
 
   return (
     <div className="shop-page single-product-page">
-      <SiteHeader active="boutique" requestCount={requestItems.length} onRequest={setNotice} />
+      <SiteHeader active="boutique" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
 
       <main>
         <nav className="product-breadcrumb" aria-label="Fil d’Ariane">
@@ -105,7 +108,30 @@ function ProductPage() {
 
         <section className="single-product-hero" aria-labelledby="product-title">
           <div className={`single-product-media ${product.imageMode === 'cover' ? 'is-cover' : ''}`}>
-            <img src={product.image} alt={product.name} fetchPriority="high" />
+            <img
+              src={activeImage || product.image}
+              alt={product.name}
+              fetchPriority="high"
+              onError={(event) => {
+                event.currentTarget.onerror = null
+                event.currentTarget.src = '/images/shop/shop-hero.jpg'
+              }}
+            />
+            {galleryImages.length > 1 && (
+              <div className="single-product-thumbnails" aria-label="Galerie produit">
+                {galleryImages.map((image, index) => (
+                  <button
+                    className={image === activeImage ? 'is-active' : ''}
+                    type="button"
+                    onClick={() => setActiveImage(image)}
+                    aria-label={`Afficher l’image ${index + 1} de ${product.name}`}
+                    key={image}
+                  >
+                    <img src={image} alt="" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="single-product-purchase">
@@ -138,7 +164,7 @@ function ProductPage() {
 
             <div className="single-product-actions">
               <button type="button" onClick={addConfiguredProduct}>
-                <ShoppingBag weight="duotone" /> Ajouter à la demande
+                <ShoppingBag weight="duotone" /> Ajouter au panier
               </button>
               <a href="/#contact">Parler à un expert <ArrowRight weight="bold" /></a>
             </div>

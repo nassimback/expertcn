@@ -1,0 +1,216 @@
+const categoryDefinitions = [
+  {
+    name: 'Fibre Optique',
+    slug: 'fibre-optique',
+    image: '/images/expertcn-formation.jpg',
+    summary: 'Déployer, raccorder et maintenir les réseaux fibre en conditions terrain.',
+    defaults: {
+      duration: '5 jours - 35 heures',
+      format: 'Présentiel avec ateliers pratiques',
+      access: 'Entrée possible sous 10 jours ouvrés après validation du dossier',
+      price: 'Sur devis - financement OPCO possible',
+      prerequisites: ['Comprendre des consignes techniques en français', 'Être à l’aise avec les interventions manuelles'],
+      evaluation: 'Mises en situation, contrôle continu et évaluation pratique finale',
+      certification: 'Attestation de compétences ExpertCN',
+    },
+  },
+  {
+    name: 'Électricité',
+    slug: 'electricite',
+    image: '/images/expertcn-hero.jpg',
+    summary: 'Maîtriser les installations électriques et les infrastructures de recharge.',
+    defaults: {
+      duration: '5 jours - 35 heures',
+      format: 'Présentiel',
+      access: 'Entrée possible sous 10 jours ouvrés après entretien',
+      price: 'Sur devis - financement OPCO possible',
+      prerequisites: ['Maîtriser les fondamentaux de sécurité sur chantier'],
+      evaluation: 'Contrôle continu, exercices techniques et mise en situation finale',
+      certification: 'Attestation de fin de formation',
+    },
+  },
+  {
+    name: 'Mesure',
+    slug: 'mesure',
+    image: '/images/shop/products/veex-fx150-plus-otdr.jpg',
+    summary: 'Qualifier les performances optiques et interpréter des résultats complexes.',
+    defaults: {
+      duration: '3 jours - 21 heures',
+      format: 'Présentiel en laboratoire',
+      access: 'Entrée possible sous 10 jours ouvrés après positionnement',
+      price: 'Sur devis',
+      prerequisites: ['Connaître les bases de la transmission optique'],
+      evaluation: 'Étude de cas, manipulation des appareils et interprétation d’un rapport',
+      certification: 'Attestation de compétences en mesure',
+    },
+  },
+  {
+    name: 'Rénovations Énergétiques',
+    slug: 'renovations-energetiques',
+    image: '/images/expertcn-rse.jpg',
+    summary: 'Installer des solutions énergétiques performantes et conformes aux référentiels.',
+    defaults: {
+      duration: '3 à 5 jours selon le parcours',
+      format: 'Présentiel',
+      access: 'Session planifiée après étude du profil et des prérequis',
+      price: 'Sur devis - financement selon éligibilité',
+      prerequisites: ['Expérience bâtiment ou électricité selon le parcours'],
+      evaluation: 'Questionnaire, étude de cas et évaluation pratique',
+      certification: 'Qualification ou attestation selon le parcours',
+    },
+  },
+  {
+    name: 'Sécurité Incendie',
+    slug: 'securite-incendie',
+    image: '/images/expertcn-maintenance.jpg',
+    summary: 'Prévenir les risques et coordonner la sécurité incendie en établissement.',
+    defaults: {
+      duration: 'Variable selon le niveau SSIAP',
+      format: 'Présentiel',
+      access: 'Après vérification des prérequis réglementaires',
+      price: 'Sur devis',
+      prerequisites: ['Aptitude médicale et prérequis réglementaires selon le niveau'],
+      evaluation: 'Épreuves théoriques et pratiques réglementaires',
+      certification: 'Diplôme SSIAP selon le niveau préparé',
+    },
+  },
+  {
+    name: 'Sécurité et Sûreté',
+    slug: 'securite-surete',
+    image: '/images/expertcn-hero.jpg',
+    summary: 'Acquérir les compétences opérationnelles des métiers de la sécurité privée.',
+    defaults: {
+      duration: 'Selon le référentiel du titre préparé',
+      format: 'Présentiel',
+      access: 'Après contrôle des conditions réglementaires d’accès',
+      price: 'Sur devis - financement possible selon le profil',
+      prerequisites: ['Respecter les conditions réglementaires de la sécurité privée'],
+      evaluation: 'Évaluations théoriques, pratiques et mises en situation',
+      certification: 'Titre ou certificat professionnel selon le parcours',
+    },
+  },
+  {
+    name: 'Secourisme',
+    slug: 'secourisme',
+    image: '/images/expertcn-formation.jpg',
+    summary: 'Savoir protéger, alerter et intervenir face à une situation d’accident.',
+    defaults: {
+      duration: '2 jours - 14 heures',
+      format: 'Présentiel',
+      access: 'Entrée possible sous 10 jours ouvrés',
+      price: 'Sur devis',
+      prerequisites: ['Aucun prérequis technique'],
+      evaluation: 'Évaluation continue lors des mises en situation',
+      certification: 'Certificat SST selon validation',
+    },
+  },
+  {
+    name: 'Habilitations Électriques',
+    slug: 'habilitations-electriques',
+    image: '/images/expertcn-maintenance.jpg',
+    summary: 'Intervenir à proximité des réseaux et équipements électriques en sécurité.',
+    defaults: {
+      duration: '1 à 3 jours selon l’habilitation',
+      format: 'Présentiel ou classe virtuelle selon le parcours',
+      access: 'Entrée possible sous 10 jours ouvrés',
+      price: 'Sur devis',
+      prerequisites: ['Prérequis adaptés au niveau d’habilitation visé'],
+      evaluation: 'Questionnaire et évaluation pratique',
+      certification: 'Avis après formation permettant à l’employeur de délivrer l’habilitation',
+    },
+  },
+]
+
+const courses = [
+  ['Fibre Optique', 'Technicien FTTO', 'technicien-ftto', 'Raccorder et mettre en service un réseau fibre optique dédié aux entreprises.'],
+  ['Fibre Optique', 'Technicien FTTH D3', 'technicien-ftth-d3', 'Réaliser le raccordement final de l’abonné et contrôler la conformité de l’intervention.'],
+  ['Fibre Optique', 'Technicien Maintenance Réseau Fibre Optique', 'technicien-maintenance-reseau-fibre-optique', 'Diagnostiquer les défauts, localiser les pannes et rétablir une liaison optique.'],
+  ['Électricité', 'Électricien du bâtiment', 'electricien-du-batiment', 'Installer, contrôler et maintenir les équipements électriques d’un bâtiment.'],
+  ['Électricité', 'Installateur IRVE P1P2P3', 'installateur-irve-p1-p2-p3', 'Concevoir et installer des infrastructures de recharge selon le niveau d’intervention.'],
+  ['Mesure', 'Mesureur PMD-CD', 'mesureur-pmd-cd', 'Réaliser des campagnes de mesure PMD et CD sur des liaisons optiques.'],
+  ['Mesure', 'Analyseur PMD/CD', 'analyseur-pmd-cd', 'Interpréter les résultats PMD/CD et produire un diagnostic exploitable.'],
+  ['Rénovations Énergétiques', 'Qualipac : pompes à chaleur RGE', 'qualipac-pompes-a-chaleur-rge', 'Dimensionner et installer une pompe à chaleur dans le respect du référentiel RGE.'],
+  ['Rénovations Énergétiques', 'QualiPV 500 électricité', 'qualipv-500-electricite', 'Concevoir et réaliser des installations photovoltaïques jusqu’à 500 kVA.'],
+  ['Rénovations Énergétiques', 'QualiPV 36 électricité', 'qualipv-36-electricite', 'Installer la partie électrique d’un générateur photovoltaïque jusqu’à 36 kVA.'],
+  ['Rénovations Énergétiques', 'QualiPV Bâtiment', 'qualipv-batiment', 'Intégrer les systèmes photovoltaïques à l’enveloppe du bâtiment.'],
+  ['Sécurité Incendie', 'SSIAP 1', 'ssiap-1', 'Exercer les missions d’agent de service de sécurité incendie et d’assistance.'],
+  ['Sécurité Incendie', 'SSIAP 2', 'ssiap-2', 'Encadrer une équipe de sécurité incendie et organiser les interventions.'],
+  ['Sécurité Incendie', 'SSIAP 3', 'ssiap-3', 'Piloter un service de sécurité incendie et conseiller la direction.'],
+  ['Sécurité et Sûreté', 'TFP APS', 'tfp-aps', 'Préparer le titre professionnel d’agent de prévention et de sécurité.'],
+  ['Sécurité et Sûreté', 'CQP APS GE', 'cqp-aps-ge', 'Développer les compétences nécessaires aux missions de prévention et de sécurité.'],
+  ['Secourisme', 'SST', 'sst', 'Prévenir les risques et porter les premiers secours en entreprise.'],
+  ['Secourisme', 'MAC SST', 'mac-sst', 'Maintenir et actualiser les compétences du sauveteur secouriste du travail.'],
+  ['Habilitations Électriques', 'H0B0', 'h0b0', 'Travailler en sécurité dans un environnement présentant un risque électrique.'],
+  ['Habilitations Électriques', 'B2V BR BC', 'b2v-br-bc', 'Préparer les opérations électriques, interventions et consignations en basse tension.'],
+  ['Habilitations Électriques', 'AIPR Concepteur', 'aipr-concepteur', 'Préparer et suivre des projets de travaux à proximité des réseaux.'],
+  ['Habilitations Électriques', 'AIPR Encadrant', 'aipr-encadrant', 'Encadrer les équipes intervenant à proximité des réseaux.'],
+  ['Habilitations Électriques', 'AIPR Opérateur', 'aipr-operateur', 'Appliquer les règles de sécurité lors des travaux à proximité des réseaux.'],
+]
+
+function buildCourse([categoryName, title, slug, summary]) {
+  const category = categoryDefinitions.find((item) => item.name === categoryName)
+  const isIrve = slug === 'installateur-irve-p1-p2-p3'
+  return {
+    title,
+    slug,
+    category: categoryName,
+    categorySlug: category.slug,
+    summary,
+    image: category.image,
+    indicators: null,
+    indicatorsUpdatedAt: null,
+    practical: { ...category.defaults },
+    levels: isIrve
+      ? [
+          { title: 'P1', text: 'Installation de bornes de recharge sans configuration spécifique de communication.' },
+          { title: 'P2', text: 'Installation de bornes communicantes et paramétrage des services associés.' },
+          { title: 'P3', text: 'Infrastructure de recharge rapide et dimensionnement d’installations complexes.' },
+        ]
+      : null,
+    objectives: [
+      `Comprendre le cadre technique du parcours ${title}.`,
+      'Préparer une intervention sûre et conforme aux règles du métier.',
+      'Mettre en œuvre les méthodes et les contrôles attendus sur le terrain.',
+      'Documenter les résultats et rendre compte de l’intervention.',
+    ],
+    audience: [
+      'Techniciens, installateurs et demandeurs d’emploi en évolution professionnelle.',
+      ...category.defaults.prerequisites,
+    ],
+    strengths: [
+      'Des formateurs issus du terrain',
+      'Des équipements professionnels pendant les ateliers',
+      'Un suivi individualisé jusqu’à l’évaluation finale',
+    ],
+    modules: [
+      {
+        title: 'Fondamentaux et cadre d’intervention',
+        points: ['Vocabulaire métier et architecture des installations', 'Risques, responsabilités et règles applicables'],
+      },
+      {
+        title: 'Préparation et méthode',
+        points: ['Lecture du dossier technique', 'Choix des outils, équipements et contrôles préalables'],
+      },
+      {
+        title: 'Mise en pratique',
+        points: ['Ateliers guidés sur plateau technique', 'Diagnostic, contrôle et traçabilité des résultats'],
+      },
+    ],
+    finalEvaluation: category.defaults.evaluation,
+    programPdf: null,
+    faq: [
+      { question: 'Comment valider mon inscription ?', answer: 'Un conseiller vérifie vos objectifs, vos prérequis et les prochaines dates avant de confirmer la session.' },
+      { question: 'Cette formation peut-elle être financée ?', answer: 'Les possibilités dépendent de votre statut et du parcours. Notre équipe vous aide à identifier les dispositifs mobilisables.' },
+      { question: 'La formation est-elle accessible aux personnes en situation de handicap ?', answer: 'Oui, après étude des besoins avec notre référent handicap afin de prévoir les aménagements adaptés.' },
+    ],
+  }
+}
+
+export const formations = courses.map(buildCourse)
+
+export const formationCategories = categoryDefinitions.map(({ defaults, ...category }) => ({
+  ...category,
+  courses: formations.filter((formation) => formation.category === category.name),
+}))
+
+export const formationBySlug = new Map(formations.map((formation) => [formation.slug, formation]))

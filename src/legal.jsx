@@ -259,7 +259,7 @@ const legalLinks = [
 
 function LegalApp() {
   const [notice, setNotice] = useState('')
-  const { requestItems } = useRequestList()
+  const { requestItems, removeRequestItem, clearRequestItems } = useRequestList()
   const path = window.location.pathname.endsWith('/') ? window.location.pathname : `${window.location.pathname}/`
   const page = legalPages[path] || legalPages['/mentions-legales/']
   const Icon = page.icon
@@ -271,7 +271,7 @@ function LegalApp() {
 
   return (
     <div className="legal-shell">
-      <SiteHeader requestCount={requestItems.length} onRequest={showNotice} />
+      <SiteHeader requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
       <main>
         <header className="legal-hero">
           <div className="legal-hero-copy">

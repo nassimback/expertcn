@@ -3,9 +3,10 @@ import path from 'node:path'
 import { FileBlob, SpreadsheetFile } from '@oai/artifact-tool'
 
 const workspace = 'C:/Users/Nassim/Documents/expertcn 5.6'
-const workbookPath = path.join(workspace, 'Categorisation_Produits_ExpertCN_v4.xlsx')
+const workbookPath = path.join(workspace, 'Categorisation_Produits_ExpertCN_v6.xlsx')
 const imageDir = path.join(workspace, 'public', 'images', 'shop', 'products')
 const outputPath = path.join(workspace, 'src', 'catalogue.generated.js')
+const officialProductsPath = path.join(workspace, '.codex-tmp', 'expertcn-products-scraped.json')
 
 const categoryCopy = {
   'Tests et mesures': 'Mesurez, qualifiez et documentez vos réseaux fibre sur le terrain.',
@@ -133,7 +134,7 @@ function buildLongDescription(product) {
 const input = await FileBlob.load(workbookPath)
 const workbook = await SpreadsheetFile.importXlsx(input)
 const sheet = workbook.worksheets.getItem('Produits')
-const rows = sheet.getRange('A2:K68').values
+const rows = sheet.getRange('A2:M60').values
 const variableSheet = workbook.worksheets.getItem('Produits variables — Specs')
 const rechargeRows = variableSheet.getRange('A9:B13').values
 const aiguilleRows = variableSheet.getRange('A20:C24').values
@@ -141,6 +142,7 @@ const ptoSource = publicText(variableSheet.getRange('B28').values[0][0])
 const breakoutSource = publicText(variableSheet.getRange('B32').values[0][0])
 const imageFiles = await fs.readdir(imageDir)
 const imageBySlug = new Map(imageFiles.map((file) => [file.replace(/\.[^.]+$/, ''), file]))
+const imageByName = new Map(imageFiles.map((file) => [file.toLocaleLowerCase('fr'), file]))
 const imageSizes = new Map(await Promise.all(imageFiles.map(async (file) => [file, (await fs.stat(path.join(imageDir, file))).size])))
 const technicalFallbacks = [
   '/images/expertcn-maintenance.jpg',
@@ -182,15 +184,17 @@ const pendingOptions = {
   'Cartouches étiquettes Brady M21 (M210 / M211)': 'Matière et largeur',
   'Étiquettes & rubans Brady M4/M5 (M410 / M510 / M511)': 'Matière et largeur',
   'Étiquettes & rubans Brady M6/M7 (M610 / M611 / M710)': 'Matière et largeur',
-  'ONT/HGU GPON Raisecom ISCOM HT803G': 'Modèle',
-  'Switch industriel Raisecom Gazelle (rack 19")': 'Modèle',
+  'CPE Ethernet Raisecom RAX711': 'Modèle',
+  'CPE Ethernet Raisecom RAX721': 'Modèle',
 }
 
 const allProducts = rows.map((row) => {
-  const [name, brand, category, subcategory, , sku, , shortDescription, status, notes, type] = row
+  const [name, brand, category, subcategory, , sku, imageUrl, shortDescription, status, notes, type, longDescription, imageFilename] = row
   const generatedSlug = slugify(name)
   const preferredSlug = Object.hasOwn(specialSlugs, name) ? specialSlugs[name] : generatedSlug
-  const imageFile = preferredSlug ? imageBySlug.get(preferredSlug) : null
+  const namedImageFile = imageFilename ? imageByName.get(String(imageFilename).toLocaleLowerCase('fr')) : null
+  const legacyImageFile = preferredSlug ? imageBySlug.get(preferredSlug) : null
+  const imageFile = namedImageFile || legacyImageFile
   const isLogoPlaceholder = imageFile && imageSizes.get(imageFile) === 9923
   const hasUsableProductImage = imageFile && !isLogoPlaceholder
   const sourceUrl = preferredSlug && imageFile ? `https://www.expertcn.fr/produit/${preferredSlug}/` : null
@@ -203,33 +207,160 @@ const allProducts = rows.map((row) => {
     description: publicText(cleanCell(shortDescription) || tidyNote(cleanCell(notes)) || subcategoryCopy[subcategory] || categoryCopy[category]),
     status,
     type,
-    image: hasUsableProductImage ? `/images/shop/products/${imageFile}` : selectTechnicalFallback(generatedSlug, category),
-    imageMode: hasUsableProductImage ? 'contain' : 'cover',
+    image: hasUsableProductImage
+      ? `/images/shop/products/${imageFile}`
+      : (cleanCell(imageUrl) || selectTechnicalFallback(generatedSlug, category)),
+    imageMode: 'cover',
     sourceUrl,
     slug: generatedSlug,
   }
-  product.longDescription = buildLongDescription(product)
+  if (name === 'CPE Ethernet Raisecom RAX721') {
+    product.description = 'CPE Ethernet Raisecom RAX721 pour les liaisons professionnelles à très haut débit et le backhaul mobile.'
+  }
+  product.longDescription = [
+    product.description,
+    name === 'CPE Ethernet Raisecom RAX721'
+      ? 'Le Raisecom RAX721 est un équipement de démarcation Ethernet conçu pour les infrastructures opérateurs et entreprises. Sa configuration exacte sera validée avec ExpertCN selon le débit, les interfaces et le service attendus.'
+      : (publicText(cleanCell(longDescription)) || buildLongDescription(product)[1]),
+  ].filter(Boolean)
   product.options = validatedOptions[name]
     || (type === 'Variable' ? [{ name: pendingOptions[name] || 'Configuration', values: [], pending: true }] : [])
   return product
 })
 
+const officialProducts = JSON.parse(await fs.readFile(officialProductsPath, 'utf8'))
+const localBySlug = new Map(allProducts.map((product) => [product.slug, product]))
+const officialAliasToLocalSlug = {
+  'aiguille': 'aiguille-de-tirage',
+  'aiguille-de-tirage-30m': 'aiguille-de-tirage',
+  'aiguille-de-tirage-300m-11mm': 'aiguille-de-tirage',
+  'aiguille-de-tirage-60m-4-5mm': 'aiguille-de-tirage',
+  'aiguille-de-tirage-100m-6-7mm': 'aiguille-de-tirage',
+  'aiguille-de-tirage-150m-9mm': 'aiguille-de-tirage',
+  'recharge-30m': 'recharge',
+  'recharge-60m': 'recharge',
+  'recharge-100m': 'recharge',
+  'recharge-150m': 'recharge',
+  'recharge-300m': 'recharge',
+  'breakout-monomode': 'breakout',
+  'breakout-multimode': 'breakout',
+  'pto-1-2-4fo': 'pto',
+  'soudeuse-optique-fujikura-90s': 'soudeuse-fujikura-90s',
+  'mini-otdr-opx-boxe': 'mini-otdr-veex-opx-boxe',
+  'analyseur-pon-px92': 'analyseur-pon-veex-px92',
+  'module-optique-sfp-compatible': 'gamme-sfp-newlinks-page-de-presentation',
+}
+
+function inferBrand(official, fallback) {
+  if (fallback?.brand) return fallback.brand
+  const value = `${official.title} ${official.slug}`.toLocaleLowerCase('fr')
+  if (value.includes('fujikura')) return 'Fujikura'
+  if (value.includes('sumitomo')) return 'Sumitomo'
+  if (value.includes('veex')) return 'VeEX'
+  if (value.includes('brady')) return 'Brady'
+  if (value.includes('fiberpoint')) return 'FiberPoint'
+  if (value.includes('sfp')) return 'Newlinks'
+  return 'ExpertCN'
+}
+
+function inferCategory(official, fallback) {
+  if (fallback?.category) return fallback.category
+  const categories = official.categorySlugs || []
+  const slug = official.slug
+  if (categories.some((value) => ['tests-et-mesures', 'reflectometres', 'lasers-et-photometres'].includes(value))) return 'Tests et mesures'
+  if (categories.some((value) => ['soudeuses-fibre-optique', 'cliveuse-fibre-optique'].includes(value)) || slug.includes('soudeuse') || slug.includes('cliveuse')) return 'Soudeuses fibre optique'
+  if (categories.includes('raccordement-optique')) return 'Raccordement optique'
+  if (categories.includes('aiguilles-fibre-optiques')) return 'Tirage et sécurité'
+  if (categories.includes('identification-de-reseau') || slug.includes('etiqueteuse')) return 'Identification de réseau'
+  if (categories.includes('consommables') || slug.includes('electrodes')) return 'Consommables'
+  if (slug.includes('sfp')) return 'Équipements Actifs'
+  return 'Tests et mesures'
+}
+
+function inferSubcategory(official, fallback) {
+  if (fallback?.subcategory) return fallback.subcategory
+  const slug = official.slug
+  if (slug.includes('recharge')) return 'Recharges'
+  if (slug.includes('aiguille')) return 'Aiguilles de tirage'
+  if (slug.includes('breakout')) return 'Breakout'
+  if (slug.includes('pto')) return 'PTO'
+  if (slug === 'mpo') return 'MPO'
+  if (slug.includes('jarretieres')) return 'Jarretières'
+  if (slug.includes('tiroirs')) return 'Tiroirs optiques'
+  if (slug.includes('pigtails')) return 'Pigtails'
+  if (slug.includes('cliveuse')) return 'Cliveuses'
+  if (slug.includes('soudeuse')) return 'Soudeuses'
+  if (slug.includes('electrodes')) return 'Électrodes'
+  if (slug.includes('etiqueteuse')) return 'Étiqueteuses'
+  if (slug.includes('reflectometre') || slug.includes('otdr')) return 'OTDR/Réflectomètres'
+  if (slug.includes('photometre') || slug.includes('laser')) return 'Photomètres & Lasers'
+  if (slug.includes('analyseur-pon')) return 'Analyseurs PON'
+  if (slug.includes('logiciel')) return 'Logiciels'
+  if (slug.includes('sfp')) return 'Modules optiques'
+  return official.categories?.[0] || 'Équipements spécialisés'
+}
+
+function officialProductToCatalogue(official) {
+  const fallbackSlug = officialAliasToLocalSlug[official.slug] || official.slug
+  const fallback = localBySlug.get(fallbackSlug)
+  const longDescription = official.description?.length
+    ? official.description
+    : (fallback?.longDescription || [official.shortDescription].filter(Boolean))
+  const firstDescription = longDescription.find((paragraph) => !paragraph.startsWith('•')) || ''
+  return {
+    name: official.title,
+    brand: inferBrand(official, fallback),
+    category: inferCategory(official, fallback),
+    subcategory: inferSubcategory(official, fallback),
+    sku: official.sku || fallback?.sku || null,
+    description: official.shortDescription || firstDescription || fallback?.description || '',
+    status: 'Garder',
+    type: official.productType === 'variable' ? 'Variable' : 'Simple',
+    image: official.images?.[0] || fallback?.image || categoryFallback[inferCategory(official, fallback)],
+    gallery: official.images?.length ? official.images : [fallback?.image].filter(Boolean),
+    imageMode: 'cover',
+    sourceUrl: official.canonicalUrl || official.url,
+    slug: official.slug,
+    longDescription,
+    options: official.options || [],
+    productId: official.productId || null,
+    lastModified: official.lastModified || null,
+  }
+}
+
+const officialCatalogueProducts = officialProducts.map(officialProductToCatalogue)
+const replacedLocalSlugs = new Set([
+  ...officialProducts.map((product) => product.slug),
+  ...Object.values(officialAliasToLocalSlug),
+])
+const v6OnlyProducts = allProducts.filter((product) => (
+  product.status === 'Garder'
+  && product.type !== 'Page WP (hors catalogue)'
+  && !replacedLocalSlugs.has(product.slug)
+))
+
 const catalogueCategories = Object.entries(categoryCopy).map(([name, description]) => ({
   name,
   description,
-  subcategories: [...new Set(allProducts.filter((product) => product.category === name).map((product) => product.subcategory))],
+  subcategories: [...new Set(
+    [...officialCatalogueProducts, ...v6OnlyProducts]
+      .filter((product) => product.category === name)
+      .map((product) => product.subcategory),
+  )],
 }))
 
 const partnerPage = allProducts.find((product) => product.type === 'Page WP (hors catalogue)')
-const products = allProducts.filter((product) => product.status === 'Garder' && product.type !== 'Page WP (hors catalogue)')
+const products = [...officialCatalogueProducts, ...v6OnlyProducts]
 const pendingProducts = allProducts.filter((product) => product.status === 'À vérifier')
 
-const source = `// Generated from Categorisation_Produits_ExpertCN_v4.xlsx.\n// Re-run .codex-tmp/build_catalogue_data.mjs after catalogue workbook changes.\n\nexport const catalogueCategories = ${JSON.stringify(catalogueCategories, null, 2)}\n\nexport const products = ${JSON.stringify(products, null, 2)}\n\nexport const pendingProducts = ${JSON.stringify(pendingProducts, null, 2)}\n\nexport const partnerPage = ${JSON.stringify(partnerPage, null, 2)}\n`
+const source = `// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v6.xlsx.\n// Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.\n\nexport const catalogueCategories = ${JSON.stringify(catalogueCategories, null, 2)}\n\nexport const products = ${JSON.stringify(products, null, 2)}\n\nexport const pendingProducts = ${JSON.stringify(pendingProducts, null, 2)}\n\nexport const partnerPage = ${JSON.stringify(partnerPage, null, 2)}\n`
 
 await fs.writeFile(outputPath, source, 'utf8')
 console.log(JSON.stringify({
   categories: catalogueCategories.length,
   products: products.length,
+  officialProducts: officialCatalogueProducts.length,
+  v6OnlyProducts: v6OnlyProducts.length,
   pending: pendingProducts.length,
   partner: partnerPage?.name,
   validatedVariables: Object.keys(validatedOptions),

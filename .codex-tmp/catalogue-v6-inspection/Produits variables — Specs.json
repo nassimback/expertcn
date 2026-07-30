@@ -1,0 +1,302 @@
+[
+  [
+    "Spécifications — Pages produit variables (WooCommerce)",
+    null,
+    null,
+    null
+  ],
+  [
+    "Type WooCommerce : \"Produit variable\". Aucun développement custom, aucun CPT : on définit des Attributs, puis WooCommerce génère les Variations (chacune avec son SKU, prix, stock, image).",
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "1. Recharge — PRÊT À TRANSMETTRE",
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut :",
+    "Longueur",
+    null,
+    null
+  ],
+  [
+    "Variations :",
+    "5 (toutes les valeurs de l'attribut unique)",
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variation",
+    "Longueur",
+    "SKU (à compléter)",
+    "Prix (à compléter)"
+  ],
+  [
+    "Recharge 30M",
+    "30M",
+    null,
+    null
+  ],
+  [
+    "Recharge 60M",
+    "60M",
+    null,
+    null
+  ],
+  [
+    "Recharge 100M",
+    "100M",
+    null,
+    null
+  ],
+  [
+    "Recharge 150M",
+    "150M",
+    null,
+    null
+  ],
+  [
+    "Recharge 300M",
+    "300M",
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "2. Aiguille de tirage — PRÊT À TRANSMETTRE",
+    null,
+    null,
+    null
+  ],
+  [
+    "Attributs :",
+    "Longueur + Diamètre",
+    null,
+    null
+  ],
+  [
+    "⚠ Variations :",
+    "PAS toutes les combinaisons. Chaque longueur a UN diamètre fixe : ne créer que ces 5 variations, pas les 20 combinaisons possibles.",
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variation",
+    "Longueur",
+    "Diamètre",
+    "SKU / Prix (à compléter)"
+  ],
+  [
+    "Aiguille 30M",
+    "30M",
+    "À confirmer",
+    null
+  ],
+  [
+    "Aiguille 60M",
+    "60M",
+    "4.5MM",
+    null
+  ],
+  [
+    "Aiguille 100M",
+    "100M",
+    "6-7MM",
+    null
+  ],
+  [
+    "Aiguille 150M",
+    "150M",
+    "9MM",
+    null
+  ],
+  [
+    "Aiguille 300M",
+    "300M",
+    "11MM",
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "3. PTO — PRÊT À TRANSMETTRE",
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut :",
+    "Nombre de fibres",
+    null,
+    null
+  ],
+  [
+    "Variations :",
+    "3 — PTO 1FO, PTO 2FO, PTO 4FO",
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "4. Breakout — PRÊT À TRANSMETTRE",
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut :",
+    "Type de fibre",
+    null,
+    null
+  ],
+  [
+    "Variations :",
+    "2 — Monomode, Multimode (remplace les 2 anciennes pages séparées)",
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "5. Jarretières optiques & Pigtails — ATTRIBUTS À CONFIRMER PAR MEHDI",
+    null,
+    null,
+    null
+  ],
+  [
+    "⚠ Statut :",
+    "Structure proposée, valeurs NON validées. Ne pas transmettre à Nassim en l'état.",
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut proposé",
+    "Valeurs proposées",
+    "Question pour Mehdi",
+    "Réponse"
+  ],
+  [
+    "Connectique",
+    "SC / LC / FC / ST (+ variantes APC/UPC ?)",
+    "Quelles connectiques au catalogue ?",
+    null
+  ],
+  [
+    "Type de fibre",
+    "Monomode (OS2) / Multimode (OM3, OM4)",
+    "Quels types réellement vendus ?",
+    null
+  ],
+  [
+    "Longueur",
+    "1m / 2m / 3m / 5m / 10m...",
+    "Quelles longueurs standard ?",
+    null
+  ],
+  [
+    "⚠ Attention :",
+    "Connectique × Type de fibre × Longueur = potentiellement des centaines de variations. Il faudra restreindre aux combinaisons réellement vendues, sinon la page devient ingérable.",
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "6. Autres pages variables introduites — STRUCTURE À CADRER",
+    null,
+    null,
+    null
+  ],
+  [
+    "Page",
+    "Attributs proposés",
+    "À cadrer avec",
+    null
+  ],
+  [
+    "Cartouches Brady M21",
+    "Matière + Largeur",
+    "Catalogue Brady (90+ cartouches)",
+    null
+  ],
+  [
+    "Étiquettes/rubans Brady M4/M5",
+    "Matière + Largeur",
+    "Catalogue Brady",
+    null
+  ],
+  [
+    "Étiquettes/rubans Brady M6/M7",
+    "Matière + Largeur",
+    "Catalogue Brady",
+    null
+  ],
+  [
+    "ONT Raisecom ISCOM HT803G",
+    "Modèle (1GE / WS / WS2...)",
+    "Catalogue Raisecom",
+    null
+  ],
+  [
+    "Switch Gazelle rack 19\"",
+    "Modèle (L2 / L3, nb de ports)",
+    "Catalogue Raisecom",
+    null
+  ]
+]

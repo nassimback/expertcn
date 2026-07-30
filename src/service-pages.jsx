@@ -12,11 +12,9 @@ import {
   ClipboardText,
   CurrencyEur,
   Database,
-  FileText,
   Gauge,
   GraduationCap,
   LockKey,
-  Network,
   Package,
   Quotes,
   Target,
@@ -25,6 +23,7 @@ import {
   Wrench,
 } from '@phosphor-icons/react'
 import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
+import { formationCategories, formations } from './formation-data'
 import './service-pages.css'
 
 function ButtonLink({ href, children, secondary = false }) {
@@ -163,7 +162,7 @@ function Faq({ title = 'Questions fréquentes', items }) {
 
 function PageShell({ active = '', pageClass = '', children }) {
   const [notice, setNotice] = useState('')
-  const { requestItems } = useRequestList()
+  const { requestItems, removeRequestItem, clearRequestItems } = useRequestList()
 
   const showNotice = (message) => {
     setNotice(message)
@@ -172,7 +171,7 @@ function PageShell({ active = '', pageClass = '', children }) {
 
   return (
     <div className={`service-page ${pageClass}`.trim()}>
-      <SiteHeader active={active} requestCount={requestItems.length} onRequest={showNotice} />
+      <SiteHeader active={active} requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
       <main>{children}</main>
       <SiteFooter />
       <SiteNotice message={notice} />
@@ -289,28 +288,62 @@ function AuditPage() {
       <section className="service-section audit-scope" id="services-audit">
         <SectionHeading kicker="Périmètres d’intervention" title="Cinq lectures complémentaires de votre environnement." text="Un audit global ou ciblé, construit selon vos contraintes, votre organisation et les décisions à prendre." />
         <div className="audit-services">
-          {services.map(({ image, title, text }, index) => (
-            <article className={index === 0 ? 'is-featured' : ''} key={title}>
-              <div className="audit-service-media"><img src={image} alt="" /></div>
-              <div className="audit-service-copy"><h3>{title}</h3><p>{text}</p></div>
+          <article className="is-featured">
+            <div className="audit-service-media"><img src={services[0].image} alt="" /></div>
+            <div className="audit-service-copy">
+              <span className="audit-service-index">01</span>
+              <h3>{services[0].title}</h3>
+              <p>{services[0].text}</p>
+              <a href="#demande">Explorer ce périmètre <ArrowRight weight="bold" /></a>
+            </div>
+          </article>
+          <div className="audit-services-secondary">
+            <article className="is-wide">
+              <div className="audit-service-media"><img src={services[1].image} alt="" /></div>
+              <div className="audit-service-copy">
+                <span className="audit-service-index">02</span>
+                <h3>{services[1].title}</h3>
+                <p>{services[1].text}</p>
+                <a href="#demande">Explorer ce périmètre <ArrowRight weight="bold" /></a>
+              </div>
             </article>
-          ))}
+            <div className="audit-services-compact">
+              {services.slice(2).map(({ image, title, text }, index) => (
+                <article key={title}>
+                  <div className="audit-service-media"><img src={image} alt="" /></div>
+                  <div className="audit-service-copy">
+                    <span className="audit-service-index">{String(index + 3).padStart(2, '0')}</span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                    <a href="#demande">Explorer ce périmètre <ArrowRight weight="bold" /></a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       <LeadForm className="audit-lead" title="Parlons de votre projet d’audit." intro="Décrivez votre contexte et les décisions que vous souhaitez sécuriser. Nous vous proposerons un premier cadrage adapté." fields={auditFields} submitLabel="Être recontacté" image="/images/expertcn-rse.jpg" imageAlt="Intervention sur une infrastructure télécom et énergétique" />
 
       <section className="service-section audit-method">
+        <img className="audit-method-background" src="/images/expertcn-maintenance.jpg" alt="" />
         <div className="audit-method-intro">
-          <img src="/images/expertcn-maintenance.jpg" alt="Expert réalisant un diagnostic sur un équipement télécom" />
-          <div><p className="service-kicker">Pourquoi ExpertCN</p><h2>Une méthode qui transforme le diagnostic en décisions.</h2></div>
+          <p className="service-kicker">Pourquoi ExpertCN</p>
+          <h2>Une méthode qui transforme le diagnostic en décisions.</h2>
         </div>
         <div className="audit-method-grid">{[
           [Target, 'Expertise de pointe', 'Une lecture technique nourrie par les réalités du terrain.'],
           [ClipboardText, 'Approche personnalisée', 'Un périmètre et des livrables adaptés à votre organisation.'],
           [ChartLineUp, 'Résultats mesurables', 'Des recommandations reliées à des gains et risques identifiés.'],
           [LockKey, 'Confidentialité', 'Une gestion rigoureuse de vos informations et de leur sécurité.'],
-        ].map(([Icon, title, text]) => <article key={title}><Icon weight="duotone" /><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+        ].map(([Icon, title, text], index) => (
+          <article key={title}>
+            <div className="audit-method-icon"><Icon weight="duotone" /></div>
+            <span className="audit-method-step">{index + 1}</span>
+            <div><h3>{title}</h3><p>{text}</p></div>
+          </article>
+        ))}</div>
       </section>
       <Faq items={auditFaq} />
     </PageShell>
@@ -351,11 +384,11 @@ function AboutPage() {
       <section className="service-section certification-section">
         <SectionHeading kicker="Reconnaissances" title="Des engagements évalués par des référentiels exigeants." text="Notre démarche progresse grâce à des indicateurs concrets, des évaluations externes et une volonté d’amélioration continue." />
         <div className="certification-grid">
-          <article><img src="/images/ecovadis-medallion.jpg" alt="Médaille Platinum EcoVadis ExpertCN" /><div><span>Top 1 % des entreprises évaluées</span><h3>Médaille Platinum EcoVadis</h3><p>Cette distinction reconnaît la performance d’ExpertCN en matière de responsabilité sociétale et nourrit notre démarche d’amélioration continue.</p></div></article>
-          <article><img src="/images/iso26000-medallion.jpg" alt="Engagement ExpertCN selon les principes ISO 26000" /><div><span>Cadre de responsabilité sociétale</span><h3>Démarche inspirée de l’ISO 26000</h3><p>Un cadre structurant pour intégrer les enjeux environnementaux, sociaux et éthiques dans nos décisions.</p></div></article>
+          <article><img src="/images/ecovadis-expertcn.png" alt="Médaille Platinum EcoVadis obtenue par ExpertCN" /><div><span>Top 1 % des entreprises évaluées</span><h3>Médaille Platinum EcoVadis</h3><p>Cette distinction reconnaît la performance d’ExpertCN en matière de responsabilité sociétale et nourrit notre démarche d’amélioration continue.</p></div></article>
+          <article><img src="/images/expertcn-trust-photo.png" alt="Collaboration autour d’un projet environnemental et social" /><div><span>Cadre de responsabilité sociétale</span><h3>Démarche inspirée de l’ISO 26000</h3><p>Un cadre structurant pour intégrer les enjeux environnementaux, sociaux et éthiques dans nos décisions.</p></div></article>
         </div>
       </section>
-      <LeadForm title="En savoir plus sur ExpertCN ?" intro="Échangeons sur votre projet, votre besoin de partenariat ou vos enjeux de développement." fields={contactFields} submitLabel="Envoyer votre message" image="/images/expertcn-hero.jpg" imageAlt="Technicien ExpertCN au travail" />
+      <LeadForm className="about-lead" title="En savoir plus sur ExpertCN ?" intro="Échangeons sur votre projet, votre besoin de partenariat ou vos enjeux de développement." fields={contactFields} submitLabel="Envoyer votre message" image="/images/expertcn-hero.jpg" imageAlt="Technicien ExpertCN au travail" />
     </PageShell>
   )
 }
@@ -428,7 +461,7 @@ function MaterialPage() {
 }
 
 const formationFaq = [
-  { question: 'Comment puis-je m’inscrire à une formation ?', answer: 'Vous pouvez utiliser le formulaire de cette page ou contacter notre service client au 06 67 67 69 29. Nous vous communiquerons les dates, le lieu et les prérequis.' },
+  { question: 'Comment puis-je m’inscrire à une formation ?', answer: 'Vous pouvez utiliser le formulaire de cette page ou contacter notre service client au +33 1 89 62 45 01. Nous vous communiquerons les dates, le lieu et les prérequis.' },
   { question: 'Quelles méthodes de paiement acceptez-vous ?', answer: 'Les modalités dépendent du parcours et du financement mobilisé. Notre équipe vous présente les options disponibles avant toute inscription.' },
   { question: 'Vos formations sont-elles certifiantes ?', answer: 'Certaines formations préparent à une certification ou à une habilitation. Le niveau de reconnaissance et les modalités d’évaluation sont précisés pour chaque parcours.' },
   { question: 'Proposez-vous des formations sur mesure ?', answer: 'Oui. Nous construisons des programmes adaptés au niveau des équipes, au matériel utilisé et aux objectifs opérationnels de l’entreprise.' },
@@ -437,16 +470,13 @@ const formationFaq = [
 ]
 
 function FormationsPage() {
+  const requestedCategory = new URLSearchParams(window.location.search).get('categorie')
+  const initialCategory = formationCategories.find((category) => category.slug === requestedCategory) || formationCategories[0]
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory)
   const fields = [
     { name: 'nom', label: 'Nom', required: true }, { name: 'prenom', label: 'Prénom', required: true },
     { name: 'email', label: 'E-mail', type: 'email', required: true }, { name: 'telephone', label: 'Téléphone', type: 'tel', required: true },
-    { name: 'formation', label: 'Formation souhaitée', type: 'select', wide: true, required: true, options: ['Fibre optique', 'Réflectométrie', 'Habilitations électriques', '5G et réseaux mobiles', 'Formation sur mesure'] },
-  ]
-  const courses = [
-    { title: 'Fibre optique terrain', text: 'Préparation, raccordement, contrôle et bonnes pratiques pour intervenir avec méthode.', image: '/images/expertcn-formation.jpg', imageAlt: 'Apprenants pratiquant le raccordement fibre optique' },
-    { title: 'Réflectométrie', text: 'Comprendre les mesures OTDR, interpréter les événements et documenter une liaison.', image: '/images/shop/products/reflectometre-otdr-veex-fx150.png', imageAlt: 'Réflectomètre OTDR utilisé pendant la formation' },
-    { title: 'Habilitations électriques', text: 'Sécuriser les interventions et acquérir les réflexes adaptés à votre environnement.', image: '/images/expertcn-rse.jpg', imageAlt: 'Technicien intervenant sur une infrastructure professionnelle' },
-    { title: '5G et réseaux mobiles', text: 'Développer une vision opérationnelle des architectures, équipements et usages.', image: '/images/shop/products/analyseur-pon-fx120-veex.png', imageAlt: 'Analyseur de réseau professionnel' },
+    { name: 'formation', label: 'Formation souhaitée', type: 'select', wide: true, required: true, options: formations.map((formation) => formation.title) },
   ]
 
   return (
@@ -460,8 +490,27 @@ function FormationsPage() {
       </section>
 
       <section className="service-section" id="formations-list">
-        <SectionHeading kicker="Tous nos parcours" title="Des compétences recherchées, directement mobilisables." text="Choisissez un parcours métier ou construisons ensemble une formation adaptée à vos équipes." />
-        <div className="course-grid">{courses.map((course, index) => <article key={course.title}><div className="course-media"><img src={course.image} alt={course.imageAlt} loading="lazy" /><span>{String(index + 1).padStart(2, '0')}</span></div><div className="course-copy"><h3>{course.title}</h3><p>{course.text}</p><a href="#demande">Demander le programme <ArrowUpRight weight="bold" /></a></div></article>)}</div>
+        <SectionHeading kicker="Tous nos parcours" title="Des compétences recherchées, directement mobilisables." text="Choisissez un univers métier, puis accédez à la fiche complète de chaque parcours." />
+        <div className="formation-directory">
+          <div className="formation-directory-nav" role="tablist" aria-label="Familles de formations">
+            {formationCategories.map((category) => (
+              <button className={selectedCategory.slug === category.slug ? 'is-active' : ''} type="button" role="tab" aria-selected={selectedCategory.slug === category.slug} onClick={() => setSelectedCategory(category)} key={category.slug}>
+                <img src={category.image} alt="" loading="lazy" />
+                <span><strong>{category.name}</strong><small>{category.courses.length} parcours</small></span>
+                <ArrowRight weight="bold" />
+              </button>
+            ))}
+          </div>
+          <div className="formation-directory-panel" role="tabpanel" key={selectedCategory.slug}>
+            <div className="formation-directory-image"><img src={selectedCategory.image} alt={`Formation ${selectedCategory.name} avec ExpertCN`} /></div>
+            <div className="formation-directory-copy">
+              <span>{selectedCategory.courses.length} parcours</span>
+              <h3>{selectedCategory.name}</h3>
+              <p>{selectedCategory.summary}</p>
+              <div>{selectedCategory.courses.map((formation) => <a href={`/formation.html?formation=${formation.slug}`} key={formation.slug}>{formation.title}<ArrowUpRight weight="bold" /></a>)}</div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <LeadForm className="training-lead" title="Quelle formation correspond à votre projet ?" intro="Indiquez-nous votre objectif. Nous vous aiderons à identifier le bon parcours, le format et les possibilités de financement." fields={fields} submitLabel="Recevoir des informations" image="/images/expertcn-formation.jpg" imageAlt="Apprenants en formation fibre optique" />
@@ -482,7 +531,19 @@ function FormationsPage() {
 
       <section className="service-section funding-section" id="financement">
         <SectionHeading kicker="Financement" title="Plusieurs dispositifs peuvent soutenir votre projet." />
-        <div className="funding-list"><div><FileText weight="duotone" /><strong>Compte Personnel de Formation</strong></div><div><Network weight="duotone" /><strong>Opérateurs de Compétences</strong></div><div><Target weight="duotone" /><strong>France Travail</strong></div><div><CurrencyEur weight="duotone" /><strong>Financement personnel</strong></div></div>
+        <div className="funding-list">
+          {[
+            { image: '/images/expertcn-formation.jpg', title: 'Compte Personnel de Formation', text: 'Mobilisez vos droits acquis pour financer un parcours éligible.' },
+            { image: '/images/trust-results.jpg', title: 'Opérateurs de Compétences', text: 'Étudiez une prise en charge adaptée aux besoins de votre entreprise.' },
+            { image: '/images/expertcn-hero.jpg', title: 'France Travail', text: 'Présentez votre projet professionnel et les compétences visées.' },
+            { image: '/images/expertcn-rse.jpg', title: 'Financement personnel', text: 'Construisez un échéancier adapté avec notre équipe formation.' },
+          ].map(({ image, title, text }) => (
+            <article key={title}>
+              <div className="funding-media"><img src={image} alt="" loading="lazy" /></div>
+              <div className="funding-copy"><strong>{title}</strong><p>{text}</p></div>
+            </article>
+          ))}
+        </div>
       </section>
       <Faq items={formationFaq} />
 
