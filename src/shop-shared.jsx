@@ -49,7 +49,6 @@ export function ShopBrand() {
   return (
     <a className="shop-brand" href="/" aria-label="ExpertCN, accueil">
       <img src="/images/expertcn-logo.png" alt="" />
-      <span>EXPERT<span>CN</span></span>
     </a>
   )
 }
