@@ -20,6 +20,7 @@ import {
 } from '@phosphor-icons/react'
 import { catalogueCategories, products } from './catalogue.generated'
 import { formationCategories, formations } from './formation-data'
+import { rankSearchResults } from './search-utils'
 import './site-chrome.css'
 
 const requestStorageKey = 'expertcn-cart'
@@ -30,9 +31,9 @@ const sitePages = [
   { label: 'Accueil ExpertCN', href: '/', type: 'Page' },
   { label: 'Boutique', href: '/boutique.html', type: 'Page' },
   { label: 'Maintenance SAV', href: '/sav/', type: 'Service' },
-  { label: 'Audit télécoms', href: '/audit-telecoms/', type: 'Service' },
   { label: 'Formations', href: '/formations/', type: 'Page' },
   { label: 'À propos', href: '/a-propos-de-notre-mission/', type: 'Page' },
+  { label: 'Contact', href: '/contact/', type: 'Page' },
 ]
 
 function catalogueUrl(category, subcategory = '') {
@@ -84,29 +85,22 @@ function GlobalSearch() {
   const [focused, setFocused] = useState(false)
 
   const suggestions = useMemo(() => {
-    const normalized = query.trim().toLocaleLowerCase('fr')
-    if (normalized.length < 2) return []
-    const productResults = products
-      .filter((product) => `${product.name} ${product.brand} ${product.category} ${product.subcategory}`.toLocaleLowerCase('fr').includes(normalized))
-      .slice(0, 5)
+    if (query.trim().length < 2) return []
+    const productResults = rankSearchResults(products, query, (product) => `${product.name} ${product.brand} ${product.category} ${product.subcategory}`, 5)
       .map((product) => ({
         label: product.name,
         meta: `${product.brand} · ${product.subcategory}`,
         href: `/produit.html?produit=${product.slug}`,
         type: 'Produit',
       }))
-    const formationResults = formations
-      .filter((formation) => `${formation.title} ${formation.category}`.toLocaleLowerCase('fr').includes(normalized))
-      .slice(0, 3)
+    const formationResults = rankSearchResults(formations, query, (formation) => `${formation.title} ${formation.category}`, 3)
       .map((formation) => ({
         label: formation.title,
         meta: formation.category,
         href: formationUrl(formation.slug),
         type: 'Formation',
       }))
-    const pageResults = sitePages
-      .filter((page) => page.label.toLocaleLowerCase('fr').includes(normalized))
-      .slice(0, 2)
+    const pageResults = rankSearchResults(sitePages, query, (page) => page.label, 2)
       .map((page) => ({ ...page, meta: page.type }))
     return [...productResults, ...formationResults, ...pageResults].slice(0, 8)
   }, [query])
@@ -155,7 +149,7 @@ function MaterialMegaMenu() {
       <div className="mega-menu-intro">
         <span>Catalogue technique</span>
         <strong>Une navigation construite sur les usages terrain.</strong>
-        <a href="/boutique.html">Voir les 58 références <ArrowRight weight="bold" /></a>
+        <a href="/boutique.html">Voir les {products.length} références <ArrowRight weight="bold" /></a>
       </div>
       <div className="mega-menu-grid">
         {catalogueCategories.map((category) => (
@@ -210,7 +204,7 @@ function CartPanel({ items, onRemove, onClear, onClose }) {
               ))}
             </div>
             <div className="cart-panel-actions">
-              <a href="/#contact">Finaliser avec un expert <ArrowRight weight="bold" /></a>
+              <a href="/contact/?sujet=Mat%C3%A9riel#contact-form">Finaliser avec un expert <ArrowRight weight="bold" /></a>
               <button type="button" onClick={onClear}>Vider le panier</button>
             </div>
           </>
@@ -328,12 +322,12 @@ export function SiteHeader({
             <MaterialMegaMenu />
           </div>
           <a className={active === 'sav' ? 'is-active' : ''} href="/sav/">SAV</a>
-          <a className={active === 'audit' ? 'is-active' : ''} href="/audit-telecoms/">Audit</a>
           <div className="nav-menu-group">
             <a className={active === 'formations' ? 'is-active' : ''} href="/formations/">Formations <CaretDown weight="bold" /></a>
             <FormationsMegaMenu />
           </div>
           <a className={active === 'about' ? 'is-active' : ''} href="/a-propos-de-notre-mission/">À propos</a>
+          <a className={active === 'contact' ? 'is-active' : ''} href="/contact/">Contact</a>
         </nav>
         <div className="shop-header-actions">
           <a className="header-phone" href="tel:+33189624501" aria-label="Appeler ExpertCN au 01 89 62 45 01"><Phone weight="duotone" /><span>01 89 62 45 01</span></a>
@@ -351,9 +345,9 @@ export function SiteHeader({
           <a href="/boutique.html">Boutique</a>
           <details><summary>Matériels <CaretDown /></summary>{catalogueCategories.map((category) => <a href={catalogueUrl(category.name)} key={category.name}>{category.name}</a>)}</details>
           <a href="/sav/">SAV</a>
-          <a href="/audit-telecoms/">Audit</a>
           <details><summary>Formations <CaretDown /></summary>{formationCategories.map((category) => <a href={`/formations/?categorie=${category.slug}`} key={category.slug}>{category.name}</a>)}</details>
           <a href="/a-propos-de-notre-mission/">À propos</a>
+          <a href="/contact/">Contact</a>
         </nav>
       )}
       {cartOpen && <CartPanel items={cartItems} onRemove={onRemoveCartItem} onClear={onClearCart} onClose={() => setCartOpen(false)} />}
@@ -372,8 +366,8 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-main">
         <div className="footer-brand"><ShopBrand /><p>Formons, accompagnons et entretenons avec passion.</p></div>
-        <div className="footer-column"><strong>Expertises</strong><a href="/materiel-telecom-fibre-optique/">Matériels</a><a href="/sav/">SAV</a><a href="/formations/">Formations</a><a href="/audit-telecoms/">Audit</a></div>
-        <div className="footer-column"><strong>ExpertCN</strong><a href="/a-propos-de-notre-mission/">À propos</a><a href="/#contact">Contact</a><a href="/a-propos-de-notre-mission/#rse">Engagement RSE</a><a href="/formations/#qualite">Certification Qualiopi</a></div>
+        <div className="footer-column"><strong>Expertises</strong><a href="/materiel-telecom-fibre-optique/">Matériels</a><a href="/sav/">SAV</a><a href="/formations/">Formations</a></div>
+        <div className="footer-column"><strong>ExpertCN</strong><a href="/a-propos-de-notre-mission/">À propos</a><a href="/contact/">Contact</a><a href="/a-propos-de-notre-mission/#rse">Engagement RSE</a><a href="/formations/#qualite">Certification Qualiopi</a></div>
         <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33189624501"><Phone weight="duotone" /> +33 1 89 62 45 01</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Nous écrire</a></div>
       </div>
       <div className="footer-bottom"><span>© 2026 Expert Center Networks</span><div><a href="/mentions-legales/">Mentions légales</a><a href="/conditions-generales-dutilisation/">Conditions générales d’utilisation</a><a href="/politique-de-confidentialite/">Politique de confidentialité</a></div></div>

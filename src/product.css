@@ -35,6 +35,7 @@
 .single-product-purchase h1 { max-width: 14ch; margin: 14px 0 19px; font-size: clamp(2.35rem, 3.55vw, 3.7rem); line-height: 1.03; letter-spacing: -.038em; font-weight: 560; text-wrap: balance; overflow-wrap: break-word; }
 .single-product-purchase h1.is-long { max-width: 16ch; font-size: clamp(2.15rem, 3vw, 3.08rem); line-height: 1.06; }
 .single-product-summary { max-width: 58ch; margin: 0; white-space: pre-line; color: var(--shop-muted); font-size: 1.02rem; line-height: 1.62; }
+.single-product-summary.is-after-actions { margin-top: 20px; }
 
 .product-configurator { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--shop-line); }
 .product-configurator h2 { margin: 0 0 16px; font-size: 1rem; letter-spacing: -.01em; }
@@ -52,6 +53,8 @@
 .single-product-actions { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
 .single-product-actions button, .single-product-actions a { min-height: 50px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; font-weight: 720; white-space: nowrap; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
 .single-product-actions button { border: 1px solid var(--shop-teal); color: #f7fbfb; background: var(--shop-teal); cursor: pointer; }
+.single-product-actions button.expert-contact-button { border-color: var(--shop-line); color: var(--shop-navy); background: transparent; }
+.single-product-actions button.expert-contact-button:hover { border-color: var(--shop-teal); color: var(--shop-teal); background: transparent; }
 .single-product-actions button:hover { background: var(--shop-teal-dark); }
 .single-product-actions button:disabled { border-color: #8fa9af; color: #edf3f4; background: #8fa9af; cursor: not-allowed; }
 .single-product-actions a { border: 1px solid var(--shop-line); color: var(--shop-navy); background: transparent; }

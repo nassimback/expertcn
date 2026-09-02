@@ -6,7 +6,6 @@ import {
   ArrowUpRight,
   CaretLeft,
   CaretRight,
-  ChartLineUp,
   Check,
   CheckCircle,
   ClipboardText,
@@ -14,7 +13,6 @@ import {
   Database,
   Gauge,
   GraduationCap,
-  LockKey,
   Package,
   Quotes,
   Target,
@@ -253,103 +251,6 @@ function SavPage() {
   )
 }
 
-const auditFaq = [
-  { question: 'Quelle est votre approche de l’audit télécom ?', answer: 'Nous évaluons l’infrastructure, les coûts, la sécurité, la gestion des actifs et la qualité de service. Le périmètre est adapté à vos priorités et à votre niveau de maturité.' },
-  { question: 'Comment pouvez-vous réduire nos coûts télécoms ?', answer: 'Nous identifions les services inutilisés, les incohérences contractuelles, les surcapacités et les pistes de renégociation afin de construire un plan d’économies réaliste.' },
-  { question: 'Comment sécurisez-vous nos systèmes ?', answer: 'L’audit met en évidence les vulnérabilités techniques et organisationnelles, puis hiérarchise les mesures correctives selon leur criticité et leur effort de mise en œuvre.' },
-  { question: 'Comment mesurez-vous la qualité de service ?', answer: 'Nous analysons notamment la disponibilité, la latence, la bande passante, la résilience et l’expérience des utilisateurs sur les services critiques.' },
-  { question: 'Comment démarrer un audit ?', answer: 'Un premier échange permet de préciser vos enjeux, votre périmètre et les livrables attendus. Nous proposons ensuite une méthode, un calendrier et les interlocuteurs nécessaires.' },
-]
-
-function AuditPage() {
-  const services = [
-    { image: '/images/expertcn-hero.jpg', title: 'Infrastructure télécom', text: 'Réseaux, serveurs et équipements analysés pour identifier les fragilités et les ressources à optimiser.' },
-    { image: '/images/expertcn-rse.jpg', title: 'Analyse des coûts', text: 'Dépenses, contrats et usages rapprochés pour faire émerger des économies mesurables.' },
-    { image: '/images/shop/products/analyseur-pon-fx120-veex.png', title: 'Sécurité télécom', text: 'Vulnérabilités, risques et mesures de protection hiérarchisés selon leur impact.' },
-    { image: '/images/shop/products/tiroirs-optiques-actifs.png', title: 'Gestion des actifs', text: 'Inventaire, cycle de vie et besoins de mise à niveau consolidés dans une vision exploitable.' },
-    { image: '/images/shop/products/reflectometre-otdr-veex-fx150.png', title: 'Qualité de service', text: 'Disponibilité, latence, bande passante et résilience évaluées sur vos usages critiques.' },
-  ]
-  const auditFields = [
-    { name: 'nom', label: 'Nom', required: true }, { name: 'prenom', label: 'Prénom', required: true },
-    { name: 'email', label: 'E-mail professionnel', type: 'email', required: true }, { name: 'telephone', label: 'Téléphone', type: 'tel' },
-    { name: 'message', label: 'Votre projet', type: 'textarea', wide: true, required: true, placeholder: 'Périmètre, enjeux, nombre de sites et calendrier envisagé.' },
-  ]
-
-  return (
-    <PageShell active="audit" pageClass="service-page-audit">
-      <ServiceHero active="audit" kicker="Audits télécoms" title="Optimisez vos infrastructures." description="Réduisez les coûts, sécurisez vos actifs et améliorez la qualité de service grâce à un audit orienté décisions." image="/images/expertcn-rse.jpg" imageAlt="Technicien analysant une infrastructure télécom sur site" primary={{ href: '#demande', label: 'Parler de votre projet' }} secondary={{ href: '#services-audit', label: 'Explorer nos audits' }} />
-      <MetricsBand items={[{ value: '15 ans', label: 'd’expérience télécom' }, { value: '30 %', label: 'de réduction des coûts', note: 'en moyenne pour nos clients' }, { value: '98 %', label: 'de satisfaction client' }]} />
-
-      <section className="service-section image-story audit-story">
-        <div className="image-story-media"><img src="/images/expertcn-hero.jpg" alt="Expert télécom vérifiant une installation fibre" /></div>
-        <div className="image-story-copy"><SectionHeading kicker="Notre mission" title="Voir précisément où agir, dans quel ordre et avec quel impact." text="Notre équipe vous accompagne à chaque étape pour maximiser la valeur de vos investissements télécoms tout en réduisant les risques. Chaque recommandation est contextualisée, priorisée et exploitable." /><div className="story-note"><ChartLineUp weight="duotone" /><p><strong>Un audit utile ne s’arrête pas au constat.</strong> Il relie les données techniques, les usages, les contrats et les objectifs métiers.</p></div></div>
-      </section>
-
-      <section className="service-section audit-scope" id="services-audit">
-        <SectionHeading kicker="Périmètres d’intervention" title="Cinq lectures complémentaires de votre environnement." text="Un audit global ou ciblé, construit selon vos contraintes, votre organisation et les décisions à prendre." />
-        <div className="audit-services">
-          <article className="is-featured">
-            <div className="audit-service-media"><img src={services[0].image} alt="" /></div>
-            <div className="audit-service-copy">
-              <span className="audit-service-index">01</span>
-              <h3>{services[0].title}</h3>
-              <p>{services[0].text}</p>
-              <a href="#demande">Explorer ce périmètre <ArrowRight weight="bold" /></a>
-            </div>
-          </article>
-          <div className="audit-services-secondary">
-            <article className="is-wide">
-              <div className="audit-service-media"><img src={services[1].image} alt="" /></div>
-              <div className="audit-service-copy">
-                <span className="audit-service-index">02</span>
-                <h3>{services[1].title}</h3>
-                <p>{services[1].text}</p>
-                <a href="#demande">Explorer ce périmètre <ArrowRight weight="bold" /></a>
-              </div>
-            </article>
-            <div className="audit-services-compact">
-              {services.slice(2).map(({ image, title, text }, index) => (
-                <article key={title}>
-                  <div className="audit-service-media"><img src={image} alt="" /></div>
-                  <div className="audit-service-copy">
-                    <span className="audit-service-index">{String(index + 3).padStart(2, '0')}</span>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                    <a href="#demande">Explorer ce périmètre <ArrowRight weight="bold" /></a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <LeadForm className="audit-lead" title="Parlons de votre projet d’audit." intro="Décrivez votre contexte et les décisions que vous souhaitez sécuriser. Nous vous proposerons un premier cadrage adapté." fields={auditFields} submitLabel="Être recontacté" image="/images/expertcn-rse.jpg" imageAlt="Intervention sur une infrastructure télécom et énergétique" />
-
-      <section className="service-section audit-method">
-        <img className="audit-method-background" src="/images/expertcn-maintenance.jpg" alt="" />
-        <div className="audit-method-intro">
-          <p className="service-kicker">Pourquoi ExpertCN</p>
-          <h2>Une méthode qui transforme le diagnostic en décisions.</h2>
-        </div>
-        <div className="audit-method-grid">{[
-          [Target, 'Expertise de pointe', 'Une lecture technique nourrie par les réalités du terrain.'],
-          [ClipboardText, 'Approche personnalisée', 'Un périmètre et des livrables adaptés à votre organisation.'],
-          [ChartLineUp, 'Résultats mesurables', 'Des recommandations reliées à des gains et risques identifiés.'],
-          [LockKey, 'Confidentialité', 'Une gestion rigoureuse de vos informations et de leur sécurité.'],
-        ].map(([Icon, title, text], index) => (
-          <article key={title}>
-            <div className="audit-method-icon"><Icon weight="duotone" /></div>
-            <span className="audit-method-step">{index + 1}</span>
-            <div><h3>{title}</h3><p>{text}</p></div>
-          </article>
-        ))}</div>
-      </section>
-      <Faq items={auditFaq} />
-    </PageShell>
-  )
-}
-
 function AboutPage() {
   const contactFields = [
     { name: 'nom', label: 'Nom', required: true }, { name: 'prenom', label: 'Prénom', required: true },
@@ -359,7 +260,7 @@ function AboutPage() {
 
   return (
     <PageShell>
-      <ServiceHero active="about" kicker="Notre mission" title="Faire grandir vos projets." description="ExpertCN accompagne les professionnels des télécoms et de l’énergie avec une expertise concrète, durable et profondément humaine." image="/images/expertcn-rse.jpg" imageAlt="Technicien ExpertCN sur une infrastructure responsable" primary={{ href: '#demande', label: 'Nous contacter' }} secondary={{ href: '#mission', label: 'Découvrir notre histoire' }} />
+      <ServiceHero active="about" kicker="Notre mission" title="Faire grandir vos projets." description="ExpertCN accompagne les professionnels des télécoms et de l’énergie avec une expertise concrète, durable et profondément humaine." image="/images/expertcn-rse.jpg" imageAlt="Technicien ExpertCN sur une infrastructure responsable" primary={{ href: '/contact/#contact-form', label: 'Nous contacter' }} secondary={{ href: '#mission', label: 'Découvrir notre histoire' }} />
 
       <section className="service-section mission-layout" id="mission">
         <div className="mission-statement"><p>Notre conviction</p><h2>La croissance est plus solide lorsqu’elle est partagée.</h2></div>
@@ -481,7 +382,7 @@ function FormationsPage() {
 
   return (
     <PageShell active="formations">
-      <ServiceHero active="formations" kicker="Formations télécom et énergie" title="Maîtrisez les gestes du terrain." description="Des formations concrètes, encadrées par des experts, pour renforcer vos compétences et accélérer votre évolution professionnelle." image="/images/expertcn-formation.jpg" imageAlt="Formateur accompagnant des apprenants sur une soudeuse fibre optique" primary={{ href: '#formations-list', label: 'Découvrir les formations' }} secondary={{ href: '#demande', label: 'Être conseillé' }} />
+      <ServiceHero active="formations" kicker="Formations télécom et énergie" title="Maîtrisez les gestes du terrain." description="Des formations concrètes, encadrées par des experts, pour renforcer vos compétences et accélérer votre évolution professionnelle." image="/images/expertcn-formation.jpg" imageAlt="Formateur accompagnant des apprenants sur une soudeuse fibre optique" primary={{ href: '#formations-list', label: 'Découvrir les formations' }} secondary={{ href: '/contact/?sujet=Formation#contact-form', label: 'Être conseillé' }} />
       <MetricsBand items={[{ value: '50+', label: 'entreprises partenaires' }, { value: '1 000+', label: 'clients formés avec succès' }, { value: '+20 %', label: 'd’évolution salariale', note: 'constatée après formation' }]} />
 
       <section className="service-section training-value">
@@ -558,7 +459,6 @@ function FormationsPage() {
 const path = window.location.pathname.endsWith('/') ? window.location.pathname : `${window.location.pathname}/`
 const pageComponents = {
   '/sav/': SavPage,
-  '/audit-telecoms/': AuditPage,
   '/a-propos-de-notre-mission/': AboutPage,
   '/materiel-telecom-fibre-optique/': MaterialPage,
   '/formations/': FormationsPage,

@@ -9,7 +9,7 @@ const staticPages = [
   ['/boutique.html', 'weekly', '0.9'],
   ['/materiel-telecom-fibre-optique/', 'monthly', '0.9'],
   ['/sav/', 'monthly', '0.9'],
-  ['/audit-telecoms/', 'monthly', '0.8'],
+  ['/contact/', 'monthly', '0.8'],
   ['/formations/', 'monthly', '0.9'],
   ['/a-propos-de-notre-mission/', 'monthly', '0.7'],
   ['/mentions-legales/', 'yearly', '0.3'],

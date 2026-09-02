@@ -22,6 +22,7 @@ const services = [
     title: 'Équipements télécoms',
     text: 'Une sélection professionnelle du passif à l’actif, accompagnée par une expertise technique qui sécurise chaque choix.',
     className: 'service-equipment',
+    href: '/boutique.html',
   },
   {
     icon: Wrench,
@@ -29,6 +30,7 @@ const services = [
     title: 'Centre de maintenance',
     text: 'Diagnostic, calibration et réparation de vos soudeuses, cliveuses et réflectomètres dans des délais maîtrisés.',
     className: 'service-maintenance',
+    href: '/sav/',
   },
   {
     icon: GraduationCap,
@@ -36,6 +38,7 @@ const services = [
     title: 'Formations qualifiantes',
     text: 'Des parcours concrets en fibre optique, 5G, habilitations et énergie pour développer les compétences qui comptent.',
     className: 'service-training',
+    href: '/formations/',
   },
   {
     icon: ChartLineUp,
@@ -43,6 +46,7 @@ const services = [
     title: 'Audits télécoms',
     text: 'Une lecture complète de vos infrastructures, coûts, actifs et risques pour transformer les constats en résultats.',
     className: 'service-audit',
+    href: '/contact/?sujet=Autre+demande#contact-form',
   },
 ]
 
@@ -148,8 +152,8 @@ function App() {
               <h1>Vos projets avancent. Nous sécurisons la suite.</h1>
               <p className="hero-description">Équipements, maintenance, formation et audit réunis au sein d’un partenaire technique unique.</p>
               <div className="hero-actions">
-                <a className="button button-primary" href="#contact">Nous contacter <ArrowRight weight="bold" /></a>
-                <a className="button button-ghost" href="#expertises">Découvrir ExpertCN</a>
+                <a className="button button-primary" href="/contact/#contact-form">Nous contacter <ArrowRight weight="bold" /></a>
+                <a className="button button-ghost" href="/boutique.html">Découvrir le catalogue</a>
               </div>
             </div>
           </div>
@@ -193,7 +197,7 @@ function App() {
                 <div>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href="#contact">Découvrir <ArrowUpRight weight="bold" /></a>
+                  <a href={service.href}>Découvrir <ArrowUpRight weight="bold" /></a>
                 </div>
               </article>
             ))}
@@ -222,7 +226,7 @@ function App() {
               <span><Check weight="bold" /> Réparation</span>
               <span><Check weight="bold" /> Mise à jour</span>
             </div>
-            <a className="text-link" href="#contact">Soumettre une demande RMA <ArrowRight weight="bold" /></a>
+            <a className="text-link" href="/sav/#demande">Soumettre une demande RMA <ArrowRight weight="bold" /></a>
           </div>
         </section>
 
@@ -255,7 +259,7 @@ function App() {
               <div><strong>Sur mesure</strong><span>Contenus adaptés à votre expérience</span></div>
               <div><strong>Qualifiantes</strong><span>Compétences directement mobilisables</span></div>
             </div>
-            <a className="button button-primary" href="#contact">Voir les formations <ArrowRight weight="bold" /></a>
+            <a className="button button-primary" href="/formations/">Voir les formations <ArrowRight weight="bold" /></a>
           </div>
           <div className="training-image" data-reveal>
             <img src="/images/expertcn-formation.jpg" alt="Professionnels suivant une formation pratique à la fibre optique" loading="lazy" />
@@ -269,7 +273,7 @@ function App() {
               <p className="eyebrow">Notre démarche RSE</p>
               <h2>Développer les réseaux d’aujourd’hui sans perdre de vue demain.</h2>
               <p>Traçabilité, logistique, cycle de vie des produits et parcours inclusifs: nos décisions concrètes font partie intégrante de notre métier.</p>
-              <a className="text-link" href="#contact">Découvrir nos engagements <ArrowRight weight="bold" /></a>
+              <a className="text-link" href="/a-propos-de-notre-mission/#rse">Découvrir nos engagements <ArrowRight weight="bold" /></a>
             </div>
             <div className="commitment-proof" aria-label="Repères RSE">
               <div><img src="/images/ecovadis-expertcn.png" alt="Médaille Platinum EcoVadis obtenue par ExpertCN" /><strong>Platinum EcoVadis</strong><span>Parmi les 1 % les plus performantes</span></div>

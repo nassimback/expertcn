@@ -83,7 +83,7 @@ function FormationPage() {
             <h1>{formation.title}</h1>
             <p>{formation.summary}</p>
             <div>
-              <FormationButton href="#inscription">S’inscrire</FormationButton>
+              <FormationButton href={`/contact/?sujet=Formation&formation=${encodeURIComponent(formation.slug)}#contact-form`}>S’inscrire</FormationButton>
               <FormationButton href="#programme-pdf" secondary>Télécharger le programme</FormationButton>
             </div>
           </div>
@@ -137,7 +137,7 @@ function FormationPage() {
         <section className="formation-mid-cta" id="inscription">
           <div><span>Prochaine étape</span><h2>Préparez votre inscription à la formation {formation.title}.</h2></div>
           <p>Un conseiller vérifie votre projet, les prérequis et les prochaines dates disponibles.</p>
-          <FormationButton href="#contact-formation">Demander une place</FormationButton>
+          <FormationButton href={`/contact/?sujet=Formation&formation=${encodeURIComponent(formation.slug)}#contact-form`}>Demander une place</FormationButton>
         </section>
 
         <section className="formation-section formation-program" aria-labelledby="program-title">

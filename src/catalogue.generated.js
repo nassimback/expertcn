@@ -1,4 +1,4 @@
-// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v6.xlsx.
+// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v7.xlsx.
 // Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.
 
 export const catalogueCategories = [
@@ -28,6 +28,7 @@ export const catalogueCategories = [
     "name": "Raccordement optique",
     "description": "Organisez, terminez et interconnectez vos liaisons optiques.",
     "subcategories": [
+      "Câble",
       "Breakout",
       "MPO",
       "Jarretières",
@@ -42,6 +43,13 @@ export const catalogueCategories = [
     "subcategories": [
       "Modules optiques",
       "CPE"
+    ]
+  },
+  {
+    "name": "Accessoires",
+    "description": "Alimentez vos équipements Raisecom avec des modules adaptés aux environnements réseau et télécom.",
+    "subcategories": [
+      "Alimentation"
     ]
   },
   {
@@ -74,6 +82,61 @@ export const catalogueCategories = [
 ]
 
 export const products = [
+  {
+    "name": "Câble fibre optique monomode micromodule",
+    "brand": "ExpertCN",
+    "category": "Raccordement optique",
+    "subcategory": "Câble",
+    "sku": null,
+    "description": "Câble fibre optique monomode à structure micromodule, spécialement conçu pour les réseaux de distribution, FTTH et colonne montante. Sa technologie micromodule permet une ouverture de gaine entièrement manuelle et sans outil, réduisant considérablement le temps de préparation et le risque d’endommagement des fibres lors des interventions au passage.",
+    "summaryPlacement": "after-actions",
+    "status": "À ajouter",
+    "type": "Variable",
+    "image": "/images/shop/products/breakout-monomode.png",
+    "gallery": [
+      "/images/shop/products/breakout-monomode.png",
+      "/images/shop/products/breakout-optique.jpg"
+    ],
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "cable-fibre-optique-monomode-micromodule",
+    "longDescription": [
+      "Câble fibre optique monomode à structure micromodule, spécialement conçu pour les réseaux de distribution, FTTH et colonne montante.",
+      "Sa technologie micromodule permet une ouverture de gaine entièrement manuelle et sans outil, réduisant considérablement le temps de préparation et le risque d’endommagement des fibres lors des interventions au passage.",
+      "Ouverture rapide : micromodules pelables à la main.",
+      "Choix de la fibre : G.657A2 pour les courbures serrées ou G.652D pour le transport standard.",
+      "Configuration : Modulo 6 ou Modulo 12, de 6 à 288 FO.",
+      "Usage intérieur / extérieur : gaine LSZH retardatrice de flamme et sans halogène."
+    ],
+    "options": [
+      {
+        "name": "Type de fibre",
+        "values": [
+          "G.652D",
+          "G.657A2"
+        ]
+      },
+      {
+        "name": "Structure",
+        "values": [
+          "Modulo 6",
+          "Modulo 12"
+        ]
+      },
+      {
+        "name": "Capacité",
+        "values": [
+          "6 FO",
+          "12 FO",
+          "24 FO",
+          "48 FO",
+          "72 FO",
+          "144 FO",
+          "196 FO"
+        ]
+      }
+    ]
+  },
   {
     "name": "Aiguille<br><br>",
     "brand": "ExpertCN",
@@ -2428,6 +2491,132 @@ export const products = [
         "pending": true
       }
     ]
+  },
+  {
+    "name": "Boitier d'alimentation RPA0362-SI-220S12",
+    "brand": "Raisecom",
+    "category": "Accessoires",
+    "subcategory": "Alimentation",
+    "sku": null,
+    "description": "Module d'alimentation AC 220V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Garantit une alimentation stable pour vos équipements réseau en environnement standard.",
+    "status": "À ajouter",
+    "type": "Simple",
+    "image": "/images/shop/products/raisecom-alimentation-ac.png",
+    "gallery": [
+      "/images/shop/products/raisecom-alimentation-ac.png"
+    ],
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-alimentation-raisecom-rpa0362-si-220s12",
+    "longDescription": [
+      "Ce module d'alimentation AC 220V délivre une puissance de 36W, dimensionné pour les switchs Raisecom RAX711-L-4GE de la gamme 1G (Gigabit). Il convertit le courant alternatif standard en une alimentation stable adaptée aux besoins électriques de ces équipements, garantissant un fonctionnement fiable au quotidien. Sa conception modulaire facilite le remplacement en cas de maintenance, sans intervention sur le châssis complet du switch. Il s'installe dans les environnements de bureaux, locaux techniques ou armoires réseau raccordées au secteur classique."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPD0362-SI-48S12",
+    "brand": "Raisecom",
+    "category": "Accessoires",
+    "subcategory": "Alimentation",
+    "sku": null,
+    "description": "Module d'alimentation DC -48V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Conçu pour les installations télécoms alimentées en courant continu (baies, sites opérateurs).",
+    "status": "À ajouter",
+    "type": "Simple",
+    "image": "/images/shop/products/raisecom-alimentation-dc.png",
+    "gallery": [
+      "/images/shop/products/raisecom-alimentation-dc.png"
+    ],
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-alimentation-raisecom-rpd0362-si-48s12",
+    "longDescription": [
+      "Ce module d'alimentation DC -48V délivre une puissance de 36W, compatible avec les switchs Raisecom RAX711-L-4GE de la gamme 1G (Gigabit). Il est conçu pour les infrastructures télécoms alimentées en courant continu, typiques des baies opérateurs et sites techniques équipés de systèmes d'alimentation -48V redondants. Son format modulaire permet un remplacement rapide sans interruption prolongée du service, un point clé pour les environnements critiques. Recommandé pour les déploiements en shelters, centraux techniques ou nœuds de réseau nécessitant une alimentation continue sécurisée."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPA0602-SI-220S12",
+    "brand": "Raisecom",
+    "category": "Accessoires",
+    "subcategory": "Alimentation",
+    "sku": null,
+    "description": "Module d'alimentation AC 220V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Assure une alimentation fiable pour vos infrastructures réseau à débit 10 Gigabit.",
+    "status": "À ajouter",
+    "type": "Simple",
+    "image": "/images/shop/products/raisecom-alimentation-ac.png",
+    "gallery": [
+      "/images/shop/products/raisecom-alimentation-ac.png"
+    ],
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-alimentation-raisecom-rpa0602-si-220s12",
+    "longDescription": [
+      "Ce module d'alimentation AC 220V délivre 60W, dimensionné pour les switchs Raisecom RAX711-C-R de la gamme 10G. Il fournit la puissance nécessaire au fonctionnement des ports 10 Gigabit, plus exigeants en énergie que les équipements 1G, tout en conservant un format modulaire facilitant l'entretien. Adapté aux environnements raccordés au secteur (locaux techniques, armoires réseau standards), il constitue une solution d'alimentation fiable pour vos infrastructures à haut débit."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPD0602-SI-48S12",
+    "brand": "Raisecom",
+    "category": "Accessoires",
+    "subcategory": "Alimentation",
+    "sku": null,
+    "description": "Module d'alimentation DC -48V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Compatible baies télécoms -48V pour environnements opérateurs.",
+    "status": "À ajouter",
+    "type": "Simple",
+    "image": "/images/shop/products/raisecom-alimentation-dc.png",
+    "gallery": [
+      "/images/shop/products/raisecom-alimentation-dc.png"
+    ],
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-alimentation-raisecom-rpd0602-si-48s12",
+    "longDescription": [
+      "Ce module d'alimentation DC -48V délivre 60W, compatible avec les switchs Raisecom RAX711-C-R de la gamme 10G. Pensé pour les environnements télécoms en courant continu, il s'intègre aux baies et systèmes d'alimentation -48V des sites opérateurs, garantissant la continuité de service même en cas de coupure secteur (via batteries de secours). Son remplacement modulaire limite les interruptions lors des opérations de maintenance sur des infrastructures à fort trafic 10G."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPD1241-220S12",
+    "brand": "Raisecom",
+    "category": "Accessoires",
+    "subcategory": "Alimentation",
+    "sku": null,
+    "description": "Module d'alimentation AC 220V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Haute puissance dédiée aux infrastructures cœur de réseau exigeantes.",
+    "status": "À ajouter",
+    "type": "Simple",
+    "image": "/images/shop/products/raisecom-alimentation-ac.png",
+    "gallery": [
+      "/images/shop/products/raisecom-alimentation-ac.png"
+    ],
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-alimentation-raisecom-rpd1241-220s12",
+    "longDescription": [
+      "Ce module d'alimentation haute puissance (1200W) est dimensionné pour le switch cœur de réseau Raisecom RAX721 (gamme 100G), conçu pour répondre aux besoins énergétiques importants des équipements cœur de réseau opérant à très haut débit. Il convertit une alimentation secteur 220V pour garantir un fonctionnement stable des ports 100G, particulièrement sollicités en bande passante. Sa conception modulaire permet, selon la configuration du châssis, d'associer plusieurs modules pour de la redondance d'alimentation. Réservé aux infrastructures cœur de réseau et data centers nécessitant une puissance élevée et une haute disponibilité."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPD1241-48S12",
+    "brand": "Raisecom",
+    "category": "Accessoires",
+    "subcategory": "Alimentation",
+    "sku": null,
+    "description": "Module d'alimentation DC -48V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Solution haute puissance pour sites télécoms alimentés en courant continu.",
+    "status": "À ajouter",
+    "type": "Simple",
+    "image": "/images/shop/products/raisecom-alimentation-dc.png",
+    "gallery": [
+      "/images/shop/products/raisecom-alimentation-dc.png"
+    ],
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-alimentation-raisecom-rpd1241-48s12",
+    "longDescription": [
+      "Ce module d'alimentation haute puissance (1200W) en courant continu -48V est dimensionné pour le switch cœur de réseau Raisecom RAX721 (gamme 100G). Il s'adresse aux infrastructures télécoms critiques (cœurs de réseau, data centers, sites opérateurs) alimentées en -48V, où la continuité de service est essentielle. Sa conception modulaire permet d'associer plusieurs unités pour une alimentation redondante, limitant les risques d'interruption en cas de défaillance d'un module. Solution recommandée pour les déploiements 100G à forte criticité opérationnelle."
+    ],
+    "options": []
   }
 ]
 

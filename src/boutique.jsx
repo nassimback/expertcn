@@ -19,6 +19,7 @@ import {
   Wrench,
 } from '@phosphor-icons/react'
 import { catalogueCategories, partnerPage, products } from './catalogue.generated'
+import { getSpellingSuggestions, isExactSearchMatch, isFuzzySearchMatch, normalizeSearchText } from './search-utils'
 import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
 import './boutique.css'
 
@@ -32,6 +33,7 @@ const categoryImages = [
   '/images/expertcn-maintenance.jpg',
   '/images/shop/products/tiroirs-optiques-coulissants.png',
   '/images/shop/products/module-optique-sfp-compatible.png',
+  '/images/shop/products/raisecom-alimentation-ac.png',
   '/images/shop/products/aiguille-de-tirage-150m-9mm.png',
   '/images/shop/products/etiqueteuse-m710-brady.png',
   '/images/shop/products/smooves-60mm.png',
@@ -44,13 +46,15 @@ const campaignSlides = [
   { image: '/images/Banner-raisecom-1.webp', alt: 'Gamme de produits actifs Raisecom', href: '/boutique.html?categorie=%C3%89quipements+Actifs#catalogue' },
 ]
 
+const productSearchText = (product) => `${product.name} ${product.brand} ${product.category} ${product.subcategory} ${product.description}`
+
 function CampaignCarousel() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
 
   useEffect(() => {
     if (paused) return undefined
-    const timer = window.setInterval(() => setCurrent((index) => (index + 1) % campaignSlides.length), 5600)
+    const timer = window.setInterval(() => setCurrent((index) => (index + 1) % campaignSlides.length), 5000)
     return () => window.clearInterval(timer)
   }, [paused])
 
@@ -79,7 +83,7 @@ function ProductCard({ product, onAdd }) {
       </a>
       <div className="product-details">
         <div className="product-meta"><span>{product.brand}</span><span>{product.subcategory}</span></div>
-        <h3>{product.name}</h3>
+        <h3><a className="product-title-link" href={`/produit.html?produit=${product.slug}`}>{product.name}</a></h3>
         <p>{product.description}</p>
         <span className="product-type"><Tag weight="duotone" />{product.type === 'Variable' ? 'Plusieurs variantes' : 'Référence professionnelle'}</span>
       </div>
@@ -108,26 +112,38 @@ function Boutique() {
 
   const selectedCategory = catalogueCategories.find((item) => item.name === category)
 
+  const scopedProducts = useMemo(() => products.filter((product) => {
+    const matchesCategory = category === 'all' || product.category === category
+    const matchesSubcategory = subcategory === 'all' || product.subcategory === subcategory
+    return matchesCategory && matchesSubcategory
+  }), [category, subcategory])
+
+  const exactProducts = useMemo(() => {
+    if (!normalizeSearchText(query)) return scopedProducts
+    return scopedProducts.filter((product) => isExactSearchMatch(query, productSearchText(product)))
+  }, [query, scopedProducts])
+
   const filteredProducts = useMemo(() => {
-    const normalizedQuery = query.trim().toLocaleLowerCase('fr')
-    const result = products.filter((product) => {
-      const matchesCategory = category === 'all' || product.category === category
-      const matchesSubcategory = subcategory === 'all' || product.subcategory === subcategory
-      const searchable = `${product.name} ${product.brand} ${product.category} ${product.subcategory} ${product.description}`.toLocaleLowerCase('fr')
-      return matchesCategory && matchesSubcategory && (!normalizedQuery || searchable.includes(normalizedQuery))
-    })
+    const result = normalizeSearchText(query)
+      ? scopedProducts.filter((product) => isFuzzySearchMatch(query, productSearchText(product)))
+      : scopedProducts
     return result.toSorted((a, b) => {
       if (sort === 'name') return a.name.localeCompare(b.name, 'fr')
       if (sort === 'brand') return a.brand.localeCompare(b.brand, 'fr') || a.name.localeCompare(b.name, 'fr')
       return products.indexOf(a) - products.indexOf(b)
     })
-  }, [category, subcategory, query, sort])
+  }, [query, scopedProducts, sort])
+
+  const spellingSuggestions = useMemo(() => {
+    if (!normalizeSearchText(query) || exactProducts.length) return []
+    const terms = scopedProducts.flatMap((product) => [product.name, product.brand, product.category, product.subcategory])
+    return getSpellingSuggestions(query, terms)
+  }, [exactProducts.length, query, scopedProducts])
 
   const showPartnerPage = useMemo(() => {
     if (!partnerPage || !['all', 'Équipements Actifs'].includes(category)) return false
     if (!['all', 'Modules optiques'].includes(subcategory)) return false
-    const normalizedQuery = query.trim().toLocaleLowerCase('fr')
-    return !normalizedQuery || `${partnerPage.name} ${partnerPage.brand} ${partnerPage.subcategory}`.toLocaleLowerCase('fr').includes(normalizedQuery)
+    return !normalizeSearchText(query) || isFuzzySearchMatch(query, `${partnerPage.name} ${partnerPage.brand} ${partnerPage.subcategory}`)
   }, [category, subcategory, query])
 
   useEffect(() => setVisibleCount(12), [category, subcategory, query, sort])
@@ -167,16 +183,6 @@ function Boutique() {
       <SiteHeader active="boutique" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
 
       <main>
-        <section className="shop-hero">
-          <div className="shop-hero-copy">
-            <p className="shop-eyebrow">Catalogue professionnel</p>
-            <h1>Équipez vos chantiers.</h1>
-            <p>Fibre, mesure et réseau: une sélection structurée pour les équipes de terrain.</p>
-            <a className="shop-primary-link" href="#catalogue">Explorer le catalogue <ArrowRight weight="bold" /></a>
-          </div>
-          <div className="shop-hero-visual"><img src="/images/shop/shop-hero.jpg" alt="Équipements professionnels de raccordement et de mesure fibre optique" fetchPriority="high" /></div>
-        </section>
-
         <CampaignCarousel />
 
         <section className="shop-assurances" aria-label="Services ExpertCN">
@@ -189,8 +195,9 @@ function Boutique() {
           <div className="category-grid">
             <div className="category-intro">
               <p className="category-kicker">Nos univers métiers</p>
-              <h2 id="category-title">Sept familles, un seul partenaire.</h2>
+              <h2 id="category-title">Huit familles, un seul partenaire.</h2>
               <p>Accédez directement à chaque univers métier et à ses références techniques.</p>
+              <a className="category-intro-action" href="/boutique.html#catalogue">Explorer tout le catalogue <ArrowRight weight="bold" /></a>
             </div>
             {catalogueCategories.map((item, index) => (
               <button key={item.name} className={`category-card ${category === item.name ? 'is-active' : ''}`} type="button" onClick={() => chooseCategory(item.name, true)}>
@@ -226,10 +233,17 @@ function Boutique() {
                 {allCategories.map((item) => <button key={item.key} className={category === item.key ? 'is-selected' : ''} type="button" onClick={() => chooseCategory(item.key)}><span>{item.name}</span><b>{categoryCount(item.key)}</b></button>)}
               </div>
               {selectedCategory && <div className="subcategory-filter"><strong>Usages</strong><button className={subcategory === 'all' ? 'is-selected' : ''} type="button" onClick={() => setSubcategory('all')}>Tous</button>{selectedCategory.subcategories.map((item) => <button className={subcategory === item ? 'is-selected' : ''} key={item} type="button" onClick={() => { setSubcategory(item); setFiltersOpen(false) }}>{item}</button>)}</div>}
-              <div className="filter-help"><Package weight="duotone" /><strong>Besoin d’un conseil?</strong><p>Notre équipe vérifie la compatibilité de votre sélection.</p><a href="/#contact">Parler à un expert <ArrowUpRight weight="bold" /></a></div>
+              <div className="filter-help"><Package weight="duotone" /><strong>Besoin d’un conseil?</strong><p>Notre équipe vérifie la compatibilité de votre sélection.</p><a href="/contact/?sujet=Mat%C3%A9riel#contact-form">Parler à un expert <ArrowUpRight weight="bold" /></a></div>
             </aside>
 
             <div className="product-area">
+              {spellingSuggestions.length > 0 && (
+                <div className="search-correction" role="status">
+                  <span>Aucun résultat exact pour « {query.trim()} ».</span>
+                  <p>Vouliez-vous dire : {spellingSuggestions.map((suggestion) => <button type="button" onClick={() => setQuery(suggestion)} key={suggestion}>{suggestion}</button>)}</p>
+                  {filteredProducts.length > 0 && <small>Les résultats les plus proches sont affichés ci-dessous.</small>}
+                </div>
+              )}
               {showPartnerPage && (
                 <article className="partner-feature">
                   <div className="partner-image"><img src="/images/newlinks_cover_page.jpg" alt="Modules optiques compatibles Newlinks" /></div>
@@ -244,7 +258,7 @@ function Boutique() {
                   {visibleCount < filteredProducts.length && <button className="load-more" type="button" onClick={() => setVisibleCount((count) => count + 12)}>Afficher plus de produits <ArrowDown weight="bold" /></button>}
                 </>
               ) : !showPartnerPage && (
-                <div className="empty-products"><MagnifyingGlass weight="duotone" /><h3>Aucun équipement trouvé.</h3><p>Essayez un autre terme ou revenez à toutes les familles.</p><button type="button" onClick={() => { setQuery(''); chooseCategory('all') }}>Réinitialiser les filtres</button></div>
+                <div className="empty-products"><MagnifyingGlass weight="duotone" /><h3>Aucun équipement trouvé.</h3><p>Vérifiez l’orthographe ou essayez un autre terme. Vous restez dans le catalogue.</p><button type="button" onClick={() => { setQuery(''); chooseCategory('all') }}>Réinitialiser les filtres</button></div>
               )}
             </div>
           </div>
@@ -257,7 +271,7 @@ function Boutique() {
           <div className="shop-support-copy">
             <h2>Validez votre sélection avec un expert.</h2>
             <p>Compatibilité, variantes et usages terrain : nous vérifions chaque point avant la validation.</p>
-            <a className="shop-primary-link" href="/#contact">Parler à un expert <ArrowRight weight="bold" /></a>
+            <a className="shop-primary-link" href="/contact/?sujet=Mat%C3%A9riel#contact-form">Parler à un expert <ArrowRight weight="bold" /></a>
           </div>
         </section>
       </main>

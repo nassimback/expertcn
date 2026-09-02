@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import { createPortal } from 'react-dom'
 import '@fontsource-variable/outfit'
 import {
   ArrowLeft,
@@ -10,11 +11,14 @@ import {
   ShieldCheck,
   ShoppingBag,
   Wrench,
+  X,
 } from '@phosphor-icons/react'
 import { products } from './catalogue.generated'
+import { ContactForm } from './contact-shared'
 import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
 import './boutique.css'
 import './product.css'
+import './contact.css'
 
 function RelatedProduct({ product }) {
   return (
@@ -49,19 +53,91 @@ function ProductNotFound({ requestItems, notice, removeRequestItem, clearRequest
   )
 }
 
+function getComplementaryScore(product, candidate) {
+  if (candidate.slug === product.slug) return Number.NEGATIVE_INFINITY
+
+  const explicitCrossSells = product.crossSellSlugs || product.relatedSlugs || []
+  const explicitIndex = explicitCrossSells.indexOf(candidate.slug)
+  if (explicitIndex >= 0) return 10000 - explicitIndex
+
+  let score = 0
+  const sameBrand = product.brand === candidate.brand
+  if (sameBrand) score += 24
+
+  if (product.category === 'Soudeuses fibre optique') {
+    if (candidate.subcategory === 'Électrodes' && sameBrand) score += 240
+    if (product.subcategory === 'Soudeuses' && candidate.subcategory === 'Cliveuses' && sameBrand) score += 210
+    if (product.subcategory === 'Cliveuses' && candidate.subcategory === 'Soudeuses' && sameBrand) score += 210
+    if (/smooves/i.test(candidate.name)) score += 90
+  } else if (product.category === 'Identification de réseau') {
+    if (candidate.subcategory === 'Étiquettes & Rubans' && sameBrand) score += 260
+  } else if (product.category === 'Équipements Actifs') {
+    if (candidate.category === 'Accessoires' && sameBrand) score += 280
+    if (product.subcategory === 'CPE' && candidate.subcategory === 'Modules optiques') score += 100
+  } else if (product.category === 'Accessoires') {
+    if (candidate.subcategory === 'CPE' && sameBrand) score += 280
+  } else if (product.category === 'Tirage et sécurité') {
+    if (candidate.category === product.category && candidate.subcategory !== product.subcategory) score += 190
+    if (candidate.subcategory === 'Colliers') score += 110
+  } else if (product.category === 'Raccordement optique') {
+    if (candidate.category === 'Consommables' && ['Divers', 'Consommables', 'Colliers'].includes(candidate.subcategory)) score += 180
+    if (candidate.category === product.category && candidate.subcategory !== product.subcategory) score += 105
+  } else if (product.category === 'Tests et mesures') {
+    if (candidate.category === product.category && sameBrand && candidate.subcategory !== product.subcategory) score += 150
+    if (candidate.subcategory === 'Logiciels' && sameBrand) score += 90
+  } else if (product.category === 'Consommables') {
+    if (product.subcategory === 'Électrodes' && candidate.category === 'Soudeuses fibre optique' && sameBrand) score += 260
+    if (product.subcategory === 'Étiquettes & Rubans' && candidate.category === 'Identification de réseau' && sameBrand) score += 260
+    if (['Divers', 'Consommables', 'Colliers'].includes(product.subcategory) && candidate.category === 'Raccordement optique') score += 130
+  }
+
+  return score
+}
+
+function getComplementaryProducts(product) {
+  return products
+    .map((candidate, index) => ({ candidate, index, score: getComplementaryScore(product, candidate) }))
+    .filter(({ score }) => score >= 80)
+    .sort((left, right) => right.score - left.score || left.index - right.index)
+    .slice(0, 4)
+    .map(({ candidate }) => candidate)
+}
+
+function ProductContactModal({ product, onClose }) {
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow
+    const handleKeyDown = (event) => event.key === 'Escape' && onClose()
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [onClose])
+
+  return createPortal(
+    <div className="contact-modal-overlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <section className="contact-modal" role="dialog" aria-modal="true" aria-labelledby="product-contact-title">
+        <header><div><span>Conseil produit</span><h2 id="product-contact-title">Parler à un expert</h2></div><button className="contact-modal-close" type="button" onClick={onClose} aria-label="Fermer le formulaire"><X /></button></header>
+        <ContactForm defaultSubject="Matériel" context={`le produit « ${product.name} »`} compact />
+      </section>
+    </div>,
+    document.body,
+  )
+}
+
 function ProductPage() {
   const slug = new URLSearchParams(window.location.search).get('produit')
   const product = products.find((item) => item.slug === slug)
   const [selections, setSelections] = useState({})
   const [activeImage, setActiveImage] = useState(product?.image || '')
   const [notice, setNotice] = useState('')
+  const [contactOpen, setContactOpen] = useState(false)
   const { requestItems, addRequestItem, removeRequestItem, clearRequestItems } = useRequestList()
 
   const relatedProducts = useMemo(() => {
     if (!product) return []
-    const sameUse = products.filter((item) => item.slug !== product.slug && item.subcategory === product.subcategory)
-    const sameFamily = products.filter((item) => item.slug !== product.slug && item.category === product.category && !sameUse.includes(item))
-    return [...sameUse, ...sameFamily].slice(0, 4)
+    return getComplementaryProducts(product)
   }, [product])
 
   useEffect(() => {
@@ -137,7 +213,7 @@ function ProductPage() {
           <div className="single-product-purchase">
             <div className="single-product-meta"><span>{product.brand}</span><span>{product.subcategory}</span></div>
             <h1 id="product-title" className={product.name.length > 36 ? 'is-long' : ''}>{product.name}</h1>
-            <p className="single-product-summary">{product.description}</p>
+            {product.summaryPlacement !== 'after-actions' && <p className="single-product-summary">{product.description}</p>}
 
             {product.type === 'Variable' && (
               <div className="product-configurator">
@@ -166,8 +242,10 @@ function ProductPage() {
               <button type="button" onClick={addConfiguredProduct}>
                 <ShoppingBag weight="duotone" /> Ajouter au panier
               </button>
-              <a href="/#contact">Parler à un expert <ArrowRight weight="bold" /></a>
+              <button className="expert-contact-button" type="button" onClick={() => setContactOpen(true)}>Parler à un expert <ArrowRight weight="bold" /></button>
             </div>
+
+            {product.summaryPlacement === 'after-actions' && <p className="single-product-summary is-after-actions">{product.description}</p>}
 
             {hasPendingOptions && <p className="configuration-note">Aucune option ne sera imposée. Notre équipe validera la configuration avec vous.</p>}
             <p className="quote-note">Tarif et disponibilité communiqués sur demande.</p>
@@ -184,7 +262,7 @@ function ProductPage() {
           <div className="product-description-copy">
             <h2 id="description-title">Description</h2>
             {product.longDescription.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            <a href="/#contact">Vérifier la compatibilité <ArrowRight weight="bold" /></a>
+            <a href={`/contact/?sujet=Mat%C3%A9riel&produit=${encodeURIComponent(product.slug)}#contact-form`}>Vérifier la compatibilité <ArrowRight weight="bold" /></a>
           </div>
 
           <dl className="product-facts">
@@ -199,8 +277,7 @@ function ProductPage() {
         {relatedProducts.length > 0 && (
           <section className="related-products" aria-labelledby="related-title">
             <div className="related-heading">
-              <h2 id="related-title">À découvrir dans la même famille</h2>
-              <a href="/boutique.html">Voir tout le catalogue <ArrowRight weight="bold" /></a>
+              <h2 id="related-title">Produits complémentaires et accessoires</h2>
             </div>
             <div className="related-grid">
               {relatedProducts.map((item) => <RelatedProduct product={item} key={item.slug} />)}
@@ -211,6 +288,7 @@ function ProductPage() {
 
       <SiteFooter />
       <SiteNotice message={notice} />
+      {contactOpen && <ProductContactModal product={product} onClose={() => setContactOpen(false)} />}
     </div>
   )
 }
