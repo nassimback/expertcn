@@ -29,14 +29,13 @@ const allCategories = [
 ]
 
 const categoryImages = [
-  '/images/shop/products/analyseur-pon-px92.png',
-  '/images/expertcn-maintenance.jpg',
-  '/images/shop/products/tiroirs-optiques-coulissants.png',
-  '/images/shop/products/module-optique-sfp-compatible.png',
-  '/images/shop/products/raisecom-alimentation-ac.png',
-  '/images/shop/products/aiguille-de-tirage-150m-9mm.png',
-  '/images/shop/products/etiqueteuse-m710-brady.png',
-  '/images/shop/products/smooves-60mm.png',
+  '/images/categories/test_et_mesures.jpg',
+  '/images/categories/soudeuses_fibre_optique.jpg',
+  '/images/categories/raccordement_optique.jpg',
+  '/images/categories/equipement_actif.jpg',
+  '/images/categories/tirage_et_securite.jpg',
+  '/images/categories/identification_reseau.jpg',
+  '/images/categories/consommables.jpg',
 ]
 
 const campaignSlides = [
@@ -104,7 +103,6 @@ function Boutique() {
   const [category, setCategory] = useState(initialCategory)
   const [subcategory, setSubcategory] = useState(initialCategoryData?.subcategories.includes(requestedSubcategory) ? requestedSubcategory : 'all')
   const [query, setQuery] = useState(urlParams.get('q') || '')
-  const [sort, setSort] = useState('featured')
   const [visibleCount, setVisibleCount] = useState(12)
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [notice, setNotice] = useState('')
@@ -124,15 +122,10 @@ function Boutique() {
   }, [query, scopedProducts])
 
   const filteredProducts = useMemo(() => {
-    const result = normalizeSearchText(query)
+    return normalizeSearchText(query)
       ? scopedProducts.filter((product) => isFuzzySearchMatch(query, productSearchText(product)))
       : scopedProducts
-    return result.toSorted((a, b) => {
-      if (sort === 'name') return a.name.localeCompare(b.name, 'fr')
-      if (sort === 'brand') return a.brand.localeCompare(b.brand, 'fr') || a.name.localeCompare(b.name, 'fr')
-      return products.indexOf(a) - products.indexOf(b)
-    })
-  }, [query, scopedProducts, sort])
+  }, [query, scopedProducts])
 
   const spellingSuggestions = useMemo(() => {
     if (!normalizeSearchText(query) || exactProducts.length) return []
@@ -146,7 +139,7 @@ function Boutique() {
     return !normalizeSearchText(query) || isFuzzySearchMatch(query, `${partnerPage.name} ${partnerPage.brand} ${partnerPage.subcategory}`)
   }, [category, subcategory, query])
 
-  useEffect(() => setVisibleCount(12), [category, subcategory, query, sort])
+  useEffect(() => setVisibleCount(12), [category, subcategory, query])
 
   useEffect(() => {
     const params = new URLSearchParams()
@@ -192,13 +185,15 @@ function Boutique() {
         </section>
 
         <section className="category-explorer" aria-labelledby="category-title">
-          <div className="category-grid">
-            <div className="category-intro">
+          <div className="category-heading">
+            <div className="category-heading-copy">
               <p className="category-kicker">Nos univers métiers</p>
-              <h2 id="category-title">Huit familles, un seul partenaire.</h2>
+              <h2 id="category-title">Tous vos univers métiers, un seul partenaire.</h2>
               <p>Accédez directement à chaque univers métier et à ses références techniques.</p>
-              <a className="category-intro-action" href="/boutique.html#catalogue">Explorer tout le catalogue <ArrowRight weight="bold" /></a>
             </div>
+            <a className="category-heading-cta" href="#catalogue">Explorer tout le catalogue <ArrowRight weight="bold" /></a>
+          </div>
+          <div className="category-grid">
             {catalogueCategories.map((item, index) => (
               <button key={item.name} className={`category-card ${category === item.name ? 'is-active' : ''}`} type="button" onClick={() => chooseCategory(item.name, true)}>
                 <span className="category-card-image"><img src={categoryImages[index]} alt={`Équipements de la famille ${item.name}`} loading="lazy" /></span>
@@ -221,7 +216,6 @@ function Boutique() {
 
           <div className="catalogue-toolbar">
             <label className="shop-search"><MagnifyingGlass weight="bold" /><span className="sr-only">Rechercher un produit</span><input value={query} onChange={(event) => setQuery(event.target.value)} type="search" placeholder="Produit, marque ou usage" /></label>
-            <label className="sort-select"><span className="sr-only">Trier le catalogue</span><select value={sort} onChange={(event) => setSort(event.target.value)}><option value="featured">Sélection ExpertCN</option><option value="name">Nom A-Z</option><option value="brand">Marque</option></select><CaretDown weight="bold" /></label>
             <button className="filters-toggle" type="button" onClick={() => setFiltersOpen((open) => !open)}><FunnelSimple weight="bold" /> Filtres <CaretDown weight="bold" /></button>
             <span className="result-count">{resultLabel}</span>
           </div>

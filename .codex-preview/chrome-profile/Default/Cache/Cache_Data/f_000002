@@ -1,0 +1,254 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/contact.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=c8e5e647"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=c8e5e647"; const React = __vite__cjsImport3_react.__esModule ? __vite__cjsImport3_react.default : __vite__cjsImport3_react; const useEffect = __vite__cjsImport3_react["useEffect"];
+import __vite__cjsImport4_reactDom_client from "/node_modules/.vite/deps/react-dom_client.js?v=c8e5e647"; const createRoot = __vite__cjsImport4_reactDom_client["createRoot"];
+import "/node_modules/@fontsource-variable/outfit/index.css";
+import { EnvelopeSimple, MapPin, Phone } from "/node_modules/.vite/deps/@phosphor-icons_react.js?v=c8e5e647";
+import { ContactForm } from "/src/contact-shared.jsx";
+import { products } from "/src/catalogue.generated.js";
+import { formationBySlug } from "/src/formation-data.js";
+import { SiteFooter, SiteHeader, useRequestList } from "/src/shop-shared.jsx";
+import "/src/contact.css";
+function ContactPage() {
+  _s();
+  const params = new URLSearchParams(window.location.search);
+  const subject = params.get("sujet") || "";
+  const formation = params.get("formation");
+  const product = params.get("produit");
+  const formationName = formationBySlug.get(formation)?.title;
+  const productName = products.find((item) => item.slug === product)?.name;
+  const context = formationName ? `la formation « ${formationName} »` : productName ? `le produit « ${productName} »` : "";
+  const { requestItems, removeRequestItem, clearRequestItems } = useRequestList();
+  useEffect(() => {
+    document.title = "Contact | ExpertCN";
+  }, []);
+  useEffect(() => {
+    if (window.location.hash !== "#contact-form") return void 0;
+    const frame = window.requestAnimationFrame(() => document.querySelector("#contact-form")?.scrollIntoView({ block: "start" }));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+  return /* @__PURE__ */ jsxDEV("div", { className: "shop-page contact-page", children: [
+    /* @__PURE__ */ jsxDEV(SiteHeader, { active: "contact", requestItems, onRemoveCartItem: removeRequestItem, onClearCart: clearRequestItems }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+      lineNumber: 52,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("main", { children: [
+      /* @__PURE__ */ jsxDEV("section", { className: "contact-hero", children: [
+        /* @__PURE__ */ jsxDEV("img", { className: "contact-hero-media", src: "/images/contact/contact-hero.png", alt: "Technicien ExpertCN présentant des équipements fibre optique à un client", fetchPriority: "high" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+          lineNumber: 55,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "contact-hero-copy", children: [
+          /* @__PURE__ */ jsxDEV("p", { children: "Contact ExpertCN" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 57,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("h1", { children: "Parlons de votre projet." }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 58,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Équipement, maintenance ou formation : décrivez votre besoin et notre équipe vous orientera vers la bonne solution." }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 59,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+          lineNumber: 56,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("aside", { children: [
+          /* @__PURE__ */ jsxDEV("a", { href: "tel:+33189624501", children: [
+            /* @__PURE__ */ jsxDEV(Phone, { weight: "duotone" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+              lineNumber: 62,
+              columnNumber: 40
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { children: [
+              /* @__PURE__ */ jsxDEV("small", { children: "Téléphone" }, void 0, false, {
+                fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+                lineNumber: 62,
+                columnNumber: 72
+              }, this),
+              /* @__PURE__ */ jsxDEV("strong", { children: "+33 1 89 62 45 01" }, void 0, false, {
+                fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+                lineNumber: 62,
+                columnNumber: 96
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+              lineNumber: 62,
+              columnNumber: 66
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 62,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("a", { href: "mailto:service.client@expertcn.fr", children: [
+            /* @__PURE__ */ jsxDEV(EnvelopeSimple, { weight: "duotone" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+              lineNumber: 63,
+              columnNumber: 57
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { children: [
+              /* @__PURE__ */ jsxDEV("small", { children: "E-mail" }, void 0, false, {
+                fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+                lineNumber: 63,
+                columnNumber: 98
+              }, this),
+              /* @__PURE__ */ jsxDEV("strong", { children: "service.client@expertcn.fr" }, void 0, false, {
+                fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+                lineNumber: 63,
+                columnNumber: 119
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+              lineNumber: 63,
+              columnNumber: 92
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 63,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("div", { children: [
+            /* @__PURE__ */ jsxDEV(MapPin, { weight: "duotone" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+              lineNumber: 64,
+              columnNumber: 18
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { children: [
+              /* @__PURE__ */ jsxDEV("small", { children: "Zone d’intervention" }, void 0, false, {
+                fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+                lineNumber: 64,
+                columnNumber: 51
+              }, this),
+              /* @__PURE__ */ jsxDEV("strong", { children: "France" }, void 0, false, {
+                fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+                lineNumber: 64,
+                columnNumber: 85
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+              lineNumber: 64,
+              columnNumber: 45
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 64,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+          lineNumber: 61,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+        lineNumber: 54,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("section", { className: "contact-form-section", "aria-labelledby": "contact-form-title", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "contact-form-intro", children: [
+          /* @__PURE__ */ jsxDEV("p", { children: "Votre demande" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 69,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("h2", { id: "contact-form-title", children: "Comment pouvons-nous vous aider ?" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 70,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Les champs marqués d’un astérisque sont obligatoires." }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 71,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("img", { src: "/images/contact/contact-fibre-support.png", alt: "Préparation d’une connexion fibre optique avec un appareil de mesure", loading: "lazy" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+            lineNumber: 72,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+          lineNumber: 68,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(ContactForm, { defaultSubject: subject, context, id: "contact-form" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+          lineNumber: 74,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+        lineNumber: 67,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+      lineNumber: 53,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(SiteFooter, {}, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+      lineNumber: 77,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+    lineNumber: 51,
+    columnNumber: 5
+  }, this);
+}
+_s(ContactPage, "HG9ARkXf9siutN5Cxoqi9NwvTsw=", false, function() {
+  return [useRequestList];
+});
+_c = ContactPage;
+createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(React.StrictMode, { children: /* @__PURE__ */ jsxDEV(ContactPage, {}, void 0, false, {
+  fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+  lineNumber: 82,
+  columnNumber: 70
+}, this) }, void 0, false, {
+  fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx",
+  lineNumber: 82,
+  columnNumber: 52
+}, this));
+var _c;
+$RefreshReg$(_c, "ContactPage");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/contact.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QSxRQUNBLHVCQUFDLGVBQVksZ0JBQWdCZCxTQUFTLFNBQWtCLElBQUcsa0JBQTNEO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBeUU7QUFBQSxXQVAzRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBUUE7QUFBQSxTQXRCRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBdUJBO0FBQUEsSUFDQSx1QkFBQyxnQkFBRDtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBQVc7QUFBQSxPQTFCYjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBMkJBO0FBRUo7QUFBQ04sR0FsRFFELGFBQVc7QUFBQSxVQVU2Q0QsY0FBYztBQUFBO0FBQUEsS0FWdEVDO0FBb0RUVixXQUFXZ0MsU0FBU1MsZUFBZSxNQUFNLENBQUMsRUFBRUMsT0FBTyx1QkFBQyxNQUFNLFlBQU4sRUFBaUIsaUNBQUMsaUJBQUQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxPQUFZLEtBQTlCO0FBQUE7QUFBQTtBQUFBO0FBQUEsT0FBaUMsQ0FBbUI7QUFBQyxJQUFBQztBQUFBLGFBQUFBLElBQUEiLCJuYW1lcyI6WyJSZWFjdCIsInVzZUVmZmVjdCIsImNyZWF0ZVJvb3QiLCJFbnZlbG9wZVNpbXBsZSIsIk1hcFBpbiIsIlBob25lIiwiQ29udGFjdEZvcm0iLCJwcm9kdWN0cyIsImZvcm1hdGlvbkJ5U2x1ZyIsIlNpdGVGb290ZXIiLCJTaXRlSGVhZGVyIiwidXNlUmVxdWVzdExpc3QiLCJDb250YWN0UGFnZSIsIl9zIiwicGFyYW1zIiwiVVJMU2VhcmNoUGFyYW1zIiwid2luZG93IiwibG9jYXRpb24iLCJzZWFyY2giLCJzdWJqZWN0IiwiZ2V0IiwiZm9ybWF0aW9uIiwicHJvZHVjdCIsImZvcm1hdGlvbk5hbWUiLCJ0aXRsZSIsInByb2R1Y3ROYW1lIiwiZmluZCIsIml0ZW0iLCJzbHVnIiwibmFtZSIsImNvbnRleHQiLCJyZXF1ZXN0SXRlbXMiLCJyZW1vdmVSZXF1ZXN0SXRlbSIsImNsZWFyUmVxdWVzdEl0ZW1zIiwiZG9jdW1lbnQiLCJoYXNoIiwidW5kZWZpbmVkIiwiZnJhbWUiLCJyZXF1ZXN0QW5pbWF0aW9uRnJhbWUiLCJxdWVyeVNlbGVjdG9yIiwic2Nyb2xsSW50b1ZpZXciLCJibG9jayIsImNhbmNlbEFuaW1hdGlvbkZyYW1lIiwiZ2V0RWxlbWVudEJ5SWQiLCJyZW5kZXIiLCJfYyJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJjb250YWN0LmpzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QsIHsgdXNlRWZmZWN0IH0gZnJvbSAncmVhY3QnXHJcbmltcG9ydCB7IGNyZWF0ZVJvb3QgfSBmcm9tICdyZWFjdC1kb20vY2xpZW50J1xyXG5pbXBvcnQgJ0Bmb250c291cmNlLXZhcmlhYmxlL291dGZpdCdcclxuaW1wb3J0IHsgRW52ZWxvcGVTaW1wbGUsIE1hcFBpbiwgUGhvbmUgfSBmcm9tICdAcGhvc3Bob3ItaWNvbnMvcmVhY3QnXHJcbmltcG9ydCB7IENvbnRhY3RGb3JtIH0gZnJvbSAnLi9jb250YWN0LXNoYXJlZCdcclxuaW1wb3J0IHsgcHJvZHVjdHMgfSBmcm9tICcuL2NhdGFsb2d1ZS5nZW5lcmF0ZWQnXHJcbmltcG9ydCB7IGZvcm1hdGlvbkJ5U2x1ZyB9IGZyb20gJy4vZm9ybWF0aW9uLWRhdGEnXHJcbmltcG9ydCB7IFNpdGVGb290ZXIsIFNpdGVIZWFkZXIsIHVzZVJlcXVlc3RMaXN0IH0gZnJvbSAnLi9zaG9wLXNoYXJlZCdcclxuaW1wb3J0ICcuL2NvbnRhY3QuY3NzJ1xyXG5cclxuZnVuY3Rpb24gQ29udGFjdFBhZ2UoKSB7XHJcbiAgY29uc3QgcGFyYW1zID0gbmV3IFVSTFNlYXJjaFBhcmFtcyh3aW5kb3cubG9jYXRpb24uc2VhcmNoKVxyXG4gIGNvbnN0IHN1YmplY3QgPSBwYXJhbXMuZ2V0KCdzdWpldCcpIHx8ICcnXHJcbiAgY29uc3QgZm9ybWF0aW9uID0gcGFyYW1zLmdldCgnZm9ybWF0aW9uJylcclxuICBjb25zdCBwcm9kdWN0ID0gcGFyYW1zLmdldCgncHJvZHVpdCcpXHJcbiAgY29uc3QgZm9ybWF0aW9uTmFtZSA9IGZvcm1hdGlvbkJ5U2x1Zy5nZXQoZm9ybWF0aW9uKT8udGl0bGVcclxuICBjb25zdCBwcm9kdWN0TmFtZSA9IHByb2R1Y3RzLmZpbmQoKGl0ZW0pID0+IGl0ZW0uc2x1ZyA9PT0gcHJvZHVjdCk/Lm5hbWVcclxuICBjb25zdCBjb250ZXh0ID0gZm9ybWF0aW9uTmFtZVxyXG4gICAgPyBgbGEgZm9ybWF0aW9uIMKrICR7Zm9ybWF0aW9uTmFtZX0gwrtgXHJcbiAgICA6IHByb2R1Y3ROYW1lID8gYGxlIHByb2R1aXQgwqsgJHtwcm9kdWN0TmFtZX0gwrtgIDogJydcclxuICBjb25zdCB7IHJlcXVlc3RJdGVtcywgcmVtb3ZlUmVxdWVzdEl0ZW0sIGNsZWFyUmVxdWVzdEl0ZW1zIH0gPSB1c2VSZXF1ZXN0TGlzdCgpXHJcblxyXG4gIHVzZUVmZmVjdCgoKSA9PiB7IGRvY3VtZW50LnRpdGxlID0gJ0NvbnRhY3QgfCBFeHBlcnRDTicgfSwgW10pXHJcblxyXG4gIHVzZUVmZmVjdCgoKSA9PiB7XHJcbiAgICBpZiAod2luZG93LmxvY2F0aW9uLmhhc2ggIT09ICcjY29udGFjdC1mb3JtJykgcmV0dXJuIHVuZGVmaW5lZFxyXG4gICAgY29uc3QgZnJhbWUgPSB3aW5kb3cucmVxdWVzdEFuaW1hdGlvbkZyYW1lKCgpID0+IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJyNjb250YWN0LWZvcm0nKT8uc2Nyb2xsSW50b1ZpZXcoeyBibG9jazogJ3N0YXJ0JyB9KSlcclxuICAgIHJldHVybiAoKSA9PiB3aW5kb3cuY2FuY2VsQW5pbWF0aW9uRnJhbWUoZnJhbWUpXHJcbiAgfSwgW10pXHJcblxyXG4gIHJldHVybiAoXHJcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNob3AtcGFnZSBjb250YWN0LXBhZ2VcIj5cclxuICAgICAgPFNpdGVIZWFkZXIgYWN0aXZlPVwiY29udGFjdFwiIHJlcXVlc3RJdGVtcz17cmVxdWVzdEl0ZW1zfSBvblJlbW92ZUNhcnRJdGVtPXtyZW1vdmVSZXF1ZXN0SXRlbX0gb25DbGVhckNhcnQ9e2NsZWFyUmVxdWVzdEl0ZW1zfSAvPlxuICAgICAgPG1haW4+XG4gICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cImNvbnRhY3QtaGVyb1wiPlxuICAgICAgICAgIDxpbWcgY2xhc3NOYW1lPVwiY29udGFjdC1oZXJvLW1lZGlhXCIgc3JjPVwiL2ltYWdlcy9jb250YWN0L2NvbnRhY3QtaGVyby5wbmdcIiBhbHQ9XCJUZWNobmljaWVuIEV4cGVydENOIHByw6lzZW50YW50IGRlcyDDqXF1aXBlbWVudHMgZmlicmUgb3B0aXF1ZSDDoCB1biBjbGllbnRcIiBmZXRjaFByaW9yaXR5PVwiaGlnaFwiIC8+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWN0LWhlcm8tY29weVwiPlxuICAgICAgICAgICAgPHA+Q29udGFjdCBFeHBlcnRDTjwvcD5cbiAgICAgICAgICAgIDxoMT5QYXJsb25zIGRlIHZvdHJlIHByb2pldC48L2gxPlxuICAgICAgICAgICAgPHNwYW4+w4lxdWlwZW1lbnQsIG1haW50ZW5hbmNlIG91IGZvcm1hdGlvbiA6IGTDqWNyaXZleiB2b3RyZSBiZXNvaW4gZXQgbm90cmUgw6lxdWlwZSB2b3VzIG9yaWVudGVyYSB2ZXJzIGxhIGJvbm5lIHNvbHV0aW9uLjwvc3Bhbj5cclxuICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgPGFzaWRlPlxyXG4gICAgICAgICAgICA8YSBocmVmPVwidGVsOiszMzE4OTYyNDUwMVwiPjxQaG9uZSB3ZWlnaHQ9XCJkdW90b25lXCIgLz48c3Bhbj48c21hbGw+VMOpbMOpcGhvbmU8L3NtYWxsPjxzdHJvbmc+KzMzIDEgODkgNjIgNDUgMDE8L3N0cm9uZz48L3NwYW4+PC9hPlxyXG4gICAgICAgICAgICA8YSBocmVmPVwibWFpbHRvOnNlcnZpY2UuY2xpZW50QGV4cGVydGNuLmZyXCI+PEVudmVsb3BlU2ltcGxlIHdlaWdodD1cImR1b3RvbmVcIiAvPjxzcGFuPjxzbWFsbD5FLW1haWw8L3NtYWxsPjxzdHJvbmc+c2VydmljZS5jbGllbnRAZXhwZXJ0Y24uZnI8L3N0cm9uZz48L3NwYW4+PC9hPlxyXG4gICAgICAgICAgICA8ZGl2PjxNYXBQaW4gd2VpZ2h0PVwiZHVvdG9uZVwiIC8+PHNwYW4+PHNtYWxsPlpvbmUgZOKAmWludGVydmVudGlvbjwvc21hbGw+PHN0cm9uZz5GcmFuY2U8L3N0cm9uZz48L3NwYW4+PC9kaXY+XHJcbiAgICAgICAgICA8L2FzaWRlPlxyXG4gICAgICAgIDwvc2VjdGlvbj5cclxuICAgICAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJjb250YWN0LWZvcm0tc2VjdGlvblwiIGFyaWEtbGFiZWxsZWRieT1cImNvbnRhY3QtZm9ybS10aXRsZVwiPlxyXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWN0LWZvcm0taW50cm9cIj5cclxuICAgICAgICAgICAgPHA+Vm90cmUgZGVtYW5kZTwvcD5cclxuICAgICAgICAgICAgPGgyIGlkPVwiY29udGFjdC1mb3JtLXRpdGxlXCI+Q29tbWVudCBwb3V2b25zLW5vdXMgdm91cyBhaWRlciA/PC9oMj5cbiAgICAgICAgICAgIDxzcGFuPkxlcyBjaGFtcHMgbWFycXXDqXMgZOKAmXVuIGFzdMOpcmlzcXVlIHNvbnQgb2JsaWdhdG9pcmVzLjwvc3Bhbj5cbiAgICAgICAgICAgIDxpbWcgc3JjPVwiL2ltYWdlcy9jb250YWN0L2NvbnRhY3QtZmlicmUtc3VwcG9ydC5wbmdcIiBhbHQ9XCJQcsOpcGFyYXRpb24gZOKAmXVuZSBjb25uZXhpb24gZmlicmUgb3B0aXF1ZSBhdmVjIHVuIGFwcGFyZWlsIGRlIG1lc3VyZVwiIGxvYWRpbmc9XCJsYXp5XCIgLz5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8Q29udGFjdEZvcm0gZGVmYXVsdFN1YmplY3Q9e3N1YmplY3R9IGNvbnRleHQ9e2NvbnRleHR9IGlkPVwiY29udGFjdC1mb3JtXCIgLz5cclxuICAgICAgICA8L3NlY3Rpb24+XHJcbiAgICAgIDwvbWFpbj5cclxuICAgICAgPFNpdGVGb290ZXIgLz5cclxuICAgIDwvZGl2PlxyXG4gIClcclxufVxyXG5cclxuY3JlYXRlUm9vdChkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncm9vdCcpKS5yZW5kZXIoPFJlYWN0LlN0cmljdE1vZGU+PENvbnRhY3RQYWdlIC8+PC9SZWFjdC5TdHJpY3RNb2RlPilcclxuIl0sImZpbGUiOiJDOi9Vc2Vycy9OYXNzaW0vRG9jdW1lbnRzL0NvZGV4LzIwMjYtMDgtMjkvZ2l0aHViLXBsdWdpbi1naXRodWItb3BlbmFpLWN1cmF0ZWQtcmVtb3RlL2V4cGVydGNuL3NyYy9jb250YWN0LmpzeCJ9

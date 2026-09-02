@@ -38,6 +38,7 @@ const subcategoryCopy = {
   Switches: 'Commutation industrielle pour environnements exigeants.',
   OLT: 'Infrastructure d’accès PON pour déploiements opérateurs et entreprises.',
   'Modules optiques': 'Modules compatibles pour interconnexions multi-constructeurs.',
+  'Chargeur alimentation': 'Modules d’alimentation adaptés aux équipements actifs Raisecom.',
   Recharges: 'Recharges disponibles en plusieurs longueurs.',
   'Aiguilles de tirage': 'Aiguilles adaptées aux différentes longueurs de parcours.',
   'Accessoires de tirage': 'Accessoires dédiés au guidage et à la préparation du tirage.',
@@ -201,8 +202,8 @@ const allProducts = rows.map((row) => {
   const product = {
     name,
     brand: cleanCell(brand) || 'ExpertCN',
-    category,
-    subcategory: subcategory || 'Équipements spécialisés',
+    category: category === 'Accessoires' && subcategory === 'Alimentation' ? 'Équipements Actifs' : category,
+    subcategory: category === 'Accessoires' && subcategory === 'Alimentation' ? 'Chargeur alimentation' : (subcategory || 'Équipements spécialisés'),
     sku: cleanCell(sku) || null,
     description: publicText(cleanCell(shortDescription) || tidyNote(cleanCell(notes)) || subcategoryCopy[subcategory] || categoryCopy[category]),
     status,

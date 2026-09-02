@@ -13,11 +13,6 @@
   --chrome-radius: 16px;
 }
 
-/* The new visual language separates surfaces with depth and tone, not outlines. */
-body * {
-  border-color: transparent !important;
-}
-
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -167,7 +162,7 @@ body * {
 }
 .nav-menu-group:hover .mega-menu,
 .nav-menu-group:focus-within .mega-menu { visibility: visible; opacity: 1; transform: translate(-50%, 0); }
-.mega-menu-intro { min-height: 220px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; border-radius: 13px; color: #ecf4f6; background: var(--chrome-navy); }
+.mega-menu-intro { min-height: 220px; padding: 24px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; border-radius: 13px; color: #ecf4f6; background: linear-gradient(180deg, rgba(7,29,48,.58), rgba(7,29,48,.96)), url('/images/shop/shop-hero.jpg') center / cover no-repeat; }
 .mega-menu-intro span { margin-bottom: auto; color: #7ed4ce; font-size: .68rem; font-weight: 720; letter-spacing: .1em; text-transform: uppercase; }
 .mega-menu-intro strong { max-width: 19ch; font-size: 1.35rem; line-height: 1.08; font-weight: 580; white-space: normal; }
 .mega-menu-intro a { margin-top: 20px; display: inline-flex; align-items: center; gap: 7px; color: #8bddcf; font-size: .8rem; font-weight: 680; }

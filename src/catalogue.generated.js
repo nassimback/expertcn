@@ -42,14 +42,8 @@ export const catalogueCategories = [
     "description": "Déployez les accès, la commutation et les infrastructures PON professionnelles.",
     "subcategories": [
       "Modules optiques",
-      "CPE"
-    ]
-  },
-  {
-    "name": "Accessoires",
-    "description": "Alimentez vos équipements Raisecom avec des modules adaptés aux environnements réseau et télécom.",
-    "subcategories": [
-      "Alimentation"
+      "CPE",
+      "Chargeur alimentation"
     ]
   },
   {
@@ -2495,8 +2489,8 @@ export const products = [
   {
     "name": "Boitier d'alimentation RPA0362-SI-220S12",
     "brand": "Raisecom",
-    "category": "Accessoires",
-    "subcategory": "Alimentation",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
     "sku": null,
     "description": "Module d'alimentation AC 220V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Garantit une alimentation stable pour vos équipements réseau en environnement standard.",
     "status": "À ajouter",
@@ -2516,8 +2510,8 @@ export const products = [
   {
     "name": "Boitier d'alimentation RPD0362-SI-48S12",
     "brand": "Raisecom",
-    "category": "Accessoires",
-    "subcategory": "Alimentation",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
     "sku": null,
     "description": "Module d'alimentation DC -48V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Conçu pour les installations télécoms alimentées en courant continu (baies, sites opérateurs).",
     "status": "À ajouter",
@@ -2537,8 +2531,8 @@ export const products = [
   {
     "name": "Boitier d'alimentation RPA0602-SI-220S12",
     "brand": "Raisecom",
-    "category": "Accessoires",
-    "subcategory": "Alimentation",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
     "sku": null,
     "description": "Module d'alimentation AC 220V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Assure une alimentation fiable pour vos infrastructures réseau à débit 10 Gigabit.",
     "status": "À ajouter",
@@ -2558,8 +2552,8 @@ export const products = [
   {
     "name": "Boitier d'alimentation RPD0602-SI-48S12",
     "brand": "Raisecom",
-    "category": "Accessoires",
-    "subcategory": "Alimentation",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
     "sku": null,
     "description": "Module d'alimentation DC -48V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Compatible baies télécoms -48V pour environnements opérateurs.",
     "status": "À ajouter",
@@ -2579,8 +2573,8 @@ export const products = [
   {
     "name": "Boitier d'alimentation RPD1241-220S12",
     "brand": "Raisecom",
-    "category": "Accessoires",
-    "subcategory": "Alimentation",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
     "sku": null,
     "description": "Module d'alimentation AC 220V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Haute puissance dédiée aux infrastructures cœur de réseau exigeantes.",
     "status": "À ajouter",
@@ -2600,8 +2594,8 @@ export const products = [
   {
     "name": "Boitier d'alimentation RPD1241-48S12",
     "brand": "Raisecom",
-    "category": "Accessoires",
-    "subcategory": "Alimentation",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
     "sku": null,
     "description": "Module d'alimentation DC -48V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Solution haute puissance pour sites télécoms alimentés en courant continu.",
     "status": "À ajouter",
