@@ -138,10 +138,6 @@ function Boutique() {
       <SiteHeader active="boutique" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
 
       <main>
-        <header className="shop-hero shop-hero-compact" aria-labelledby="shop-hero-title">
-          <h1 id="shop-hero-title">Boutique ExpertCN</h1>
-        </header>
-
         <section className="shop-catalogue" id="catalogue">
           <div className="catalogue-heading">
             <p className="shop-eyebrow">Catalogue ExpertCN</p>
