@@ -43,6 +43,7 @@ export const catalogueCategories = [
     "subcategories": [
       "Modules optiques",
       "CPE",
+      "Switches industriels",
       "Chargeur alimentation"
     ]
   },
@@ -2640,10 +2641,32 @@ if (aiguilleDeTirage) {
     name: 'Aiguille de tirage',
     type: 'Variable',
     image,
-    gallery: [image],
+    gallery: [
+      image,
+      '/images/shop/official/aiguille-de-tirage-30m/01-aiguilles-30m-b9ffebb5.webp',
+      '/images/shop/official/aiguille-de-tirage-60m-4-5mm/01-31-fcc39fbb.png',
+      '/images/shop/official/aiguille-de-tirage-100m-6-7mm/01-32-e7e74de6.png',
+      '/images/shop/official/aiguille-de-tirage-150m-9mm/01-33-afb54a61.png',
+      '/images/shop/official/aiguille-de-tirage-300m-11mm/01-30-bdd1a820.png',
+    ],
     description: 'Aiguille de tirage fibre optique, disponible en plusieurs longueurs avec diamètre associé (30 à 300 m).',
     longDescription: ['Cette aiguille de tirage fibre optique est proposée en plusieurs longueurs, chacune associée à un diamètre spécifique (60 m/4,5 mm, 100 m/6-7 mm, 150 m/9 mm, 300 m/11 mm ; diamètre du 30 m à confirmer), sous forme d’une page produit à variations. Elle sert à tirer les câbles dans les fourreaux lors des opérations d’installation. Seules les combinaisons longueur/diamètre réellement commercialisées sont proposées à la sélection.'],
+    options: [{
+      name: 'Longueur / diamètre',
+      values: ['30M — diamètre à confirmer', '60M — 4.5MM', '100M — 6-7MM', '150M — 9MM', '300M — 11MM'],
+    }],
   })
+}
+
+const individualAiguilleSlugs = new Set([
+  'aiguille-de-tirage-30m',
+  'aiguille-de-tirage-60m-4-5mm',
+  'aiguille-de-tirage-100m-6-7mm',
+  'aiguille-de-tirage-150m-9mm',
+  'aiguille-de-tirage-300m-11mm',
+])
+for (let index = products.length - 1; index >= 0; index -= 1) {
+  if (individualAiguilleSlugs.has(products[index].slug)) products.splice(index, 1)
 }
 
 export const pendingProducts = []

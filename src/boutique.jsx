@@ -138,23 +138,9 @@ function Boutique() {
       <SiteHeader active="boutique" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
 
       <main>
-        <section className="shop-hero" aria-labelledby="shop-hero-title">
-          <div className="shop-hero-copy">
-            <p className="shop-eyebrow">Boutique ExpertCN</p>
-            <h1 id="shop-hero-title">Le matériel qui fait avancer vos chantiers.</h1>
-            <p>Mesurez, raccordez, équipez et sécurisez vos réseaux avec une sélection pensée pour les usages professionnels.</p>
-            <a className="shop-primary-link" href="#catalogue">Explorer les références <ArrowDown weight="bold" /></a>
-            <dl className="shop-hero-facts">
-              <div><dt>{products.length}</dt><dd>références</dd></div>
-              <div><dt>{catalogueCategories.length}</dt><dd>univers métiers</dd></div>
-              <div><dt>Expert</dt><dd>conseil technique</dd></div>
-            </dl>
-          </div>
-          <div className="shop-hero-media">
-            <img src="/images/shop/shop-hero.jpg" alt="Équipements professionnels de mesure et de raccordement fibre optique" fetchPriority="high" />
-            <div className="shop-hero-caption"><span>Catalogue professionnel</span><strong>Une sélection construite sur les usages terrain.</strong></div>
-          </div>
-        </section>
+        <header className="shop-hero shop-hero-compact" aria-labelledby="shop-hero-title">
+          <h1 id="shop-hero-title">Boutique ExpertCN</h1>
+        </header>
 
         <section className="shop-catalogue" id="catalogue">
           <div className="catalogue-heading">
