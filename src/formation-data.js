@@ -147,9 +147,72 @@ const courses = [
   ['Habilitations Électriques', 'AIPR Opérateur', 'aipr-operateur', 'Appliquer les règles de sécurité lors des travaux à proximité des réseaux.'],
 ]
 
+export const formationProgramDocuments = [
+  'AIPR CONCEPTEUR.pdf',
+  'AIPR ENCADRANT.pdf',
+  'AIPR OPÉRATEUR.pdf',
+  'B2V - BR - BC.pdf',
+  'CÂBLEUR RACCORDEUR D3.pdf',
+  'Caces R486.pdf',
+  'CQP APS GE.pdf',
+  'ELECTRICIEN DU BÂTIMENT.pdf',
+  'H0B0.pdf',
+  'IRVE P1.pdf',
+  'IRVE P2.pdf',
+  'IRVE P3.pdf',
+  'Mac APS.pdf',
+  'MAC SST.pdf',
+  'MAINTANCE ET CONTRÔLE DES RÉSEAUX FIBRE OPTIQUES.pdf',
+  'MESUREUR PMD  CD.pdf',
+  'Quali PV 36 - électricité - RGE.pdf',
+  'Quali PV 500 - électricité - RGE.pdf',
+  'Quali PV bâtiment.pdf',
+  'Qualipac - Pompes à chaleur - RGE.pdf',
+  'Réflectométrie Terrain.pdf',
+  'RÉFLECTOMÉTRIE.pdf',
+  'Sensibilisation aux risques.pdf',
+  'SSIAP 1.pdf',
+  'SSIAP 2.pdf',
+  'SSIAP 3.pdf',
+  'SST.pdf',
+  'TECHNICIEN FTTH.pdf',
+  'TECHNICIEN FTTO.pdf',
+  'TITRE TFP APS.pdf',
+].map((fileName) => ({
+  fileName,
+  title: fileName.replace(/\.pdf$/i, ''),
+  href: `/programmes/${fileName}`,
+}))
+
+const programFilesByCourse = {
+  'technicien-ftto': ['TECHNICIEN FTTO.pdf'],
+  'technicien-ftth-d3': ['TECHNICIEN FTTH.pdf', 'CÂBLEUR RACCORDEUR D3.pdf'],
+  'technicien-maintenance-reseau-fibre-optique': ['MAINTANCE ET CONTRÔLE DES RÉSEAUX FIBRE OPTIQUES.pdf'],
+  'electricien-du-batiment': ['ELECTRICIEN DU BÂTIMENT.pdf'],
+  'installateur-irve-p1-p2-p3': ['IRVE P1.pdf', 'IRVE P2.pdf', 'IRVE P3.pdf'],
+  'mesureur-pmd-cd': ['MESUREUR PMD  CD.pdf'],
+  'qualipac-pompes-a-chaleur-rge': ['Qualipac - Pompes à chaleur - RGE.pdf'],
+  'qualipv-500-electricite': ['Quali PV 500 - électricité - RGE.pdf'],
+  'qualipv-36-electricite': ['Quali PV 36 - électricité - RGE.pdf'],
+  'qualipv-batiment': ['Quali PV bâtiment.pdf'],
+  'ssiap-1': ['SSIAP 1.pdf'],
+  'ssiap-2': ['SSIAP 2.pdf'],
+  'ssiap-3': ['SSIAP 3.pdf'],
+  'tfp-aps': ['TITRE TFP APS.pdf'],
+  'cqp-aps-ge': ['CQP APS GE.pdf'],
+  sst: ['SST.pdf'],
+  'mac-sst': ['MAC SST.pdf'],
+  h0b0: ['H0B0.pdf'],
+  'b2v-br-bc': ['B2V - BR - BC.pdf'],
+  'aipr-concepteur': ['AIPR CONCEPTEUR.pdf'],
+  'aipr-encadrant': ['AIPR ENCADRANT.pdf'],
+  'aipr-operateur': ['AIPR OPÉRATEUR.pdf'],
+}
+
 function buildCourse([categoryName, title, slug, summary]) {
   const category = categoryDefinitions.find((item) => item.name === categoryName)
   const isIrve = slug === 'installateur-irve-p1-p2-p3'
+  const programPdfs = (programFilesByCourse[slug] || []).map((fileName) => formationProgramDocuments.find((document) => document.fileName === fileName))
   return {
     title,
     slug,
@@ -197,7 +260,8 @@ function buildCourse([categoryName, title, slug, summary]) {
       },
     ],
     finalEvaluation: category.defaults.evaluation,
-    programPdf: null,
+    programPdf: programPdfs[0]?.href || null,
+    programPdfs,
     faq: [
       { question: 'Comment valider mon inscription ?', answer: 'Un conseiller vérifie vos objectifs, vos prérequis et les prochaines dates avant de confirmer la session.' },
       { question: 'Cette formation peut-elle être financée ?', answer: 'Les possibilités dépendent de votre statut et du parcours. Notre équipe vous aide à identifier les dispositifs mobilisables.' },

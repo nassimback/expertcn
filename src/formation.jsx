@@ -161,9 +161,9 @@ function FormationPage() {
             <FileText weight="duotone" />
             <span>Programme détaillé</span>
             <h2>Conservez toutes les informations de la formation.</h2>
-            <p>Le programme PDF spécifique sera disponible dès son ajout à la fiche média de cette formation.</p>
-            {formation.programPdf
-              ? <a href={formation.programPdf} download><DownloadSimple weight="bold" /> Télécharger le programme</a>
+            <p>{formation.programPdfs?.length ? 'Téléchargez le programme détaillé et retrouvez les objectifs, prérequis et modalités du parcours.' : 'Le programme PDF spécifique sera disponible dès son ajout à la fiche média de cette formation.'}</p>
+            {formation.programPdfs?.length
+              ? <div className="formation-download-links">{formation.programPdfs.map((program) => <a href={program.href} download key={program.fileName}><DownloadSimple weight="bold" /> {formation.programPdfs.length > 1 ? program.title : 'Télécharger le programme'}</a>)}</div>
               : <button type="button" disabled><DownloadSimple weight="bold" /> Programme en préparation</button>}
           </div>
         </section>

@@ -2172,25 +2172,6 @@ export const products = [
     "options": []
   },
   {
-    "name": "Analyseur de canaux DWDM VeEX FX92",
-    "brand": "VeEX",
-    "category": "Tests et mesures",
-    "subcategory": "Analyseurs de spectre (OCC)",
-    "sku": null,
-    "description": "Analyseur de canaux optiques DWDM VeEX FX92 pour le contrôle des réseaux à multiplexage dense en longueur d'onde.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/products/veex-fx92-analyseur-dwdm.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/analyseur-de-canaux-dwdm-veex-fx92/",
-    "slug": "analyseur-de-canaux-dwdm-veex-fx92",
-    "longDescription": [
-      "Analyseur de canaux optiques DWDM VeEX FX92 pour le contrôle des réseaux à multiplexage dense en longueur d'onde.",
-      "Le FX92 de VeEX est un analyseur de canaux optiques (OCC) dédié aux réseaux DWDM, permettant de visualiser et de mesurer la présence, la puissance et la longueur d'onde des canaux multiplexés. Il aide les opérateurs à valider la mise en service et à surveiller les infrastructures de transport optique à haute densité. Portable et adapté au terrain, il simplifie une mesure habituellement réservée aux analyseurs de spectre de laboratoire. Nombre de canaux et plages de mesure à confirmer sur la fiche fabricant."
-    ],
-    "options": []
-  },
-  {
     "name": "Analyseur de canaux xWDM VeEX FX182",
     "brand": "VeEX",
     "category": "Tests et mesures",
@@ -2361,44 +2342,6 @@ export const products = [
     ]
   },
   {
-    "name": "Soudeuse Sumitomo Q102-CA+ Quantum",
-    "brand": "Sumitomo",
-    "category": "Soudeuses fibre optique",
-    "subcategory": "Soudeuses",
-    "sku": null,
-    "description": "Soudeuse à alignement de cœur Sumitomo Q102-CA+ Quantum : soudure 5 s, chauffe 9 s, technologie NanoTune.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/products/sumitomo-q102-ca-plus-quantum-soudeuse.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-q102-ca-quantum/",
-    "slug": "soudeuse-sumitomo-q102-ca-quantum",
-    "longDescription": [
-      "Soudeuse à alignement de cœur Sumitomo Q102-CA+ Quantum : soudure 5 s, chauffe 9 s, technologie NanoTune.",
-      "La Q102-CA+ Quantum est la soudeuse phare de Sumitomo à alignement de cœur, conçue pour la productivité maximale : soudure en 5 secondes et chauffe de manchon en 9 secondes grâce à deux fours indépendants, avec ajustement automatique des paramètres par la technologie NanoTune. Elle vise les chantiers FTTH intensifs et les environnements de production où le débit et la faiblesse des pertes sont déterminants. Sa conception durcie et ses services cloud SumiCloud en font un outil haut de gamme pour installateurs et opérateurs. Spécifications complémentaires (autonomie, indices de protection) à confirmer sur la fiche fabricant."
-    ],
-    "options": []
-  },
-  {
-    "name": "Soudeuse Sumitomo Type-82C+",
-    "brand": "Sumitomo",
-    "category": "Soudeuses fibre optique",
-    "subcategory": "Soudeuses",
-    "sku": null,
-    "description": "Soudeuse à alignement de cœur Sumitomo Type-82C+, génération supérieure pour raccordements exigeants.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/products/sumitomo-type-82c-plus-soudeuse.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-type-82c/",
-    "slug": "soudeuse-sumitomo-type-82c",
-    "longDescription": [
-      "Soudeuse à alignement de cœur Sumitomo Type-82C+, génération supérieure pour raccordements exigeants.",
-      "La Type-82C+ de Sumitomo est une soudeuse à alignement de cœur positionnée au-dessus de la T-72C+, destinée aux applications de raccordement les plus exigeantes en précision et en cadence. Elle bénéficie des technologies d'automatisation et de durabilité de la gamme Sumitomo. À vérifier : présence réelle au catalogue ExpertCN. Spécifications détaillées à confirmer sur la fiche fabricant."
-    ],
-    "options": []
-  },
-  {
     "name": "Soudeuse Fujikura 90R (rubans)",
     "brand": "Fujikura",
     "category": "Soudeuses fibre optique",
@@ -2414,25 +2357,6 @@ export const products = [
     "longDescription": [
       "Soudeuse rubans Fujikura 90R pour applications haute densité en datacenter et réseaux Metro.",
       "La Fujikura 90R est une soudeuse pour fibres rubanées (mass fusion) conçue pour les applications à fort compte de fibres, adaptée aux datacenters, campus et réseaux Metro utilisant du câblage haute densité type SpiderWeb Ribbon (SWR). Elle automatise le démarrage de soudure, la chauffe du manchon, la protection contre le vent et le suivi/rotation de lame pour jusqu'à deux cliveuses, libérant du temps opérateur. Ses rainures en V remplaçables sur site prolongent la durée de vie, et son interface graphique s'affiche sur un écran tactile 5 pouces. À vérifier : demande client réelle pour ce produit spécialisé au catalogue ExpertCN."
-    ],
-    "options": []
-  },
-  {
-    "name": "Soudeuse Fujikura 31S+",
-    "brand": "Fujikura",
-    "category": "Soudeuses fibre optique",
-    "subcategory": "Soudeuses",
-    "sku": null,
-    "description": "Soudeuse Fujikura 31S+ d'entrée de gamme à alignement de gaine pour les installations FTTH courantes.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/products/fujikura-31s-plus-soudeuse.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-fujikura-31s/",
-    "slug": "soudeuse-fujikura-31s",
-    "longDescription": [
-      "Soudeuse Fujikura 31S+ d'entrée de gamme à alignement de gaine pour les installations FTTH courantes.",
-      "La Fujikura 31S+ est une soudeuse à alignement de gaine positionnée en entrée de gamme, destinée aux installations et à la maintenance FTTH courantes. Elle reprend la robustesse et l'ergonomie de la série S de Fujikura dans une configuration plus accessible. À vérifier : présence réelle au catalogue ExpertCN et positionnement par rapport à la 41S+ pour éviter tout recouvrement commercial. Spécifications détaillées à confirmer sur la fiche fabricant."
     ],
     "options": []
   },
@@ -2613,6 +2537,114 @@ export const products = [
     "options": []
   }
 ]
+
+const spreadsheetProductUpdates = {
+  'Soudeuse Fujikura 41S+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fujikura-41s-plus-soudeuse.jpg.jpg',
+  'Soudeuse Fujikura 90S+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fujikura-90s-plus-soudeuse.jpg',
+  'Cliveuse Sumitomo FC-8R': 'https://www.expertcn.fr/wp-content/uploads/2026/08/cliveuse_fc_8r.png',
+  'Cliveuse Sumitomo FC-6+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/cliveuse_f6.png',
+  'Soudeuse Sumitomo T-502S': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-502s-soudeuse.jpg',
+  'Soudeuse Sumitomo T-402S': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-402s-soudeuse.jpg.jpg',
+  'Soudeuse Sumitomo T72C+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-72c-plus-soudeuse.jpg.jpg',
+  'Soudeuse Sumitomo T-57C+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-57c-plus-soudeuse.jpg.jpg',
+  'Multimètre optique VeEX FL150 FaultScout': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fl150.png',
+  'Photomètre PON VeEX FX81 / FX81T': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx81.png',
+  'Analyseur de canaux xWDM VeEX FX182': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx182.png',
+  'Analyseur de canaux CWDM VeEX FX180X': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx180x.png',
+  'Mini OTDR VeEX FX160 FiberBEAST': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx160.png',
+  'Soudeuse Fujikura 90R (rubans)': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fujikura-90r-soudeuse-rubans.jpg.jpg',
+  'CPE Ethernet Raisecom RAX711': 'https://www.connectyl.fr/wp-content/uploads/2024/03/40-300x300.png',
+  'CPE Ethernet Raisecom RAX721': 'https://www.connectyl.fr/wp-content/uploads/2024/03/40-300x300.png',
+}
+
+products.forEach((product) => {
+  const image = spreadsheetProductUpdates[product.name]
+  if (!image) return
+  product.image = image
+  product.gallery = [image]
+})
+
+const spreadsheetProductsToAdd = [
+  {
+    name: 'RAX701-GC', brand: 'Raisecom', category: 'Équipements Actifs', subcategory: 'CPE', sku: null,
+    description: 'CPE Ethernet Raisecom RAX701-GC pour les réseaux d’accès et les liaisons professionnelles.', status: 'À ajouter', type: 'Simple',
+    image: '/images/shop/products/raisecom-rax711-r-cpe-ethernet.jpg', imageMode: 'cover', sourceUrl: null, slug: 'raisecom-rax701-gc',
+    longDescription: ['Le RAX701-GC est un CPE Ethernet Raisecom destiné aux réseaux d’accès et aux liaisons professionnelles. Contactez notre équipe pour confirmer la configuration adaptée à votre infrastructure.'], options: [],
+  },
+  {
+    name: 'Switch Raisecom ISCOM S3600(A)', brand: 'Raisecom', category: 'Équipements Actifs', subcategory: 'Switches industriels', sku: null,
+    description: 'Switch Gigabit d’accès Raisecom ISCOM S3600(A) avec 6 uplinks 10G optiques et PoE++ jusqu’à 2920W, pour campus et réseaux d’entreprise.', status: 'À ajouter', type: 'Simple',
+    image: 'https://www.expertcn.fr/wp-content/uploads/2026/08/Switch_ISCOM_S3600A.png', imageMode: 'cover', sourceUrl: null, slug: 'switch-raisecom-iscom-s3600a',
+    longDescription: ['L’ISCOM S3600(A) est un switch Gigabit nouvelle génération signé Raisecom, conçu pour les réseaux d’accès campus et entreprise. Il offre jusqu’à 48 ports GE avec 6 uplinks 10GE optiques sur tous les modèles, une capacité de commutation de 216 Gbit/s et une gestion PoE++ 802.3bt jusqu’à 90W par port. Il intègre la virtualisation intelligente ISF, le routage dynamique IPv4/IPv6, la protection en anneau G.8032 ERPS et le provisionnement zéro-touch.'], options: [],
+  },
+  {
+    name: 'Module SFP 1G SR Newlinks 850nm 500m', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-SR-LCD',
+    description: 'Module SFP 1G SR Newlinks 850nm 500m LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-sr-newlinks-850nm-500m',
+    longDescription: ['Le module SFP 1G SR Newlinks est un émetteur-récepteur optique 1 Gigabit conçu pour les liaisons courte portée jusqu’à 500 mètres en fibre multimode OM2, OM3 ou OM4 à 850 nm. Compatible multi-constructeur et hot-pluggable, il est adapté aux interconnexions intra-datacenter et aux liaisons de courte portée.'], options: [{ name: 'Distance', values: ['500m'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module SFP 1G LR Newlinks 1310nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-LR-LCD-10',
+    description: 'Module SFP 1G LR Newlinks 1310nm 10km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-lr-newlinks-1310nm-10km',
+    longDescription: ['Le module SFP 1G LR Newlinks est un émetteur-récepteur optique 1 Gigabit pour liaisons monomode jusqu’à 10 km à 1310 nm en LC Duplex. Compatible multi-constructeur, il est adapté aux liaisons métropolitaines courtes et aux interconnexions entre bâtiments.'], options: [{ name: 'Distance', values: ['2km', '10km', '20km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module SFP 1G LR Newlinks 1310nm 20km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-LR-LCD-20',
+    description: 'Module SFP 1G LR Newlinks 1310nm 20km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-lr-newlinks-1310nm-20km',
+    longDescription: ['Le module SFP 1G LR Newlinks 20km est un émetteur-récepteur optique 1 Gigabit pour liaisons monomode jusqu’à 20 km à 1310 nm en LC Duplex. Compatible multi-constructeur, il est adapté aux liaisons métropolitaines et inter-sites sur fibre G.652D.'], options: [{ name: 'Distance', values: ['20km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module SFP 1G BX Newlinks 1310/1490nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-BX-LCS-10',
+    description: 'Module SFP 1G BX Newlinks 1310/1490nm 10km LC Simplex WDM, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-bx-newlinks-1310-1490nm-10km',
+    longDescription: ['Le module SFP 1G BX Newlinks est un émetteur-récepteur bidirectionnel WDM permettant une liaison 1 Gigabit sur une seule fibre monomode jusqu’à 10 km, en LC Simplex. Les deux longueurs d’onde distinctes réduisent de moitié le nombre de fibres utilisées.'], options: [{ name: 'Sens', values: ['TX1310/RX1490', 'TX1490/RX1310'] }, { name: 'Distance', values: ['3km', '10km', '20km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module SFP+ 10G SR Newlinks 850nm 300m', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-SR-LCD',
+    description: 'Module SFP+ 10G SR Newlinks 850nm 300m LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-sr-newlinks-850nm-300m',
+    longDescription: ['Le module SFP+ 10G SR Newlinks est un émetteur-récepteur optique 10 Gigabit courte portée jusqu’à 300 m sur fibre multimode OM3 ou OM4 à 850 nm en LC Duplex. Il convient aux interconnexions de switches 10G et aux liaisons intra-datacenter.'], options: [{ name: 'Distance', values: ['300m'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module SFP+ 10G LR Newlinks 1310nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-LR-LCD-10',
+    description: 'Module SFP+ 10G LR Newlinks 1310nm 10km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-lr-newlinks-1310nm-10km',
+    longDescription: ['Le module SFP+ 10G LR Newlinks est un émetteur-récepteur optique 10 Gigabit longue portée jusqu’à 10 km sur fibre monomode G.652D à 1310 nm en LC Duplex. Il est adapté aux uplinks 10G et aux liaisons inter-sites métropolitaines.'], options: [{ name: 'Distance', values: ['2km', '10km', '20km', '60km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module SFP+ 10G ER Newlinks 1310nm 40km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-ER-LCD',
+    description: 'Module SFP+ 10G ER Newlinks 1310nm 40km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-er-newlinks-1310nm-40km',
+    longDescription: ['Le module SFP+ 10G ER Newlinks est un émetteur-récepteur optique 10 Gigabit extended reach jusqu’à 40 km sur fibre monomode G.652D à 1310 nm en LC Duplex. Il est conçu pour les liaisons métropolitaines longue distance et les réseaux de collecte 10G.'], options: [{ name: 'Longueur d’onde', values: ['1310nm', '1550nm'] }, { name: 'Distance', values: ['40km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module SFP+ 10G ZR Newlinks 1550nm 80km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-ZR-LCD',
+    description: 'Module SFP+ 10G ZR Newlinks 1550nm 80km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-zr-newlinks-1550nm-80km',
+    longDescription: ['Le module SFP+ 10G ZR Newlinks est un émetteur-récepteur optique 10 Gigabit très longue portée jusqu’à 80 km sur fibre monomode G.652D à 1550 nm en LC Duplex. Il convient aux liaisons régionales et aux interconnexions inter-datacenters.'], options: [{ name: 'Distance', values: ['80km', '100km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module QSFP28 100G SR Newlinks 850nm 100m MTP/MPO', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-QSFP-100G-SR-MPO',
+    description: 'Module QSFP28 100G SR Newlinks 850nm 100m MTP/MPO, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/QSFP28.png', imageMode: 'cover', sourceUrl: null, slug: 'module-qsfp28-100g-sr-newlinks-850nm-100m-mtp-mpo',
+    longDescription: ['Le module QSFP28 100G SR Newlinks est un émetteur-récepteur optique 100 Gigabit courte portée jusqu’à 100 m sur fibre multimode OM4 à 850 nm via connecteur MTP/MPO. Il est conçu pour les interconnexions intra-datacenter haute densité et les architectures spine-leaf 100G.'], options: [{ name: 'Distance', values: ['100m', '300m'] }, { name: 'Connecteur', values: ['MTP/MPO'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
+  },
+  {
+    name: 'Module QSFP28 100G LR Newlinks 1310nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-QSFP-100G-LR-LCD',
+    description: 'Module QSFP28 100G LR Newlinks 1310nm 10km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/QSFP28.png', imageMode: 'cover', sourceUrl: null, slug: 'module-qsfp28-100g-lr-newlinks-1310nm-10km',
+    longDescription: ['Le module QSFP28 100G LR Newlinks est un émetteur-récepteur optique 100 Gigabit longue portée jusqu’à 10 km sur fibre monomode G.652D à 1310 nm en LC Duplex. Il est adapté aux liaisons 100G inter-bâtiments, aux cœurs de réseau métropolitain et aux datacenters distribués.'], options: [{ name: 'Distance', values: ['500m', '2km', '10km'] }, { name: 'Connecteur', values: ['LC Duplex'] }, { name: 'Grade', values: ['Standard'] }],
+  },
+]
+
+spreadsheetProductsToAdd.forEach((product) => {
+  if (!products.some((existing) => existing.slug === product.slug)) products.push(product)
+})
+
+const aiguilleDeTirage = products.find((product) => product.slug === 'aiguille')
+if (aiguilleDeTirage) {
+  const image = 'https://www.expertcn.fr/wp-content/uploads/2023/10/28-3.png'
+  Object.assign(aiguilleDeTirage, {
+    name: 'Aiguille de tirage',
+    type: 'Variable',
+    image,
+    gallery: [image],
+    description: 'Aiguille de tirage fibre optique, disponible en plusieurs longueurs avec diamètre associé (30 à 300 m).',
+    longDescription: ['Cette aiguille de tirage fibre optique est proposée en plusieurs longueurs, chacune associée à un diamètre spécifique (60 m/4,5 mm, 100 m/6-7 mm, 150 m/9 mm, 300 m/11 mm ; diamètre du 30 m à confirmer), sous forme d’une page produit à variations. Elle sert à tirer les câbles dans les fourreaux lors des opérations d’installation. Seules les combinaisons longueur/diamètre réellement commercialisées sont proposées à la sélection.'],
+  })
+}
 
 export const pendingProducts = []
 

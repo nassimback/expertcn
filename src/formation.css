@@ -114,6 +114,8 @@ img { display: block; max-width: 100%; }
 .formation-download p { max-width: 560px; margin: 20px 0 24px; color: var(--formation-muted); line-height: 1.55; }
 .formation-download a,
 .formation-download button { min-height: 48px; padding: 0 17px; display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 10px; color: #f6fbfb; background: var(--formation-teal); font-weight: 680; }
+.formation-download-links { display: flex; flex-wrap: wrap; gap: 9px; }
+.formation-download-links a { max-width: 100%; line-height: 1.2; }
 .formation-download button:disabled { color: #71838d; background: #dce6e9; cursor: not-allowed; }
 
 .formation-faq > div:last-child { margin-top: 32px; border-top: 1px solid var(--formation-line); }

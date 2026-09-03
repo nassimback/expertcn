@@ -11,8 +11,11 @@ import {
   ClipboardText,
   CurrencyEur,
   Database,
+  DownloadSimple,
+  FileText,
   Gauge,
   GraduationCap,
+  MapPin,
   Package,
   Quotes,
   Target,
@@ -21,7 +24,7 @@ import {
   Wrench,
 } from '@phosphor-icons/react'
 import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
-import { formationCategories, formations } from './formation-data'
+import { formationCategories, formationProgramDocuments, formations } from './formation-data'
 import './service-pages.css'
 
 function ButtonLink({ href, children, secondary = false }) {
@@ -370,6 +373,43 @@ const formationFaq = [
   { question: 'Y a-t-il des prérequis ?', answer: 'Ils varient selon la formation. Un échange préalable permet de vérifier votre niveau et de vous orienter vers le parcours le plus adapté.' },
 ]
 
+const trainingLocations = [
+  { city: 'Lille', region: 'Hauts-de-France', x: 55, y: 15 },
+  { city: 'Paris', region: 'Île-de-France', x: 51, y: 28 },
+  { city: 'Nantes', region: 'Pays de la Loire', x: 31, y: 43 },
+  { city: 'Bordeaux', region: 'Nouvelle-Aquitaine', x: 36, y: 66 },
+  { city: 'Lyon', region: 'Auvergne-Rhône-Alpes', x: 68, y: 59 },
+  { city: 'Marseille', region: 'Provence-Alpes-Côte d’Azur', x: 70, y: 79 },
+]
+
+function TrainingLocations() {
+  return (
+    <section className="service-section training-locations" aria-label="Lieux de formation partenaires en France">
+      <div className="training-locations-copy">
+        <SectionHeading kicker="Près de chez vous" title="Un réseau de partenaires de formation partout en France." text="Repérez les principales zones desservies. Les lieux et les dates dépendent du parcours choisi : notre équipe vous oriente vers la session la plus proche." />
+        <div className="training-location-list">
+          {trainingLocations.map(({ city, region }) => (
+            <div key={city}><MapPin weight="duotone" /><span><strong>{city}</strong><small>{region}</small></span></div>
+          ))}
+        </div>
+        <ButtonLink href="/contact/?sujet=Formation#contact-form">Trouver une formation proche</ButtonLink>
+      </div>
+      <div className="france-training-map" role="img" aria-label="Carte de France indiquant les zones de formation partenaires à Lille, Paris, Nantes, Bordeaux, Lyon et Marseille">
+        <svg className="france-map-shape" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M47 4 61 10 72 20 86 25 82 40 88 52 79 64 77 80 65 91 51 87 39 94 30 82 18 76 20 61 10 50 18 38 17 24 31 17 36 7Z" />
+        </svg>
+        {trainingLocations.map(({ city, x, y }) => (
+          <div className="training-map-pin" style={{ left: `${x}%`, top: `${y}%` }} key={city}>
+            <span aria-hidden="true" />
+            <strong>{city}</strong>
+          </div>
+        ))}
+        <div className="training-map-legend"><MapPin weight="fill" /> Centre partenaire</div>
+      </div>
+    </section>
+  )
+}
+
 function FormationsPage() {
   const requestedCategory = new URLSearchParams(window.location.search).get('categorie')
   const initialCategory = formationCategories.find((category) => category.slug === requestedCategory) || formationCategories[0]
@@ -411,6 +451,21 @@ function FormationsPage() {
               <div>{selectedCategory.courses.map((formation) => <a href={`/formation.html?formation=${formation.slug}`} key={formation.slug}>{formation.title}<ArrowUpRight weight="bold" /></a>)}</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <TrainingLocations />
+
+      <section className="service-section formation-program-library" id="programmes-pdf">
+        <SectionHeading kicker="Documentation" title="Tous les programmes de formation à télécharger." text="Consultez le détail des objectifs, prérequis, durées et modalités avant de choisir votre parcours." />
+        <div className="formation-program-grid">
+          {formationProgramDocuments.map((program) => (
+            <a href={program.href} download key={program.fileName}>
+              <FileText weight="duotone" />
+              <span><strong>{program.title}</strong><small>Programme PDF</small></span>
+              <DownloadSimple weight="bold" />
+            </a>
+          ))}
         </div>
       </section>
 

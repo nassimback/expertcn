@@ -37,6 +37,19 @@ const sitePages = [
   { label: 'Contact', href: '/contact/', type: 'Page' },
 ]
 
+// Keep the first row balanced, then fill the available space underneath it.
+const megaCatalogueLayout = {
+  'Tests et mesures': { order: 1, column: 1 },
+  'Raccordement optique': { order: 2, column: 2 },
+  Consommables: { order: 3, column: 3 },
+  'Équipements Actifs': { order: 4, column: 4 },
+  'Identification de réseau': { order: 5, column: 2 },
+  'Soudeuses fibre optique': { order: 6, column: 3 },
+  'Tirage et sécurité': { order: 7, column: 4 },
+}
+const megaCatalogueCategories = [...catalogueCategories].sort((a, b) => megaCatalogueLayout[a.name].order - megaCatalogueLayout[b.name].order)
+const megaFormationCategories = [...formationCategories].sort((a, b) => b.courses.length - a.courses.length)
+
 function catalogueUrl(category, subcategory = '') {
   const params = new URLSearchParams({ categorie: category })
   if (subcategory) params.set('sous-categorie', subcategory)
@@ -153,8 +166,8 @@ function MaterialMegaMenu() {
         <a href="/boutique/">Voir les {products.length} références <ArrowRight weight="bold" /></a>
       </div>
       <div className="mega-menu-grid">
-        {catalogueCategories.map((category) => (
-          <section key={category.name}>
+        {megaCatalogueCategories.map((category) => (
+          <section key={category.name} style={{ gridColumn: megaCatalogueLayout[category.name].column }}>
             <a className="mega-menu-title" href={catalogueUrl(category.name)}>{category.name}</a>
             <div>
               {category.subcategories.map((subcategory) => (
@@ -177,7 +190,7 @@ function FormationsMegaMenu() {
         <a href="/formations/">Découvrir les formations <ArrowRight weight="bold" /></a>
       </div>
       <div className="mega-menu-grid">
-        {formationCategories.map((category) => (
+        {megaFormationCategories.map((category) => (
           <section key={category.name}>
             <a className="mega-menu-title" href={`/formations/?categorie=${category.slug}`}>{category.name}</a>
             <div>

@@ -35,7 +35,9 @@ function ProductCard({ product, onAdd }) {
         <div className="product-meta"><span>{product.brand}</span><span>{product.subcategory}</span></div>
         <h3><a className="product-title-link" href={`/produit.html?produit=${product.slug}`}>{product.name}</a></h3>
         <p>{product.description}</p>
-        <span className="product-type"><Tag weight="duotone" />{product.type === 'Variable' ? 'Plusieurs variantes' : 'Référence professionnelle'}</span>
+        {product.type === 'Variable' && (
+          <span className="product-type"><Tag weight="duotone" />Plusieurs variantes</span>
+        )}
       </div>
       <div className="product-actions">
         <button type="button" onClick={() => onAdd(product)}><Plus weight="bold" /> Ajouter</button>
@@ -91,6 +93,15 @@ function Boutique() {
   }, [category, subcategory, query])
 
   useEffect(() => setVisibleCount(12), [category, subcategory, query])
+
+  useEffect(() => {
+    if (window.location.hash !== '#catalogue') return
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.querySelector('#catalogue')?.scrollIntoView({ block: 'start' })
+      })
+    })
+  }, [])
 
   useEffect(() => {
     const params = new URLSearchParams()
