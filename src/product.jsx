@@ -45,7 +45,7 @@ function ProductNotFound({ requestItems, notice, removeRequestItem, clearRequest
         <Package weight="duotone" />
         <h1>Ce produit n’est pas disponible.</h1>
         <p>La référence demandée a peut-être changé. Retrouvez toutes les familles dans le catalogue ExpertCN.</p>
-        <a href="/boutique.html"><ArrowLeft weight="bold" /> Retour à la boutique</a>
+        <a href="/boutique/"><ArrowLeft weight="bold" /> Retour à la boutique</a>
       </main>
       <SiteFooter />
       <SiteNotice message={notice} />
@@ -177,7 +177,7 @@ function ProductPage() {
 
       <main>
         <nav className="product-breadcrumb" aria-label="Fil d’Ariane">
-          <a href="/boutique.html"><ArrowLeft weight="bold" /> Boutique</a>
+          <a href="/boutique/"><ArrowLeft weight="bold" /> Boutique</a>
           <span aria-hidden="true">/</span>
           <span>{product.category}</span>
         </nav>

@@ -29,7 +29,8 @@ const accountStorageKey = 'expertcn-account'
 
 const sitePages = [
   { label: 'Accueil ExpertCN', href: '/', type: 'Page' },
-  { label: 'Boutique', href: '/boutique.html', type: 'Page' },
+  { label: 'Matériels', href: '/materiel-telecom-fibre-optique/', type: 'Page' },
+  { label: 'Boutique', href: '/boutique/', type: 'Page' },
   { label: 'Maintenance SAV', href: '/sav/', type: 'Service' },
   { label: 'Formations', href: '/formations/', type: 'Page' },
   { label: 'À propos', href: '/a-propos-de-notre-mission/', type: 'Page' },
@@ -39,7 +40,7 @@ const sitePages = [
 function catalogueUrl(category, subcategory = '') {
   const params = new URLSearchParams({ categorie: category })
   if (subcategory) params.set('sous-categorie', subcategory)
-  return `/boutique.html?${params.toString()}#catalogue`
+  return `/boutique/?${params.toString()}#catalogue`
 }
 
 function formationUrl(slug) {
@@ -109,7 +110,7 @@ function GlobalSearch() {
     event.preventDefault()
     const value = query.trim()
     if (!value) return
-    window.location.href = `/boutique.html?q=${encodeURIComponent(value)}#catalogue`
+    window.location.href = `/boutique/?q=${encodeURIComponent(value)}#catalogue`
   }
 
   return (
@@ -149,7 +150,7 @@ function MaterialMegaMenu() {
       <div className="mega-menu-intro">
         <span>Catalogue technique</span>
         <strong>Une navigation construite sur les usages terrain.</strong>
-        <a href="/boutique.html">Voir les {products.length} références <ArrowRight weight="bold" /></a>
+        <a href="/boutique/">Voir les {products.length} références <ArrowRight weight="bold" /></a>
       </div>
       <div className="mega-menu-grid">
         {catalogueCategories.map((category) => (
@@ -209,7 +210,7 @@ function CartPanel({ items, onRemove, onClear, onClose }) {
             </div>
           </>
         ) : (
-          <div className="chrome-empty-state"><ShoppingBag weight="duotone" /><h3>Votre panier est vide.</h3><p>Ajoutez des références depuis le catalogue pour préparer votre demande.</p><a href="/boutique.html">Explorer la boutique</a></div>
+          <div className="chrome-empty-state"><ShoppingBag weight="duotone" /><h3>Votre panier est vide.</h3><p>Ajoutez des références depuis le catalogue pour préparer votre demande.</p><a href="/boutique/">Explorer la boutique</a></div>
         )}
       </aside>
     </div>,
@@ -317,8 +318,9 @@ export function SiteHeader({
         <ShopBrand />
         <GlobalSearch />
         <nav className="shop-nav" aria-label="Navigation principale">
+          <a className={active === 'material' ? 'is-active' : ''} href="/materiel-telecom-fibre-optique/">Matériels</a>
           <div className="nav-menu-group">
-            <a className={active === 'boutique' ? 'is-active' : ''} href="/boutique.html">Matériels <CaretDown weight="bold" /></a>
+            <a className={active === 'boutique' ? 'is-active' : ''} href="/boutique/">Boutique <CaretDown weight="bold" /></a>
             <MaterialMegaMenu />
           </div>
           <a className={active === 'sav' ? 'is-active' : ''} href="/sav/">SAV</a>
@@ -342,8 +344,8 @@ export function SiteHeader({
       </div>
       {menuOpen && (
         <nav className="shop-mobile-nav" aria-label="Navigation mobile">
-          <a href="/boutique.html">Boutique</a>
-          <details><summary>Matériels <CaretDown /></summary>{catalogueCategories.map((category) => <a href={catalogueUrl(category.name)} key={category.name}>{category.name}</a>)}</details>
+          <a href="/materiel-telecom-fibre-optique/">Matériels</a>
+          <details><summary>Boutique <CaretDown /></summary><a href="/boutique/">Voir toute la boutique</a>{catalogueCategories.map((category) => <a href={catalogueUrl(category.name)} key={category.name}>{category.name}</a>)}</details>
           <a href="/sav/">SAV</a>
           <details><summary>Formations <CaretDown /></summary>{formationCategories.map((category) => <a href={`/formations/?categorie=${category.slug}`} key={category.slug}>{category.name}</a>)}</details>
           <a href="/a-propos-de-notre-mission/">À propos</a>
@@ -366,7 +368,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-main">
         <div className="footer-brand"><ShopBrand /><p>Formons, accompagnons et entretenons avec passion.</p></div>
-        <div className="footer-column"><strong>Expertises</strong><a href="/materiel-telecom-fibre-optique/">Matériels</a><a href="/sav/">SAV</a><a href="/formations/">Formations</a></div>
+        <div className="footer-column"><strong>Expertises</strong><a href="/materiel-telecom-fibre-optique/">Matériels</a><a href="/boutique/">Boutique</a><a href="/sav/">SAV</a><a href="/formations/">Formations</a></div>
         <div className="footer-column"><strong>ExpertCN</strong><a href="/a-propos-de-notre-mission/">À propos</a><a href="/contact/">Contact</a><a href="/a-propos-de-notre-mission/#rse">Engagement RSE</a><a href="/formations/#qualite">Certification Qualiopi</a></div>
         <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33189624501"><Phone weight="duotone" /> +33 1 89 62 45 01</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Nous écrire</a></div>
       </div>

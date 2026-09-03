@@ -22,7 +22,7 @@ const services = [
     title: 'Équipements télécoms',
     text: 'Une sélection professionnelle du passif à l’actif, accompagnée par une expertise technique qui sécurise chaque choix.',
     className: 'service-equipment',
-    href: '/boutique.html',
+    href: '/boutique/',
   },
   {
     icon: Wrench,
@@ -153,7 +153,7 @@ function App() {
               <p className="hero-description">Équipements, maintenance, formation et audit réunis au sein d’un partenaire technique unique.</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="/contact/#contact-form">Nous contacter <ArrowRight weight="bold" /></a>
-                <a className="button button-ghost" href="/boutique.html">Découvrir le catalogue</a>
+                <a className="button button-ghost" href="/boutique/">Découvrir le catalogue</a>
               </div>
             </div>
           </div>

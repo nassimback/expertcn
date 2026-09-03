@@ -312,19 +312,19 @@ const bestSellers = [
 
 function MaterialPage() {
   return (
-    <PageShell active="boutique">
-      <ServiceHero active="material" kicker="Matériel télécom et fibre optique" title="Le bon équipement, bien choisi." description="Une sélection professionnelle pour raccorder, mesurer, identifier et sécuriser vos infrastructures fibre optique." image="/images/shop/shop-hero.jpg" imageAlt="Équipements professionnels pour la fibre optique" primary={{ href: '/boutique.html', label: 'Visiter la boutique' }} secondary={{ href: '#gammes', label: 'Explorer les gammes' }} />
+    <PageShell active="material">
+      <ServiceHero active="material" kicker="Matériel télécom et fibre optique" title="Le bon équipement, bien choisi." description="Une sélection professionnelle pour raccorder, mesurer, identifier et sécuriser vos infrastructures fibre optique." image="/images/shop/shop-hero.jpg" imageAlt="Équipements professionnels pour la fibre optique" primary={{ href: '/boutique/', label: 'Visiter la boutique' }} secondary={{ href: '#gammes', label: 'Explorer les gammes' }} />
       <MetricsBand items={[{ value: '1 000+', label: 'références professionnelles' }, { value: '98 %', label: 'de stock disponible' }, { value: '24 h', label: 'pour les expéditions éligibles' }]} />
 
       <section className="service-section" id="gammes">
         <SectionHeading kicker="Nos gammes" title="Six univers pour équiper vos chantiers de bout en bout." text="Accédez rapidement aux familles de produits les plus utilisées par les équipes télécoms." />
         <div className="range-catalog">
-          <a className="range-feature" href="/boutique.html">
+          <a className="range-feature" href="/boutique/">
             <div className="range-feature-media"><img src={materialCategories[0].image} alt={materialCategories[0].title} /></div>
             <div className="range-feature-copy"><h3>{materialCategories[0].title}</h3><p>{materialCategories[0].description}</p><span>Voir les références <ArrowUpRight weight="bold" /></span></div>
           </a>
           <div className="range-list">
-            {materialCategories.slice(1).map((category) => <a className="range-row" href="/boutique.html" key={category.title}><div className="range-row-media"><img src={category.image} alt={category.title} /></div><div className="range-row-copy"><h3>{category.title}</h3><p>{category.description}</p></div><ArrowUpRight className="range-row-arrow" weight="bold" /></a>)}
+            {materialCategories.slice(1).map((category) => <a className="range-row" href="/boutique/" key={category.title}><div className="range-row-media"><img src={category.image} alt={category.title} /></div><div className="range-row-copy"><h3>{category.title}</h3><p>{category.description}</p></div><ArrowUpRight className="range-row-arrow" weight="bold" /></a>)}
           </div>
         </div>
       </section>
@@ -353,7 +353,7 @@ function MaterialPage() {
 
       <section className="shop-cta">
         <div className="shop-cta-media"><img src="/images/shop/shop-hero.jpg" alt="Sélection d’outils et d’équipements fibre optique" /></div>
-        <div className="shop-cta-copy"><p className="service-kicker">Votre sélection en 30 secondes</p><h2>Décrivez votre chantier. Nous vérifions les références.</h2><p>Compatibilité, stock, délai et alternatives : notre équipe technique vous aide à composer une sélection cohérente.</p><ButtonLink href="/boutique.html">Accéder à la boutique</ButtonLink></div>
+        <div className="shop-cta-copy"><p className="service-kicker">Votre sélection en 30 secondes</p><h2>Décrivez votre chantier. Nous vérifions les références.</h2><p>Compatibilité, stock, délai et alternatives : notre équipe technique vous aide à composer une sélection cohérente.</p><ButtonLink href="/boutique/">Accéder à la boutique</ButtonLink></div>
       </section>
 
       <section className="assurance-row service-section" aria-label="Services associés"><div><CurrencyEur weight="duotone" /><strong>Garantie du meilleur prix</strong><span>Une offre alignée sur votre besoin réel.</span></div><div><Package weight="duotone" /><strong>Retour facilité</strong><span>Une équipe disponible pour vous orienter.</span></div><div><Toolbox weight="duotone" /><strong>Support technique 6 j/7</strong><span>Des réponses par des spécialistes télécoms.</span></div></section>

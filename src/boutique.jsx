@@ -6,17 +6,12 @@ import {
   ArrowRight,
   ArrowUpRight,
   CaretDown,
-  CaretLeft,
-  CaretRight,
-  Check,
   FunnelSimple,
   MagnifyingGlass,
   Package,
   Plus,
   SlidersHorizontal,
-  Sparkle,
   Tag,
-  Wrench,
 } from '@phosphor-icons/react'
 import { catalogueCategories, partnerPage, products } from './catalogue.generated'
 import { getSpellingSuggestions, isExactSearchMatch, isFuzzySearchMatch, normalizeSearchText } from './search-utils'
@@ -28,51 +23,7 @@ const allCategories = [
   ...catalogueCategories.map((category) => ({ ...category, key: category.name })),
 ]
 
-const categoryImages = [
-  '/images/categories/test_et_mesures.jpg',
-  '/images/categories/soudeuses_fibre_optique.jpg',
-  '/images/categories/raccordement_optique.jpg',
-  '/images/categories/equipement_actif.jpg',
-  '/images/categories/tirage_et_securite.jpg',
-  '/images/categories/identification_reseau.jpg',
-  '/images/categories/consommables.jpg',
-]
-
-const campaignSlides = [
-  { image: '/images/veex_px92_banner.png', alt: 'Analyseur PON 10G VeEX PX92', href: '/produit.html?produit=analyseur-pon-veex-px92' },
-  { image: '/images/Veex-2-scaled.webp', alt: 'Gamme professionnelle VeEX pour le test et la mesure télécom', href: '/boutique.html?categorie=Tests+et+mesures#catalogue' },
-  { image: '/images/Ecovadis.png', alt: 'ExpertCN médaille Platinum EcoVadis', href: '/a-propos-de-notre-mission/#rse' },
-  { image: '/images/Banner-raisecom-1.webp', alt: 'Gamme de produits actifs Raisecom', href: '/boutique.html?categorie=%C3%89quipements+Actifs#catalogue' },
-]
-
 const productSearchText = (product) => `${product.name} ${product.brand} ${product.category} ${product.subcategory} ${product.description}`
-
-function CampaignCarousel() {
-  const [current, setCurrent] = useState(0)
-  const [paused, setPaused] = useState(false)
-
-  useEffect(() => {
-    if (paused) return undefined
-    const timer = window.setInterval(() => setCurrent((index) => (index + 1) % campaignSlides.length), 5000)
-    return () => window.clearInterval(timer)
-  }, [paused])
-
-  const goTo = (index) => setCurrent((index + campaignSlides.length) % campaignSlides.length)
-  const slide = campaignSlides[current]
-
-  return (
-    <section className="campaign-carousel" aria-label="Actualités ExpertCN" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <a className="campaign-slide" href={slide.href}>
-        <img src={slide.image} alt={slide.alt} fetchPriority={current === 0 ? 'high' : 'auto'} />
-      </a>
-      <div className="campaign-controls">
-        <button type="button" onClick={() => goTo(current - 1)} aria-label="Bannière précédente"><CaretLeft weight="bold" /></button>
-        <div>{campaignSlides.map((item, index) => <button className={index === current ? 'is-active' : ''} type="button" onClick={() => goTo(index)} aria-label={`Afficher ${item.alt}`} key={item.image} />)}</div>
-        <button type="button" onClick={() => goTo(current + 1)} aria-label="Bannière suivante"><CaretRight weight="bold" /></button>
-      </div>
-    </section>
-  )
-}
 
 function ProductCard({ product, onAdd }) {
   return (
@@ -176,34 +127,21 @@ function Boutique() {
       <SiteHeader active="boutique" requestItems={requestItems} onRemoveCartItem={removeRequestItem} onClearCart={clearRequestItems} />
 
       <main>
-        <CampaignCarousel />
-
-        <section className="shop-assurances" aria-label="Services ExpertCN">
-          <div><Check weight="bold" /><span><strong>Sélection terrain</strong>Des références choisies pour un usage professionnel.</span></div>
-          <div><Wrench weight="duotone" /><span><strong>Maintenance spécialisée</strong>Un SAV qui connaît vos équipements.</span></div>
-          <div><Sparkle weight="duotone" /><span><strong>Conseil technique</strong>Une équipe disponible avant votre choix.</span></div>
-        </section>
-
-        <section className="category-explorer" aria-labelledby="category-title">
-          <div className="category-heading">
-            <div className="category-heading-copy">
-              <p className="category-kicker">Nos univers métiers</p>
-              <h2 id="category-title">Tous vos univers métiers, un seul partenaire.</h2>
-              <p>Accédez directement à chaque univers métier et à ses références techniques.</p>
-            </div>
-            <a className="category-heading-cta" href="#catalogue">Explorer tout le catalogue <ArrowRight weight="bold" /></a>
+        <section className="shop-hero" aria-labelledby="shop-hero-title">
+          <div className="shop-hero-copy">
+            <p className="shop-eyebrow">Boutique ExpertCN</p>
+            <h1 id="shop-hero-title">Le matériel qui fait avancer vos chantiers.</h1>
+            <p>Mesurez, raccordez, équipez et sécurisez vos réseaux avec une sélection pensée pour les usages professionnels.</p>
+            <a className="shop-primary-link" href="#catalogue">Explorer les références <ArrowDown weight="bold" /></a>
+            <dl className="shop-hero-facts">
+              <div><dt>{products.length}</dt><dd>références</dd></div>
+              <div><dt>{catalogueCategories.length}</dt><dd>univers métiers</dd></div>
+              <div><dt>Expert</dt><dd>conseil technique</dd></div>
+            </dl>
           </div>
-          <div className="category-grid">
-            {catalogueCategories.map((item, index) => (
-              <button key={item.name} className={`category-card ${category === item.name ? 'is-active' : ''}`} type="button" onClick={() => chooseCategory(item.name, true)}>
-                <span className="category-card-image"><img src={categoryImages[index]} alt={`Équipements de la famille ${item.name}`} loading="lazy" /></span>
-                <span className="category-card-copy">
-                  <span className="category-card-top"><strong>{item.name}</strong><b>{categoryCount(item.name)}</b></span>
-                  <small>{item.description}</small>
-                  <span className="category-card-action">Voir les produits <ArrowRight weight="bold" /></span>
-                </span>
-              </button>
-            ))}
+          <div className="shop-hero-media">
+            <img src="/images/shop/shop-hero.jpg" alt="Équipements professionnels de mesure et de raccordement fibre optique" fetchPriority="high" />
+            <div className="shop-hero-caption"><span>Catalogue professionnel</span><strong>Une sélection construite sur les usages terrain.</strong></div>
           </div>
         </section>
 

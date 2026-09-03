@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: fileURLToPath(new URL('./index.html', import.meta.url)),
-        boutique: fileURLToPath(new URL('./boutique.html', import.meta.url)),
+        boutique: fileURLToPath(new URL('./boutique/index.html', import.meta.url)),
+        boutiqueLegacy: fileURLToPath(new URL('./boutique.html', import.meta.url)),
         product: fileURLToPath(new URL('./produit.html', import.meta.url)),
         privacy: fileURLToPath(new URL('./politique-de-confidentialite/index.html', import.meta.url)),
         terms: fileURLToPath(new URL('./conditions-generales-dutilisation/index.html', import.meta.url)),
