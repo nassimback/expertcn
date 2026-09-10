@@ -49,6 +49,8 @@
 .product-select.is-pending { border-style: dashed; background: #f0f5f6; }
 .product-select select:disabled { color: #526b78; cursor: not-allowed; opacity: 1; }
 .product-option small { color: #526b78; font-size: .77rem; line-height: 1.45; }
+.product-variation-reference { margin: 18px 0 0; padding: 13px 15px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-radius: 11px; color: #526b78; background: #edf4f4; font-size: .8rem; }
+.product-variation-reference strong { color: var(--shop-navy); font-size: .86rem; font-weight: 720; }
 
 .single-product-actions { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
 .single-product-actions button, .single-product-actions a { min-height: 50px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; font-weight: 720; white-space: nowrap; transition: transform .2s ease, background .2s ease, border-color .2s ease; }

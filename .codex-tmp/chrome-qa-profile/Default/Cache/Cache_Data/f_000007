@@ -1,0 +1,1274 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/shop-shared.jsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=c8e5e647"; const Fragment = __vite__cjsImport0_react_jsxDevRuntime["Fragment"]; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$(), _s2 = $RefreshSig$(), _s3 = $RefreshSig$(), _s4 = $RefreshSig$();
+import __vite__cjsImport3_react from "/node_modules/.vite/deps/react.js?v=c8e5e647"; const React = __vite__cjsImport3_react.__esModule ? __vite__cjsImport3_react.default : __vite__cjsImport3_react; const useEffect = __vite__cjsImport3_react["useEffect"]; const useMemo = __vite__cjsImport3_react["useMemo"]; const useState = __vite__cjsImport3_react["useState"];
+import __vite__cjsImport4_reactDom from "/node_modules/.vite/deps/react-dom.js?v=c8e5e647"; const createPortal = __vite__cjsImport4_reactDom["createPortal"];
+import {
+  ArrowRight,
+  CaretDown,
+  Check,
+  ClockCounterClockwise,
+  EnvelopeSimple,
+  List,
+  MagnifyingGlass,
+  MapPin,
+  Package,
+  Phone,
+  ShoppingBag,
+  SignOut,
+  Trash,
+  Truck,
+  UserCircle,
+  X
+} from "/node_modules/.vite/deps/@phosphor-icons_react.js?v=c8e5e647";
+import { catalogueCategories, products } from "/src/catalogue.generated.js?t=1789042503825";
+import { formationCategories, formations } from "/src/formation-data.js";
+import { rankSearchResults } from "/src/search-utils.js";
+import "/src/site-chrome.css?t=1789040246337";
+const requestStorageKey = "expertcn-cart";
+const legacyRequestStorageKey = "expertcn-request";
+const accountStorageKey = "expertcn-account";
+const sitePages = [
+  { label: "Accueil ExpertCN", href: "/", type: "Page" },
+  { label: "Matériels", href: "/materiel-telecom-fibre-optique/", type: "Page" },
+  { label: "Boutique", href: "/boutique/", type: "Page" },
+  { label: "Maintenance SAV", href: "/sav/", type: "Service" },
+  { label: "Formations", href: "/formations/", type: "Page" },
+  { label: "À propos", href: "/a-propos-de-notre-mission/", type: "Page" },
+  { label: "Contact", href: "/contact/", type: "Page" }
+];
+const megaCatalogueLayout = {
+  "Tests et mesures": { order: 1, column: 1 },
+  "Raccordement optique": { order: 2, column: 2 },
+  Consommables: { order: 3, column: 3 },
+  "Tirage et sécurité": { order: 4, column: 4 },
+  "Équipements Actifs": { order: 5, column: 1 },
+  "Identification de réseau": { order: 6, column: 2 },
+  "Soudeuses fibre optique": { order: 7, column: 3 }
+};
+const megaCatalogueCategories = [...catalogueCategories].sort((a, b) => megaCatalogueLayout[a.name].order - megaCatalogueLayout[b.name].order);
+const megaFormationCategories = [...formationCategories].sort((a, b) => b.courses.length - a.courses.length);
+function catalogueUrl(category, subcategory = "") {
+  const params = new URLSearchParams({ categorie: category });
+  if (subcategory) params.set("sous-categorie", subcategory);
+  return `/boutique/?${params.toString()}#catalogue`;
+}
+function formationUrl(slug) {
+  return `/formation.html?formation=${slug}`;
+}
+export function ShopBrand() {
+  return /* @__PURE__ */ jsxDEV("a", { className: "shop-brand", href: "/", "aria-label": "ExpertCN, accueil", children: /* @__PURE__ */ jsxDEV("img", { src: "/images/expertcn-logo.png", alt: "" }, void 0, false, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 85,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 84,
+    columnNumber: 5
+  }, this);
+}
+_c = ShopBrand;
+export function useRequestList() {
+  _s();
+  const [requestItems, setRequestItems] = useState(() => {
+    try {
+      const savedItems = window.localStorage.getItem(requestStorageKey) || window.localStorage.getItem(legacyRequestStorageKey);
+      return savedItems ? JSON.parse(savedItems) : [];
+    } catch {
+      return [];
+    }
+  });
+  useEffect(() => {
+    window.localStorage.setItem(requestStorageKey, JSON.stringify(requestItems));
+  }, [requestItems]);
+  const addRequestItem = (productName) => {
+    setRequestItems((items) => items.includes(productName) ? items : [...items, productName]);
+  };
+  const removeRequestItem = (productName) => {
+    setRequestItems((items) => items.filter((item) => item !== productName));
+  };
+  const clearRequestItems = () => setRequestItems([]);
+  return { requestItems, addRequestItem, removeRequestItem, clearRequestItems };
+}
+_s(useRequestList, "z4K6zc08rOtbQL+PJ6+ioY7vgMM=");
+function GlobalSearch() {
+  _s2();
+  const [query, setQuery] = useState("");
+  const [focused, setFocused] = useState(false);
+  const suggestions = useMemo(() => {
+    if (query.trim().length < 2) return [];
+    const productResults = rankSearchResults(products, query, (product) => `${product.name} ${product.brand} ${product.category} ${product.subcategory}`, 5).map((product) => ({
+      label: product.name,
+      meta: `${product.brand} · ${product.subcategory}`,
+      href: `/produit.html?produit=${product.slug}`,
+      type: "Produit"
+    }));
+    const formationResults = rankSearchResults(formations, query, (formation) => `${formation.title} ${formation.category}`, 3).map((formation) => ({
+      label: formation.title,
+      meta: formation.category,
+      href: formationUrl(formation.slug),
+      type: "Formation"
+    }));
+    const pageResults = rankSearchResults(sitePages, query, (page) => page.label, 2).map((page) => ({ ...page, meta: page.type }));
+    return [...productResults, ...formationResults, ...pageResults].slice(0, 8);
+  }, [query]);
+  const submitSearch = (event) => {
+    event.preventDefault();
+    const value = query.trim();
+    if (!value) return;
+    window.location.href = `/boutique/?q=${encodeURIComponent(value)}#catalogue`;
+  };
+  return /* @__PURE__ */ jsxDEV("form", { className: "global-search", role: "search", onSubmit: submitSearch, children: [
+    /* @__PURE__ */ jsxDEV("span", { className: "global-search-icon", "aria-hidden": "true", children: /* @__PURE__ */ jsxDEV(MagnifyingGlass, { weight: "bold" }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 150,
+      columnNumber: 63
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 150,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("label", { className: "sr-only", htmlFor: "global-search-input", children: "Rechercher sur le site" }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 151,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      "input",
+      {
+        id: "global-search-input",
+        value: query,
+        onChange: (event) => setQuery(event.target.value),
+        onFocus: () => setFocused(true),
+        onBlur: () => window.setTimeout(() => setFocused(false), 140),
+        placeholder: "Rechercher sur le site…",
+        type: "search",
+        autoComplete: "off"
+      },
+      void 0,
+      false,
+      {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 152,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV("button", { className: "global-search-submit", type: "submit", "aria-label": "Lancer la recherche", children: /* @__PURE__ */ jsxDEV(ArrowRight, { weight: "bold" }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 162,
+      columnNumber: 95
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 162,
+      columnNumber: 7
+    }, this),
+    focused && query.trim().length >= 2 && /* @__PURE__ */ jsxDEV("div", { className: "global-search-results", children: suggestions.length ? suggestions.map(
+      (result) => /* @__PURE__ */ jsxDEV("a", { href: result.href, children: [
+        /* @__PURE__ */ jsxDEV("span", { children: [
+          /* @__PURE__ */ jsxDEV("strong", { children: result.label }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 167,
+            columnNumber: 21
+          }, this),
+          /* @__PURE__ */ jsxDEV("small", { children: result.meta }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 167,
+            columnNumber: 52
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 167,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV("b", { children: result.type }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 168,
+          columnNumber: 15
+        }, this)
+      ] }, `${result.type}-${result.label}`, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 166,
+        columnNumber: 9
+      }, this)
+    ) : /* @__PURE__ */ jsxDEV("div", { className: "global-search-empty", children: "Aucun résultat direct. Appuyez sur Entrée pour chercher dans le catalogue." }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 171,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 164,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 149,
+    columnNumber: 5
+  }, this);
+}
+_s2(GlobalSearch, "C4uxnIBMS0JHGDeZ+UlaTn0Jnfc=");
+_c2 = GlobalSearch;
+function MaterialMegaMenu() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "mega-menu mega-menu-materials", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "mega-menu-intro", children: [
+      /* @__PURE__ */ jsxDEV("span", { children: "Catalogue technique" }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 183,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("strong", { children: "Une navigation construite sur les usages terrain." }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 184,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { href: "/boutique/", children: [
+        "Voir les ",
+        products.length,
+        " références ",
+        /* @__PURE__ */ jsxDEV(ArrowRight, { weight: "bold" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 185,
+          columnNumber: 68
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 185,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 182,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "mega-menu-grid", children: megaCatalogueCategories.map(
+      (category) => /* @__PURE__ */ jsxDEV("section", { style: { gridColumn: megaCatalogueLayout[category.name].column }, children: [
+        /* @__PURE__ */ jsxDEV("a", { className: "mega-menu-title", href: catalogueUrl(category.name), children: category.name }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 190,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { children: category.subcategories.map(
+          (subcategory) => /* @__PURE__ */ jsxDEV("a", { href: catalogueUrl(category.name, subcategory), children: subcategory }, subcategory, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 193,
+            columnNumber: 13
+          }, this)
+        ) }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 191,
+          columnNumber: 13
+        }, this)
+      ] }, category.name, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 189,
+        columnNumber: 9
+      }, this)
+    ) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 187,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 181,
+    columnNumber: 5
+  }, this);
+}
+_c3 = MaterialMegaMenu;
+function FormationsMegaMenu() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "mega-menu mega-menu-formations", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "mega-menu-intro", children: [
+      /* @__PURE__ */ jsxDEV("span", { children: "23 parcours" }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 207,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("strong", { children: "Des formations professionnelles organisées par métier." }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 208,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { href: "/formations/", children: [
+        "Découvrir les formations ",
+        /* @__PURE__ */ jsxDEV(ArrowRight, { weight: "bold" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 209,
+          columnNumber: 57
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 209,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 206,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "mega-menu-grid", children: megaFormationCategories.map(
+      (category) => /* @__PURE__ */ jsxDEV("section", { children: [
+        /* @__PURE__ */ jsxDEV("a", { className: "mega-menu-title", href: `/formations/?categorie=${category.slug}`, children: category.name }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 214,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { children: category.courses.map(
+          (formation) => /* @__PURE__ */ jsxDEV("a", { href: formationUrl(formation.slug), children: formation.title }, formation.slug, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 217,
+            columnNumber: 13
+          }, this)
+        ) }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 215,
+          columnNumber: 13
+        }, this)
+      ] }, category.name, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 213,
+        columnNumber: 9
+      }, this)
+    ) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 211,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 205,
+    columnNumber: 5
+  }, this);
+}
+_c4 = FormationsMegaMenu;
+function CartPanel({ items, onRemove, onClear, onClose }) {
+  return createPortal(
+    /* @__PURE__ */ jsxDEV("div", { className: "chrome-overlay", role: "presentation", onMouseDown: (event) => event.target === event.currentTarget && onClose(), children: /* @__PURE__ */ jsxDEV("aside", { className: "chrome-panel cart-panel", role: "dialog", "aria-modal": "true", "aria-labelledby": "cart-panel-title", children: [
+      /* @__PURE__ */ jsxDEV("header", { children: [
+        /* @__PURE__ */ jsxDEV("div", { children: [
+          /* @__PURE__ */ jsxDEV("span", { children: "Votre sélection" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 231,
+            columnNumber: 22
+          }, this),
+          /* @__PURE__ */ jsxDEV("h2", { id: "cart-panel-title", children: "Mon panier" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 231,
+            columnNumber: 50
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 231,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV("button", { type: "button", onClick: onClose, "aria-label": "Fermer le panier", children: /* @__PURE__ */ jsxDEV(X, {}, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 231,
+          columnNumber: 167
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 231,
+          columnNumber: 97
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 231,
+        columnNumber: 9
+      }, this),
+      items.length ? /* @__PURE__ */ jsxDEV(Fragment, { children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "cart-list", children: items.map(
+          (item) => /* @__PURE__ */ jsxDEV("div", { children: [
+            /* @__PURE__ */ jsxDEV(Package, { weight: "duotone" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 236,
+              columnNumber: 29
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { children: item }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 236,
+              columnNumber: 57
+            }, this),
+            /* @__PURE__ */ jsxDEV("button", { type: "button", onClick: () => onRemove?.(item), "aria-label": `Retirer ${item}`, children: /* @__PURE__ */ jsxDEV(Trash, {}, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 236,
+              columnNumber: 162
+            }, this) }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 236,
+              columnNumber: 76
+            }, this)
+          ] }, item, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 236,
+            columnNumber: 13
+          }, this)
+        ) }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 234,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "cart-panel-actions", children: [
+          /* @__PURE__ */ jsxDEV("a", { href: "/contact/?sujet=Mat%C3%A9riel#contact-form", children: [
+            "Finaliser avec un expert ",
+            /* @__PURE__ */ jsxDEV(ArrowRight, { weight: "bold" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 240,
+              columnNumber: 93
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 240,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV("button", { type: "button", onClick: onClear, children: "Vider le panier" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 241,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 239,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 233,
+        columnNumber: 9
+      }, this) : /* @__PURE__ */ jsxDEV("div", { className: "chrome-empty-state", children: [
+        /* @__PURE__ */ jsxDEV(ShoppingBag, { weight: "duotone" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 245,
+          columnNumber: 45
+        }, this),
+        /* @__PURE__ */ jsxDEV("h3", { children: "Votre panier est vide." }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 245,
+          columnNumber: 77
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: "Ajoutez des références depuis le catalogue pour préparer votre demande." }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 245,
+          columnNumber: 108
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/boutique/", children: "Explorer la boutique" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 245,
+          columnNumber: 186
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 245,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 230,
+      columnNumber: 7
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 229,
+      columnNumber: 5
+    }, this),
+    document.body
+  );
+}
+_c5 = CartPanel;
+function AccountPanel({ onClose }) {
+  _s3();
+  const [account, setAccount] = useState(() => {
+    try {
+      return JSON.parse(window.localStorage.getItem(accountStorageKey) || "null");
+    } catch {
+      return null;
+    }
+  });
+  const [tab, setTab] = useState("current");
+  const [trackingNumber, setTrackingNumber] = useState("");
+  const [trackingStatus, setTrackingStatus] = useState("");
+  const createAccount = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const nextAccount = { name: data.get("name"), email: data.get("email") };
+    window.localStorage.setItem(accountStorageKey, JSON.stringify(nextAccount));
+    setAccount(nextAccount);
+  };
+  const signOut = () => {
+    window.localStorage.removeItem(accountStorageKey);
+    setAccount(null);
+  };
+  const trackOrder = (event) => {
+    event.preventDefault();
+    setTrackingStatus(trackingNumber.trim() ? "Aucune commande locale ne correspond encore à ce numéro." : "Saisissez un numéro de commande.");
+  };
+  return createPortal(
+    /* @__PURE__ */ jsxDEV("div", { className: "chrome-overlay", role: "presentation", onMouseDown: (event) => event.target === event.currentTarget && onClose(), children: /* @__PURE__ */ jsxDEV("section", { className: "chrome-panel account-panel", role: "dialog", "aria-modal": "true", "aria-labelledby": "account-panel-title", children: [
+      /* @__PURE__ */ jsxDEV("header", { children: [
+        /* @__PURE__ */ jsxDEV("div", { children: [
+          /* @__PURE__ */ jsxDEV("span", { children: "Espace client" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 288,
+            columnNumber: 22
+          }, this),
+          /* @__PURE__ */ jsxDEV("h2", { id: "account-panel-title", children: "Mon compte" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 288,
+            columnNumber: 48
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 288,
+          columnNumber: 17
+        }, this),
+        /* @__PURE__ */ jsxDEV("button", { type: "button", onClick: onClose, "aria-label": "Fermer le compte", children: /* @__PURE__ */ jsxDEV(X, {}, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 288,
+          columnNumber: 168
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 288,
+          columnNumber: 98
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 288,
+        columnNumber: 9
+      }, this),
+      !account ? /* @__PURE__ */ jsxDEV("form", { className: "account-create", onSubmit: createAccount, children: [
+        /* @__PURE__ */ jsxDEV("p", { children: "Créez votre espace pour retrouver vos commandes et suivre leur avancement." }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 291,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("label", { children: [
+          /* @__PURE__ */ jsxDEV("span", { children: "Nom complet" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 292,
+            columnNumber: 20
+          }, this),
+          /* @__PURE__ */ jsxDEV("input", { name: "name", required: true, autoComplete: "name" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 292,
+            columnNumber: 44
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 292,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("label", { children: [
+          /* @__PURE__ */ jsxDEV("span", { children: "Adresse e-mail" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 293,
+            columnNumber: 20
+          }, this),
+          /* @__PURE__ */ jsxDEV("input", { name: "email", type: "email", required: true, autoComplete: "email" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 293,
+            columnNumber: 47
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 293,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("label", { children: [
+          /* @__PURE__ */ jsxDEV("span", { children: "Mot de passe" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 294,
+            columnNumber: 20
+          }, this),
+          /* @__PURE__ */ jsxDEV("input", { name: "password", type: "password", minLength: "8", required: true, autoComplete: "new-password" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 294,
+            columnNumber: 45
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 294,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("button", { type: "submit", children: [
+          "Créer mon compte ",
+          /* @__PURE__ */ jsxDEV(ArrowRight, { weight: "bold" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 295,
+            columnNumber: 52
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 295,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("small", { children: "Prototype local : la connexion sécurisée sera reliée au CMS et au système de commandes." }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 296,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 290,
+        columnNumber: 9
+      }, this) : /* @__PURE__ */ jsxDEV("div", { className: "account-dashboard", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "account-welcome", children: [
+          /* @__PURE__ */ jsxDEV("div", { children: [
+            /* @__PURE__ */ jsxDEV("span", { children: "Bonjour" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 300,
+              columnNumber: 51
+            }, this),
+            /* @__PURE__ */ jsxDEV("strong", { children: account.name }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 300,
+              columnNumber: 71
+            }, this),
+            /* @__PURE__ */ jsxDEV("small", { children: account.email }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 300,
+              columnNumber: 102
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 300,
+            columnNumber: 46
+          }, this),
+          /* @__PURE__ */ jsxDEV("button", { type: "button", onClick: signOut, children: [
+            /* @__PURE__ */ jsxDEV(SignOut, {}, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 300,
+              columnNumber: 178
+            }, this),
+            " Déconnexion"
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 300,
+            columnNumber: 138
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 300,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "account-tabs", role: "tablist", "aria-label": "Rubriques du compte", children: [
+          /* @__PURE__ */ jsxDEV("button", { className: tab === "current" ? "is-active" : "", type: "button", onClick: () => setTab("current"), children: [
+            /* @__PURE__ */ jsxDEV(Truck, {}, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 302,
+              columnNumber: 120
+            }, this),
+            " En cours"
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 302,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV("button", { className: tab === "history" ? "is-active" : "", type: "button", onClick: () => setTab("history"), children: [
+            /* @__PURE__ */ jsxDEV(ClockCounterClockwise, {}, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 303,
+              columnNumber: 120
+            }, this),
+            " Historique"
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 303,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV("button", { className: tab === "tracking" ? "is-active" : "", type: "button", onClick: () => setTab("tracking"), children: [
+            /* @__PURE__ */ jsxDEV(Package, {}, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 304,
+              columnNumber: 122
+            }, this),
+            " Suivi"
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 304,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 301,
+          columnNumber: 13
+        }, this),
+        tab === "tracking" ? /* @__PURE__ */ jsxDEV("form", { className: "tracking-form", onSubmit: trackOrder, children: [
+          /* @__PURE__ */ jsxDEV("label", { children: [
+            /* @__PURE__ */ jsxDEV("span", { children: "Numéro de commande" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 308,
+              columnNumber: 24
+            }, this),
+            /* @__PURE__ */ jsxDEV("input", { value: trackingNumber, onChange: (event) => setTrackingNumber(event.target.value), placeholder: "Ex. ECN-2026-00124" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 308,
+              columnNumber: 55
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 308,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV("button", { type: "submit", children: "Suivre la commande" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 309,
+            columnNumber: 17
+          }, this),
+          trackingStatus && /* @__PURE__ */ jsxDEV("p", { role: "status", children: trackingStatus }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 310,
+            columnNumber: 36
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 307,
+          columnNumber: 11
+        }, this) : /* @__PURE__ */ jsxDEV("div", { className: "account-order-empty", children: [
+          tab === "current" ? /* @__PURE__ */ jsxDEV(Truck, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 314,
+            columnNumber: 38
+          }, this) : /* @__PURE__ */ jsxDEV(ClockCounterClockwise, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 314,
+            columnNumber: 67
+          }, this),
+          /* @__PURE__ */ jsxDEV("h3", { children: tab === "current" ? "Aucune commande en cours." : "Aucun historique disponible." }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 315,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV("p", { children: "Vos commandes apparaîtront ici dès que la connexion au système e-commerce sera activée." }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 316,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 313,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 299,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 287,
+      columnNumber: 7
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 286,
+      columnNumber: 5
+    }, this),
+    document.body
+  );
+}
+_s3(AccountPanel, "Rplkibgi5YwCGIhBjyTsJ8+1cxY=");
+_c6 = AccountPanel;
+export function SiteHeader({
+  active = "",
+  requestItems = [],
+  requestCount,
+  onRemoveCartItem,
+  onClearCart
+}) {
+  _s4();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const cartItems = requestItems.length ? requestItems : [];
+  const cartCount = requestCount ?? cartItems.length;
+  useEffect(() => {
+    if (!cartOpen && !accountOpen) return void 0;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [cartOpen, accountOpen]);
+  return /* @__PURE__ */ jsxDEV("header", { className: "shop-header", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "shop-header-inner", children: [
+      /* @__PURE__ */ jsxDEV(ShopBrand, {}, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 350,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(GlobalSearch, {}, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 351,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("nav", { className: "shop-nav", "aria-label": "Navigation principale", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "nav-menu-group", children: [
+          /* @__PURE__ */ jsxDEV("div", { className: "nav-menu-trigger", children: [
+            /* @__PURE__ */ jsxDEV("a", { className: ["material", "boutique"].includes(active) ? "is-active" : "", href: "/materiel-telecom-fibre-optique/", children: "Matériels" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 355,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { className: "mega-menu-toggle", "aria-hidden": "true", children: /* @__PURE__ */ jsxDEV(CaretDown, { weight: "bold" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 356,
+              columnNumber: 69
+            }, this) }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 356,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 354,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(MaterialMegaMenu, {}, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 358,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 353,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { className: active === "sav" ? "is-active" : "", href: "/sav/", children: "SAV" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 360,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "nav-menu-group", children: [
+          /* @__PURE__ */ jsxDEV("a", { className: active === "formations" ? "is-active" : "", href: "/formations/", children: [
+            "Formations ",
+            /* @__PURE__ */ jsxDEV(CaretDown, { weight: "bold" }, void 0, false, {
+              fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+              lineNumber: 362,
+              columnNumber: 102
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 362,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(FormationsMegaMenu, {}, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 363,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 361,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { className: active === "about" ? "is-active" : "", href: "/a-propos-de-notre-mission/", children: "À propos" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 365,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { className: active === "contact" ? "is-active" : "", href: "/contact/", children: "Contact" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 366,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 352,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "shop-header-actions", children: [
+        /* @__PURE__ */ jsxDEV("a", { className: "header-phone", href: "tel:+33189624501", "aria-label": "Appeler ExpertCN au 01 89 62 45 01", children: [
+          /* @__PURE__ */ jsxDEV(Phone, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 369,
+            columnNumber: 111
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "01 89 62 45 01" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 369,
+            columnNumber: 137
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 369,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("button", { className: "account-button", type: "button", onClick: () => setAccountOpen(true), "aria-label": "Mon compte", children: [
+          /* @__PURE__ */ jsxDEV(UserCircle, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 370,
+            columnNumber: 121
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Mon compte" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 370,
+            columnNumber: 152
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 370,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("button", { className: "cart-button", type: "button", onClick: () => setCartOpen(true), "aria-label": "Ouvrir mon panier", children: [
+          /* @__PURE__ */ jsxDEV(ShoppingBag, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 372,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { children: "Mon panier" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 372,
+            columnNumber: 45
+          }, this),
+          /* @__PURE__ */ jsxDEV("b", { children: cartCount }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 372,
+            columnNumber: 68
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 371,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("button", { className: "shop-menu-button", type: "button", onClick: () => setMenuOpen((open) => !open), "aria-label": menuOpen ? "Fermer le menu" : "Ouvrir le menu", children: menuOpen ? /* @__PURE__ */ jsxDEV(X, {}, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 375,
+          columnNumber: 25
+        }, this) : /* @__PURE__ */ jsxDEV(List, {}, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 375,
+          columnNumber: 33
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 374,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 368,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 349,
+      columnNumber: 7
+    }, this),
+    menuOpen && /* @__PURE__ */ jsxDEV("nav", { className: "shop-mobile-nav", "aria-label": "Navigation mobile", children: [
+      /* @__PURE__ */ jsxDEV("details", { className: "shop-mobile-materials", children: [
+        /* @__PURE__ */ jsxDEV("summary", { children: [
+          /* @__PURE__ */ jsxDEV("a", { href: "/materiel-telecom-fibre-optique/", onClick: (event) => event.stopPropagation(), children: "Matériels" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 381,
+            columnNumber: 63
+          }, this),
+          /* @__PURE__ */ jsxDEV(CaretDown, {}, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 381,
+            columnNumber: 164
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 381,
+          columnNumber: 54
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/boutique/", children: "Voir tout le catalogue" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 381,
+          columnNumber: 187
+        }, this),
+        catalogueCategories.map((category) => /* @__PURE__ */ jsxDEV("a", { href: catalogueUrl(category.name), children: category.name }, category.name, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 381,
+          columnNumber: 273
+        }, this))
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 381,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { href: "/sav/", children: "SAV" }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 382,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("details", { children: [
+        /* @__PURE__ */ jsxDEV("summary", { children: [
+          "Formations ",
+          /* @__PURE__ */ jsxDEV(CaretDown, {}, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 383,
+            columnNumber: 40
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 383,
+          columnNumber: 20
+        }, this),
+        formationCategories.map((category) => /* @__PURE__ */ jsxDEV("a", { href: `/formations/?categorie=${category.slug}`, children: category.name }, category.slug, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 383,
+          columnNumber: 102
+        }, this))
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 383,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { href: "/a-propos-de-notre-mission/", children: "À propos" }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 384,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("a", { href: "/contact/", children: "Contact" }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 385,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 380,
+      columnNumber: 7
+    }, this),
+    cartOpen && /* @__PURE__ */ jsxDEV(CartPanel, { items: cartItems, onRemove: onRemoveCartItem, onClear: onClearCart, onClose: () => setCartOpen(false) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 388,
+      columnNumber: 20
+    }, this),
+    accountOpen && /* @__PURE__ */ jsxDEV(AccountPanel, { onClose: () => setAccountOpen(false) }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 389,
+      columnNumber: 23
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 348,
+    columnNumber: 5
+  }, this);
+}
+_s4(SiteHeader, "VoK/XF0GNFqu8PvFPNr9VRcTm2g=");
+_c7 = SiteHeader;
+export function SiteNotice({ message }) {
+  if (!message) return null;
+  return /* @__PURE__ */ jsxDEV("div", { className: "site-notice", role: "status", "aria-live": "polite", children: [
+    /* @__PURE__ */ jsxDEV(Check, { weight: "bold" }, void 0, false, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 396,
+      columnNumber: 72
+    }, this),
+    " ",
+    message
+  ] }, void 0, true, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 396,
+    columnNumber: 10
+  }, this);
+}
+_c8 = SiteNotice;
+export function SiteFooter() {
+  return /* @__PURE__ */ jsxDEV("footer", { className: "site-footer", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "footer-main", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "footer-brand", children: [
+        /* @__PURE__ */ jsxDEV(ShopBrand, {}, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 403,
+          columnNumber: 39
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { children: "Formons, accompagnons et entretenons avec passion." }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 403,
+          columnNumber: 52
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 403,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "footer-column", children: [
+        /* @__PURE__ */ jsxDEV("strong", { children: "Expertises" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 404,
+          columnNumber: 40
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/materiel-telecom-fibre-optique/", children: "Matériels" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 404,
+          columnNumber: 67
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/boutique/", children: "Boutique" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 404,
+          columnNumber: 123
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/sav/", children: "SAV" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 404,
+          columnNumber: 156
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/formations/", children: "Formations" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 404,
+          columnNumber: 179
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 404,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "footer-column", children: [
+        /* @__PURE__ */ jsxDEV("strong", { children: "ExpertCN" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 405,
+          columnNumber: 40
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/a-propos-de-notre-mission/", children: "À propos" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 405,
+          columnNumber: 65
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/contact/", children: "Contact" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 405,
+          columnNumber: 115
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/a-propos-de-notre-mission/#rse", children: "Engagement RSE" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 405,
+          columnNumber: 146
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/formations/#qualite", children: "Certification Qualiopi" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 405,
+          columnNumber: 206
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 405,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "footer-column footer-contact", children: [
+        /* @__PURE__ */ jsxDEV("strong", { children: "Nous trouver" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 406,
+          columnNumber: 55
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { children: [
+          /* @__PURE__ */ jsxDEV(MapPin, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 406,
+            columnNumber: 90
+          }, this),
+          " France"
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 406,
+          columnNumber: 84
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "tel:+33189624501", children: [
+          /* @__PURE__ */ jsxDEV(Phone, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 406,
+            columnNumber: 158
+          }, this),
+          " +33 1 89 62 45 01"
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 406,
+          columnNumber: 131
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "mailto:service.client@expertcn.fr", children: [
+          /* @__PURE__ */ jsxDEV(EnvelopeSimple, { weight: "duotone" }, void 0, false, {
+            fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+            lineNumber: 406,
+            columnNumber: 250
+          }, this),
+          " Nous écrire"
+        ] }, void 0, true, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 406,
+          columnNumber: 206
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 406,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 402,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "footer-bottom", children: [
+      /* @__PURE__ */ jsxDEV("span", { children: "© 2026 Expert Center Networks" }, void 0, false, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 408,
+        columnNumber: 38
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        /* @__PURE__ */ jsxDEV("a", { href: "/mentions-legales/", children: "Mentions légales" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 408,
+          columnNumber: 85
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/conditions-generales-dutilisation/", children: "Conditions générales d’utilisation" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 408,
+          columnNumber: 134
+        }, this),
+        /* @__PURE__ */ jsxDEV("a", { href: "/politique-de-confidentialite/", children: "Politique de confidentialité" }, void 0, false, {
+          fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+          lineNumber: 408,
+          columnNumber: 218
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+        lineNumber: 408,
+        columnNumber: 80
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+      lineNumber: 408,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx",
+    lineNumber: 401,
+    columnNumber: 5
+  }, this);
+}
+_c9 = SiteFooter;
+var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9;
+$RefreshReg$(_c, "ShopBrand");
+$RefreshReg$(_c2, "GlobalSearch");
+$RefreshReg$(_c3, "MaterialMegaMenu");
+$RefreshReg$(_c4, "FormationsMegaMenu");
+$RefreshReg$(_c5, "CartPanel");
+$RefreshReg$(_c6, "AccountPanel");
+$RefreshReg$(_c7, "SiteHeader");
+$RefreshReg$(_c8, "SiteNotice");
+$RefreshReg$(_c9, "SiteFooter");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/Nassim/Documents/Codex/2026-08-29/github-plugin-github-openai-curated-remote/expertcn/src/shop-shared.jsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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T0FBRSxNQUFLLGtDQUFpQyw0Q0FBekM7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFxRTtBQUFBLFdBQS9NO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBbU47QUFBQSxTQUE1UjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBQWtTO0FBQUEsT0FQcFM7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQVFBO0FBRUo7QUFBQ0MsTUFaZUQ7QUFBVSxJQUFBekcsSUFBQTJHLEtBQUF2RCxLQUFBRSxLQUFBUSxLQUFBOEMsS0FBQUMsS0FBQUwsS0FBQUU7QUFBQSxhQUFBMUcsSUFBQTtBQUFBLGFBQUEyRyxLQUFBO0FBQUEsYUFBQXZELEtBQUE7QUFBQSxhQUFBRSxLQUFBO0FBQUEsYUFBQVEsS0FBQTtBQUFBLGFBQUE4QyxLQUFBO0FBQUEsYUFBQUMsS0FBQTtBQUFBLGFBQUFMLEtBQUE7QUFBQSxhQUFBRSxLQUFBIiwibmFtZXMiOlsiUmVhY3QiLCJ1c2VFZmZlY3QiLCJ1c2VNZW1vIiwidXNlU3RhdGUiLCJjcmVhdGVQb3J0YWwiLCJBcnJvd1JpZ2h0IiwiQ2FyZXREb3duIiwiQ2hlY2siLCJDbG9ja0NvdW50ZXJDbG9ja3dpc2UiLCJFbnZlbG9wZVNpbXBsZSIsIkxpc3QiLCJNYWduaWZ5aW5nR2xhc3MiLCJNYXBQaW4iLCJQYWNrYWdlIiwiUGhvbmUiLCJTaG9wcGluZ0JhZyIsIlNpZ25PdXQiLCJUcmFzaCIsIlRydWNrIiwiVXNlckNpcmNsZSIsIlgiLCJjYXRhbG9ndWVDYXRlZ29yaWVzIiwicHJvZHVjdHMiLCJmb3JtYXRpb25DYXRlZ29yaWVzIiwiZm9ybWF0aW9ucyIsInJhbmtTZWFyY2hSZXN1bHRzIiwicmVxdWVzdFN0b3JhZ2VLZXkiLCJsZWdhY3lSZXF1ZXN0U3RvcmFnZUtleSIsImFjY291bnRTdG9yYWdlS2V5Iiwic2l0ZVBhZ2VzIiwibGFiZWwiLCJocmVmIiwidHlwZSIsIm1lZ2FDYXRhbG9ndWVMYXlvdXQiLCJvcmRlciIsImNvbHVtbiIsIkNvbnNvbW1hYmxlcyIsIm1lZ2FDYXRhbG9ndWVDYXRlZ29yaWVzIiwic29ydCIsImEiLCJiIiwibmFtZSIsIm1lZ2FGb3JtYXRpb25DYXRlZ29yaWVzIiwiY291cnNlcyIsImxlbmd0aCIsImNhdGFsb2d1ZVVybCIsImNhdGVnb3J5Iiwic3ViY2F0ZWdvcnkiLCJwYXJhbXMiLCJVUkxTZWFyY2hQYXJhbXMiLCJjYXRlZ29yaWUiLCJzZXQiLCJ0b1N0cmluZyIsImZvcm1hdGlvblVybCIsInNsdWciLCJTaG9wQnJhbmQiLCJfYyIsInVzZVJlcXVlc3RMaXN0IiwiX3MiLCJyZXF1ZXN0SXRlbXMiLCJzZXRSZXF1ZXN0SXRlbXMiLCJzYXZlZEl0ZW1zIiwid2luZG93IiwibG9jYWxTdG9yYWdlIiwiZ2V0SXRlbSIsIkpTT04iLCJwYXJzZSIsInNldEl0ZW0iLCJzdHJpbmdpZnkiLCJhZGRSZXF1ZXN0SXRlbSIsInByb2R1Y3ROYW1lIiwiaXRlbXMiLCJpbmNsdWRlcyIsInJlbW92ZVJlcXVlc3RJdGVtIiwiZmlsdGVyIiwiaXRlbSIsImNsZWFyUmVxdWVzdEl0ZW1zIiwiR2xvYmFsU2VhcmNoIiwiX3MyIiwicXVlcnkiLCJzZXRRdWVyeSIsImZvY3VzZWQiLCJzZXRGb2N1c2VkIiwic3VnZ2VzdGlvbnMiLCJ0cmltIiwicHJvZHVjdFJlc3VsdHMiLCJwcm9kdWN0IiwiYnJhbmQiLCJtYXAiLCJtZXRhIiwiZm9ybWF0aW9uUmVzdWx0cyIsImZvcm1hdGlvbiIsInRpdGxlIiwicGFnZVJlc3VsdHMiLCJwYWdlIiwic2xpY2UiLCJzdWJtaXRTZWFyY2giLCJldmVudCIsInByZXZlbnREZWZhdWx0IiwidmFsdWUiLCJsb2NhdGlvbiIsImVuY29kZVVSSUNvbXBvbmVudCIsInRhcmdldCIsInNldFRpbWVvdXQiLCJyZXN1bHQiLCJNYXRlcmlhbE1lZ2FNZW51IiwiZ3JpZENvbHVtbiIsInN1YmNhdGVnb3JpZXMiLCJfYzMiLCJGb3JtYXRpb25zTWVnYU1lbnUiLCJfYzQiLCJDYXJ0UGFuZWwiLCJvblJlbW92ZSIsIm9uQ2xlYXIiLCJvbkNsb3NlIiwiY3VycmVudFRhcmdldCIsImRvY3VtZW50IiwiYm9keSIsIl9jNSIsIkFjY291bnRQYW5lbCIsIl9zMyIsImFjY291bnQiLCJzZXRBY2NvdW50IiwidGFiIiwic2V0VGFiIiwidHJhY2tpbmdOdW1iZXIiLCJzZXRUcmFja2luZ051bWJlciIsInRyYWNraW5nU3RhdHVzIiwic2V0VHJhY2tpbmdTdGF0dXMiLCJjcmVhdGVBY2NvdW50IiwiZGF0YSIsIkZvcm1EYXRhIiwibmV4dEFjY291bnQiLCJnZXQiLCJlbWFpbCIsInNpZ25PdXQiLCJyZW1vdmVJdGVtIiwidHJhY2tPcmRlciIsIlNpdGVIZWFkZXIiLCJhY3RpdmUiLCJyZXF1ZXN0Q291bnQiLCJvblJlbW92ZUNhcnRJdGVtIiwib25DbGVhckNhcnQiLCJfczQiLCJtZW51T3BlbiIsInNldE1lbnVPcGVuIiwiY2FydE9wZW4iLCJzZXRDYXJ0T3BlbiIsImFjY291bnRPcGVuIiwic2V0QWNjb3VudE9wZW4iLCJjYXJ0SXRlbXMiLCJjYXJ0Q291bnQiLCJ1bmRlZmluZWQiLCJwcmV2aW91c092ZXJmbG93Iiwic3R5bGUiLCJvdmVyZmxvdyIsIm9wZW4iLCJzdG9wUHJvcGFnYXRpb24iLCJTaXRlTm90aWNlIiwibWVzc2FnZSIsIl9jOCIsIlNpdGVGb290ZXIiLCJfYzkiLCJfYzIiLCJfYzYiLCJfYzciXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsic2hvcC1zaGFyZWQuanN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCwgeyB1c2VFZmZlY3QsIHVzZU1lbW8sIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnXHJcbmltcG9ydCB7IGNyZWF0ZVBvcnRhbCB9IGZyb20gJ3JlYWN0LWRvbSdcclxuaW1wb3J0IHtcclxuICBBcnJvd1JpZ2h0LFxyXG4gIENhcmV0RG93bixcclxuICBDaGVjayxcclxuICBDbG9ja0NvdW50ZXJDbG9ja3dpc2UsXHJcbiAgRW52ZWxvcGVTaW1wbGUsXHJcbiAgTGlzdCxcclxuICBNYWduaWZ5aW5nR2xhc3MsXHJcbiAgTWFwUGluLFxyXG4gIFBhY2thZ2UsXHJcbiAgUGhvbmUsXHJcbiAgU2hvcHBpbmdCYWcsXHJcbiAgU2lnbk91dCxcclxuICBUcmFzaCxcclxuICBUcnVjayxcclxuICBVc2VyQ2lyY2xlLFxyXG4gIFgsXHJcbn0gZnJvbSAnQHBob3NwaG9yLWljb25zL3JlYWN0J1xyXG5pbXBvcnQgeyBjYXRhbG9ndWVDYXRlZ29yaWVzLCBwcm9kdWN0cyB9IGZyb20gJy4vY2F0YWxvZ3VlLmdlbmVyYXRlZCdcclxuaW1wb3J0IHsgZm9ybWF0aW9uQ2F0ZWdvcmllcywgZm9ybWF0aW9ucyB9IGZyb20gJy4vZm9ybWF0aW9uLWRhdGEnXHJcbmltcG9ydCB7IHJhbmtTZWFyY2hSZXN1bHRzIH0gZnJvbSAnLi9zZWFyY2gtdXRpbHMnXHJcbmltcG9ydCAnLi9zaXRlLWNocm9tZS5jc3MnXHJcblxyXG5jb25zdCByZXF1ZXN0U3RvcmFnZUtleSA9ICdleHBlcnRjbi1jYXJ0J1xyXG5jb25zdCBsZWdhY3lSZXF1ZXN0U3RvcmFnZUtleSA9ICdleHBlcnRjbi1yZXF1ZXN0J1xyXG5jb25zdCBhY2NvdW50U3RvcmFnZUtleSA9ICdleHBlcnRjbi1hY2NvdW50J1xyXG5cclxuY29uc3Qgc2l0ZVBhZ2VzID0gW1xuICB7IGxhYmVsOiAnQWNjdWVpbCBFeHBlcnRDTicsIGhyZWY6ICcvJywgdHlwZTogJ1BhZ2UnIH0sXG4gIHsgbGFiZWw6ICdNYXTDqXJpZWxzJywgaHJlZjogJy9tYXRlcmllbC10ZWxlY29tLWZpYnJlLW9wdGlxdWUvJywgdHlwZTogJ1BhZ2UnIH0sXG4gIHsgbGFiZWw6ICdCb3V0aXF1ZScsIGhyZWY6ICcvYm91dGlxdWUvJywgdHlwZTogJ1BhZ2UnIH0sXG4gIHsgbGFiZWw6ICdNYWludGVuYW5jZSBTQVYnLCBocmVmOiAnL3Nhdi8nLCB0eXBlOiAnU2VydmljZScgfSxcclxuICB7IGxhYmVsOiAnRm9ybWF0aW9ucycsIGhyZWY6ICcvZm9ybWF0aW9ucy8nLCB0eXBlOiAnUGFnZScgfSxcclxuICB7IGxhYmVsOiAnw4AgcHJvcG9zJywgaHJlZjogJy9hLXByb3Bvcy1kZS1ub3RyZS1taXNzaW9uLycsIHR5cGU6ICdQYWdlJyB9LFxyXG4gIHsgbGFiZWw6ICdDb250YWN0JywgaHJlZjogJy9jb250YWN0LycsIHR5cGU6ICdQYWdlJyB9LFxyXG5dXG5cbi8vIEtlZXAgdGhlIGZpcnN0IHJvdyBiYWxhbmNlZCwgd2l0aCBhY3RpdmUgZXF1aXBtZW50IGxlYWRpbmcgdGhlIHNlY29uZCByb3cuXG5jb25zdCBtZWdhQ2F0YWxvZ3VlTGF5b3V0ID0ge1xuICAnVGVzdHMgZXQgbWVzdXJlcyc6IHsgb3JkZXI6IDEsIGNvbHVtbjogMSB9LFxuICAnUmFjY29yZGVtZW50IG9wdGlxdWUnOiB7IG9yZGVyOiAyLCBjb2x1bW46IDIgfSxcbiAgQ29uc29tbWFibGVzOiB7IG9yZGVyOiAzLCBjb2x1bW46IDMgfSxcbiAgJ1RpcmFnZSBldCBzw6ljdXJpdMOpJzogeyBvcmRlcjogNCwgY29sdW1uOiA0IH0sXG4gICfDiXF1aXBlbWVudHMgQWN0aWZzJzogeyBvcmRlcjogNSwgY29sdW1uOiAxIH0sXG4gICdJZGVudGlmaWNhdGlvbiBkZSByw6lzZWF1JzogeyBvcmRlcjogNiwgY29sdW1uOiAyIH0sXG4gICdTb3VkZXVzZXMgZmlicmUgb3B0aXF1ZSc6IHsgb3JkZXI6IDcsIGNvbHVtbjogMyB9LFxufVxuY29uc3QgbWVnYUNhdGFsb2d1ZUNhdGVnb3JpZXMgPSBbLi4uY2F0YWxvZ3VlQ2F0ZWdvcmllc10uc29ydCgoYSwgYikgPT4gbWVnYUNhdGFsb2d1ZUxheW91dFthLm5hbWVdLm9yZGVyIC0gbWVnYUNhdGFsb2d1ZUxheW91dFtiLm5hbWVdLm9yZGVyKVxuY29uc3QgbWVnYUZvcm1hdGlvbkNhdGVnb3JpZXMgPSBbLi4uZm9ybWF0aW9uQ2F0ZWdvcmllc10uc29ydCgoYSwgYikgPT4gYi5jb3Vyc2VzLmxlbmd0aCAtIGEuY291cnNlcy5sZW5ndGgpXG5cclxuZnVuY3Rpb24gY2F0YWxvZ3VlVXJsKGNhdGVnb3J5LCBzdWJjYXRlZ29yeSA9ICcnKSB7XHJcbiAgY29uc3QgcGFyYW1zID0gbmV3IFVSTFNlYXJjaFBhcmFtcyh7IGNhdGVnb3JpZTogY2F0ZWdvcnkgfSlcclxuICBpZiAoc3ViY2F0ZWdvcnkpIHBhcmFtcy5zZXQoJ3NvdXMtY2F0ZWdvcmllJywgc3ViY2F0ZWdvcnkpXHJcbiAgcmV0dXJuIGAvYm91dGlxdWUvPyR7cGFyYW1zLnRvU3RyaW5nKCl9I2NhdGFsb2d1ZWBcbn1cclxuXHJcbmZ1bmN0aW9uIGZvcm1hdGlvblVybChzbHVnKSB7XHJcbiAgcmV0dXJuIGAvZm9ybWF0aW9uLmh0bWw/Zm9ybWF0aW9uPSR7c2x1Z31gXHJcbn1cclxuXHJcbmV4cG9ydCBmdW5jdGlvbiBTaG9wQnJhbmQoKSB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxhIGNsYXNzTmFtZT1cInNob3AtYnJhbmRcIiBocmVmPVwiL1wiIGFyaWEtbGFiZWw9XCJFeHBlcnRDTiwgYWNjdWVpbFwiPlxyXG4gICAgICA8aW1nIHNyYz1cIi9pbWFnZXMvZXhwZXJ0Y24tbG9nby5wbmdcIiBhbHQ9XCJcIiAvPlxyXG4gICAgPC9hPlxyXG4gIClcclxufVxyXG5cclxuZXhwb3J0IGZ1bmN0aW9uIHVzZVJlcXVlc3RMaXN0KCkge1xyXG4gIGNvbnN0IFtyZXF1ZXN0SXRlbXMsIHNldFJlcXVlc3RJdGVtc10gPSB1c2VTdGF0ZSgoKSA9PiB7XHJcbiAgICB0cnkge1xyXG4gICAgICBjb25zdCBzYXZlZEl0ZW1zID0gd2luZG93LmxvY2FsU3RvcmFnZS5nZXRJdGVtKHJlcXVlc3RTdG9yYWdlS2V5KVxyXG4gICAgICAgIHx8IHdpbmRvdy5sb2NhbFN0b3JhZ2UuZ2V0SXRlbShsZWdhY3lSZXF1ZXN0U3RvcmFnZUtleSlcclxuICAgICAgcmV0dXJuIHNhdmVkSXRlbXMgPyBKU09OLnBhcnNlKHNhdmVkSXRlbXMpIDogW11cclxuICAgIH0gY2F0Y2gge1xyXG4gICAgICByZXR1cm4gW11cclxuICAgIH1cclxuICB9KVxyXG5cclxuICB1c2VFZmZlY3QoKCkgPT4ge1xyXG4gICAgd2luZG93LmxvY2FsU3RvcmFnZS5zZXRJdGVtKHJlcXVlc3RTdG9yYWdlS2V5LCBKU09OLnN0cmluZ2lmeShyZXF1ZXN0SXRlbXMpKVxyXG4gIH0sIFtyZXF1ZXN0SXRlbXNdKVxyXG5cclxuICBjb25zdCBhZGRSZXF1ZXN0SXRlbSA9IChwcm9kdWN0TmFtZSkgPT4ge1xyXG4gICAgc2V0UmVxdWVzdEl0ZW1zKChpdGVtcykgPT4gaXRlbXMuaW5jbHVkZXMocHJvZHVjdE5hbWUpID8gaXRlbXMgOiBbLi4uaXRlbXMsIHByb2R1Y3ROYW1lXSlcclxuICB9XHJcbiAgY29uc3QgcmVtb3ZlUmVxdWVzdEl0ZW0gPSAocHJvZHVjdE5hbWUpID0+IHtcclxuICAgIHNldFJlcXVlc3RJdGVtcygoaXRlbXMpID0+IGl0ZW1zLmZpbHRlcigoaXRlbSkgPT4gaXRlbSAhPT0gcHJvZHVjdE5hbWUpKVxyXG4gIH1cclxuICBjb25zdCBjbGVhclJlcXVlc3RJdGVtcyA9ICgpID0+IHNldFJlcXVlc3RJdGVtcyhbXSlcclxuXHJcbiAgcmV0dXJuIHsgcmVxdWVzdEl0ZW1zLCBhZGRSZXF1ZXN0SXRlbSwgcmVtb3ZlUmVxdWVzdEl0ZW0sIGNsZWFyUmVxdWVzdEl0ZW1zIH1cclxufVxyXG5cclxuZnVuY3Rpb24gR2xvYmFsU2VhcmNoKCkge1xyXG4gIGNvbnN0IFtxdWVyeSwgc2V0UXVlcnldID0gdXNlU3RhdGUoJycpXHJcbiAgY29uc3QgW2ZvY3VzZWQsIHNldEZvY3VzZWRdID0gdXNlU3RhdGUoZmFsc2UpXHJcblxyXG4gIGNvbnN0IHN1Z2dlc3Rpb25zID0gdXNlTWVtbygoKSA9PiB7XHJcbiAgICBpZiAocXVlcnkudHJpbSgpLmxlbmd0aCA8IDIpIHJldHVybiBbXVxyXG4gICAgY29uc3QgcHJvZHVjdFJlc3VsdHMgPSByYW5rU2VhcmNoUmVzdWx0cyhwcm9kdWN0cywgcXVlcnksIChwcm9kdWN0KSA9PiBgJHtwcm9kdWN0Lm5hbWV9ICR7cHJvZHVjdC5icmFuZH0gJHtwcm9kdWN0LmNhdGVnb3J5fSAke3Byb2R1Y3Quc3ViY2F0ZWdvcnl9YCwgNSlcclxuICAgICAgLm1hcCgocHJvZHVjdCkgPT4gKHtcclxuICAgICAgICBsYWJlbDogcHJvZHVjdC5uYW1lLFxyXG4gICAgICAgIG1ldGE6IGAke3Byb2R1Y3QuYnJhbmR9IMK3ICR7cHJvZHVjdC5zdWJjYXRlZ29yeX1gLFxyXG4gICAgICAgIGhyZWY6IGAvcHJvZHVpdC5odG1sP3Byb2R1aXQ9JHtwcm9kdWN0LnNsdWd9YCxcclxuICAgICAgICB0eXBlOiAnUHJvZHVpdCcsXHJcbiAgICAgIH0pKVxyXG4gICAgY29uc3QgZm9ybWF0aW9uUmVzdWx0cyA9IHJhbmtTZWFyY2hSZXN1bHRzKGZvcm1hdGlvbnMsIHF1ZXJ5LCAoZm9ybWF0aW9uKSA9PiBgJHtmb3JtYXRpb24udGl0bGV9ICR7Zm9ybWF0aW9uLmNhdGVnb3J5fWAsIDMpXHJcbiAgICAgIC5tYXAoKGZvcm1hdGlvbikgPT4gKHtcclxuICAgICAgICBsYWJlbDogZm9ybWF0aW9uLnRpdGxlLFxyXG4gICAgICAgIG1ldGE6IGZvcm1hdGlvbi5jYXRlZ29yeSxcclxuICAgICAgICBocmVmOiBmb3JtYXRpb25VcmwoZm9ybWF0aW9uLnNsdWcpLFxyXG4gICAgICAgIHR5cGU6ICdGb3JtYXRpb24nLFxyXG4gICAgICB9KSlcclxuICAgIGNvbnN0IHBhZ2VSZXN1bHRzID0gcmFua1NlYXJjaFJlc3VsdHMoc2l0ZVBhZ2VzLCBxdWVyeSwgKHBhZ2UpID0+IHBhZ2UubGFiZWwsIDIpXHJcbiAgICAgIC5tYXAoKHBhZ2UpID0+ICh7IC4uLnBhZ2UsIG1ldGE6IHBhZ2UudHlwZSB9KSlcclxuICAgIHJldHVybiBbLi4ucHJvZHVjdFJlc3VsdHMsIC4uLmZvcm1hdGlvblJlc3VsdHMsIC4uLnBhZ2VSZXN1bHRzXS5zbGljZSgwLCA4KVxyXG4gIH0sIFtxdWVyeV0pXHJcblxyXG4gIGNvbnN0IHN1Ym1pdFNlYXJjaCA9IChldmVudCkgPT4ge1xyXG4gICAgZXZlbnQucHJldmVudERlZmF1bHQoKVxyXG4gICAgY29uc3QgdmFsdWUgPSBxdWVyeS50cmltKClcclxuICAgIGlmICghdmFsdWUpIHJldHVyblxyXG4gICAgd2luZG93LmxvY2F0aW9uLmhyZWYgPSBgL2JvdXRpcXVlLz9xPSR7ZW5jb2RlVVJJQ29tcG9uZW50KHZhbHVlKX0jY2F0YWxvZ3VlYFxuICB9XHJcblxyXG4gIHJldHVybiAoXHJcbiAgICA8Zm9ybSBjbGFzc05hbWU9XCJnbG9iYWwtc2VhcmNoXCIgcm9sZT1cInNlYXJjaFwiIG9uU3VibWl0PXtzdWJtaXRTZWFyY2h9PlxyXG4gICAgICA8c3BhbiBjbGFzc05hbWU9XCJnbG9iYWwtc2VhcmNoLWljb25cIiBhcmlhLWhpZGRlbj1cInRydWVcIj48TWFnbmlmeWluZ0dsYXNzIHdlaWdodD1cImJvbGRcIiAvPjwvc3Bhbj5cclxuICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cInNyLW9ubHlcIiBodG1sRm9yPVwiZ2xvYmFsLXNlYXJjaC1pbnB1dFwiPlJlY2hlcmNoZXIgc3VyIGxlIHNpdGU8L2xhYmVsPlxyXG4gICAgICA8aW5wdXRcclxuICAgICAgICBpZD1cImdsb2JhbC1zZWFyY2gtaW5wdXRcIlxyXG4gICAgICAgIHZhbHVlPXtxdWVyeX1cclxuICAgICAgICBvbkNoYW5nZT17KGV2ZW50KSA9PiBzZXRRdWVyeShldmVudC50YXJnZXQudmFsdWUpfVxyXG4gICAgICAgIG9uRm9jdXM9eygpID0+IHNldEZvY3VzZWQodHJ1ZSl9XHJcbiAgICAgICAgb25CbHVyPXsoKSA9PiB3aW5kb3cuc2V0VGltZW91dCgoKSA9PiBzZXRGb2N1c2VkKGZhbHNlKSwgMTQwKX1cclxuICAgICAgICBwbGFjZWhvbGRlcj1cIlJlY2hlcmNoZXIgc3VyIGxlIHNpdGXigKZcIlxyXG4gICAgICAgIHR5cGU9XCJzZWFyY2hcIlxyXG4gICAgICAgIGF1dG9Db21wbGV0ZT1cIm9mZlwiXHJcbiAgICAgIC8+XHJcbiAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiZ2xvYmFsLXNlYXJjaC1zdWJtaXRcIiB0eXBlPVwic3VibWl0XCIgYXJpYS1sYWJlbD1cIkxhbmNlciBsYSByZWNoZXJjaGVcIj48QXJyb3dSaWdodCB3ZWlnaHQ9XCJib2xkXCIgLz48L2J1dHRvbj5cclxuICAgICAge2ZvY3VzZWQgJiYgcXVlcnkudHJpbSgpLmxlbmd0aCA+PSAyICYmIChcclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdsb2JhbC1zZWFyY2gtcmVzdWx0c1wiPlxyXG4gICAgICAgICAge3N1Z2dlc3Rpb25zLmxlbmd0aCA/IHN1Z2dlc3Rpb25zLm1hcCgocmVzdWx0KSA9PiAoXHJcbiAgICAgICAgICAgIDxhIGhyZWY9e3Jlc3VsdC5ocmVmfSBrZXk9e2Ake3Jlc3VsdC50eXBlfS0ke3Jlc3VsdC5sYWJlbH1gfT5cclxuICAgICAgICAgICAgICA8c3Bhbj48c3Ryb25nPntyZXN1bHQubGFiZWx9PC9zdHJvbmc+PHNtYWxsPntyZXN1bHQubWV0YX08L3NtYWxsPjwvc3Bhbj5cclxuICAgICAgICAgICAgICA8Yj57cmVzdWx0LnR5cGV9PC9iPlxyXG4gICAgICAgICAgICA8L2E+XHJcbiAgICAgICAgICApKSA6IChcclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJnbG9iYWwtc2VhcmNoLWVtcHR5XCI+QXVjdW4gcsOpc3VsdGF0IGRpcmVjdC4gQXBwdXlleiBzdXIgRW50csOpZSBwb3VyIGNoZXJjaGVyIGRhbnMgbGUgY2F0YWxvZ3VlLjwvZGl2PlxyXG4gICAgICAgICAgKX1cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgKX1cclxuICAgIDwvZm9ybT5cclxuICApXHJcbn1cclxuXHJcbmZ1bmN0aW9uIE1hdGVyaWFsTWVnYU1lbnUoKSB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxkaXYgY2xhc3NOYW1lPVwibWVnYS1tZW51IG1lZ2EtbWVudS1tYXRlcmlhbHNcIj5cclxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZWdhLW1lbnUtaW50cm9cIj5cclxuICAgICAgICA8c3Bhbj5DYXRhbG9ndWUgdGVjaG5pcXVlPC9zcGFuPlxyXG4gICAgICAgIDxzdHJvbmc+VW5lIG5hdmlnYXRpb24gY29uc3RydWl0ZSBzdXIgbGVzIHVzYWdlcyB0ZXJyYWluLjwvc3Ryb25nPlxyXG4gICAgICAgIDxhIGhyZWY9XCIvYm91dGlxdWUvXCI+Vm9pciBsZXMge3Byb2R1Y3RzLmxlbmd0aH0gcsOpZsOpcmVuY2VzIDxBcnJvd1JpZ2h0IHdlaWdodD1cImJvbGRcIiAvPjwvYT5cbiAgICAgIDwvZGl2PlxyXG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1lZ2EtbWVudS1ncmlkXCI+XHJcbiAgICAgICAge21lZ2FDYXRhbG9ndWVDYXRlZ29yaWVzLm1hcCgoY2F0ZWdvcnkpID0+IChcbiAgICAgICAgICA8c2VjdGlvbiBrZXk9e2NhdGVnb3J5Lm5hbWV9IHN0eWxlPXt7IGdyaWRDb2x1bW46IG1lZ2FDYXRhbG9ndWVMYXlvdXRbY2F0ZWdvcnkubmFtZV0uY29sdW1uIH19PlxuICAgICAgICAgICAgPGEgY2xhc3NOYW1lPVwibWVnYS1tZW51LXRpdGxlXCIgaHJlZj17Y2F0YWxvZ3VlVXJsKGNhdGVnb3J5Lm5hbWUpfT57Y2F0ZWdvcnkubmFtZX08L2E+XHJcbiAgICAgICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgICAge2NhdGVnb3J5LnN1YmNhdGVnb3JpZXMubWFwKChzdWJjYXRlZ29yeSkgPT4gKFxyXG4gICAgICAgICAgICAgICAgPGEgaHJlZj17Y2F0YWxvZ3VlVXJsKGNhdGVnb3J5Lm5hbWUsIHN1YmNhdGVnb3J5KX0ga2V5PXtzdWJjYXRlZ29yeX0+e3N1YmNhdGVnb3J5fTwvYT5cclxuICAgICAgICAgICAgICApKX1cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICA8L3NlY3Rpb24+XHJcbiAgICAgICAgKSl9XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgPC9kaXY+XHJcbiAgKVxyXG59XHJcblxyXG5mdW5jdGlvbiBGb3JtYXRpb25zTWVnYU1lbnUoKSB7XHJcbiAgcmV0dXJuIChcclxuICAgIDxkaXYgY2xhc3NOYW1lPVwibWVnYS1tZW51IG1lZ2EtbWVudS1mb3JtYXRpb25zXCI+XHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWVnYS1tZW51LWludHJvXCI+XHJcbiAgICAgICAgPHNwYW4+MjMgcGFyY291cnM8L3NwYW4+XHJcbiAgICAgICAgPHN0cm9uZz5EZXMgZm9ybWF0aW9ucyBwcm9mZXNzaW9ubmVsbGVzIG9yZ2FuaXPDqWVzIHBhciBtw6l0aWVyLjwvc3Ryb25nPlxyXG4gICAgICAgIDxhIGhyZWY9XCIvZm9ybWF0aW9ucy9cIj5Ew6ljb3V2cmlyIGxlcyBmb3JtYXRpb25zIDxBcnJvd1JpZ2h0IHdlaWdodD1cImJvbGRcIiAvPjwvYT5cclxuICAgICAgPC9kaXY+XHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWVnYS1tZW51LWdyaWRcIj5cclxuICAgICAgICB7bWVnYUZvcm1hdGlvbkNhdGVnb3JpZXMubWFwKChjYXRlZ29yeSkgPT4gKFxuICAgICAgICAgIDxzZWN0aW9uIGtleT17Y2F0ZWdvcnkubmFtZX0+XHJcbiAgICAgICAgICAgIDxhIGNsYXNzTmFtZT1cIm1lZ2EtbWVudS10aXRsZVwiIGhyZWY9e2AvZm9ybWF0aW9ucy8/Y2F0ZWdvcmllPSR7Y2F0ZWdvcnkuc2x1Z31gfT57Y2F0ZWdvcnkubmFtZX08L2E+XHJcbiAgICAgICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgICAge2NhdGVnb3J5LmNvdXJzZXMubWFwKChmb3JtYXRpb24pID0+IChcclxuICAgICAgICAgICAgICAgIDxhIGhyZWY9e2Zvcm1hdGlvblVybChmb3JtYXRpb24uc2x1Zyl9IGtleT17Zm9ybWF0aW9uLnNsdWd9Pntmb3JtYXRpb24udGl0bGV9PC9hPlxyXG4gICAgICAgICAgICAgICkpfVxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgIDwvc2VjdGlvbj5cclxuICAgICAgICApKX1cclxuICAgICAgPC9kaXY+XHJcbiAgICA8L2Rpdj5cclxuICApXHJcbn1cclxuXHJcbmZ1bmN0aW9uIENhcnRQYW5lbCh7IGl0ZW1zLCBvblJlbW92ZSwgb25DbGVhciwgb25DbG9zZSB9KSB7XHJcbiAgcmV0dXJuIGNyZWF0ZVBvcnRhbChcclxuICAgIDxkaXYgY2xhc3NOYW1lPVwiY2hyb21lLW92ZXJsYXlcIiByb2xlPVwicHJlc2VudGF0aW9uXCIgb25Nb3VzZURvd249eyhldmVudCkgPT4gZXZlbnQudGFyZ2V0ID09PSBldmVudC5jdXJyZW50VGFyZ2V0ICYmIG9uQ2xvc2UoKX0+XHJcbiAgICAgIDxhc2lkZSBjbGFzc05hbWU9XCJjaHJvbWUtcGFuZWwgY2FydC1wYW5lbFwiIHJvbGU9XCJkaWFsb2dcIiBhcmlhLW1vZGFsPVwidHJ1ZVwiIGFyaWEtbGFiZWxsZWRieT1cImNhcnQtcGFuZWwtdGl0bGVcIj5cclxuICAgICAgICA8aGVhZGVyPjxkaXY+PHNwYW4+Vm90cmUgc8OpbGVjdGlvbjwvc3Bhbj48aDIgaWQ9XCJjYXJ0LXBhbmVsLXRpdGxlXCI+TW9uIHBhbmllcjwvaDI+PC9kaXY+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17b25DbG9zZX0gYXJpYS1sYWJlbD1cIkZlcm1lciBsZSBwYW5pZXJcIj48WCAvPjwvYnV0dG9uPjwvaGVhZGVyPlxyXG4gICAgICAgIHtpdGVtcy5sZW5ndGggPyAoXHJcbiAgICAgICAgICA8PlxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNhcnQtbGlzdFwiPlxyXG4gICAgICAgICAgICAgIHtpdGVtcy5tYXAoKGl0ZW0pID0+IChcclxuICAgICAgICAgICAgICAgIDxkaXYga2V5PXtpdGVtfT48UGFja2FnZSB3ZWlnaHQ9XCJkdW90b25lXCIgLz48c3Bhbj57aXRlbX08L3NwYW4+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17KCkgPT4gb25SZW1vdmU/LihpdGVtKX0gYXJpYS1sYWJlbD17YFJldGlyZXIgJHtpdGVtfWB9PjxUcmFzaCAvPjwvYnV0dG9uPjwvZGl2PlxyXG4gICAgICAgICAgICAgICkpfVxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjYXJ0LXBhbmVsLWFjdGlvbnNcIj5cclxuICAgICAgICAgICAgICA8YSBocmVmPVwiL2NvbnRhY3QvP3N1amV0PU1hdCVDMyVBOXJpZWwjY29udGFjdC1mb3JtXCI+RmluYWxpc2VyIGF2ZWMgdW4gZXhwZXJ0IDxBcnJvd1JpZ2h0IHdlaWdodD1cImJvbGRcIiAvPjwvYT5cclxuICAgICAgICAgICAgICA8YnV0dG9uIHR5cGU9XCJidXR0b25cIiBvbkNsaWNrPXtvbkNsZWFyfT5WaWRlciBsZSBwYW5pZXI8L2J1dHRvbj5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICA8Lz5cclxuICAgICAgICApIDogKFxyXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjaHJvbWUtZW1wdHktc3RhdGVcIj48U2hvcHBpbmdCYWcgd2VpZ2h0PVwiZHVvdG9uZVwiIC8+PGgzPlZvdHJlIHBhbmllciBlc3QgdmlkZS48L2gzPjxwPkFqb3V0ZXogZGVzIHLDqWbDqXJlbmNlcyBkZXB1aXMgbGUgY2F0YWxvZ3VlIHBvdXIgcHLDqXBhcmVyIHZvdHJlIGRlbWFuZGUuPC9wPjxhIGhyZWY9XCIvYm91dGlxdWUvXCI+RXhwbG9yZXIgbGEgYm91dGlxdWU8L2E+PC9kaXY+XG4gICAgICAgICl9XHJcbiAgICAgIDwvYXNpZGU+XHJcbiAgICA8L2Rpdj4sXHJcbiAgICBkb2N1bWVudC5ib2R5LFxyXG4gIClcclxufVxyXG5cclxuZnVuY3Rpb24gQWNjb3VudFBhbmVsKHsgb25DbG9zZSB9KSB7XHJcbiAgY29uc3QgW2FjY291bnQsIHNldEFjY291bnRdID0gdXNlU3RhdGUoKCkgPT4ge1xyXG4gICAgdHJ5IHtcclxuICAgICAgcmV0dXJuIEpTT04ucGFyc2Uod2luZG93LmxvY2FsU3RvcmFnZS5nZXRJdGVtKGFjY291bnRTdG9yYWdlS2V5KSB8fCAnbnVsbCcpXHJcbiAgICB9IGNhdGNoIHtcclxuICAgICAgcmV0dXJuIG51bGxcclxuICAgIH1cclxuICB9KVxyXG4gIGNvbnN0IFt0YWIsIHNldFRhYl0gPSB1c2VTdGF0ZSgnY3VycmVudCcpXHJcbiAgY29uc3QgW3RyYWNraW5nTnVtYmVyLCBzZXRUcmFja2luZ051bWJlcl0gPSB1c2VTdGF0ZSgnJylcclxuICBjb25zdCBbdHJhY2tpbmdTdGF0dXMsIHNldFRyYWNraW5nU3RhdHVzXSA9IHVzZVN0YXRlKCcnKVxyXG5cclxuICBjb25zdCBjcmVhdGVBY2NvdW50ID0gKGV2ZW50KSA9PiB7XHJcbiAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpXHJcbiAgICBjb25zdCBkYXRhID0gbmV3IEZvcm1EYXRhKGV2ZW50LmN1cnJlbnRUYXJnZXQpXHJcbiAgICBjb25zdCBuZXh0QWNjb3VudCA9IHsgbmFtZTogZGF0YS5nZXQoJ25hbWUnKSwgZW1haWw6IGRhdGEuZ2V0KCdlbWFpbCcpIH1cclxuICAgIHdpbmRvdy5sb2NhbFN0b3JhZ2Uuc2V0SXRlbShhY2NvdW50U3RvcmFnZUtleSwgSlNPTi5zdHJpbmdpZnkobmV4dEFjY291bnQpKVxyXG4gICAgc2V0QWNjb3VudChuZXh0QWNjb3VudClcclxuICB9XHJcblxyXG4gIGNvbnN0IHNpZ25PdXQgPSAoKSA9PiB7XHJcbiAgICB3aW5kb3cubG9jYWxTdG9yYWdlLnJlbW92ZUl0ZW0oYWNjb3VudFN0b3JhZ2VLZXkpXHJcbiAgICBzZXRBY2NvdW50KG51bGwpXHJcbiAgfVxyXG5cclxuICBjb25zdCB0cmFja09yZGVyID0gKGV2ZW50KSA9PiB7XHJcbiAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpXHJcbiAgICBzZXRUcmFja2luZ1N0YXR1cyh0cmFja2luZ051bWJlci50cmltKClcclxuICAgICAgPyAnQXVjdW5lIGNvbW1hbmRlIGxvY2FsZSBuZSBjb3JyZXNwb25kIGVuY29yZSDDoCBjZSBudW3DqXJvLidcclxuICAgICAgOiAnU2Fpc2lzc2V6IHVuIG51bcOpcm8gZGUgY29tbWFuZGUuJylcclxuICB9XHJcblxyXG4gIHJldHVybiBjcmVhdGVQb3J0YWwoXHJcbiAgICA8ZGl2IGNsYXNzTmFtZT1cImNocm9tZS1vdmVybGF5XCIgcm9sZT1cInByZXNlbnRhdGlvblwiIG9uTW91c2VEb3duPXsoZXZlbnQpID0+IGV2ZW50LnRhcmdldCA9PT0gZXZlbnQuY3VycmVudFRhcmdldCAmJiBvbkNsb3NlKCl9PlxyXG4gICAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJjaHJvbWUtcGFuZWwgYWNjb3VudC1wYW5lbFwiIHJvbGU9XCJkaWFsb2dcIiBhcmlhLW1vZGFsPVwidHJ1ZVwiIGFyaWEtbGFiZWxsZWRieT1cImFjY291bnQtcGFuZWwtdGl0bGVcIj5cclxuICAgICAgICA8aGVhZGVyPjxkaXY+PHNwYW4+RXNwYWNlIGNsaWVudDwvc3Bhbj48aDIgaWQ9XCJhY2NvdW50LXBhbmVsLXRpdGxlXCI+TW9uIGNvbXB0ZTwvaDI+PC9kaXY+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17b25DbG9zZX0gYXJpYS1sYWJlbD1cIkZlcm1lciBsZSBjb21wdGVcIj48WCAvPjwvYnV0dG9uPjwvaGVhZGVyPlxyXG4gICAgICAgIHshYWNjb3VudCA/IChcclxuICAgICAgICAgIDxmb3JtIGNsYXNzTmFtZT1cImFjY291bnQtY3JlYXRlXCIgb25TdWJtaXQ9e2NyZWF0ZUFjY291bnR9PlxyXG4gICAgICAgICAgICA8cD5DcsOpZXogdm90cmUgZXNwYWNlIHBvdXIgcmV0cm91dmVyIHZvcyBjb21tYW5kZXMgZXQgc3VpdnJlIGxldXIgYXZhbmNlbWVudC48L3A+XHJcbiAgICAgICAgICAgIDxsYWJlbD48c3Bhbj5Ob20gY29tcGxldDwvc3Bhbj48aW5wdXQgbmFtZT1cIm5hbWVcIiByZXF1aXJlZCBhdXRvQ29tcGxldGU9XCJuYW1lXCIgLz48L2xhYmVsPlxyXG4gICAgICAgICAgICA8bGFiZWw+PHNwYW4+QWRyZXNzZSBlLW1haWw8L3NwYW4+PGlucHV0IG5hbWU9XCJlbWFpbFwiIHR5cGU9XCJlbWFpbFwiIHJlcXVpcmVkIGF1dG9Db21wbGV0ZT1cImVtYWlsXCIgLz48L2xhYmVsPlxyXG4gICAgICAgICAgICA8bGFiZWw+PHNwYW4+TW90IGRlIHBhc3NlPC9zcGFuPjxpbnB1dCBuYW1lPVwicGFzc3dvcmRcIiB0eXBlPVwicGFzc3dvcmRcIiBtaW5MZW5ndGg9XCI4XCIgcmVxdWlyZWQgYXV0b0NvbXBsZXRlPVwibmV3LXBhc3N3b3JkXCIgLz48L2xhYmVsPlxyXG4gICAgICAgICAgICA8YnV0dG9uIHR5cGU9XCJzdWJtaXRcIj5DcsOpZXIgbW9uIGNvbXB0ZSA8QXJyb3dSaWdodCB3ZWlnaHQ9XCJib2xkXCIgLz48L2J1dHRvbj5cclxuICAgICAgICAgICAgPHNtYWxsPlByb3RvdHlwZSBsb2NhbCA6IGxhIGNvbm5leGlvbiBzw6ljdXJpc8OpZSBzZXJhIHJlbGnDqWUgYXUgQ01TIGV0IGF1IHN5c3TDqG1lIGRlIGNvbW1hbmRlcy48L3NtYWxsPlxyXG4gICAgICAgICAgPC9mb3JtPlxyXG4gICAgICAgICkgOiAoXHJcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImFjY291bnQtZGFzaGJvYXJkXCI+XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWNjb3VudC13ZWxjb21lXCI+PGRpdj48c3Bhbj5Cb25qb3VyPC9zcGFuPjxzdHJvbmc+e2FjY291bnQubmFtZX08L3N0cm9uZz48c21hbGw+e2FjY291bnQuZW1haWx9PC9zbWFsbD48L2Rpdj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiBvbkNsaWNrPXtzaWduT3V0fT48U2lnbk91dCAvPiBEw6ljb25uZXhpb248L2J1dHRvbj48L2Rpdj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhY2NvdW50LXRhYnNcIiByb2xlPVwidGFibGlzdFwiIGFyaWEtbGFiZWw9XCJSdWJyaXF1ZXMgZHUgY29tcHRlXCI+XHJcbiAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9e3RhYiA9PT0gJ2N1cnJlbnQnID8gJ2lzLWFjdGl2ZScgOiAnJ30gdHlwZT1cImJ1dHRvblwiIG9uQ2xpY2s9eygpID0+IHNldFRhYignY3VycmVudCcpfT48VHJ1Y2sgLz4gRW4gY291cnM8L2J1dHRvbj5cclxuICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT17dGFiID09PSAnaGlzdG9yeScgPyAnaXMtYWN0aXZlJyA6ICcnfSB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17KCkgPT4gc2V0VGFiKCdoaXN0b3J5Jyl9PjxDbG9ja0NvdW50ZXJDbG9ja3dpc2UgLz4gSGlzdG9yaXF1ZTwvYnV0dG9uPlxyXG4gICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPXt0YWIgPT09ICd0cmFja2luZycgPyAnaXMtYWN0aXZlJyA6ICcnfSB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17KCkgPT4gc2V0VGFiKCd0cmFja2luZycpfT48UGFja2FnZSAvPiBTdWl2aTwvYnV0dG9uPlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAge3RhYiA9PT0gJ3RyYWNraW5nJyA/IChcclxuICAgICAgICAgICAgICA8Zm9ybSBjbGFzc05hbWU9XCJ0cmFja2luZy1mb3JtXCIgb25TdWJtaXQ9e3RyYWNrT3JkZXJ9PlxyXG4gICAgICAgICAgICAgICAgPGxhYmVsPjxzcGFuPk51bcOpcm8gZGUgY29tbWFuZGU8L3NwYW4+PGlucHV0IHZhbHVlPXt0cmFja2luZ051bWJlcn0gb25DaGFuZ2U9eyhldmVudCkgPT4gc2V0VHJhY2tpbmdOdW1iZXIoZXZlbnQudGFyZ2V0LnZhbHVlKX0gcGxhY2Vob2xkZXI9XCJFeC4gRUNOLTIwMjYtMDAxMjRcIiAvPjwvbGFiZWw+XHJcbiAgICAgICAgICAgICAgICA8YnV0dG9uIHR5cGU9XCJzdWJtaXRcIj5TdWl2cmUgbGEgY29tbWFuZGU8L2J1dHRvbj5cclxuICAgICAgICAgICAgICAgIHt0cmFja2luZ1N0YXR1cyAmJiA8cCByb2xlPVwic3RhdHVzXCI+e3RyYWNraW5nU3RhdHVzfTwvcD59XHJcbiAgICAgICAgICAgICAgPC9mb3JtPlxyXG4gICAgICAgICAgICApIDogKFxyXG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYWNjb3VudC1vcmRlci1lbXB0eVwiPlxyXG4gICAgICAgICAgICAgICAge3RhYiA9PT0gJ2N1cnJlbnQnID8gPFRydWNrIHdlaWdodD1cImR1b3RvbmVcIiAvPiA6IDxDbG9ja0NvdW50ZXJDbG9ja3dpc2Ugd2VpZ2h0PVwiZHVvdG9uZVwiIC8+fVxyXG4gICAgICAgICAgICAgICAgPGgzPnt0YWIgPT09ICdjdXJyZW50JyA/ICdBdWN1bmUgY29tbWFuZGUgZW4gY291cnMuJyA6ICdBdWN1biBoaXN0b3JpcXVlIGRpc3BvbmlibGUuJ308L2gzPlxyXG4gICAgICAgICAgICAgICAgPHA+Vm9zIGNvbW1hbmRlcyBhcHBhcmHDrnRyb250IGljaSBkw6hzIHF1ZSBsYSBjb25uZXhpb24gYXUgc3lzdMOobWUgZS1jb21tZXJjZSBzZXJhIGFjdGl2w6llLjwvcD5cclxuICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgKX1cclxuICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICl9XHJcbiAgICAgIDwvc2VjdGlvbj5cclxuICAgIDwvZGl2PixcclxuICAgIGRvY3VtZW50LmJvZHksXHJcbiAgKVxyXG59XHJcblxyXG5leHBvcnQgZnVuY3Rpb24gU2l0ZUhlYWRlcih7XHJcbiAgYWN0aXZlID0gJycsXHJcbiAgcmVxdWVzdEl0ZW1zID0gW10sXHJcbiAgcmVxdWVzdENvdW50LFxyXG4gIG9uUmVtb3ZlQ2FydEl0ZW0sXHJcbiAgb25DbGVhckNhcnQsXHJcbn0pIHtcclxuICBjb25zdCBbbWVudU9wZW4sIHNldE1lbnVPcGVuXSA9IHVzZVN0YXRlKGZhbHNlKVxyXG4gIGNvbnN0IFtjYXJ0T3Blbiwgc2V0Q2FydE9wZW5dID0gdXNlU3RhdGUoZmFsc2UpXHJcbiAgY29uc3QgW2FjY291bnRPcGVuLCBzZXRBY2NvdW50T3Blbl0gPSB1c2VTdGF0ZShmYWxzZSlcclxuICBjb25zdCBjYXJ0SXRlbXMgPSByZXF1ZXN0SXRlbXMubGVuZ3RoID8gcmVxdWVzdEl0ZW1zIDogW11cclxuICBjb25zdCBjYXJ0Q291bnQgPSByZXF1ZXN0Q291bnQgPz8gY2FydEl0ZW1zLmxlbmd0aFxyXG5cclxuICB1c2VFZmZlY3QoKCkgPT4ge1xyXG4gICAgaWYgKCFjYXJ0T3BlbiAmJiAhYWNjb3VudE9wZW4pIHJldHVybiB1bmRlZmluZWRcclxuICAgIGNvbnN0IHByZXZpb3VzT3ZlcmZsb3cgPSBkb2N1bWVudC5ib2R5LnN0eWxlLm92ZXJmbG93XHJcbiAgICBkb2N1bWVudC5ib2R5LnN0eWxlLm92ZXJmbG93ID0gJ2hpZGRlbidcclxuICAgIHJldHVybiAoKSA9PiB7IGRvY3VtZW50LmJvZHkuc3R5bGUub3ZlcmZsb3cgPSBwcmV2aW91c092ZXJmbG93IH1cclxuICB9LCBbY2FydE9wZW4sIGFjY291bnRPcGVuXSlcclxuXHJcbiAgcmV0dXJuIChcclxuICAgIDxoZWFkZXIgY2xhc3NOYW1lPVwic2hvcC1oZWFkZXJcIj5cclxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJzaG9wLWhlYWRlci1pbm5lclwiPlxyXG4gICAgICAgIDxTaG9wQnJhbmQgLz5cclxuICAgICAgICA8R2xvYmFsU2VhcmNoIC8+XG4gICAgICAgIDxuYXYgY2xhc3NOYW1lPVwic2hvcC1uYXZcIiBhcmlhLWxhYmVsPVwiTmF2aWdhdGlvbiBwcmluY2lwYWxlXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJuYXYtbWVudS1ncm91cFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJuYXYtbWVudS10cmlnZ2VyXCI+XG4gICAgICAgICAgICAgIDxhIGNsYXNzTmFtZT17WydtYXRlcmlhbCcsICdib3V0aXF1ZSddLmluY2x1ZGVzKGFjdGl2ZSkgPyAnaXMtYWN0aXZlJyA6ICcnfSBocmVmPVwiL21hdGVyaWVsLXRlbGVjb20tZmlicmUtb3B0aXF1ZS9cIj5NYXTDqXJpZWxzPC9hPlxuICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJtZWdhLW1lbnUtdG9nZ2xlXCIgYXJpYS1oaWRkZW49XCJ0cnVlXCI+PENhcmV0RG93biB3ZWlnaHQ9XCJib2xkXCIgLz48L3NwYW4+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxNYXRlcmlhbE1lZ2FNZW51IC8+XG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICA8YSBjbGFzc05hbWU9e2FjdGl2ZSA9PT0gJ3NhdicgPyAnaXMtYWN0aXZlJyA6ICcnfSBocmVmPVwiL3Nhdi9cIj5TQVY8L2E+XHJcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm5hdi1tZW51LWdyb3VwXCI+XHJcbiAgICAgICAgICAgIDxhIGNsYXNzTmFtZT17YWN0aXZlID09PSAnZm9ybWF0aW9ucycgPyAnaXMtYWN0aXZlJyA6ICcnfSBocmVmPVwiL2Zvcm1hdGlvbnMvXCI+Rm9ybWF0aW9ucyA8Q2FyZXREb3duIHdlaWdodD1cImJvbGRcIiAvPjwvYT5cclxuICAgICAgICAgICAgPEZvcm1hdGlvbnNNZWdhTWVudSAvPlxyXG4gICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICA8YSBjbGFzc05hbWU9e2FjdGl2ZSA9PT0gJ2Fib3V0JyA/ICdpcy1hY3RpdmUnIDogJyd9IGhyZWY9XCIvYS1wcm9wb3MtZGUtbm90cmUtbWlzc2lvbi9cIj7DgCBwcm9wb3M8L2E+XHJcbiAgICAgICAgICA8YSBjbGFzc05hbWU9e2FjdGl2ZSA9PT0gJ2NvbnRhY3QnID8gJ2lzLWFjdGl2ZScgOiAnJ30gaHJlZj1cIi9jb250YWN0L1wiPkNvbnRhY3Q8L2E+XHJcbiAgICAgICAgPC9uYXY+XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzaG9wLWhlYWRlci1hY3Rpb25zXCI+XHJcbiAgICAgICAgICA8YSBjbGFzc05hbWU9XCJoZWFkZXItcGhvbmVcIiBocmVmPVwidGVsOiszMzE4OTYyNDUwMVwiIGFyaWEtbGFiZWw9XCJBcHBlbGVyIEV4cGVydENOIGF1IDAxIDg5IDYyIDQ1IDAxXCI+PFBob25lIHdlaWdodD1cImR1b3RvbmVcIiAvPjxzcGFuPjAxIDg5IDYyIDQ1IDAxPC9zcGFuPjwvYT5cclxuICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiYWNjb3VudC1idXR0b25cIiB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17KCkgPT4gc2V0QWNjb3VudE9wZW4odHJ1ZSl9IGFyaWEtbGFiZWw9XCJNb24gY29tcHRlXCI+PFVzZXJDaXJjbGUgd2VpZ2h0PVwiZHVvdG9uZVwiIC8+PHNwYW4+TW9uIGNvbXB0ZTwvc3Bhbj48L2J1dHRvbj5cclxuICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiY2FydC1idXR0b25cIiB0eXBlPVwiYnV0dG9uXCIgb25DbGljaz17KCkgPT4gc2V0Q2FydE9wZW4odHJ1ZSl9IGFyaWEtbGFiZWw9XCJPdXZyaXIgbW9uIHBhbmllclwiPlxyXG4gICAgICAgICAgICA8U2hvcHBpbmdCYWcgd2VpZ2h0PVwiZHVvdG9uZVwiIC8+PHNwYW4+TW9uIHBhbmllcjwvc3Bhbj48Yj57Y2FydENvdW50fTwvYj5cclxuICAgICAgICAgIDwvYnV0dG9uPlxyXG4gICAgICAgICAgPGJ1dHRvbiBjbGFzc05hbWU9XCJzaG9wLW1lbnUtYnV0dG9uXCIgdHlwZT1cImJ1dHRvblwiIG9uQ2xpY2s9eygpID0+IHNldE1lbnVPcGVuKChvcGVuKSA9PiAhb3Blbil9IGFyaWEtbGFiZWw9e21lbnVPcGVuID8gJ0Zlcm1lciBsZSBtZW51JyA6ICdPdXZyaXIgbGUgbWVudSd9PlxyXG4gICAgICAgICAgICB7bWVudU9wZW4gPyA8WCAvPiA6IDxMaXN0IC8+fVxyXG4gICAgICAgICAgPC9idXR0b24+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgICB7bWVudU9wZW4gJiYgKFxuICAgICAgICA8bmF2IGNsYXNzTmFtZT1cInNob3AtbW9iaWxlLW5hdlwiIGFyaWEtbGFiZWw9XCJOYXZpZ2F0aW9uIG1vYmlsZVwiPlxuICAgICAgICAgIDxkZXRhaWxzIGNsYXNzTmFtZT1cInNob3AtbW9iaWxlLW1hdGVyaWFsc1wiPjxzdW1tYXJ5PjxhIGhyZWY9XCIvbWF0ZXJpZWwtdGVsZWNvbS1maWJyZS1vcHRpcXVlL1wiIG9uQ2xpY2s9eyhldmVudCkgPT4gZXZlbnQuc3RvcFByb3BhZ2F0aW9uKCl9Pk1hdMOpcmllbHM8L2E+PENhcmV0RG93biAvPjwvc3VtbWFyeT48YSBocmVmPVwiL2JvdXRpcXVlL1wiPlZvaXIgdG91dCBsZSBjYXRhbG9ndWU8L2E+e2NhdGFsb2d1ZUNhdGVnb3JpZXMubWFwKChjYXRlZ29yeSkgPT4gPGEgaHJlZj17Y2F0YWxvZ3VlVXJsKGNhdGVnb3J5Lm5hbWUpfSBrZXk9e2NhdGVnb3J5Lm5hbWV9PntjYXRlZ29yeS5uYW1lfTwvYT4pfTwvZGV0YWlscz5cbiAgICAgICAgICA8YSBocmVmPVwiL3Nhdi9cIj5TQVY8L2E+XHJcbiAgICAgICAgICA8ZGV0YWlscz48c3VtbWFyeT5Gb3JtYXRpb25zIDxDYXJldERvd24gLz48L3N1bW1hcnk+e2Zvcm1hdGlvbkNhdGVnb3JpZXMubWFwKChjYXRlZ29yeSkgPT4gPGEgaHJlZj17YC9mb3JtYXRpb25zLz9jYXRlZ29yaWU9JHtjYXRlZ29yeS5zbHVnfWB9IGtleT17Y2F0ZWdvcnkuc2x1Z30+e2NhdGVnb3J5Lm5hbWV9PC9hPil9PC9kZXRhaWxzPlxyXG4gICAgICAgICAgPGEgaHJlZj1cIi9hLXByb3Bvcy1kZS1ub3RyZS1taXNzaW9uL1wiPsOAIHByb3BvczwvYT5cclxuICAgICAgICAgIDxhIGhyZWY9XCIvY29udGFjdC9cIj5Db250YWN0PC9hPlxyXG4gICAgICAgIDwvbmF2PlxyXG4gICAgICApfVxyXG4gICAgICB7Y2FydE9wZW4gJiYgPENhcnRQYW5lbCBpdGVtcz17Y2FydEl0ZW1zfSBvblJlbW92ZT17b25SZW1vdmVDYXJ0SXRlbX0gb25DbGVhcj17b25DbGVhckNhcnR9IG9uQ2xvc2U9eygpID0+IHNldENhcnRPcGVuKGZhbHNlKX0gLz59XHJcbiAgICAgIHthY2NvdW50T3BlbiAmJiA8QWNjb3VudFBhbmVsIG9uQ2xvc2U9eygpID0+IHNldEFjY291bnRPcGVuKGZhbHNlKX0gLz59XHJcbiAgICA8L2hlYWRlcj5cclxuICApXHJcbn1cclxuXHJcbmV4cG9ydCBmdW5jdGlvbiBTaXRlTm90aWNlKHsgbWVzc2FnZSB9KSB7XHJcbiAgaWYgKCFtZXNzYWdlKSByZXR1cm4gbnVsbFxyXG4gIHJldHVybiA8ZGl2IGNsYXNzTmFtZT1cInNpdGUtbm90aWNlXCIgcm9sZT1cInN0YXR1c1wiIGFyaWEtbGl2ZT1cInBvbGl0ZVwiPjxDaGVjayB3ZWlnaHQ9XCJib2xkXCIgLz4ge21lc3NhZ2V9PC9kaXY+XHJcbn1cclxuXHJcbmV4cG9ydCBmdW5jdGlvbiBTaXRlRm9vdGVyKCkge1xyXG4gIHJldHVybiAoXHJcbiAgICA8Zm9vdGVyIGNsYXNzTmFtZT1cInNpdGUtZm9vdGVyXCI+XHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZm9vdGVyLW1haW5cIj5cclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZvb3Rlci1icmFuZFwiPjxTaG9wQnJhbmQgLz48cD5Gb3Jtb25zLCBhY2NvbXBhZ25vbnMgZXQgZW50cmV0ZW5vbnMgYXZlYyBwYXNzaW9uLjwvcD48L2Rpdj5cclxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZvb3Rlci1jb2x1bW5cIj48c3Ryb25nPkV4cGVydGlzZXM8L3N0cm9uZz48YSBocmVmPVwiL21hdGVyaWVsLXRlbGVjb20tZmlicmUtb3B0aXF1ZS9cIj5NYXTDqXJpZWxzPC9hPjxhIGhyZWY9XCIvYm91dGlxdWUvXCI+Qm91dGlxdWU8L2E+PGEgaHJlZj1cIi9zYXYvXCI+U0FWPC9hPjxhIGhyZWY9XCIvZm9ybWF0aW9ucy9cIj5Gb3JtYXRpb25zPC9hPjwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZvb3Rlci1jb2x1bW5cIj48c3Ryb25nPkV4cGVydENOPC9zdHJvbmc+PGEgaHJlZj1cIi9hLXByb3Bvcy1kZS1ub3RyZS1taXNzaW9uL1wiPsOAIHByb3BvczwvYT48YSBocmVmPVwiL2NvbnRhY3QvXCI+Q29udGFjdDwvYT48YSBocmVmPVwiL2EtcHJvcG9zLWRlLW5vdHJlLW1pc3Npb24vI3JzZVwiPkVuZ2FnZW1lbnQgUlNFPC9hPjxhIGhyZWY9XCIvZm9ybWF0aW9ucy8jcXVhbGl0ZVwiPkNlcnRpZmljYXRpb24gUXVhbGlvcGk8L2E+PC9kaXY+XHJcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmb290ZXItY29sdW1uIGZvb3Rlci1jb250YWN0XCI+PHN0cm9uZz5Ob3VzIHRyb3V2ZXI8L3N0cm9uZz48c3Bhbj48TWFwUGluIHdlaWdodD1cImR1b3RvbmVcIiAvPiBGcmFuY2U8L3NwYW4+PGEgaHJlZj1cInRlbDorMzMxODk2MjQ1MDFcIj48UGhvbmUgd2VpZ2h0PVwiZHVvdG9uZVwiIC8+ICszMyAxIDg5IDYyIDQ1IDAxPC9hPjxhIGhyZWY9XCJtYWlsdG86c2VydmljZS5jbGllbnRAZXhwZXJ0Y24uZnJcIj48RW52ZWxvcGVTaW1wbGUgd2VpZ2h0PVwiZHVvdG9uZVwiIC8+IE5vdXMgw6ljcmlyZTwvYT48L2Rpdj5cclxuICAgICAgPC9kaXY+XHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZm9vdGVyLWJvdHRvbVwiPjxzcGFuPsKpIDIwMjYgRXhwZXJ0IENlbnRlciBOZXR3b3Jrczwvc3Bhbj48ZGl2PjxhIGhyZWY9XCIvbWVudGlvbnMtbGVnYWxlcy9cIj5NZW50aW9ucyBsw6lnYWxlczwvYT48YSBocmVmPVwiL2NvbmRpdGlvbnMtZ2VuZXJhbGVzLWR1dGlsaXNhdGlvbi9cIj5Db25kaXRpb25zIGfDqW7DqXJhbGVzIGTigJl1dGlsaXNhdGlvbjwvYT48YSBocmVmPVwiL3BvbGl0aXF1ZS1kZS1jb25maWRlbnRpYWxpdGUvXCI+UG9saXRpcXVlIGRlIGNvbmZpZGVudGlhbGl0w6k8L2E+PC9kaXY+PC9kaXY+XHJcbiAgICA8L2Zvb3Rlcj5cclxuICApXHJcbn1cclxuIl0sImZpbGUiOiJDOi9Vc2Vycy9OYXNzaW0vRG9jdW1lbnRzL0NvZGV4LzIwMjYtMDgtMjkvZ2l0aHViLXBsdWdpbi1naXRodWItb3BlbmFpLWN1cmF0ZWQtcmVtb3RlL2V4cGVydGNuL3NyYy9zaG9wLXNoYXJlZC5qc3gifQ==

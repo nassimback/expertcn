@@ -1,0 +1,68 @@
+[
+  [
+    "Arborescence — expertcn.fr",
+    null,
+    null,
+    null
+  ],
+  [
+    "Catégorie",
+    "Sous-catégories",
+    "Nb de pages",
+    "Commentaire"
+  ],
+  [
+    "Tests et mesures",
+    "OTDR/Réflectomètres, Photomètres & Lasers, Analyseurs PON, Analyseurs de spectre (OCC), Multimètres optiques, Compteurs, Logiciels",
+    16,
+    "Gamme VeEX terrain/portable uniquement (les plateformes modulaires RXT/MTTplus/TX300s sont volontairement hors périmètre)."
+  ],
+  [
+    "Soudeuses fibre optique",
+    "Soudeuses (Fujikura, Sumitomo, Inno), Cliveuses",
+    12,
+    "⚠ Toujours aucun modèle INNO dans la liste — à ajouter (tu m'avais confirmé que la marque est distribuée)."
+  ],
+  [
+    "Raccordement optique",
+    "Tiroirs optiques, Pigtails, Jarretières, PTO, MPO, Breakout",
+    9,
+    "4 pages sur 6 sont désormais des pages variables."
+  ],
+  [
+    "Équipements Actifs",
+    "CPE, Switches, OLT, Modules optiques",
+    15,
+    "NOUVELLE catégorie. Gamme Raisecom. \"Modules optiques\" = entrée de menu pointant vers la page WordPress Newlinks (voir Légende)."
+  ],
+  [
+    "Tirage et sécurité",
+    "Recharges, Aiguilles de tirage, Accessoires de tirage",
+    4,
+    "Recharges et Aiguilles consolidées en pages variables."
+  ],
+  [
+    "Identification de réseau",
+    "Étiqueteuses",
+    9,
+    "Gamme Brady complète : M210, M211, M410, M510, M511, M610, M611, M710 (+ M210-LAB, Kit M211)."
+  ],
+  [
+    "Consommables",
+    "Électrodes, Étiquettes & Rubans, Colliers, Divers",
+    7,
+    "Consommables Brady ajoutés — chiffre d'affaires récurrent, à ne pas négliger en SEO."
+  ],
+  [
+    "Autres équipements",
+    "—",
+    0,
+    "Vide. Si rien ne vient s'y loger, autant supprimer la catégorie."
+  ],
+  [
+    "TOTAL PAGES",
+    null,
+    72,
+    null
+  ]
+]

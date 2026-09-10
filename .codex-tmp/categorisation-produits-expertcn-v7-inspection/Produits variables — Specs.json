@@ -1,0 +1,1012 @@
+[
+  [
+    "Spécifications — Pages produit variables (WooCommerce)",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Type WooCommerce : \"Produit variable\". Aucun développement custom, aucun CPT : on définit des Attributs, puis WooCommerce génère les Variations (chacune avec son SKU, prix, stock, image).",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "1. Recharge ",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut :",
+    "Longueur",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variations :",
+    "5 (toutes les valeurs de l'attribut unique)",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variation",
+    "Longueur",
+    "SKU (à compléter)",
+    "Prix (à compléter)",
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Recharge 30M",
+    "30M",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Recharge 60M",
+    "60M",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Recharge 100M",
+    "100M",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Recharge 150M",
+    "150M",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Recharge 300M",
+    "300M",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "2. Aiguille de tirage ",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Attributs :",
+    "Longueur + Diamètre",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "⚠ Variations :",
+    "PAS toutes les combinaisons. Chaque longueur a UN diamètre fixe : ne créer que ces 5 variations, pas les 20 combinaisons possibles.",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variation",
+    "Longueur",
+    "Diamètre",
+    "SKU / Prix (à compléter)",
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Aiguille 30M",
+    "30M",
+    "À confirmer",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Aiguille 60M",
+    "60M",
+    "4.5MM",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Aiguille 100M",
+    "100M",
+    "6-7MM",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Aiguille 150M",
+    "150M",
+    "9MM",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Aiguille 300M",
+    "300M",
+    "11MM",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "3. PTO —",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut :",
+    "Nombre de fibres",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variations :",
+    "3 —  1FO,  2FO,  4FO",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "4. Breakout — ",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut :",
+    "Type de fibre",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variations :",
+    "2 — Monomode, Multimode (remplace les 2 anciennes pages séparées)",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "5. Jarretières optiques & Pigtails — ",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "⚠ Statut :",
+    "Structure proposée, valeurs NON validées. ",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut proposé",
+    "Valeurs proposées",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Connectique",
+    "SC / LC / FC / ST (+ variantes APC/UPC ?)",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Type de fibre",
+    "Monomode (OS2) / Multimode (OM3, OM4)",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Longueur",
+    "1m / 2m / 3m / 5m / 10m...",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "⚠ Attention :",
+    "Connectique × Type de fibre × Longueur = potentiellement des centaines de variations. Il faudra restreindre aux combinaisons réellement vendues, sinon la page devient ingérable.",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "6. Autres pages variables introduites — ",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Page",
+    "Attributs proposés",
+    "À cadrer avec",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Cartouches Brady M21",
+    "Matière + Largeur",
+    "Catalogue Brady (90+ cartouches)",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Étiquettes/rubans Brady M4/M5",
+    "Matière + Largeur",
+    "Catalogue Brady",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Étiquettes/rubans Brady M6/M7",
+    "Matière + Largeur",
+    "Catalogue Brady",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "ONT Raisecom ISCOM HT803G",
+    "Modèle (1GE / WS / WS2...)",
+    "Catalogue Raisecom",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Switch Gazelle rack 19\"",
+    "Modèle (L2 / L3, nb de ports)",
+    "Catalogue Raisecom",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "7. Câble fibre optique micromodule — ATTRIBUTS DÉFINIS (combinaisons à restreindre)",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Attribut",
+    "Valeurs",
+    "Note",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Type de fibre",
+    "G.652D (standard transport) / G.657A2 (courbures serrées)",
+    "2 valeurs",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Structure",
+    "Modulo 6 / Modulo 12",
+    "2 valeurs — micromodules pelables à la main, sans outil",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Capacité",
+    "6 FO / 12 FO / 24 FO / 36 FO / 48 FO / 72 FO / 96 FO / 144 FO /",
+    "de 6 à 288 FO ; capacité liée à la structure (multiples de 6 ou 12)",
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "⚠ Attention :",
+    "Type de fibre × Structure × Capacité = jusqu'à 28 combinaisons. Restreindre aux configurations réellement fabriquées (la capacité dépend de la structure : Modulo 6 = multiples de 6, Modulo 12 = multiples de 12). À vérifier : la valeur 196 FO (habituellement 192 ou 288 FO).",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "7. Câble fibre optique micromodule — ATTRIBUTS DÉFINIS (combinaisons à restreindre)",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Type WooCommerce : \"Produit variable\". Attributs communs à tous les modules : Débit (1G / 10G / 100G) | Format (SFP / SFP+ / QSFP28) | Connecteur (LC Duplex / LC Simplex / MTP-MPO) | Longueur d'onde TX (nm) | Distance (km) | Grade (Standard / Industrial). Chaque variation = 1 SKU Newlinks distinct issu de la liste de références.",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "1G — Modules SFP 1 Gigabit",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variation (nom WooCommerce)",
+    "Débit",
+    "Format",
+    "Connecteur",
+    "λ TX (nm)",
+    "Distance",
+    "Grade",
+    "SKU Newlinks"
+  ],
+  [
+    "SFP 1G SR 850nm 500m LC Duplex Standard",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "850",
+    "500m",
+    "Standard",
+    "NL-SFP-1G-SR-LCD"
+  ],
+  [
+    "SFP 1G SR 850nm 500m LC Duplex Industrial",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "850",
+    "500m",
+    "Industrial",
+    "NL-SFP-1G-SR-LCD"
+  ],
+  [
+    "SFP 1G LR 1310nm 2km LC Duplex Standard",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "1310",
+    "2km",
+    "Standard",
+    "NL-SFP-1G-LR-LCD"
+  ],
+  [
+    "SFP 1G LR 1310nm 10km LC Duplex Standard",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "1310",
+    "10km",
+    "Standard",
+    "NL-SFP-1G-LR-LCD"
+  ],
+  [
+    "SFP 1G LR 1310nm 10km LC Duplex Industrial",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "1310",
+    "10km",
+    "Industrial",
+    "NL-SFP-1G-LR-LCD"
+  ],
+  [
+    "SFP 1G LR 1310nm 20km LC Duplex Standard",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "1310",
+    "20km",
+    "Standard",
+    "NL-SFP-1G-LR-LCD"
+  ],
+  [
+    "SFP 1G LR 1310nm 20km LC Duplex Industrial",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "1310",
+    "20km",
+    "Industrial",
+    "NL-SFP-1G-LR-LCD"
+  ],
+  [
+    "SFP 1G ER 1310nm 40km LC Duplex Standard",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "1310",
+    "40km",
+    "Standard",
+    "NL-SFP-1G-ER-LCD"
+  ],
+  [
+    "SFP 1G ZR 1550nm 80km LC Duplex Standard",
+    "1G",
+    "SFP",
+    "LC Duplex",
+    "1550",
+    "80km",
+    "Standard",
+    "NL-SFP-1G-ZR-LCD"
+  ],
+  [
+    "SFP 1G BX 1310/1490nm 10km LC Simplex Standard",
+    "1G",
+    "SFP",
+    "LC Simplex",
+    "1310/1490",
+    "10km",
+    "Standard",
+    "NL-SFP-1G-BX-LCS"
+  ],
+  [
+    "SFP 1G BX 1490/1310nm 10km LC Simplex Standard",
+    "1G",
+    "SFP",
+    "LC Simplex",
+    "1490/1310",
+    "10km",
+    "Standard",
+    "NL-SFP-1G-BX-LCS"
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "10G — Modules SFP+ 10 Gigabit",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variation (nom WooCommerce)",
+    "Débit",
+    "Format",
+    "Connecteur",
+    "λ TX (nm)",
+    "Distance",
+    "Grade",
+    "SKU Newlinks"
+  ],
+  [
+    "SFP+ 10G SR 850nm 300m LC Duplex Standard",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "850",
+    "300m",
+    "Standard",
+    "NL-SFP-10G-SR-LCD"
+  ],
+  [
+    "SFP+ 10G SR 850nm 300m LC Duplex Industrial",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "850",
+    "300m",
+    "Industrial",
+    "NL-SFP-10G-SR-LCD"
+  ],
+  [
+    "SFP+ 10G LR 1310nm 10km LC Duplex Standard",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1310",
+    "10km",
+    "Standard",
+    "NL-SFP-10G-LR-LCD"
+  ],
+  [
+    "SFP+ 10G LR 1310nm 10km LC Duplex Industrial",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1310",
+    "10km",
+    "Industrial",
+    "NL-SFP-10G-LR-LCD"
+  ],
+  [
+    "SFP+ 10G LR 1310nm 20km LC Duplex Standard",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1310",
+    "20km",
+    "Standard",
+    "NL-SFP-10G-LR-LCD"
+  ],
+  [
+    "SFP+ 10G LR 1310nm 20km LC Duplex Industrial",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1310",
+    "20km",
+    "Industrial",
+    "NL-SFP-10G-LR-LCD"
+  ],
+  [
+    "SFP+ 10G ER 1310nm 40km LC Duplex Standard",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1310",
+    "40km",
+    "Standard",
+    "NL-SFP-10G-ER-LCD"
+  ],
+  [
+    "SFP+ 10G ER 1310nm 40km LC Duplex Industrial",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1310",
+    "40km",
+    "Industrial",
+    "NL-SFP-10G-ER-LCD"
+  ],
+  [
+    "SFP+ 10G ZR 1550nm 80km LC Duplex Standard",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1550",
+    "80km",
+    "Standard",
+    "NL-SFP-10G-ZR-LCD"
+  ],
+  [
+    "SFP+ 10G ZR 1550nm 80km LC Duplex Industrial",
+    "10G",
+    "SFP+",
+    "LC Duplex",
+    "1550",
+    "80km",
+    "Industrial",
+    "NL-SFP-10G-ZR-LCD"
+  ],
+  [
+    "SFP+ 10G BX 1270/1310nm 10km LC Simplex Std",
+    "10G",
+    "SFP+",
+    "LC Simplex",
+    "1270/1310",
+    "10km",
+    "Standard",
+    "NL-SFP-10G-BX-LCS"
+  ],
+  [
+    "SFP+ 10G BX 1310/1270nm 10km LC Simplex Std",
+    "10G",
+    "SFP+",
+    "LC Simplex",
+    "1310/1270",
+    "10km",
+    "Standard",
+    "NL-SFP-10G-BX-LCS"
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "100G — Modules QSFP28 100 Gigabit",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Variation (nom WooCommerce)",
+    "Débit",
+    "Format",
+    "Connecteur",
+    "λ TX (nm)",
+    "Distance",
+    "Grade",
+    "SKU Newlinks"
+  ],
+  [
+    "QSFP28 100G SR 850nm 100m MTP/MPO Standard",
+    "100G",
+    "QSFP28",
+    "MTP/MPO",
+    "850",
+    "100m",
+    "Standard",
+    "NL-QSFP-100G-SR-MPO"
+  ],
+  [
+    "QSFP28 100G SR 850nm 100m MTP/MPO Industrial",
+    "100G",
+    "QSFP28",
+    "MTP/MPO",
+    "850",
+    "100m",
+    "Industrial",
+    "NL-QSFP-100G-SR-MPO"
+  ],
+  [
+    "QSFP28 100G SR 850nm 300m MTP/MPO Standard",
+    "100G",
+    "QSFP28",
+    "MTP/MPO",
+    "850",
+    "300m",
+    "Standard",
+    "NL-QSFP-100G-SR-MPO"
+  ],
+  [
+    "QSFP28 100G LR 1310nm 500m LC Duplex Standard",
+    "100G",
+    "QSFP28",
+    "LC Duplex",
+    "1310",
+    "500m",
+    "Standard",
+    "NL-QSFP-100G-LR-LCD"
+  ],
+  [
+    "QSFP28 100G LR 1310nm 2km LC Duplex Standard",
+    "100G",
+    "QSFP28",
+    "LC Duplex",
+    "1310",
+    "2km",
+    "Standard",
+    "NL-QSFP-100G-LR-LCD"
+  ],
+  [
+    "QSFP28 100G LR 1310nm 10km LC Duplex Standard",
+    "100G",
+    "QSFP28",
+    "LC Duplex",
+    "1310",
+    "10km",
+    "Standard",
+    "NL-QSFP-100G-LR-LCD"
+  ],
+  [
+    "QSFP28 100G BX 1310nm 10km LC Duplex Standard",
+    "100G",
+    "QSFP28",
+    "LC Duplex",
+    "1271-1331",
+    "10km",
+    "Standard",
+    "NL-QSFP-100G-BX-LCD"
+  ],
+  [
+    "QSFP28 100G BX 1310nm 40km LC Duplex Standard",
+    "100G",
+    "QSFP28",
+    "LC Duplex",
+    "1295-1309",
+    "40km",
+    "Standard",
+    "NL-QSFP-100G-BX-LCD"
+  ]
+]

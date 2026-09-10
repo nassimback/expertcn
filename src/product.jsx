@@ -225,7 +225,7 @@ function ProductPage() {
           <div className={`single-product-media ${product.imageMode === 'cover' ? 'is-cover' : ''}`}>
             <img
               src={activeImage || product.image}
-              alt={product.name}
+              alt={selectedVariation?.label || product.name}
               fetchPriority="high"
               onError={(event) => {
                 event.currentTarget.onerror = null
@@ -274,6 +274,12 @@ function ProductPage() {
                     {option.pending && <small>La configuration exacte sera définie avec un conseiller technique.</small>}
                   </label>
                 ))}
+                {selectedVariation?.sku && (
+                  <p className="product-variation-reference">
+                    <span>Référence sélectionnée</span>
+                    <strong>{selectedVariation.sku}</strong>
+                  </p>
+                )}
               </div>
             )}
 
@@ -309,6 +315,9 @@ function ProductPage() {
             <div><dt>Famille</dt><dd>{product.category}</dd></div>
             <div><dt>Usage</dt><dd>{product.subcategory}</dd></div>
             <div><dt>Type</dt><dd>{product.type === 'Variable' ? 'Produit configurable' : 'Référence simple'}</dd></div>
+            {product.specifications && Object.entries(product.specifications).map(([label, value]) => (
+              <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+            ))}
             {product.sku && <div className="product-fact-wide"><dt>Référence</dt><dd>{product.sku}</dd></div>}
           </dl>
         </section>

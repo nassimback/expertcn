@@ -1,0 +1,662 @@
+[
+  [
+    "Sections & images site web",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Page",
+    "Section",
+    "Description image",
+    "URL de l'image",
+    "Note",
+    "Alt text (SEO)",
+    "Statut",
+    "Nom de l'image"
+  ],
+  [
+    "Accueil",
+    "Hero",
+    "Image de fond du hero — technicien travaillant sur équipement fibre",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Frame-9.png",
+    "Remplacer l'image",
+    "Technicien ExpertCN raccordant un équipement fibre optique",
+    "À ajouter",
+    "accueil-hero-technicien-fibre.jpg"
+  ],
+  [
+    "Accueil",
+    "Bloc confiance",
+    "Petite miniature à côté du bloc \"La confiance se construit sur des résultats\"",
+    null,
+    null,
+    "Illustration de la relation client ExpertCN",
+    "À ajouter",
+    "accueil-bloc-confiance-miniature.jpg"
+  ],
+  [
+    "Accueil",
+    "Une vision 360° - image 1",
+    "Image gros plan technicien sur soudeuse (colonne gauche)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/acceuil_soudeuse_gros_plan.jpeg",
+    null,
+    "Gros plan sur une soudeuse fibre optique en cours d'utilisation",
+    "À ajouter",
+    "accueil-vision-360-soudeuse-gros-plan.jpg"
+  ],
+  [
+    "Accueil",
+    "Une vision 360° - image 2",
+    "Image groupe formation (colonne droite)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technicians_splicing_fiber_optic%E2%80%A6_202609031537.png",
+    null,
+    "Groupe de techniciens en formation fibre optique",
+    "À ajouter",
+    "accueil-vision-360-formation-groupe.jpg"
+  ],
+  [
+    "Accueil",
+    "Centre de maintenance",
+    "Image soudeuse en cours de réparation (bloc SAV)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Hands_maintaining_fiber_optic_sp…_202609041040.jpeg",
+    null,
+    "Soudeuse fibre optique en cours de réparation au centre de maintenance ExpertCN",
+    "À ajouter",
+    "accueil-maintenance-soudeuse-reparation.jpg"
+  ],
+  [
+    "Accueil",
+    "Parcours RMA",
+    "Image technicien avec équipement (bloc \"Chaque intervention est suivie\")",
+    null,
+    null,
+    "Technicien ExpertCN inspectant un équipement en atelier",
+    "À supprimer",
+    "accueil-rma-technicien.jpg"
+  ],
+  [
+    "Accueil",
+    "Bloc formations",
+    "Image groupe apprenants (bloc \"Des formations pensées pour le terrain\")",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Trainer_demonstrating_fusion_spl%E2%80%A6_202609041047.jpeg",
+    null,
+    "Apprenants en formation télécom ExpertCN",
+    "À ajouter",
+    "accueil-formations-apprenants.jpg"
+  ],
+  [
+    "Accueil",
+    "RSE - image principale",
+    "Image technicien devant panneaux solaires (bloc engagements RSE)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technician_inspecting_telecom_ca%E2%80%A6_202609041058.jpeg",
+    null,
+    "Technicien ExpertCN intervenant sur infrastructure avec panneaux solaires",
+    "À ajouter",
+    "accueil-rse-technicien-solaire.jpg"
+  ],
+  [
+    "Accueil",
+    "RSE - badge EcoVadis",
+    "Logo/badge de la certification EcoVadis Platinum",
+    null,
+    null,
+    "Badge de certification Platinum EcoVadis",
+    null,
+    "accueil-rse-badge-ecovadis.png"
+  ],
+  [
+    "Accueil",
+    "RSE - badge ISO 26000",
+    "Logo/badge ISO 26000",
+    null,
+    null,
+    "Badge de certification ISO 26000",
+    null,
+    "accueil-rse-badge-iso26000.png"
+  ],
+  [
+    "Matériels",
+    "Hero",
+    "Image équipements fibre optique groupés (soudeuse + testeur + jarretières)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Hands_repairing_fiber_fusion_spl%E2%80%A6_202609041102.jpeg",
+    null,
+    "Sélection d'équipements fibre optique professionnels ExpertCN",
+    null,
+    "materiels-hero-equipements-groupes.jpg"
+  ],
+  [
+    "Matériels",
+    "Bannière carrousel - Slide 1",
+    "Bannière produit phare (ex. VeEX PX92)",
+    null,
+    null,
+    "Analyseur PON VeEX PX92 - Produit phare ExpertCN",
+    null,
+    "materiels-carrousel-slide-1-veex-px92.jpg"
+  ],
+  [
+    "Matériels",
+    "Bannière carrousel - Slide 2",
+    "Bannière partenaire (ex. VeEX)",
+    null,
+    null,
+    "VeEX - Leader Test & Mesure Télécom, partenaire ExpertCN",
+    null,
+    "materiels-carrousel-slide-2-veex.jpg"
+  ],
+  [
+    "Matériels",
+    "Bannière carrousel - Slide 3",
+    "Bannière partenaire (ex. Raisecom)",
+    null,
+    null,
+    "Raisecom - Partenaire équipements actifs ExpertCN",
+    null,
+    "materiels-carrousel-slide-3-raisecom.jpg"
+  ],
+  [
+    "Matériels",
+    "Bannière carrousel - Slide 4",
+    "Bannière partenaire (ex. Newlinks)",
+    null,
+    null,
+    "Newlinks - Modules optiques compatibles, partenaire ExpertCN",
+    null,
+    "materiels-carrousel-slide-4-newlinks.jpg"
+  ],
+  [
+    "Matériels",
+    "Section 7 univers - Tests & Mesure",
+    "Illustration catégorie Tests & Mesure (produits VeEX groupés)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/08/test_et_mesures.jpg",
+    null,
+    "Équipements de test et mesure fibre optique VeEX",
+    "À ajouter",
+    "test_et_mesures.jpg"
+  ],
+  [
+    "Matériels",
+    "Section 7 univers - Soudeuses",
+    "Illustration catégorie Soudeuses fibre optique",
+    "https://www.expertcn.fr/wp-content/uploads/2026/08/soudeuses_fibre_optique.jpg",
+    null,
+    "Soudeuses fibre optique Fujikura, Sumitomo, Inno",
+    "À ajouter",
+    "soudeuses_fibre_optique.jpg"
+  ],
+  [
+    "Matériels",
+    "Section 7 univers - Raccordement",
+    "Illustration catégorie Raccordement optique",
+    "https://www.expertcn.fr/wp-content/uploads/2026/08/raccordement_optique.jpg",
+    null,
+    "Jarretières, MPO, tiroirs optiques et composants de raccordement",
+    "À ajouter",
+    "raccordement_optique.jpg"
+  ],
+  [
+    "Matériels",
+    "Section 7 univers - Équipements Actifs",
+    "Illustration catégorie Équipements Actifs (SFP + CPE + switch)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/08/equipement_actif.jpg",
+    null,
+    "Modules optiques SFP, CPE et switches réseau",
+    "À ajouter",
+    "equipement_actif.jpg"
+  ],
+  [
+    "Matériels",
+    "Section 7 univers - Tirage & Sécurité",
+    "Illustration catégorie Tirage & Sécurité",
+    "https://www.expertcn.fr/wp-content/uploads/2026/08/tirage_et_securite.jpg",
+    null,
+    "Aiguilles de tirage fibre optique et équipements de sécurité",
+    "À ajouter",
+    "tirage_et_securite.jpg"
+  ],
+  [
+    "Matériels",
+    "Section 7 univers - Identification",
+    "Illustration catégorie Identification réseau (Brady)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/08/identification_reseau.jpg",
+    null,
+    "Étiqueteuses Brady et solutions d'identification réseau",
+    "À ajouter",
+    "identification_reseau.jpg"
+  ],
+  [
+    "Matériels",
+    "Section 7 univers - Consommables",
+    "Illustration catégorie Consommables",
+    "https://www.expertcn.fr/wp-content/uploads/2026/08/consommables.jpg",
+    null,
+    "Électrodes, Smooves, colliers de serrage et consommables télécom",
+    "À ajouter",
+    "consommables.jpg"
+  ],
+  [
+    "Matériels",
+    "Bannière SFP Newlinks",
+    "Bannière dédiée gamme SFP Newlinks (dans le catalogue)",
+    null,
+    null,
+    "Gamme de modules optiques SFP compatibles Newlinks",
+    null,
+    "materiels-banniere-sfp-newlinks.jpg"
+  ],
+  [
+    "Matériels",
+    "Logos partenaires officiels",
+    "Logos des partenaires : VeEX, Raisecom, Fujikura, Sumitomo, Inno, Brady, Newlinks, Cinofiber",
+    null,
+    null,
+    "Logos des partenaires officiels distribués par ExpertCN",
+    null,
+    "materiels-logos-partenaires.png"
+  ],
+  [
+    "Formations",
+    "Hero",
+    "Image groupe apprenants sur soudeuse",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Trainer_demonstrating_fusion_spl%E2%80%A6_202609041128.jpeg",
+    null,
+    "Apprenants en formation télécom sur équipement de fusion fibre",
+    "À ajouter",
+    "formations-hero-apprenants-soudeuse.jpg"
+  ],
+  [
+    "Formations",
+    "Section pédagogie",
+    "Image \"La technique s'apprend mieux quand elle se pratique\"",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Trainer_demonstrating_fiber_fusi%E2%80%A6_202609041133.jpeg",
+    null,
+    "Groupe d'apprenants en pratique sur soudeuse fibre optique",
+    "À ajouter",
+    "formations-pedagogie-pratique.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Fibre Optique",
+    "Illustration catégorie Fibre Optique",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Hands_working_near_fiber_optic_202609041147.jpeg",
+    null,
+    "Formation fibre optique - Techniciens FTTO/FTTH",
+    "À ajouter",
+    "formations-categorie-fibre-optique.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Électricité",
+    "Illustration catégorie Électricité",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technician_testing_electrical_panel_202609041149.jpeg",
+    null,
+    "Formation électricité et IRVE",
+    "À ajouter",
+    "formations-categorie-electricite.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Mesure",
+    "Illustration catégorie Mesure",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Hand_holding_OTDR_fiber_tester_202609041147.jpeg",
+    null,
+    "Formation mesure PMD/CD sur fibre optique",
+    "À ajouter",
+    "formations-categorie-mesure.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Rénovations Énergétiques",
+    "Illustration catégorie Rénovations Énergétiques (QualiPV, Qualipac)",
+    "https://www.expertcn.fr/wp-content/uploads/2023/12/5.png",
+    null,
+    "Formation rénovation énergétique - QualiPV et Qualipac",
+    "À ajouter",
+    "formations-categorie-renovations-energetiques.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Sécurité Incendie",
+    "Illustration catégorie Sécurité Incendie (SSIAP)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Fire_safety_agent_inspecting_AED_202609041223.jpeg",
+    null,
+    "Formation sécurité incendie SSIAP",
+    "À ajouter",
+    "formations-categorie-securite-incendie.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Sécurité et Sûreté",
+    "Illustration catégorie Sécurité et Sûreté",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Security_guard_patrolling_lobby_202609041225.jpeg",
+    null,
+    "Formation sécurité et sûreté - TFP APS, CQP APS GE",
+    "À ajouter",
+    "formations-categorie-securite-surete.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Secourisme",
+    "Illustration catégorie Secourisme (SST)",
+    "https://www.expertcn.fr/wp-content/uploads/elementor/thumbs/Design-sans-titre-47-rckid4954o7pmg73pf5t4lbktjk5qef8zfch6aigf4.png",
+    null,
+    "Formation secourisme SST et Mac SST",
+    "À ajouter",
+    "formations-categorie-secourisme.jpg"
+  ],
+  [
+    "Formations",
+    "Catégorie - Habilitations Électriques",
+    "Illustration catégorie Habilitations Électriques",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technician_applying_safety_lock_202609041415.jpeg",
+    null,
+    "Formation habilitations électriques H0B0, B2V, AIPR",
+    "À ajouter",
+    "formations-categorie-habilitations-electriques.jpg"
+  ],
+  [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  [
+    "Formations",
+    "Témoignages apprenants",
+    "Photos ou illustrations pour la section témoignages",
+    null,
+    null,
+    "[Personnalisée par apprenant]",
+    null,
+    "formations-temoignage-[N].jpg"
+  ],
+  [
+    "SAV",
+    "Hero",
+    "Image soudeuse en cours de réparation en atelier",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Hands_repairing_fiber_fusion_spl%E2%80%A6_202609041102.jpeg",
+    null,
+    "Soudeuse fibre optique en cours de réparation au centre SAV ExpertCN",
+    "À ajouter",
+    "sav-hero-soudeuse-reparation.jpg"
+  ],
+  [
+    "SAV",
+    "Section parcours RMA",
+    "Image technicien avec équipement (cadre sombre du parcours 4 étapes)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technician_performing_precision_%E2%80%A6_202609041105.jpeg",
+    null,
+    "Technicien ExpertCN lors du parcours de prise en charge RMA",
+    "À ajouter",
+    "sav-parcours-rma-technicien.jpg"
+  ],
+  [
+    "SAV",
+    "Section calibration",
+    "Image gros plan calibration équipement",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technician_calibrating_fusion_sp%E2%80%A6_202609041124.jpeg",
+    null,
+    "Calibration de précision sur une soudeuse fibre optique",
+    "À ajouter",
+    "sav-calibration-gros-plan.jpg"
+  ],
+  [
+    "À propos",
+    "Hero",
+    "Image équipe/technicien (peut réutiliser image RSE de la Home)",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technician_maintaining_telecom_e…_202609041538.jpeg",
+    null,
+    "Équipe ExpertCN sur le terrain",
+    null,
+    "apropos-hero-technicien.jpg"
+  ],
+  [
+    "À propos",
+    "Section engagements",
+    "Images illustrant les engagements RSE/qualité",
+    null,
+    null,
+    "[Personnalisée par engagement]",
+    null,
+    "apropos-engagements-[N].jpg"
+  ],
+  [
+    "Formations",
+    "Fiches formation individuelles",
+    "H0B0",
+    "https://www.expertcn.fr/wp-content/uploads/2024/03/11-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "B2V BR BC",
+    "https://www.expertcn.fr/wp-content/uploads/2024/03/111-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "AIPR Encadrant",
+    "https://www.expertcn.fr/wp-content/uploads/2024/03/engineers-helmets-standing-by-factory-800x450.jpg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "AIPR Concepteur",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Sans-titre-1000-x-600-px-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "AIPR Opérateur",
+    "https://www.expertcn.fr/wp-content/uploads/2024/03/44-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Électricien du bâtiment",
+    "https://www.expertcn.fr/wp-content/uploads/2024/03/18-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Installateur IRVE P1P2P3",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Design-sans-titre-34-500x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Qualipac : pompes à chaleur RGE",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Design-sans-titre-43-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "QualiPV 500 électricité",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Design-sans-titre-44-800x450.jpg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "QualiPV 36 électricité",
+    "https://www.expertcn.fr/wp-content/uploads/2024/01/ouvrier-dans-feu-pres-panneaux-solaires-800x450.jpg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "QualiPV Bâtiment",
+    "https://www.expertcn.fr/wp-content/uploads/2024/02/42-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Mesureur PMD-CD",
+    "https://www.expertcn.fr/wp-content/uploads/2024/01/commutateur-reseau-cables-800x450.jpg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Analyseur PMD/CD",
+    "https://www.expertcn.fr/wp-content/uploads/2024/01/commutateur-reseau-cables-800x450.jpg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Technicien FTTO",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Technician_installing_fiber_opti%E2%80%A6_202609041515.jpeg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Technicien FTTH D3",
+    "https://www.expertcn.fr/wp-content/uploads/2026/09/Trainer_demonstrating_fiber_conn%E2%80%A6_202609041516.jpeg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "Technicien Maintenance Réseau Fibre Optique",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Sans-titre-600-x-400-px-6.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "TFP APS",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Design-sans-titre-53-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "CQP APS GE",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Sans-titre-1000-x-600-px-3-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "SSIAP 1",
+    "https://www.expertcn.fr/wp-content/uploads/2024/02/36-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "SSIAP 2",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Design-sans-titre-51-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "SSIAP 3",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Sans-titre-600-x-400-px-3.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "SST",
+    "https://www.expertcn.fr/wp-content/uploads/2024/08/Design-sans-titre-52-800x450.png",
+    null,
+    null,
+    "À ajouter",
+    null
+  ],
+  [
+    null,
+    null,
+    "MAC SST",
+    "https://www.expertcn.fr/wp-content/uploads/2024/01/paramedics-examinent-fille-blessee-800x450.jpg",
+    null,
+    null,
+    "À ajouter",
+    null
+  ]
+]

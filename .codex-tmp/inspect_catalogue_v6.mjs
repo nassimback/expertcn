@@ -3,8 +3,9 @@ import path from "node:path";
 import { FileBlob, SpreadsheetFile } from "@oai/artifact-tool";
 
 const rootDir = process.cwd();
-const workbookPath = path.join(rootDir, "Categorisation_Produits_ExpertCN_v6.xlsx");
-const outputDir = path.join(rootDir, ".codex-tmp", "catalogue-v6-inspection");
+const workbookPath = process.argv[2] || path.join(rootDir, "Categorisation_Produits_ExpertCN_v6.xlsx");
+const versionLabel = path.basename(workbookPath, path.extname(workbookPath)).replace(/[^a-z0-9]+/gi, "-").toLowerCase();
+const outputDir = path.join(rootDir, ".codex-tmp", `${versionLabel}-inspection`);
 
 await fs.mkdir(outputDir, { recursive: true });
 

@@ -31,7 +31,7 @@ function ButtonLink({ href, children, secondary = false }) {
   return <a className={`service-button ${secondary ? 'is-secondary' : ''}`} href={href}>{children} <ArrowRight weight="bold" /></a>
 }
 
-function ServiceHero({ kicker, title, description, image, imageAlt, primary, secondary, active }) {
+function ServiceHero({ kicker, title, description, image, imageAlt, primary, secondary, active, badge }) {
   return (
     <header className={`service-hero service-hero-${active}`}>
       <div className="service-hero-copy">
@@ -43,7 +43,15 @@ function ServiceHero({ kicker, title, description, image, imageAlt, primary, sec
           {secondary && <ButtonLink href={secondary.href} secondary>{secondary.label}</ButtonLink>}
         </div>
       </div>
-      <div className="service-hero-media"><img src={image} alt={imageAlt} /></div>
+      <div className="service-hero-media">
+        <img src={image} alt={imageAlt} />
+        {badge && (
+          <aside className="service-hero-badge" aria-label={badge.ariaLabel}>
+            <span className="service-hero-badge-art" aria-hidden="true"><img src={badge.image} alt="" /></span>
+            <span className="service-hero-badge-copy"><strong>{badge.title}</strong><small>{badge.detail}</small></span>
+          </aside>
+        )}
+      </div>
     </header>
   )
 }
@@ -263,7 +271,7 @@ function AboutPage() {
 
   return (
     <PageShell>
-      <ServiceHero active="about" kicker="Notre mission" title="Faire grandir vos projets." description="ExpertCN accompagne les professionnels des télécoms et de l’énergie avec une expertise concrète, durable et profondément humaine." image="/images/expertcn-rse.jpg" imageAlt="Technicien ExpertCN sur une infrastructure responsable" primary={{ href: '/contact/#contact-form', label: 'Nous contacter' }} secondary={{ href: '#mission', label: 'Découvrir notre histoire' }} />
+      <ServiceHero active="about" kicker="Notre mission" title="Faire grandir vos projets." description="ExpertCN accompagne les professionnels des télécoms et de l’énergie avec une expertise concrète, durable et profondément humaine." image="/images/expertcn-rse.jpg" imageAlt="Technicien ExpertCN sur une infrastructure responsable" primary={{ href: '/contact/#contact-form', label: 'Nous contacter' }} secondary={{ href: '#mission', label: 'Découvrir notre histoire' }} badge={{ image: '/images/Ecovadis.png', title: 'EcoVadis Platinum', detail: 'Top 1 % - AUG 2025', ariaLabel: 'Médaille EcoVadis Platinum, top 1 % des entreprises évaluées, août 2025' }} />
 
       <section className="service-section mission-layout" id="mission">
         <div className="mission-statement"><p>Notre conviction</p><h2>La croissance est plus solide lorsqu’elle est partagée.</h2></div>

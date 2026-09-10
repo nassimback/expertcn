@@ -1,4 +1,4 @@
-// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v6.xlsx.
+// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v7.xlsx.
 // Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.
 
 export const catalogueCategories = [
@@ -32,6 +32,7 @@ export const catalogueCategories = [
       "Jarretières",
       "Tiroirs optiques",
       "Pigtails",
+      "Câble fibre optique",
       "PTO",
       "Breakout",
       "Câbles optiques"
@@ -41,8 +42,10 @@ export const catalogueCategories = [
     "name": "Équipements Actifs",
     "description": "Déployez les accès, la commutation et les infrastructures PON professionnelles.",
     "subcategories": [
-      "Modules optiques",
-      "CPE"
+      "Chargeur alimentation",
+      "CPE",
+      "Switches industriels",
+      "Modules optiques"
     ]
   },
   {
@@ -68,8 +71,7 @@ export const catalogueCategories = [
       "Électrodes",
       "Divers",
       "Colliers",
-      "Consommables",
-      "Étiquettes & Rubans"
+      "Consommables"
     ]
   }
 ]
@@ -883,30 +885,6 @@ export const products = [
     "lastModified": "2024-07-01T13:58:49+00:00"
   },
   {
-    "name": "Module Optique SFP compatible",
-    "brand": "Newlinks",
-    "category": "Équipements Actifs",
-    "subcategory": "Modules optiques",
-    "sku": null,
-    "description": "Page de présentation de la gamme de modules optiques Newlinks (SFP, SFP+, QSFP compatibles), avec redirection vers newlinks.tech.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/module-optique-sfp-compatible/01-Design-sans-titre-25-22780935.png",
-    "gallery": [
-      "/images/shop/official/module-optique-sfp-compatible/01-Design-sans-titre-25-22780935.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/module-optique-sfp-compatible/",
-    "slug": "module-optique-sfp-compatible",
-    "longDescription": [
-      "Page de présentation de la gamme de modules optiques Newlinks (SFP, SFP+, QSFP compatibles), avec redirection vers newlinks.tech.",
-      "Cette page présente la gamme de modules optiques compatibles Newlinks (transceivers SFP, SFP+, QSFP multi-constructeurs) et oriente le visiteur vers le site newlinks.tech pour le détail et la demande de devis. Il ne s'agit pas d'une fiche produit transactionnelle : aucun prix ni panier, mais une vitrine de marque mettant en avant le différenciateur Newlinks (notamment le reprogrammateur de modules autonome). Voir l'onglet \"Page Newlinks - Spec\" pour le brief complet destiné au développeur."
-    ],
-    "options": [],
-    "productId": 11567,
-    "lastModified": "2024-07-14T10:46:14+00:00"
-  },
-  {
     "name": "Pigtails",
     "brand": "ExpertCN",
     "category": "Raccordement optique",
@@ -1641,25 +1619,6 @@ export const products = [
     "options": []
   },
   {
-    "name": "Analyseur de canaux DWDM VeEX FX92",
-    "brand": "VeEX",
-    "category": "Tests et mesures",
-    "subcategory": "Analyseurs de spectre (OCC)",
-    "sku": null,
-    "description": "Analyseur de canaux optiques DWDM VeEX FX92 pour le contrôle des réseaux à multiplexage dense en longueur d'onde.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/products/veex-fx92-analyseur-dwdm.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/analyseur-de-canaux-dwdm-veex-fx92/",
-    "slug": "analyseur-de-canaux-dwdm-veex-fx92",
-    "longDescription": [
-      "Analyseur de canaux optiques DWDM VeEX FX92 pour le contrôle des réseaux à multiplexage dense en longueur d'onde.",
-      "Le FX92 de VeEX est un analyseur de canaux optiques (OCC) dédié aux réseaux DWDM, permettant de visualiser et de mesurer la présence, la puissance et la longueur d'onde des canaux multiplexés. Il aide les opérateurs à valider la mise en service et à surveiller les infrastructures de transport optique à haute densité. Portable et adapté au terrain, il simplifie une mesure habituellement réservée aux analyseurs de spectre de laboratoire. Nombre de canaux et plages de mesure à confirmer sur la fiche fabricant."
-    ],
-    "options": []
-  },
-  {
     "name": "Analyseur de canaux xWDM VeEX FX182",
     "brand": "VeEX",
     "category": "Tests et mesures",
@@ -1755,119 +1714,6 @@ export const products = [
     "options": []
   },
   {
-    "name": "Cartouches étiquettes Brady M21 (M210 / M211)",
-    "brand": "Brady",
-    "category": "Consommables",
-    "subcategory": "Étiquettes & Rubans",
-    "sku": null,
-    "description": "Cartouches d'étiquettes Brady M21 pour étiqueteuses M210 et M211 : plus de 90 références.",
-    "status": "Garder",
-    "type": "Variable",
-    "image": "/images/shop/products/brady-m21-cartouches-etiquettes.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/cartouches-etiquettes-brady-m21-m210-m211/",
-    "slug": "cartouches-etiquettes-brady-m21-m210-m211",
-    "longDescription": [
-      "Cartouches d'étiquettes Brady M21 pour étiqueteuses M210 et M211 : plus de 90 références.",
-      "La gamme de cartouches Brady M21 (compatibles étiqueteuses M210 et M211) compte plus de 90 références couvrant les étiquettes auto-laminantes pour fils et câbles, les gaines thermorétractables et les étiquettes de panneaux de brassage. Chaque matière et largeur répond à un usage précis d'identification en environnement télécom et data. Consommable à fort renouvellement, structuré ici en produit à variations (attributs Matière et Largeur). Références et déclinaisons exactes à cadrer avec le catalogue Brady."
-    ],
-    "options": [
-      {
-        "name": "Matière et largeur",
-        "values": [],
-        "pending": true
-      }
-    ]
-  },
-  {
-    "name": "Étiquettes & rubans Brady M4/M5 (M410 / M510 / M511)",
-    "brand": "Brady",
-    "category": "Consommables",
-    "subcategory": "Étiquettes & Rubans",
-    "sku": null,
-    "description": "Étiquettes et rubans Brady pour étiqueteuses M410, M510 et M511, en larges choix de matières et largeurs.",
-    "status": "Garder",
-    "type": "Variable",
-    "image": "/images/shop/products/brady-m4-m5-etiquettes-rubans.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/etiquettes-et-rubans-brady-m4-m5-m410-m510-m511/",
-    "slug": "etiquettes-et-rubans-brady-m4-m5-m410-m510-m511",
-    "longDescription": [
-      "Étiquettes et rubans Brady pour étiqueteuses M410, M510 et M511, en larges choix de matières et largeurs.",
-      "Cette gamme d'étiquettes et de rubans Brady est destinée aux étiqueteuses M410, M510 et M511, avec un large choix de matières et de largeurs pour l'identification des câbles, panneaux et composants réseau. Structurée en produit à variations (attributs Matière et Largeur), elle facilite la sélection du consommable adapté à chaque application. Références exactes à cadrer avec le catalogue Brady."
-    ],
-    "options": [
-      {
-        "name": "Matière et largeur",
-        "values": [],
-        "pending": true
-      }
-    ]
-  },
-  {
-    "name": "Étiquettes & rubans Brady M6/M7 (M610 / M611 / M710)",
-    "brand": "Brady",
-    "category": "Consommables",
-    "subcategory": "Étiquettes & Rubans",
-    "sku": null,
-    "description": "Étiquettes et rubans Brady pour étiqueteuses M610, M611 et M710 : nylon, PermaSleeve, étiquettes relief.",
-    "status": "Garder",
-    "type": "Variable",
-    "image": "/images/shop/products/brady-m6-m7-etiquettes-rubans.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/etiquettes-et-rubans-brady-m6-m7-m610-m611-m710/",
-    "slug": "etiquettes-et-rubans-brady-m6-m7-m610-m611-m710",
-    "longDescription": [
-      "Étiquettes et rubans Brady pour étiqueteuses M610, M611 et M710 : nylon, PermaSleeve, étiquettes relief.",
-      "Cette gamme d'étiquettes et de rubans Brady équipe les étiqueteuses M610, M611 et M710, avec des consommables durables comme le nylon auto-enroulant, les gaines thermorétractables PermaSleeve et les étiquettes en relief. Chaque matière répond à un besoin d'identification robuste en environnement technique. Structurée en produit à variations (attributs Matière et Largeur), les références exactes restent à cadrer avec le catalogue Brady."
-    ],
-    "options": [
-      {
-        "name": "Matière et largeur",
-        "values": [],
-        "pending": true
-      }
-    ]
-  },
-  {
-    "name": "Soudeuse Sumitomo Q102-CA+ Quantum",
-    "brand": "Sumitomo",
-    "category": "Soudeuses fibre optique",
-    "subcategory": "Soudeuses",
-    "sku": null,
-    "description": "Soudeuse à alignement de cœur Sumitomo Q102-CA+ Quantum : soudure 5 s, chauffe 9 s, technologie NanoTune.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/products/sumitomo-q102-ca-plus-quantum-soudeuse.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-q102-ca-quantum/",
-    "slug": "soudeuse-sumitomo-q102-ca-quantum",
-    "longDescription": [
-      "Soudeuse à alignement de cœur Sumitomo Q102-CA+ Quantum : soudure 5 s, chauffe 9 s, technologie NanoTune.",
-      "La Q102-CA+ Quantum est la soudeuse phare de Sumitomo à alignement de cœur, conçue pour la productivité maximale : soudure en 5 secondes et chauffe de manchon en 9 secondes grâce à deux fours indépendants, avec ajustement automatique des paramètres par la technologie NanoTune. Elle vise les chantiers FTTH intensifs et les environnements de production où le débit et la faiblesse des pertes sont déterminants. Sa conception durcie et ses services cloud SumiCloud en font un outil haut de gamme pour installateurs et opérateurs. Spécifications complémentaires (autonomie, indices de protection) à confirmer sur la fiche fabricant."
-    ],
-    "options": []
-  },
-  {
-    "name": "Soudeuse Sumitomo Type-82C+",
-    "brand": "Sumitomo",
-    "category": "Soudeuses fibre optique",
-    "subcategory": "Soudeuses",
-    "sku": null,
-    "description": "Soudeuse à alignement de cœur Sumitomo Type-82C+, génération supérieure pour raccordements exigeants.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/products/sumitomo-type-82c-plus-soudeuse.jpg",
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-type-82c/",
-    "slug": "soudeuse-sumitomo-type-82c",
-    "longDescription": [
-      "Soudeuse à alignement de cœur Sumitomo Type-82C+, génération supérieure pour raccordements exigeants.",
-      "La Type-82C+ de Sumitomo est une soudeuse à alignement de cœur positionnée au-dessus de la T-72C+, destinée aux applications de raccordement les plus exigeantes en précision et en cadence. Elle bénéficie des technologies d'automatisation et de durabilité de la gamme Sumitomo. À vérifier : présence réelle au catalogue ExpertCN. Spécifications détaillées à confirmer sur la fiche fabricant."
-    ],
-    "options": []
-  },
-  {
     "name": "Soudeuse Fujikura 90R (rubans)",
     "brand": "Fujikura",
     "category": "Soudeuses fibre optique",
@@ -1876,7 +1722,7 @@ export const products = [
     "description": "Soudeuse rubans Fujikura 90R pour applications haute densité en datacenter et réseaux Metro.",
     "status": "Garder",
     "type": "Simple",
-    "image": "https://www.fusionsplicer.fujikura.com/wp-content/uploads/2020/10/TE_90R_0031.png",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/fujikura-90r-soudeuse-rubans.jpg.jpg",
     "imageMode": "cover",
     "sourceUrl": null,
     "slug": "soudeuse-fujikura-90r-rubans",
@@ -1887,73 +1733,200 @@ export const products = [
     "options": []
   },
   {
-    "name": "Soudeuse Fujikura 31S+",
-    "brand": "Fujikura",
-    "category": "Soudeuses fibre optique",
-    "subcategory": "Soudeuses",
+    "name": "Boitier d'alimentation RPA0362-SI-220S12",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
     "sku": null,
-    "description": "Soudeuse Fujikura 31S+ d'entrée de gamme à alignement de gaine pour les installations FTTH courantes.",
+    "description": "Module d'alimentation AC 220V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Garantit une alimentation stable pour vos équipements réseau en environnement standard.",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/products/fujikura-31s-plus-soudeuse.jpg",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/bloc_alim_raisecom_240V.png",
     "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-fujikura-31s/",
-    "slug": "soudeuse-fujikura-31s",
+    "sourceUrl": null,
+    "slug": "boitier-d-alimentation-rpa0362-si-220s12",
     "longDescription": [
-      "Soudeuse Fujikura 31S+ d'entrée de gamme à alignement de gaine pour les installations FTTH courantes.",
-      "La Fujikura 31S+ est une soudeuse à alignement de gaine positionnée en entrée de gamme, destinée aux installations et à la maintenance FTTH courantes. Elle reprend la robustesse et l'ergonomie de la série S de Fujikura dans une configuration plus accessible. À vérifier : présence réelle au catalogue ExpertCN et positionnement par rapport à la 41S+ pour éviter tout recouvrement commercial. Spécifications détaillées à confirmer sur la fiche fabricant."
+      "Module d'alimentation AC 220V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Garantit une alimentation stable pour vos équipements réseau en environnement standard.",
+      "Ce module d'alimentation AC 220V délivre une puissance de 36W, dimensionné pour les switchs Raisecom RAX711-L-4GE de la gamme 1G (Gigabit). Il convertit le courant alternatif standard en une alimentation stable adaptée aux besoins électriques de ces équipements, garantissant un fonctionnement fiable au quotidien. Sa conception modulaire facilite le remplacement en cas de maintenance, sans intervention sur le châssis complet du switch. Il s'installe dans les environnements de bureaux, locaux techniques ou armoires réseau raccordées au secteur classique."
     ],
     "options": []
   },
   {
-    "name": "CPE Ethernet Raisecom RAX711",
+    "name": "Boitier d'alimentation RPD0362-SI-48S12",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
+    "sku": null,
+    "description": "Module d'alimentation DC -48V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Conçu pour les installations télécoms alimentées en courant continu (baies, sites opérateurs).",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/bloc_alim_raisecom_48v.png",
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-d-alimentation-rpd0362-si-48s12",
+    "longDescription": [
+      "Module d'alimentation DC -48V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Conçu pour les installations télécoms alimentées en courant continu (baies, sites opérateurs).",
+      "Ce module d'alimentation DC -48V délivre une puissance de 36W, compatible avec les switchs Raisecom RAX711-L-4GE de la gamme 1G (Gigabit). Il est conçu pour les infrastructures télécoms alimentées en courant continu, typiques des baies opérateurs et sites techniques équipés de systèmes d'alimentation -48V redondants. Son format modulaire permet un remplacement rapide sans interruption prolongée du service, un point clé pour les environnements critiques. Recommandé pour les déploiements en shelters, centraux techniques ou nœuds de réseau nécessitant une alimentation continue sécurisée."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPA0602-SI-220S12",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
+    "sku": null,
+    "description": "Module d'alimentation AC 220V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Assure une alimentation fiable pour vos infrastructures réseau à débit 10 Gigabit.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/bloc_alim_raisecom_240V.png",
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-d-alimentation-rpa0602-si-220s12",
+    "longDescription": [
+      "Module d'alimentation AC 220V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Assure une alimentation fiable pour vos infrastructures réseau à débit 10 Gigabit.",
+      "Ce module d'alimentation AC 220V délivre 60W, dimensionné pour les switchs Raisecom RAX711-C-R de la gamme 10G. Il fournit la puissance nécessaire au fonctionnement des ports 10 Gigabit, plus exigeants en énergie que les équipements 1G, tout en conservant un format modulaire facilitant l'entretien. Adapté aux environnements raccordés au secteur (locaux techniques, armoires réseau standards), il constitue une solution d'alimentation fiable pour vos infrastructures à haut débit."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPD0602-SI-48S12",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
+    "sku": null,
+    "description": "Module d'alimentation DC -48V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Compatible baies télécoms -48V pour environnements opérateurs.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/bloc_alim_raisecom_48v.png",
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-d-alimentation-rpd0602-si-48s12",
+    "longDescription": [
+      "Module d'alimentation DC -48V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Compatible baies télécoms -48V pour environnements opérateurs.",
+      "Ce module d'alimentation DC -48V délivre 60W, compatible avec les switchs Raisecom RAX711-C-R de la gamme 10G. Pensé pour les environnements télécoms en courant continu, il s'intègre aux baies et systèmes d'alimentation -48V des sites opérateurs, garantissant la continuité de service même en cas de coupure secteur (via batteries de secours). Son remplacement modulaire limite les interruptions lors des opérations de maintenance sur des infrastructures à fort trafic 10G."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPD1241-220S12",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
+    "sku": null,
+    "description": "Module d'alimentation AC 220V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Haute puissance dédiée aux infrastructures cœur de réseau exigeantes.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/bloc_alim_raisecom_240V.png",
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-d-alimentation-rpd1241-220s12",
+    "longDescription": [
+      "Module d'alimentation AC 220V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Haute puissance dédiée aux infrastructures cœur de réseau exigeantes.",
+      "Ce module d'alimentation haute puissance (1200W) est dimensionné pour le switch cœur de réseau Raisecom RAX721 (gamme 100G), conçu pour répondre aux besoins énergétiques importants des équipements cœur de réseau opérant à très haut débit. Il convertit une alimentation secteur 220V pour garantir un fonctionnement stable des ports 100G, particulièrement sollicités en bande passante. Sa conception modulaire permet, selon la configuration du châssis, d'associer plusieurs modules pour de la redondance d'alimentation. Réservé aux infrastructures cœur de réseau et data centers nécessitant une puissance élevée et une haute disponibilité."
+    ],
+    "options": []
+  },
+  {
+    "name": "Boitier d'alimentation RPD1241-48S12",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "Chargeur alimentation",
+    "sku": null,
+    "description": "Module d'alimentation DC -48V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Solution haute puissance pour sites télécoms alimentés en courant continu.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/bloc_alim_raisecom_48v.png",
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "boitier-d-alimentation-rpd1241-48s12",
+    "longDescription": [
+      "Module d'alimentation DC -48V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Solution haute puissance pour sites télécoms alimentés en courant continu.",
+      "Ce module d'alimentation haute puissance (1200W) en courant continu -48V est dimensionné pour le switch cœur de réseau Raisecom RAX721 (gamme 100G). Il s'adresse aux infrastructures télécoms critiques (cœurs de réseau, data centers, sites opérateurs) alimentées en -48V, où la continuité de service est essentielle. Sa conception modulaire permet d'associer plusieurs unités pour une alimentation redondante, limitant les risques d'interruption en cas de défaillance d'un module. Solution recommandée pour les déploiements 100G à forte criticité opérationnelle."
+    ],
+    "options": []
+  },
+  {
+    "name": "RAX701-GC",
     "brand": "Raisecom",
     "category": "Équipements Actifs",
     "subcategory": "CPE",
     "sku": null,
-    "description": "CPE Ethernet Raisecom RAX711-R certifié MEF CE2.0, pour liaisons louées 1G/10G et backhaul mobile.",
+    "description": "Accès client et passerelles pour réseaux professionnels.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "/images/shop/shop-hero.jpg",
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "rax701-gc",
+    "longDescription": [
+      "Accès client et passerelles pour réseaux professionnels.",
+      "RAX701-GC complète la gamme cpe d’ExpertCN, destinée aux professionnels des télécoms. Notre équipe peut vérifier la compatibilité avec votre matériel, votre réseau et les contraintes de votre chantier avant la commande."
+    ],
+    "options": []
+  },
+  {
+    "name": "Câble fibre optique",
+    "brand": "ExpertCN",
+    "category": "Raccordement optique",
+    "subcategory": "Câble fibre optique",
+    "sku": null,
+    "description": "Câble fibre optique monomode à structure micromodule, spécialement conçu pour les réseaux de distribution, FTTH et colonne montante. Sa technologie micromodule permet une ouverture de gaine entièrement manuelle et sans outil, réduisant considérablement le temps de préparation et le risque d'endommagement des fibres lors des interventions au passage.",
     "status": "Garder",
     "type": "Variable",
-    "image": "/images/shop/products/raisecom-rax711-r-cpe-ethernet.jpg",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/cable_fibre_optique.png",
     "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/cpe-ethernet-raisecom-rax711/",
-    "slug": "cpe-ethernet-raisecom-rax711",
+    "sourceUrl": null,
+    "slug": "cable-fibre-optique",
     "longDescription": [
-      "CPE Ethernet Raisecom RAX711-R certifié MEF CE2.0, pour liaisons louées 1G/10G et backhaul mobile.",
-      "Le RAX711-R de Raisecom est un CPE (équipement d'extrémité) Ethernet destiné aux liaisons louées 1G/10G et au backhaul mobile 4G/5G, certifié MEF CE2.0 pour les services E-Line, E-LAN et E-Tree. Il apporte aux opérateurs les fonctions de démarcation, de qualité de service et de supervision nécessaires aux offres entreprise. Robuste et normalisé, il s'inscrit dans l'offre d'équipements actifs Raisecom. Spécifications détaillées à confirmer sur la fiche fabricant."
+      "Câble fibre optique monomode à structure micromodule, spécialement conçu pour les réseaux de distribution, FTTH et colonne montante. Sa technologie micromodule permet une ouverture de gaine entièrement manuelle et sans outil, réduisant considérablement le temps de préparation et le risque d'endommagement des fibres lors des interventions au passage.",
+      "Ce câble fibre optique monomode à structure micromodule est conçu pour les réseaux de distribution, le FTTH et la colonne montante. Sa technologie micromodule autorise une ouverture de gaine entièrement manuelle et sans outil, réduisant le temps de préparation et le risque d'endommagement des fibres lors des interventions au passage. Il se décline selon le type de fibre (G.657A2 pour les courbures serrées ou G.652D standard transport), la structure (Modulo 6 ou Modulo 12) et la capacité (de 6 à 288 FO). Sa gaine LSZH retardatrice de flamme et sans halogène le rend adapté aux usages intérieur comme extérieur. Chaque variation dispose de sa propre référence et de son prix ; les combinaisons proposées seront restreintes aux configurations réellement fabriquées."
     ],
     "options": [
       {
-        "name": "Modèle",
+        "name": "Configuration",
         "values": [],
         "pending": true
       }
     ]
   },
   {
-    "name": "CPE Ethernet Raisecom RAX721",
+    "name": "Switch Raisecom ISCOM S3600(A)",
     "brand": "Raisecom",
     "category": "Équipements Actifs",
-    "subcategory": "CPE",
+    "subcategory": "Switches industriels",
     "sku": null,
-    "description": "CPE Ethernet Raisecom RAX721 pour les liaisons professionnelles à très haut débit et le backhaul mobile.",
+    "description": "Switch Gigabit d'accès Raisecom ISCOM S3600(A) avec 6 uplinks 10G optiques et PoE++ jusqu'à 2920W, pour campus et réseaux d'entreprise.",
     "status": "Garder",
-    "type": "Variable",
-    "image": "/images/shop/products/raisecom-rax711-r-cpe-ethernet.jpg",
+    "type": "Simple",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/Switch_ISCOM_S3600A.png",
     "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/cpe-ethernet-raisecom-rax721/",
-    "slug": "cpe-ethernet-raisecom-rax721",
+    "sourceUrl": null,
+    "slug": "switch-raisecom-iscom-s3600-a",
     "longDescription": [
-      "CPE Ethernet Raisecom RAX721 pour les liaisons professionnelles à très haut débit et le backhaul mobile.",
-      "Le Raisecom RAX721 est un équipement de démarcation Ethernet conçu pour les infrastructures opérateurs et entreprises. Sa configuration exacte sera validée avec ExpertCN selon le débit, les interfaces et le service attendus."
+      "Switch Gigabit d'accès Raisecom ISCOM S3600(A) avec 6 uplinks 10G optiques et PoE++ jusqu'à 2920W, pour campus et réseaux d'entreprise.",
+      "L'ISCOM S3600(A) est un switch Gigabit nouvelle génération signé Raisecom, conçu pour les réseaux d'accès campus et entreprise. Il offre jusqu'à 48 ports GE avec 6 uplinks 10GE optiques sur tous les modèles, une capacité de commutation de 216 Gbit/s et une gestion PoE++ 802.3bt jusqu'à 90W par port (puissance totale jusqu'à 2920W). Il intègre la virtualisation intelligente ISF (plusieurs équipements gérés comme un seul), le routage dynamique RIP/OSPF/IS-IS/BGP en dual stack IPv4/IPv6, la protection en anneau G.8032 ERPS avec bascule à 50ms, et le provisionnement zéro-touch (ZTP). Un équipement polyvalent et haute disponibilité pour les déploiements télécom professionnels. Spécifications détaillées disponibles sur la fiche fabricant Raisecom."
     ],
-    "options": [
-      {
-        "name": "Modèle",
-        "values": [],
-        "pending": true
-      }
-    ]
+    "options": []
+  },
+  {
+    "name": "VeEX PX92",
+    "brand": "VeEX",
+    "category": "Tests et mesures",
+    "subcategory": "Analyseurs PON",
+    "sku": null,
+    "description": "Mini OTDR VeEX FX160 FiberBEAST, réflectomètre optique compact pour les tests FTTH de terrain.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "https://www.expertcn.fr/wp-content/uploads/2026/08/px92.jpg",
+    "imageMode": "cover",
+    "sourceUrl": null,
+    "slug": "veex-px92",
+    "longDescription": [
+      "Mini OTDR VeEX FX160 FiberBEAST, réflectomètre optique compact pour les tests FTTH de terrain.",
+      "Le VeEX PX92 est un analyseur PON portable de dernière génération, conçu pour le déploiement et la maintenance des réseaux FTTH multi-services (GPON, XGS-PON, EPON, 10G-EPON). Il permet de mesurer simultanément les puissances optiques des différentes longueurs d'onde présentes sur un réseau optique passif - voix/data et vidéo RF - sans interrompre les services en cours, ce qui en fait un outil indispensable pour qualifier l'activation d'un abonné et diagnostiquer rapidement les défauts de niveau optique directement sur le terrain.\n\nCompact, robuste et doté d'un écran tactile couleur, il s'intègre naturellement dans la panoplie de mesure FTTH aux côtés des OTDR et photomètres VeEX. Sa connectivité NFC et Wi-Fi permet de générer et partager des rapports QR Code directement depuis le terrain, accélérant la documentation des interventions et la traçabilité des mesures.\n\nGrâce à la fonction PON-ID, le technicien peut identifier l'OLT et le port source du signal mesuré, simplifiant les opérations de diagnostic sur des architectures ODN complexes. L'interface intuitive et la prise en main rapide réduisent le temps de formation et permettent une utilisation efficace dès la première intervention.\n\nExpertCN, distributeur officiel VeEX en France, assure la disponibilité du PX92, le support technique et la maintenance via son centre SAV spécialisé. Contactez notre équipe pour un conseil personnalisé ou une démonstration."
+    ],
+    "options": []
   },
   {
     "name": "Recharge pour aiguille de tirage",
@@ -2193,35 +2166,12 @@ export const products = [
     "options": [
       {
         "name": "Nombre de fibres",
-        "values": [
-          "1 FO",
-          "2 FO",
-          "4 FO"
-        ]
+        "values": []
       }
     ],
     "productId": 2791,
     "lastModified": "2024-07-07T20:58:51+00:00",
-    "variations": [
-      {
-        "label": "PTO 1 FO",
-        "attributes": {
-          "Nombre de fibres": "1 FO"
-        }
-      },
-      {
-        "label": "PTO 2 FO",
-        "attributes": {
-          "Nombre de fibres": "2 FO"
-        }
-      },
-      {
-        "label": "PTO 4 FO",
-        "attributes": {
-          "Nombre de fibres": "4 FO"
-        }
-      }
-    ],
+    "variations": [],
     "legacySlugs": [
       "pto-1-2-4fo"
     ]
@@ -2329,6 +2279,563 @@ export const products = [
       }
     ],
     "variations": []
+  },
+  {
+    "name": "Module SFP 1G Newlinks",
+    "brand": "Newlinks",
+    "category": "Équipements Actifs",
+    "subcategory": "Modules optiques",
+    "sku": null,
+    "description": "Module optique Newlinks 1G au format SFP, configurable selon le connecteur, la longueur d’onde, la distance et le grade requis.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/newlinks-sfp-1g.png",
+    "gallery": [
+      "/images/shop/products/newlinks-sfp-1g.png"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": null,
+    "slug": "module-sfp-1g-newlinks",
+    "longDescription": [
+      "Cette fiche réunit la gamme SFP 1G Newlinks en un seul produit variable, compatible multi-constructeurs et destiné aux infrastructures télécom professionnelles.",
+      "Les 11 configurations proposées correspondent exactement aux références validées dans le catalogue ExpertCN. La disponibilité et la compatibilité constructeur peuvent être confirmées avant commande."
+    ],
+    "specifications": {
+      "Débit": "1G",
+      "Format": "SFP"
+    },
+    "options": [
+      {
+        "name": "Connecteur",
+        "values": [
+          "LC Duplex",
+          "LC Simplex"
+        ]
+      },
+      {
+        "name": "Longueur d’onde TX",
+        "values": [
+          "850 nm",
+          "1310 nm",
+          "1550 nm",
+          "1310/1490 nm",
+          "1490/1310 nm"
+        ]
+      },
+      {
+        "name": "Distance",
+        "values": [
+          "500m",
+          "2km",
+          "10km",
+          "20km",
+          "40km",
+          "80km"
+        ]
+      },
+      {
+        "name": "Grade",
+        "values": [
+          "Standard",
+          "Industrial"
+        ]
+      }
+    ],
+    "variations": [
+      {
+        "label": "SFP 1G SR 850nm 500m LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "850 nm",
+          "Distance": "500m",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-SR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G SR 850nm 500m LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "850 nm",
+          "Distance": "500m",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-1G-SR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G LR 1310nm 2km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "2km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G LR 1310nm 10km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G LR 1310nm 10km LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "10km",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-1G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G LR 1310nm 20km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "20km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G LR 1310nm 20km LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "20km",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-1G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G ER 1310nm 40km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "40km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-ER-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G ZR 1550nm 80km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1550 nm",
+          "Distance": "80km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-ZR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G BX 1310/1490nm 10km LC Simplex Standard",
+        "attributes": {
+          "Connecteur": "LC Simplex",
+          "Longueur d’onde TX": "1310/1490 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-BX-LCS",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      },
+      {
+        "label": "SFP 1G BX 1490/1310nm 10km LC Simplex Standard",
+        "attributes": {
+          "Connecteur": "LC Simplex",
+          "Longueur d’onde TX": "1490/1310 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-1G-BX-LCS",
+        "image": "/images/shop/products/newlinks-sfp-1g.png"
+      }
+    ],
+    "legacySlugs": [
+      "module-sfp-1g-sr-newlinks",
+      "module-sfp-1g-sr-newlinks-850nm-500m",
+      "module-sfp-1g-lr-newlinks",
+      "module-sfp-1g-lr-newlinks-1310nm-10km",
+      "module-sfp-1g-lr-newlinks-20km",
+      "module-sfp-1g-lr-newlinks-1310nm-20km",
+      "module-sfp-1g-bx-newlinks",
+      "module-sfp-1g-bx-newlinks-1310-1490nm-10km"
+    ]
+  },
+  {
+    "name": "Module SFP 10G Newlinks",
+    "brand": "Newlinks",
+    "category": "Équipements Actifs",
+    "subcategory": "Modules optiques",
+    "sku": null,
+    "description": "Module optique Newlinks 10G au format SFP+, configurable selon le connecteur, la longueur d’onde, la distance et le grade requis.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/newlinks-sfp-10g.png",
+    "gallery": [
+      "/images/shop/products/newlinks-sfp-10g.png"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": null,
+    "slug": "module-sfp-10g-newlinks",
+    "longDescription": [
+      "Cette fiche réunit la gamme SFP+ 10G Newlinks en un seul produit variable, compatible multi-constructeurs et destiné aux infrastructures télécom professionnelles.",
+      "Les 12 configurations proposées correspondent exactement aux références validées dans le catalogue ExpertCN. La disponibilité et la compatibilité constructeur peuvent être confirmées avant commande."
+    ],
+    "specifications": {
+      "Débit": "10G",
+      "Format": "SFP+"
+    },
+    "options": [
+      {
+        "name": "Connecteur",
+        "values": [
+          "LC Duplex",
+          "LC Simplex"
+        ]
+      },
+      {
+        "name": "Longueur d’onde TX",
+        "values": [
+          "850 nm",
+          "1310 nm",
+          "1550 nm",
+          "1270/1310 nm",
+          "1310/1270 nm"
+        ]
+      },
+      {
+        "name": "Distance",
+        "values": [
+          "300m",
+          "10km",
+          "20km",
+          "40km",
+          "80km"
+        ]
+      },
+      {
+        "name": "Grade",
+        "values": [
+          "Standard",
+          "Industrial"
+        ]
+      }
+    ],
+    "variations": [
+      {
+        "label": "SFP+ 10G SR 850nm 300m LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "850 nm",
+          "Distance": "300m",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-10G-SR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G SR 850nm 300m LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "850 nm",
+          "Distance": "300m",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-10G-SR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G LR 1310nm 10km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-10G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G LR 1310nm 10km LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "10km",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-10G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G LR 1310nm 20km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "20km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-10G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G LR 1310nm 20km LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "20km",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-10G-LR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G ER 1310nm 40km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "40km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-10G-ER-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G ER 1310nm 40km LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "40km",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-10G-ER-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G ZR 1550nm 80km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1550 nm",
+          "Distance": "80km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-10G-ZR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G ZR 1550nm 80km LC Duplex Industrial",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1550 nm",
+          "Distance": "80km",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-SFP-10G-ZR-LCD",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G BX 1270/1310nm 10km LC Simplex Std",
+        "attributes": {
+          "Connecteur": "LC Simplex",
+          "Longueur d’onde TX": "1270/1310 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-10G-BX-LCS",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      },
+      {
+        "label": "SFP+ 10G BX 1310/1270nm 10km LC Simplex Std",
+        "attributes": {
+          "Connecteur": "LC Simplex",
+          "Longueur d’onde TX": "1310/1270 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-SFP-10G-BX-LCS",
+        "image": "/images/shop/products/newlinks-sfp-10g.png"
+      }
+    ],
+    "legacySlugs": [
+      "module-sfp-10g-sr-newlinks",
+      "module-sfp-10g-sr-newlinks-850nm-300m",
+      "module-sfp-10g-lr-newlinks",
+      "module-sfp-10g-lr-newlinks-1310nm-10km",
+      "module-sfp-10g-er-newlinks",
+      "module-sfp-10g-er-newlinks-1310nm-40km",
+      "module-sfp-10g-zr-newlinks",
+      "module-sfp-10g-zr-newlinks-1550nm-80km"
+    ]
+  },
+  {
+    "name": "Module SFP 100G Newlinks",
+    "brand": "Newlinks",
+    "category": "Équipements Actifs",
+    "subcategory": "Modules optiques",
+    "sku": null,
+    "description": "Module optique Newlinks 100G au format QSFP28, configurable selon le connecteur, la longueur d’onde, la distance et le grade requis.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/newlinks-qsfp28-100g.png",
+    "gallery": [
+      "/images/shop/products/newlinks-qsfp28-100g.png"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": null,
+    "slug": "module-sfp-100g-newlinks",
+    "longDescription": [
+      "Cette fiche réunit la gamme QSFP28 100G Newlinks en un seul produit variable, compatible multi-constructeurs et destiné aux infrastructures télécom professionnelles.",
+      "Les 8 configurations proposées correspondent exactement aux références validées dans le catalogue ExpertCN. La disponibilité et la compatibilité constructeur peuvent être confirmées avant commande."
+    ],
+    "specifications": {
+      "Débit": "100G",
+      "Format": "QSFP28"
+    },
+    "options": [
+      {
+        "name": "Connecteur",
+        "values": [
+          "MTP/MPO",
+          "LC Duplex"
+        ]
+      },
+      {
+        "name": "Longueur d’onde TX",
+        "values": [
+          "850 nm",
+          "1310 nm",
+          "1271-1331 nm",
+          "1295-1309 nm"
+        ]
+      },
+      {
+        "name": "Distance",
+        "values": [
+          "100m",
+          "300m",
+          "500m",
+          "2km",
+          "10km",
+          "40km"
+        ]
+      },
+      {
+        "name": "Grade",
+        "values": [
+          "Standard",
+          "Industrial"
+        ]
+      }
+    ],
+    "variations": [
+      {
+        "label": "QSFP28 100G SR 850nm 100m MTP/MPO Standard",
+        "attributes": {
+          "Connecteur": "MTP/MPO",
+          "Longueur d’onde TX": "850 nm",
+          "Distance": "100m",
+          "Grade": "Standard"
+        },
+        "sku": "NL-QSFP-100G-SR-MPO",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      },
+      {
+        "label": "QSFP28 100G SR 850nm 100m MTP/MPO Industrial",
+        "attributes": {
+          "Connecteur": "MTP/MPO",
+          "Longueur d’onde TX": "850 nm",
+          "Distance": "100m",
+          "Grade": "Industrial"
+        },
+        "sku": "NL-QSFP-100G-SR-MPO",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      },
+      {
+        "label": "QSFP28 100G SR 850nm 300m MTP/MPO Standard",
+        "attributes": {
+          "Connecteur": "MTP/MPO",
+          "Longueur d’onde TX": "850 nm",
+          "Distance": "300m",
+          "Grade": "Standard"
+        },
+        "sku": "NL-QSFP-100G-SR-MPO",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      },
+      {
+        "label": "QSFP28 100G LR 1310nm 500m LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "500m",
+          "Grade": "Standard"
+        },
+        "sku": "NL-QSFP-100G-LR-LCD",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      },
+      {
+        "label": "QSFP28 100G LR 1310nm 2km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "2km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-QSFP-100G-LR-LCD",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      },
+      {
+        "label": "QSFP28 100G LR 1310nm 10km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1310 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-QSFP-100G-LR-LCD",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      },
+      {
+        "label": "QSFP28 100G BX 1310nm 10km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1271-1331 nm",
+          "Distance": "10km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-QSFP-100G-BX-LCD",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      },
+      {
+        "label": "QSFP28 100G BX 1310nm 40km LC Duplex Standard",
+        "attributes": {
+          "Connecteur": "LC Duplex",
+          "Longueur d’onde TX": "1295-1309 nm",
+          "Distance": "40km",
+          "Grade": "Standard"
+        },
+        "sku": "NL-QSFP-100G-BX-LCD",
+        "image": "/images/shop/products/newlinks-qsfp28-100g.png"
+      }
+    ],
+    "legacySlugs": [
+      "module-qsfp28-100g-sr-newlinks",
+      "module-qsfp28-100g-sr-newlinks-850nm-100m-mtp-mpo",
+      "module-qsfp28-100g-lr-newlinks",
+      "module-qsfp28-100g-lr-newlinks-1310nm-10km"
+    ]
   }
 ]
 
@@ -2346,7 +2853,28 @@ export const productAliases = {
   "aiguille-de-tirage-300m-11mm": "aiguille-de-tirage",
   "pto-1-2-4fo": "pto",
   "breakout-monomode": "breakout",
-  "breakout-multimode": "breakout"
+  "breakout-multimode": "breakout",
+  "module-sfp-1g-sr-newlinks": "module-sfp-1g-newlinks",
+  "module-sfp-1g-sr-newlinks-850nm-500m": "module-sfp-1g-newlinks",
+  "module-sfp-1g-lr-newlinks": "module-sfp-1g-newlinks",
+  "module-sfp-1g-lr-newlinks-1310nm-10km": "module-sfp-1g-newlinks",
+  "module-sfp-1g-lr-newlinks-20km": "module-sfp-1g-newlinks",
+  "module-sfp-1g-lr-newlinks-1310nm-20km": "module-sfp-1g-newlinks",
+  "module-sfp-1g-bx-newlinks": "module-sfp-1g-newlinks",
+  "module-sfp-1g-bx-newlinks-1310-1490nm-10km": "module-sfp-1g-newlinks",
+  "module-sfp-10g-sr-newlinks": "module-sfp-10g-newlinks",
+  "module-sfp-10g-sr-newlinks-850nm-300m": "module-sfp-10g-newlinks",
+  "module-sfp-10g-lr-newlinks": "module-sfp-10g-newlinks",
+  "module-sfp-10g-lr-newlinks-1310nm-10km": "module-sfp-10g-newlinks",
+  "module-sfp-10g-er-newlinks": "module-sfp-10g-newlinks",
+  "module-sfp-10g-er-newlinks-1310nm-40km": "module-sfp-10g-newlinks",
+  "module-sfp-10g-zr-newlinks": "module-sfp-10g-newlinks",
+  "module-sfp-10g-zr-newlinks-1550nm-80km": "module-sfp-10g-newlinks",
+  "module-qsfp28-100g-sr-newlinks": "module-sfp-100g-newlinks",
+  "module-qsfp28-100g-sr-newlinks-850nm-100m-mtp-mpo": "module-sfp-100g-newlinks",
+  "module-qsfp28-100g-lr-newlinks": "module-sfp-100g-newlinks",
+  "module-qsfp28-100g-lr-newlinks-1310nm-10km": "module-sfp-100g-newlinks",
+  "module-optique-sfp-compatible": "module-sfp-1g-newlinks"
 }
 
 export const pendingProducts = []

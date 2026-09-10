@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { FileBlob, SpreadsheetFile } from '@oai/artifact-tool'
 
 const workspace = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const workbookPath = path.join(workspace, 'Categorisation_Produits_ExpertCN_v6.xlsx')
+const workbookPath = path.join(workspace, 'Categorisation_Produits_ExpertCN_v7.xlsx')
 const imageDir = path.join(workspace, 'public', 'images', 'shop', 'products')
 const outputPath = path.join(workspace, 'src', 'catalogue.generated.js')
 const officialProductsPath = path.join(workspace, '.codex-tmp', 'expertcn-products-scraped.json')
@@ -137,12 +137,38 @@ function buildLongDescription(product) {
 const input = await FileBlob.load(workbookPath)
 const workbook = await SpreadsheetFile.importXlsx(input)
 const sheet = workbook.worksheets.getItem('Produits')
-const rows = sheet.getRange('A2:M60').values
+const rows = sheet.getUsedRange().values.slice(1)
 const variableSheet = workbook.worksheets.getItem('Produits variables — Specs')
 const rechargeRows = variableSheet.getRange('A9:B13').values
 const aiguilleRows = variableSheet.getRange('A20:C24').values
 const ptoSource = publicText(variableSheet.getRange('B28').values[0][0])
 const breakoutSource = publicText(variableSheet.getRange('B32').values[0][0])
+const sfpSpecGroups = [
+  {
+    rate: '1G',
+    format: 'SFP',
+    name: 'Module SFP 1G Newlinks',
+    slug: 'module-sfp-1g-newlinks',
+    rows: variableSheet.getRange('A65:H75').values,
+    image: '/images/shop/products/newlinks-sfp-1g.png',
+  },
+  {
+    rate: '10G',
+    format: 'SFP+',
+    name: 'Module SFP 10G Newlinks',
+    slug: 'module-sfp-10g-newlinks',
+    rows: variableSheet.getRange('A79:H90').values,
+    image: '/images/shop/products/newlinks-sfp-10g.png',
+  },
+  {
+    rate: '100G',
+    format: 'QSFP28',
+    name: 'Module SFP 100G Newlinks',
+    slug: 'module-sfp-100g-newlinks',
+    rows: variableSheet.getRange('A94:H101').values,
+    image: '/images/shop/products/newlinks-qsfp28-100g.png',
+  },
+]
 const imageFiles = await fs.readdir(imageDir)
 const imageBySlug = new Map(imageFiles.map((file) => [file.replace(/\.[^.]+$/, ''), file]))
 const imageByName = new Map(imageFiles.map((file) => [file.toLocaleLowerCase('fr'), file]))
@@ -191,7 +217,7 @@ const pendingOptions = {
   'CPE Ethernet Raisecom RAX721': 'Modèle',
 }
 
-const allProducts = rows.map((row) => {
+const allProducts = rows.filter((row) => cleanCell(row[0])).map((row) => {
   const [name, brand, category, subcategory, , sku, imageUrl, shortDescription, status, notes, type, longDescription, imageFilename] = row
   const generatedSlug = slugify(name)
   const preferredSlug = Object.hasOwn(specialSlugs, name) ? specialSlugs[name] : generatedSlug
@@ -480,18 +506,97 @@ const cableProduct = {
   variations: [],
 }
 
+const legacySfpSlugsByRate = {
+  '1G': [
+    'module-sfp-1g-sr-newlinks',
+    'module-sfp-1g-sr-newlinks-850nm-500m',
+    'module-sfp-1g-lr-newlinks',
+    'module-sfp-1g-lr-newlinks-1310nm-10km',
+    'module-sfp-1g-lr-newlinks-20km',
+    'module-sfp-1g-lr-newlinks-1310nm-20km',
+    'module-sfp-1g-bx-newlinks',
+    'module-sfp-1g-bx-newlinks-1310-1490nm-10km',
+  ],
+  '10G': [
+    'module-sfp-10g-sr-newlinks',
+    'module-sfp-10g-sr-newlinks-850nm-300m',
+    'module-sfp-10g-lr-newlinks',
+    'module-sfp-10g-lr-newlinks-1310nm-10km',
+    'module-sfp-10g-er-newlinks',
+    'module-sfp-10g-er-newlinks-1310nm-40km',
+    'module-sfp-10g-zr-newlinks',
+    'module-sfp-10g-zr-newlinks-1550nm-80km',
+  ],
+  '100G': [
+    'module-qsfp28-100g-sr-newlinks',
+    'module-qsfp28-100g-sr-newlinks-850nm-100m-mtp-mpo',
+    'module-qsfp28-100g-lr-newlinks',
+    'module-qsfp28-100g-lr-newlinks-1310nm-10km',
+  ],
+}
+
+function buildSfpFamily(group) {
+  const variations = group.rows.map(([label, rate, format, connector, wavelength, distance, grade, sku]) => ({
+    label: publicText(label),
+    attributes: {
+      Connecteur: publicText(connector),
+      'Longueur d’onde TX': `${publicText(wavelength)} nm`,
+      Distance: publicText(distance),
+      Grade: publicText(grade),
+    },
+    sku: publicText(sku),
+    image: group.image,
+  }))
+
+  return {
+    name: group.name,
+    brand: 'Newlinks',
+    category: 'Équipements Actifs',
+    subcategory: 'Modules optiques',
+    sku: null,
+    description: `Module optique Newlinks ${group.rate} au format ${group.format}, configurable selon le connecteur, la longueur d’onde, la distance et le grade requis.`,
+    status: 'Garder',
+    type: 'Variable',
+    image: group.image,
+    gallery: [group.image],
+    imageMode: 'contain',
+    sourceUrl: null,
+    slug: group.slug,
+    longDescription: [
+      `Cette fiche réunit la gamme ${group.format} ${group.rate} Newlinks en un seul produit variable, compatible multi-constructeurs et destiné aux infrastructures télécom professionnelles.`,
+      `Les ${variations.length} configurations proposées correspondent exactement aux références validées dans le catalogue ExpertCN. La disponibilité et la compatibilité constructeur peuvent être confirmées avant commande.`,
+    ],
+    specifications: { Débit: group.rate, Format: group.format },
+    options: [
+      { name: 'Connecteur', values: unique(variations.map((variation) => variation.attributes.Connecteur)) },
+      { name: 'Longueur d’onde TX', values: unique(variations.map((variation) => variation.attributes['Longueur d’onde TX'])) },
+      { name: 'Distance', values: unique(variations.map((variation) => variation.attributes.Distance)) },
+      { name: 'Grade', values: unique(variations.map((variation) => variation.attributes.Grade)) },
+    ],
+    variations,
+    legacySlugs: legacySfpSlugsByRate[group.rate],
+  }
+}
+
+const sfpProducts = sfpSpecGroups.map(buildSfpFamily)
+const genericSfpSourceSlug = 'module-optique-sfp-compatible'
+const sfpSourceSlugs = new Set([genericSfpSourceSlug, ...Object.values(legacySfpSlugsByRate).flat()])
+
 const consolidatedSourceSlugs = new Set([
   ...rechargeSourceSlugs,
   ...aiguilleSourceSlugs,
   'pto-1-2-4fo',
   ...breakoutSourceSlugs,
+  ...sfpSourceSlugs,
 ])
-const consolidatedProducts = [rechargeProduct, aiguilleProduct, ptoProduct, breakoutProduct, cableProduct]
+const consolidatedProducts = [rechargeProduct, aiguilleProduct, ptoProduct, breakoutProduct, cableProduct, ...sfpProducts]
 const productAliases = Object.fromEntries([
   ...rechargeSourceSlugs.map((slug) => [slug, rechargeProduct.slug]),
   ...aiguilleSourceSlugs.map((slug) => [slug, aiguilleProduct.slug]),
   ['pto-1-2-4fo', ptoProduct.slug],
   ...breakoutSourceSlugs.map((slug) => [slug, breakoutProduct.slug]),
+  ...sfpProducts.flatMap((product) => product.legacySlugs.map((slug) => [slug, product.slug])),
+  [genericSfpSourceSlug, sfpProducts[0].slug],
 ])
 const officialProductsAfterConsolidation = officialCatalogueProducts.filter((product) => !consolidatedSourceSlugs.has(product.slug))
 const replacedLocalSlugs = new Set([
@@ -502,6 +607,7 @@ const v6OnlyProducts = allProducts.filter((product) => (
   product.status === 'Garder'
   && product.type !== 'Page WP (hors catalogue)'
   && !replacedLocalSlugs.has(product.slug)
+  && !sfpSourceSlugs.has(product.slug)
 ))
 
 const catalogueCategories = Object.entries(categoryCopy).map(([name, description]) => ({
@@ -518,7 +624,7 @@ const partnerPage = allProducts.find((product) => product.type === 'Page WP (hor
 const products = [...officialProductsAfterConsolidation, ...v6OnlyProducts, ...consolidatedProducts]
 const pendingProducts = allProducts.filter((product) => product.status === 'À vérifier')
 
-const source = `// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v6.xlsx.\n// Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.\n\nexport const catalogueCategories = ${JSON.stringify(catalogueCategories, null, 2)}\n\nexport const products = ${JSON.stringify(products, null, 2)}\n\nexport const productAliases = ${JSON.stringify(productAliases, null, 2)}\n\nexport const pendingProducts = ${JSON.stringify(pendingProducts, null, 2)}\n\nexport const partnerPage = ${JSON.stringify(partnerPage, null, 2)}\n`
+const source = `// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v7.xlsx.\n// Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.\n\nexport const catalogueCategories = ${JSON.stringify(catalogueCategories, null, 2)}\n\nexport const products = ${JSON.stringify(products, null, 2)}\n\nexport const productAliases = ${JSON.stringify(productAliases, null, 2)}\n\nexport const pendingProducts = ${JSON.stringify(pendingProducts, null, 2)}\n\nexport const partnerPage = ${JSON.stringify(partnerPage, null, 2)}\n`
 
 await fs.writeFile(outputPath, source, 'utf8')
 console.log(JSON.stringify({
@@ -526,6 +632,7 @@ console.log(JSON.stringify({
   products: products.length,
   officialProducts: officialCatalogueProducts.length,
   consolidatedFamilies: consolidatedProducts.length,
+  sfpFamilies: sfpProducts.map((product) => ({ slug: product.slug, variations: product.variations.length })),
   v6OnlyProducts: v6OnlyProducts.length,
   pending: pendingProducts.length,
   partner: partnerPage?.name,
