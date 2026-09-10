@@ -37,15 +37,15 @@ const sitePages = [
   { label: 'Contact', href: '/contact/', type: 'Page' },
 ]
 
-// Keep the first row balanced, then fill the available space underneath it.
+// Keep the first row balanced, with active equipment leading the second row.
 const megaCatalogueLayout = {
   'Tests et mesures': { order: 1, column: 1 },
   'Raccordement optique': { order: 2, column: 2 },
   Consommables: { order: 3, column: 3 },
-  'Équipements Actifs': { order: 4, column: 4 },
-  'Identification de réseau': { order: 5, column: 2 },
-  'Soudeuses fibre optique': { order: 6, column: 3 },
-  'Tirage et sécurité': { order: 7, column: 4 },
+  'Tirage et sécurité': { order: 4, column: 4 },
+  'Équipements Actifs': { order: 5, column: 1 },
+  'Identification de réseau': { order: 6, column: 2 },
+  'Soudeuses fibre optique': { order: 7, column: 3 },
 }
 const megaCatalogueCategories = [...catalogueCategories].sort((a, b) => megaCatalogueLayout[a.name].order - megaCatalogueLayout[b.name].order)
 const megaFormationCategories = [...formationCategories].sort((a, b) => b.courses.length - a.courses.length)
@@ -332,7 +332,10 @@ export function SiteHeader({
         <GlobalSearch />
         <nav className="shop-nav" aria-label="Navigation principale">
           <div className="nav-menu-group">
-            <a className={['material', 'boutique'].includes(active) ? 'is-active' : ''} href="/materiel-telecom-fibre-optique/">Matériels <CaretDown weight="bold" /></a>
+            <div className="nav-menu-trigger">
+              <a className={['material', 'boutique'].includes(active) ? 'is-active' : ''} href="/materiel-telecom-fibre-optique/">Matériels</a>
+              <button type="button" className="mega-menu-toggle" aria-label="Ouvrir le menu Matériels"><CaretDown weight="bold" /></button>
+            </div>
             <MaterialMegaMenu />
           </div>
           <a className={active === 'sav' ? 'is-active' : ''} href="/sav/">SAV</a>

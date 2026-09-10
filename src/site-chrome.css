@@ -132,11 +132,13 @@
   white-space: nowrap;
 }
 .shop-nav > a,
-.nav-menu-group > a { min-height: 42px; position: relative; display: inline-flex; align-items: center; gap: 4px; }
+.nav-menu-trigger > a { min-height: 42px; position: relative; display: inline-flex; align-items: center; }
 .nav-menu-group { position: static; }
-.nav-menu-group > a svg { width: 13px; height: 13px; transition: transform .2s ease; }
-.nav-menu-group:hover > a svg,
-.nav-menu-group:focus-within > a svg { transform: rotate(180deg); }
+.nav-menu-trigger { min-height: 42px; display: inline-flex; align-items: center; }
+.mega-menu-toggle { width: 22px; height: 42px; display: inline-grid; place-items: center; color: inherit; }
+.mega-menu-toggle svg { width: 13px; height: 13px; transition: transform .2s ease; }
+.nav-menu-group:hover .mega-menu-toggle svg,
+.nav-menu-group:focus-within .mega-menu-toggle svg { transform: rotate(180deg); }
 .shop-nav a.is-active { color: var(--chrome-navy); }
 .shop-nav a.is-active::after { content: ''; position: absolute; right: 0; bottom: 3px; left: 0; height: 2px; background: var(--chrome-teal); }
 
@@ -381,7 +383,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav-menu-group > a svg,
+  .mega-menu-toggle svg,
   .mega-menu,
   .header-phone,
   .account-button,
