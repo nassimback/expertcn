@@ -1,0 +1,1096 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "status": 200,
+    "title": "ExpertCN | Télécoms, maintenance et formations",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "hero",
+        "title": "Vos projets avancent. Nous sécurisons la suite.",
+        "gap": null,
+        "padding": "0px",
+        "height": 650
+      },
+      {
+        "class": "proof-strip",
+        "gap": 18,
+        "padding": "22px 30px",
+        "height": 118
+      },
+      {
+        "class": "section expertise-section",
+        "title": "Une seule équipe pour faire avancer l’ensemble de vos enjeux télécoms.",
+        "gap": 88,
+        "padding": "56px",
+        "height": 1439
+      },
+      {
+        "class": "section maintenance-section",
+        "title": "Un centre de maintenance qui réduit vraiment l’immobilisation.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 650
+      },
+      {
+        "class": "section process-section",
+        "title": "Chaque intervention est suivie avec rigueur, de la demande au rapport final.",
+        "gap": 88,
+        "padding": "56px",
+        "height": 1003
+      },
+      {
+        "class": "section training-section",
+        "title": "Des formations pensées pour le terrain.",
+        "gap": 88,
+        "padding": "56px",
+        "height": 792
+      },
+      {
+        "class": "section commitments-section",
+        "title": "Développer les réseaux d’aujourd’hui sans perdre de vue demain.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 695
+      },
+      {
+        "class": "section testimonials-section",
+        "title": "Ce sont nos clients qui en parlent le mieux.",
+        "gap": 88,
+        "padding": "56px",
+        "height": 612
+      },
+      {
+        "class": "contact-section",
+        "title": "Un besoin précis ou une simple question?",
+        "gap": 88,
+        "padding": "56px",
+        "height": 694
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/sav/",
+    "width": 1440,
+    "status": 200,
+    "title": "Centre de maintenance télécom | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-sav",
+        "title": "Réparez. Reprenez le terrain.",
+        "gap": null,
+        "padding": "0px",
+        "height": 650
+      },
+      {
+        "class": "metrics-band",
+        "gap": 88,
+        "padding": "0px",
+        "height": 104
+      },
+      {
+        "class": "service-section intro-split",
+        "title": "Une expertise qui sécurise votre continuité terrain.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 707
+      },
+      {
+        "class": "process-panel service-section",
+        "title": "Une prise en charge lisible, du ticket au retour.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 791
+      },
+      {
+        "class": "service-section calibration-split",
+        "title": "Retrouvez un alignement fiable et des mesures cohérentes.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 631
+      },
+      {
+        "class": "testimonial-section service-section",
+        "title": "Ils recommandent notre centre SAV.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 548
+      },
+      {
+        "class": "lead-panel",
+        "title": "Formulaire de demande RMA",
+        "gap": 88,
+        "padding": "0px",
+        "height": 830
+      },
+      {
+        "class": "faq-section service-section",
+        "title": "Questions fréquentes",
+        "gap": 88,
+        "padding": "0px",
+        "height": 531
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/a-propos-de-notre-mission/",
+    "width": 1440,
+    "status": 200,
+    "title": "Notre mission et nos engagements | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-about",
+        "title": "Faire grandir vos projets.",
+        "gap": null,
+        "padding": "0px",
+        "height": 650
+      },
+      {
+        "class": "service-section mission-layout",
+        "title": "La croissance est plus solide lorsqu’elle est partagée.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 350
+      },
+      {
+        "class": "service-section history-panel",
+        "title": "Une expertise terrain devenue projet d’entreprise.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 847
+      },
+      {
+        "class": "rse-feature",
+        "title": "Innover implique aussi d’agir de manière responsable.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 780
+      },
+      {
+        "class": "service-section certification-section",
+        "title": "Des engagements évalués par des référentiels exigeants.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 669
+      },
+      {
+        "class": "lead-panel about-lead",
+        "title": "En savoir plus sur ExpertCN ?",
+        "gap": 88,
+        "padding": "0px",
+        "height": 522
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/materiel-telecom-fibre-optique/",
+    "width": 1440,
+    "status": 200,
+    "title": "Matériel télécom et fibre optique | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-material",
+        "title": "Le bon équipement, bien choisi.",
+        "gap": null,
+        "padding": "0px",
+        "height": 650
+      },
+      {
+        "class": "metrics-band",
+        "gap": 88,
+        "padding": "0px",
+        "height": 104
+      },
+      {
+        "class": "service-section",
+        "title": "Six univers pour équiper vos chantiers de bout en bout.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 845
+      },
+      {
+        "class": "partner-band",
+        "gap": 88,
+        "padding": "50px 0px 50px 46px",
+        "height": 172
+      },
+      {
+        "class": "service-section best-sellers",
+        "title": "Les références les plus demandées.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 986
+      },
+      {
+        "class": "shop-cta",
+        "title": "Décrivez votre chantier. Nous vérifions les références.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 642
+      },
+      {
+        "class": "assurance-row service-section",
+        "gap": 88,
+        "padding": "0px",
+        "height": 91
+      }
+    ],
+    "weights": [
+      "400",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/formations/",
+    "width": 1440,
+    "status": 200,
+    "title": "Formations télécoms et énergie | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-formations",
+        "title": "Maîtrisez les gestes du terrain.",
+        "gap": null,
+        "padding": "0px",
+        "height": 650
+      },
+      {
+        "class": "metrics-band",
+        "gap": 88,
+        "padding": "0px",
+        "height": 104
+      },
+      {
+        "class": "service-section training-value",
+        "title": "La technique s’apprend mieux quand elle se pratique.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 691
+      },
+      {
+        "class": "service-section",
+        "title": "Des compétences recherchées, directement mobilisables.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 767
+      },
+      {
+        "class": "service-section training-locations",
+        "title": "Un réseau de partenaires de formation partout en France.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 755
+      },
+      {
+        "class": "service-section formation-program-library",
+        "title": "Tous les programmes de formation à télécharger.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 1206
+      },
+      {
+        "class": "lead-panel training-lead",
+        "title": "Quelle formation correspond à votre projet ?",
+        "gap": 88,
+        "padding": "0px",
+        "height": 512
+      },
+      {
+        "class": "testimonial-section service-section",
+        "title": "Ce sont nos apprenants qui en parlent le mieux.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 548
+      },
+      {
+        "class": "training-quality",
+        "title": "Une organisation pensée pour la qualité des parcours.",
+        "gap": 88,
+        "padding": "62px",
+        "height": 336
+      },
+      {
+        "class": "service-section funding-section",
+        "title": "Plusieurs dispositifs peuvent soutenir votre projet.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 532
+      },
+      {
+        "class": "faq-section service-section",
+        "title": "Questions fréquentes",
+        "gap": 88,
+        "padding": "0px",
+        "height": 531
+      },
+      {
+        "class": "career-panel career-panel-bottom",
+        "title": "Propulsez votre carrière vers des métiers porteurs.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 650
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/formation.html?formation=technicien-ftto",
+    "width": 1440,
+    "status": 200,
+    "title": "Technicien FTTO | Formation ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "formation-hero",
+        "title": "Technicien FTTO",
+        "gap": null,
+        "padding": "0px",
+        "height": 522
+      },
+      {
+        "class": "formation-section formation-results",
+        "title": "Des résultats suivis et documentés.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 361
+      },
+      {
+        "class": "formation-section formation-practical",
+        "title": "Toutes les informations pratiques, au même endroit.",
+        "gap": 88,
+        "padding": "66px",
+        "height": 856
+      },
+      {
+        "class": "formation-section formation-goals",
+        "title": "Ce que vous saurez faire à l’issue du parcours.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 458
+      },
+      {
+        "class": "formation-mid-cta",
+        "title": "Préparez votre inscription à la formation Technicien FTTO.",
+        "gap": 88,
+        "padding": "36px 40px",
+        "height": 191
+      },
+      {
+        "class": "formation-section formation-program",
+        "title": "Un programme construit pour progresser par la pratique.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 516
+      },
+      {
+        "class": "formation-section formation-download",
+        "title": "Conservez toutes les informations de la formation.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 536
+      },
+      {
+        "class": "formation-section formation-faq",
+        "title": "Questions fréquentes",
+        "gap": 88,
+        "padding": "0px",
+        "height": 356
+      },
+      {
+        "class": "formation-final-cta",
+        "title": "Construisons votre prochaine compétence.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 459
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/boutique/",
+    "width": 1440,
+    "status": 200,
+    "title": "Boutique professionnelle | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "shop-catalogue",
+        "title": "Trouvez votre prochaine référence.",
+        "gap": null,
+        "padding": "54px",
+        "height": 2864
+      },
+      {
+        "class": "shop-support",
+        "title": "Validez votre sélection avec un expert.",
+        "gap": 88,
+        "padding": "0px",
+        "height": 432
+      }
+    ],
+    "weights": [
+      "400",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/contact/",
+    "width": 1440,
+    "status": 200,
+    "title": "Contact | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "contact-hero",
+        "title": "Parlons de votre projet.",
+        "gap": null,
+        "padding": "80px",
+        "height": 540
+      },
+      {
+        "class": "contact-form-section",
+        "title": "Comment pouvons-nous vous aider ?",
+        "gap": 88,
+        "padding": "68px",
+        "height": 656
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/mentions-legales/",
+    "width": 1440,
+    "status": 200,
+    "title": "Mentions légales | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "legal-hero",
+        "title": "Mentions légales",
+        "gap": null,
+        "padding": "78px",
+        "height": 372
+      },
+      {
+        "class": "legal-page-switcher",
+        "gap": 16,
+        "padding": "8px",
+        "height": 68
+      },
+      {
+        "class": "legal-layout",
+        "title": "Éditeur du site",
+        "gap": 88,
+        "padding": "0px",
+        "height": 2294
+      },
+      {
+        "class": "legal-contact",
+        "title": "Notre équipe reste disponible.",
+        "gap": 88,
+        "padding": "64px",
+        "height": 274
+      }
+    ],
+    "weights": [
+      "400",
+      "550",
+      "600"
+    ],
+    "footerGap": 88
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "status": 200,
+    "title": "ExpertCN | Télécoms, maintenance et formations",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "hero",
+        "title": "Vos projets avancent. Nous sécurisons la suite.",
+        "gap": null,
+        "padding": "0px",
+        "height": 760
+      },
+      {
+        "class": "proof-strip",
+        "gap": 16,
+        "padding": "26px",
+        "height": 444
+      },
+      {
+        "class": "section expertise-section",
+        "title": "Une seule équipe pour faire avancer l’ensemble de vos enjeux télécoms.",
+        "gap": 56,
+        "padding": "32px 24px",
+        "height": 2398
+      },
+      {
+        "class": "section maintenance-section",
+        "title": "Un centre de maintenance qui réduit vraiment l’immobilisation.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1070
+      },
+      {
+        "class": "section process-section",
+        "title": "Chaque intervention est suivie avec rigueur, de la demande au rapport final.",
+        "gap": 56,
+        "padding": "32px 24px",
+        "height": 1445
+      },
+      {
+        "class": "section training-section",
+        "title": "Des formations pensées pour le terrain.",
+        "gap": 56,
+        "padding": "32px 24px",
+        "height": 1168
+      },
+      {
+        "class": "section commitments-section",
+        "title": "Développer les réseaux d’aujourd’hui sans perdre de vue demain.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 760
+      },
+      {
+        "class": "section testimonials-section",
+        "title": "Ce sont nos clients qui en parlent le mieux.",
+        "gap": 56,
+        "padding": "32px 24px",
+        "height": 612
+      },
+      {
+        "class": "contact-section",
+        "title": "Un besoin précis ou une simple question?",
+        "gap": 56,
+        "padding": "32px 24px",
+        "height": 1097
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/sav/",
+    "width": 390,
+    "status": 200,
+    "title": "Centre de maintenance télécom | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-sav",
+        "title": "Réparez. Reprenez le terrain.",
+        "gap": null,
+        "padding": "0px",
+        "height": 760
+      },
+      {
+        "class": "metrics-band",
+        "gap": 56,
+        "padding": "0px",
+        "height": 345
+      },
+      {
+        "class": "service-section intro-split",
+        "title": "Une expertise qui sécurise votre continuité terrain.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1595
+      },
+      {
+        "class": "process-panel service-section",
+        "title": "Une prise en charge lisible, du ticket au retour.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1291
+      },
+      {
+        "class": "service-section calibration-split",
+        "title": "Retrouvez un alignement fiable et des mesures cohérentes.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 980
+      },
+      {
+        "class": "testimonial-section service-section",
+        "title": "Ils recommandent notre centre SAV.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 536
+      },
+      {
+        "class": "lead-panel",
+        "title": "Formulaire de demande RMA",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1720
+      },
+      {
+        "class": "faq-section service-section",
+        "title": "Questions fréquentes",
+        "gap": 56,
+        "padding": "0px",
+        "height": 874
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/a-propos-de-notre-mission/",
+    "width": 390,
+    "status": 200,
+    "title": "Notre mission et nos engagements | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-about",
+        "title": "Faire grandir vos projets.",
+        "gap": null,
+        "padding": "0px",
+        "height": 760
+      },
+      {
+        "class": "service-section mission-layout",
+        "title": "La croissance est plus solide lorsqu’elle est partagée.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 698
+      },
+      {
+        "class": "service-section history-panel",
+        "title": "Une expertise terrain devenue projet d’entreprise.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1265
+      },
+      {
+        "class": "rse-feature",
+        "title": "Innover implique aussi d’agir de manière responsable.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 760
+      },
+      {
+        "class": "service-section certification-section",
+        "title": "Des engagements évalués par des référentiels exigeants.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1108
+      },
+      {
+        "class": "lead-panel about-lead",
+        "title": "En savoir plus sur ExpertCN ?",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1144
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/materiel-telecom-fibre-optique/",
+    "width": 390,
+    "status": 200,
+    "title": "Matériel télécom et fibre optique | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-material",
+        "title": "Le bon équipement, bien choisi.",
+        "gap": null,
+        "padding": "0px",
+        "height": 760
+      },
+      {
+        "class": "metrics-band",
+        "gap": 56,
+        "padding": "0px",
+        "height": 312
+      },
+      {
+        "class": "service-section",
+        "title": "Six univers pour équiper vos chantiers de bout en bout.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1629
+      },
+      {
+        "class": "partner-band",
+        "gap": 56,
+        "padding": "38px 0px",
+        "height": 212
+      },
+      {
+        "class": "service-section best-sellers",
+        "title": "Les références les plus demandées.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1577
+      },
+      {
+        "class": "shop-cta",
+        "title": "Décrivez votre chantier. Nous vérifions les références.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 869
+      },
+      {
+        "class": "assurance-row service-section",
+        "gap": 56,
+        "padding": "0px",
+        "height": 291
+      }
+    ],
+    "weights": [
+      "400",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/formations/",
+    "width": 390,
+    "status": 200,
+    "title": "Formations télécoms et énergie | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "service-hero service-hero-formations",
+        "title": "Maîtrisez les gestes du terrain.",
+        "gap": null,
+        "padding": "0px",
+        "height": 760
+      },
+      {
+        "class": "metrics-band",
+        "gap": 56,
+        "padding": "0px",
+        "height": 329
+      },
+      {
+        "class": "service-section training-value",
+        "title": "La technique s’apprend mieux quand elle se pratique.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1220
+      },
+      {
+        "class": "service-section",
+        "title": "Des compétences recherchées, directement mobilisables.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1475
+      },
+      {
+        "class": "service-section training-locations",
+        "title": "Un réseau de partenaires de formation partout en France.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1397
+      },
+      {
+        "class": "service-section formation-program-library",
+        "title": "Tous les programmes de formation à télécharger.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 3097
+      },
+      {
+        "class": "lead-panel training-lead",
+        "title": "Quelle formation correspond à votre projet ?",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1020
+      },
+      {
+        "class": "testimonial-section service-section",
+        "title": "Ce sont nos apprenants qui en parlent le mieux.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 581
+      },
+      {
+        "class": "training-quality",
+        "title": "Une organisation pensée pour la qualité des parcours.",
+        "gap": 56,
+        "padding": "34px",
+        "height": 469
+      },
+      {
+        "class": "service-section funding-section",
+        "title": "Plusieurs dispositifs peuvent soutenir votre projet.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 1493
+      },
+      {
+        "class": "faq-section service-section",
+        "title": "Questions fréquentes",
+        "gap": 56,
+        "padding": "0px",
+        "height": 874
+      },
+      {
+        "class": "career-panel career-panel-bottom",
+        "title": "Propulsez votre carrière vers des métiers porteurs.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 885
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/formation.html?formation=technicien-ftto",
+    "width": 390,
+    "status": 200,
+    "title": "Technicien FTTO | Formation ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "formation-hero",
+        "title": "Technicien FTTO",
+        "gap": null,
+        "padding": "0px",
+        "height": 712
+      },
+      {
+        "class": "formation-section formation-results",
+        "title": "Des résultats suivis et documentés.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 428
+      },
+      {
+        "class": "formation-section formation-practical",
+        "title": "Toutes les informations pratiques, au même endroit.",
+        "gap": 56,
+        "padding": "34px 22px",
+        "height": 1447
+      },
+      {
+        "class": "formation-section formation-goals",
+        "title": "Ce que vous saurez faire à l’issue du parcours.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 933
+      },
+      {
+        "class": "formation-mid-cta",
+        "title": "Préparez votre inscription à la formation Technicien FTTO.",
+        "gap": 56,
+        "padding": "32px 24px",
+        "height": 369
+      },
+      {
+        "class": "formation-section formation-program",
+        "title": "Un programme construit pour progresser par la pratique.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 904
+      },
+      {
+        "class": "formation-section formation-download",
+        "title": "Conservez toutes les informations de la formation.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 698
+      },
+      {
+        "class": "formation-section formation-faq",
+        "title": "Questions fréquentes",
+        "gap": 56,
+        "padding": "0px",
+        "height": 360
+      },
+      {
+        "class": "formation-final-cta",
+        "title": "Construisons votre prochaine compétence.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 714
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/boutique/",
+    "width": 390,
+    "status": 200,
+    "title": "Boutique professionnelle | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "shop-catalogue",
+        "title": "Trouvez votre prochaine référence.",
+        "gap": null,
+        "padding": "30px 18px",
+        "height": 7072
+      },
+      {
+        "class": "shop-support",
+        "title": "Validez votre sélection avec un expert.",
+        "gap": 56,
+        "padding": "0px",
+        "height": 673
+      }
+    ],
+    "weights": [
+      "400",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/contact/",
+    "width": 390,
+    "status": 200,
+    "title": "Contact | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "contact-hero",
+        "title": "Parlons de votre projet.",
+        "gap": null,
+        "padding": "32px 22px",
+        "height": 584
+      },
+      {
+        "class": "contact-form-section",
+        "title": "Comment pouvons-nous vous aider ?",
+        "gap": 56,
+        "padding": "32px 22px",
+        "height": 1194
+      }
+    ],
+    "weights": [
+      "400",
+      "500",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  },
+  {
+    "route": "/mentions-legales/",
+    "width": 390,
+    "status": 200,
+    "title": "Mentions légales | ExpertCN",
+    "overflow": false,
+    "sections": [
+      {
+        "class": "legal-hero",
+        "title": "Mentions légales",
+        "gap": null,
+        "padding": "38px 26px",
+        "height": 444
+      },
+      {
+        "class": "legal-page-switcher",
+        "gap": 16,
+        "padding": "8px",
+        "height": 184
+      },
+      {
+        "class": "legal-layout",
+        "title": "Éditeur du site",
+        "gap": 56,
+        "padding": "0px",
+        "height": 3579
+      },
+      {
+        "class": "legal-contact",
+        "title": "Notre équipe reste disponible.",
+        "gap": 56,
+        "padding": "34px",
+        "height": 250
+      }
+    ],
+    "weights": [
+      "400",
+      "550",
+      "600"
+    ],
+    "footerGap": 56
+  }
+]

@@ -1,0 +1,22 @@
+/* Shared rhythm and type hierarchy across all page entry points. */
+:root {
+  --section-space: clamp(56px, 6.12vw, 88px);
+  --section-content-space: clamp(28px, 3vw, 40px);
+  --section-inset: clamp(24px, 4vw, 56px);
+  --section-padding: clamp(32px, 4vw, 56px) var(--section-inset);
+  --page-top-space: 24px;
+  --font-weight-display: 600;
+  --font-weight-heading: 550;
+  --font-weight-title: 550;
+  --font-weight-emphasis: 550;
+  --font-weight-action: 550;
+  --font-weight-label: 500;
+  --font-weight-kicker: 600;
+  --font-weight-metric: 600;
+}
+
+strong, b { font-weight: var(--font-weight-emphasis); }
+
+@media (max-width: 767px) {
+  :root { --page-top-space: 16px; }
+}
