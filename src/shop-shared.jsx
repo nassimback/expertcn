@@ -334,7 +334,7 @@ export function SiteHeader({
           <div className="nav-menu-group">
             <div className="nav-menu-trigger">
               <a className={['material', 'boutique'].includes(active) ? 'is-active' : ''} href="/materiel-telecom-fibre-optique/">Matériels</a>
-              <button type="button" className="mega-menu-toggle" aria-label="Ouvrir le menu Matériels"><CaretDown weight="bold" /></button>
+              <span className="mega-menu-toggle" aria-hidden="true"><CaretDown weight="bold" /></span>
             </div>
             <MaterialMegaMenu />
           </div>

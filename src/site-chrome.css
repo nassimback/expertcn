@@ -134,8 +134,8 @@
 .shop-nav > a,
 .nav-menu-trigger > a { min-height: 42px; position: relative; display: inline-flex; align-items: center; }
 .nav-menu-group { position: static; }
-.nav-menu-trigger { min-height: 42px; display: inline-flex; align-items: center; }
-.mega-menu-toggle { width: 22px; height: 42px; display: inline-grid; place-items: center; color: inherit; }
+.nav-menu-trigger { min-height: 42px; display: inline-flex; align-items: center; gap: 3px; }
+.mega-menu-toggle { width: 13px; height: 42px; display: inline-grid; place-items: center; flex: 0 0 auto; color: inherit; }
 .mega-menu-toggle svg { width: 13px; height: 13px; transition: transform .2s ease; }
 .nav-menu-group:hover .mega-menu-toggle svg,
 .nav-menu-group:focus-within .mega-menu-toggle svg { transform: rotate(180deg); }

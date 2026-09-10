@@ -13,7 +13,7 @@ import {
   SlidersHorizontal,
   Tag,
 } from '@phosphor-icons/react'
-import { catalogueCategories, partnerPage, products } from './catalogue.generated'
+import { catalogueCategories, products } from './catalogue.generated'
 import { getSpellingSuggestions, isExactSearchMatch, isFuzzySearchMatch, normalizeSearchText } from './search-utils'
 import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
 import './boutique.css'
@@ -86,12 +86,6 @@ function Boutique() {
     return getSpellingSuggestions(query, terms)
   }, [exactProducts.length, query, scopedProducts])
 
-  const showPartnerPage = useMemo(() => {
-    if (!partnerPage || !['all', 'Équipements Actifs'].includes(category)) return false
-    if (!['all', 'Modules optiques'].includes(subcategory)) return false
-    return !normalizeSearchText(query) || isFuzzySearchMatch(query, `${partnerPage.name} ${partnerPage.brand} ${partnerPage.subcategory}`)
-  }, [category, subcategory, query])
-
   useEffect(() => setVisibleCount(12), [category, subcategory, query])
 
   useEffect(() => {
@@ -131,7 +125,7 @@ function Boutique() {
   }
 
   const categoryCount = (key) => key === 'all' ? products.length : products.filter((product) => product.category === key).length
-  const resultLabel = `${filteredProducts.length} équipement${filteredProducts.length > 1 ? 's' : ''}${showPartnerPage ? ' + 1 gamme partenaire' : ''}`
+  const resultLabel = `${filteredProducts.length} équipement${filteredProducts.length > 1 ? 's' : ''}`
 
   return (
     <div className="shop-page">
@@ -169,12 +163,6 @@ function Boutique() {
                   {filteredProducts.length > 0 && <small>Les résultats les plus proches sont affichés ci-dessous.</small>}
                 </div>
               )}
-              {showPartnerPage && (
-                <article className="partner-feature">
-                  <div className="partner-image"><img src="/images/newlinks_cover_page.jpg" alt="Modules optiques compatibles Newlinks" /></div>
-                  <div><span>Partenaire modules optiques</span><h3>La gamme SFP Newlinks</h3><p>Modules SFP, SFP+ et QSFP compatibles multi-constructeurs, avec programmation autonome via la Newlinks Coding Box.</p><a href="https://newlinks.tech" target="_blank" rel="noreferrer">Découvrir Newlinks <ArrowUpRight weight="bold" /></a></div>
-                </article>
-              )}
               {filteredProducts.length ? (
                 <>
                   <div className="product-grid">
@@ -182,7 +170,7 @@ function Boutique() {
                   </div>
                   {visibleCount < filteredProducts.length && <button className="load-more" type="button" onClick={() => setVisibleCount((count) => count + 12)}>Afficher plus de produits <ArrowDown weight="bold" /></button>}
                 </>
-              ) : !showPartnerPage && (
+              ) : (
                 <div className="empty-products"><MagnifyingGlass weight="duotone" /><h3>Aucun équipement trouvé.</h3><p>Vérifiez l’orthographe ou essayez un autre terme. Vous restez dans le catalogue.</p><button type="button" onClick={() => { setQuery(''); chooseCategory('all') }}>Réinitialiser les filtres</button></div>
               )}
             </div>
