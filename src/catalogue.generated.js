@@ -1,4 +1,4 @@
-// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v7.xlsx.
+// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v6.xlsx.
 // Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.
 
 export const catalogueCategories = [
@@ -28,13 +28,13 @@ export const catalogueCategories = [
     "name": "Raccordement optique",
     "description": "Organisez, terminez et interconnectez vos liaisons optiques.",
     "subcategories": [
-      "Câble",
-      "Breakout",
       "MPO",
       "Jarretières",
       "Tiroirs optiques",
+      "Pigtails",
       "PTO",
-      "Pigtails"
+      "Breakout",
+      "Câbles optiques"
     ]
   },
   {
@@ -42,18 +42,16 @@ export const catalogueCategories = [
     "description": "Déployez les accès, la commutation et les infrastructures PON professionnelles.",
     "subcategories": [
       "Modules optiques",
-      "CPE",
-      "Switches industriels",
-      "Chargeur alimentation"
+      "CPE"
     ]
   },
   {
     "name": "Tirage et sécurité",
     "description": "Facilitez le passage de câbles et sécurisez chaque intervention.",
     "subcategories": [
-      "Aiguilles de tirage",
       "Accessoires de tirage",
-      "Recharges"
+      "Recharges",
+      "Aiguilles de tirage"
     ]
   },
   {
@@ -78,92 +76,6 @@ export const catalogueCategories = [
 
 export const products = [
   {
-    "name": "Câble fibre optique monomode micromodule",
-    "brand": "ExpertCN",
-    "category": "Raccordement optique",
-    "subcategory": "Câble",
-    "sku": null,
-    "description": "Câble fibre optique monomode à structure micromodule, spécialement conçu pour les réseaux de distribution, FTTH et colonne montante. Sa technologie micromodule permet une ouverture de gaine entièrement manuelle et sans outil, réduisant considérablement le temps de préparation et le risque d’endommagement des fibres lors des interventions au passage.",
-    "summaryPlacement": "after-actions",
-    "status": "À ajouter",
-    "type": "Variable",
-    "image": "/images/shop/products/breakout-monomode.png",
-    "gallery": [
-      "/images/shop/products/breakout-monomode.png",
-      "/images/shop/products/breakout-optique.jpg"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": null,
-    "slug": "cable-fibre-optique-monomode-micromodule",
-    "longDescription": [
-      "Câble fibre optique monomode à structure micromodule, spécialement conçu pour les réseaux de distribution, FTTH et colonne montante.",
-      "Sa technologie micromodule permet une ouverture de gaine entièrement manuelle et sans outil, réduisant considérablement le temps de préparation et le risque d’endommagement des fibres lors des interventions au passage.",
-      "Ouverture rapide : micromodules pelables à la main.",
-      "Choix de la fibre : G.657A2 pour les courbures serrées ou G.652D pour le transport standard.",
-      "Configuration : Modulo 6 ou Modulo 12, de 6 à 288 FO.",
-      "Usage intérieur / extérieur : gaine LSZH retardatrice de flamme et sans halogène."
-    ],
-    "options": [
-      {
-        "name": "Type de fibre",
-        "values": [
-          "G.652D",
-          "G.657A2"
-        ]
-      },
-      {
-        "name": "Structure",
-        "values": [
-          "Modulo 6",
-          "Modulo 12"
-        ]
-      },
-      {
-        "name": "Capacité",
-        "values": [
-          "6 FO",
-          "12 FO",
-          "24 FO",
-          "48 FO",
-          "72 FO",
-          "144 FO",
-          "196 FO"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Aiguille<br><br>",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Aiguilles de tirage",
-    "sku": null,
-    "description": "Aiguille de tirage fibre optique, disponible en plusieurs longueurs avec diamètre associé (30 à 300 m).",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/aiguille/01-28-3-5616d94b.png",
-    "gallery": [
-      "/images/shop/official/aiguille/01-28-3-5616d94b.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/aiguille/",
-    "slug": "aiguille",
-    "longDescription": [
-      "• Matériels",
-      "• SAV",
-      "• Formations",
-      "• Audit",
-      "• A propos de nous",
-      "• Contact",
-      "• Mentions légales",
-      "• CGU",
-      "• Politique de confidentialité"
-    ],
-    "options": [],
-    "productId": 3902,
-    "lastModified": "2023-10-18T14:55:01+00:00"
-  },
-  {
     "name": "Electrodes Fujikura",
     "brand": "Fujikura",
     "category": "Consommables",
@@ -186,44 +98,6 @@ export const products = [
     "options": [],
     "productId": 2913,
     "lastModified": "2023-11-07T10:23:51+00:00"
-  },
-  {
-    "name": "Breakout Multimode",
-    "brand": "ExpertCN",
-    "category": "Raccordement optique",
-    "subcategory": "Breakout",
-    "sku": null,
-    "description": "Breakout multimode\nAdaptable selon :\nle type de fibre\nla longueur de câble souhaité\nla longueur du fallout souhaité\nles connecteurs de début et de fin\nles couleurs",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/breakout-multimode/01-breackout-multi-bb4c7283.png",
-    "gallery": [
-      "/images/shop/official/breakout-multimode/01-breackout-multi-bb4c7283.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/breakout-multimode/",
-    "slug": "breakout-multimode",
-    "longDescription": [
-      "Nos Breakout multimode sont des composants essentiels pour optimiser la connectivité dans les réseaux fibre optique. Conçus pour simplifier le câblage et améliorer la flexibilité, ils jouent un rôle crucial dans l’expansion et la gestion de vos infrastructures de communication.",
-      "Caractéristiques techniques :",
-      "• Polissage : UPC",
-      "• perte d’insertion : 0.3dB",
-      "• Réflectance : UPC : 20dB",
-      "• Résistance à la traction : <0.3dB (max 66N)",
-      "• Température Opérationnel : ~-20°C+70°C",
-      "• Température de stockage : ~-20°C + 70°C",
-      "Nos Breakout multimode sont adaptables en fonction de vos besoins :",
-      "• Type de fibre",
-      "• longueur de câble",
-      "• Longueur du fallout",
-      "• Connecteurs de début",
-      "• Connecteurs de fin",
-      "• Couleurs",
-      "N’hésitez pas à nous contacter où consulter notre fiche technique pour d’avantages d’informations."
-    ],
-    "options": [],
-    "productId": 2754,
-    "lastModified": "2023-11-08T10:23:16+00:00"
   },
   {
     "name": "MPO",
@@ -252,44 +126,6 @@ export const products = [
     "options": [],
     "productId": 2777,
     "lastModified": "2023-11-08T10:39:00+00:00"
-  },
-  {
-    "name": "Breakout Monomode",
-    "brand": "ExpertCN",
-    "category": "Raccordement optique",
-    "subcategory": "Breakout",
-    "sku": null,
-    "description": "Breakout monomode\nAdaptable selon :\nle type de fibre\nla longueur de câble souhaité\nla longueur du fallout souhaité\nles connecteurs de début et de fin\nles couleurs",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/breakout-monomode/01-5-d4347306.png",
-    "gallery": [
-      "/images/shop/official/breakout-monomode/01-5-d4347306.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/breakout-monomode/",
-    "slug": "breakout-monomode",
-    "longDescription": [
-      "Nos Breakout monomode sont des composants essentiels pour optimiser la connectivité dans les réseaux fibre optique. Conçus pour simplifier le câblage et améliorer la flexibilité, ils jouent un rôle crucial dans l’expansion et la gestion de vos infrastructures de communication.",
-      "Caractéristiques techniques :",
-      "• Polissage : APC / UPC",
-      "• perte d’insertion : 0.5dB",
-      "• Réflectance : APC : 50dB / UPC : 45dB",
-      "• Résistance à la traction : <0.3dB (max 66N)",
-      "• Température Opérationnel : ~-20°C+70°C",
-      "• Température de stockage : ~-20°C + 70°C",
-      "Nos Breakout monomode sont adaptable en fonction de vos besoins :",
-      "• Type de fibre",
-      "• longueur de câble",
-      "• Longueur du fallout",
-      "• Connecteurs de début",
-      "• Connecteurs de fin",
-      "• Couleurs",
-      "N’hesitez pas à nous contacter où consulter notre fiche technique pour d’avantages d’informations."
-    ],
-    "options": [],
-    "productId": 2707,
-    "lastModified": "2023-11-08T10:43:41+00:00"
   },
   {
     "name": "SMOOVES 60MM",
@@ -408,111 +244,6 @@ export const products = [
     "lastModified": "2023-11-15T13:07:52+00:00"
   },
   {
-    "name": "Aiguille de tirage 30M",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Aiguilles de tirage",
-    "sku": null,
-    "description": "Aiguille tirage 30M sous carter.\nElle est idéale pour tout vos déploiements D3.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/aiguille-de-tirage-30m/01-aiguilles-30m-b9ffebb5.webp",
-    "gallery": [
-      "/images/shop/official/aiguille-de-tirage-30m/01-aiguilles-30m-b9ffebb5.webp"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/aiguille-de-tirage-30m/",
-    "slug": "aiguille-de-tirage-30m",
-    "longDescription": [
-      "• Matériels",
-      "• SAV",
-      "• Formations",
-      "• Audit",
-      "• A propos de nous",
-      "• Contact",
-      "• Mentions légales",
-      "• CGU",
-      "• Politique de confidentialité"
-    ],
-    "options": [],
-    "productId": 3908,
-    "lastModified": "2023-11-16T12:29:54+00:00"
-  },
-  {
-    "name": "Aiguille de tirage 300M 11MM",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Aiguilles de tirage",
-    "sku": null,
-    "description": "L ‘aiguille de tirage 300M 11MM est une aiguille légère, flexible et résistante .\nElle est constitué de brins de fibre en verre tressés ou enroulés, avec un câble fin et solide.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/aiguille-de-tirage-300m-11mm/01-30-bdd1a820.png",
-    "gallery": [
-      "/images/shop/official/aiguille-de-tirage-300m-11mm/01-30-bdd1a820.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/aiguille-de-tirage-300m-11mm/",
-    "slug": "aiguille-de-tirage-300m-11mm",
-    "longDescription": [
-      "L’ aiguille de tirage 300M 11MM accélère et simplifie le processus d’installation des câbles, tout en prévenant d’éventuels dommages aux fibres optiques fragiles. Cet instrument s’avère indispensable pour les experts opérant dans le secteur des télécommunications, de la mise en place de réseaux, ou tout autre domaine exigeant la manipulation de câbles fins et souples.",
-      "Points forts :",
-      "• Résistantes aux contraintes et aux tensions lors du passage des câbles dans les espaces restreints",
-      "• Facilite la navigation dans les courbes et les angles serrés",
-      "• Equipées d’embouts magnétiques pour faciliter la récupération des câbles dans les conduits métalliques.",
-      "Caractéristiques :",
-      "• Matériau : Fibre de verre",
-      "• Diamètre : 11mm",
-      "• Longueur : 300 m",
-      "• Résistant à la flexion",
-      "• Durable et résistante à la corrosion",
-      "• Légère, ce qui facilite la manipulation de l’aiguille",
-      "• Conductivité thermique : faible, la fibre de verre est un isolant thermique",
-      "• Conductivité électronique : faible, la fibre de verre est un isolant électrique",
-      "N’hésitez pas à consulter notre fiche technique Aiguille de tirage 300M 11MM ou nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3933,
-    "lastModified": "2023-11-16T16:41:15+00:00"
-  },
-  {
-    "name": "Aiguille de tirage 60M 4.5MM",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Aiguilles de tirage",
-    "sku": null,
-    "description": "L’ aiguille de tirage 60M 4.5MM est une aiguille légère, flexible et résistante .\nElle est constitué de brins de fibre en verre tressés ou enroulés, avec un câble fin et solide.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/aiguille-de-tirage-60m-4-5mm/01-31-fcc39fbb.png",
-    "gallery": [
-      "/images/shop/official/aiguille-de-tirage-60m-4-5mm/01-31-fcc39fbb.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/aiguille-de-tirage-60m-4-5mm/",
-    "slug": "aiguille-de-tirage-60m-4-5mm",
-    "longDescription": [
-      "L’ aiguille de tirage 60M 4.5MM accélère et simplifie le processus d’installation des câbles, tout en prévenant d’éventuels dommages aux fibres optiques fragiles. Cet instrument s’avère indispensable pour les experts opérant dans le secteur des télécommunications, de la mise en place de réseaux, ou tout autre domaine exigeant la manipulation de câbles fins et souples.",
-      "Points forts :",
-      "• Résistantes aux contraintes et aux tensions lors du passage des câbles dans les espaces restreints",
-      "• Facilite la navigation dans les courbes et les angles serrés",
-      "• Equipées d’embouts magnétiques pour faciliter la récupération des câbles dans les conduits métalliques.",
-      "Caractéristiques :",
-      "• Matériau : Fibre de verre",
-      "• Diamètre : 4.5mm",
-      "• Longueur : 60M",
-      "• Résistant à la flexion",
-      "• Durable et résistante à la corrosion",
-      "• Légère, ce qui facilite la manipulation de l’aiguille",
-      "• Conductivité thermique : faible, la fibre de verre est un isolant thermique",
-      "• Conductivité électronique : faible, la fibre de verre est un isolant électrique",
-      "N’hésitez pas à consulter notre fiche technique Aiguille de tirage 60M 4.5MM ou nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3914,
-    "lastModified": "2023-11-16T16:41:46+00:00"
-  },
-  {
     "name": "Embout pour aiguille de tirage",
     "brand": "ExpertCN",
     "category": "Tirage et sécurité",
@@ -546,160 +277,6 @@ export const products = [
     "options": [],
     "productId": 3887,
     "lastModified": "2023-11-16T17:00:54+00:00"
-  },
-  {
-    "name": "Recharge 300M",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Recharges",
-    "sku": null,
-    "description": "Nos Recharge 300M pour aiguille en fibre optique sont économiques , elles permettent une optimisation de temps et sont utilisables en toute sécurité pour le technicien.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/recharge-300m/01-35-9ae0161b.png",
-    "gallery": [
-      "/images/shop/official/recharge-300m/01-35-9ae0161b.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/recharge-300m/",
-    "slug": "recharge-300m",
-    "longDescription": [
-      "La recharge 300M est installée directement dans le dévidoir du châssis de l’aiguille, le jonc n’est libéré qu’une fois correctement fixé dans le dévidoir.",
-      "Points forts :",
-      "• Optimisation du temps",
-      "• Economique",
-      "• Sécurité pour le technicien",
-      "Caractéristiques :",
-      "• Diamètre : 11mm",
-      "• Longueur : 300M",
-      "N’hésitez pas à nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3967,
-    "lastModified": "2023-11-16T17:14:54+00:00"
-  },
-  {
-    "name": "Recharge 100M",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Recharges",
-    "sku": null,
-    "description": "Nos Recharge 100M pour aiguille en fibre optique sont économiques , elles permettent une optimisation de temps et sont utilisables en toute sécurité pour le technicien.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/recharge-100m/01-34-a2006894.png",
-    "gallery": [
-      "/images/shop/official/recharge-100m/01-34-a2006894.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/recharge-100m/",
-    "slug": "recharge-100m",
-    "longDescription": [
-      "A l’aide de notre Recharge 100M rechargez votre aiguille de tirage avec un jonc en fibre de verre revêtu de PVC, comprenant une olive et un câble de traction.",
-      "Points forts :",
-      "• Optimisation du temps",
-      "• Economique",
-      "• Sécurité pour le technicien",
-      "Caractéristiques :",
-      "• Diamètre : 7mm",
-      "• Longueur : 100M",
-      "• couleur : jaune",
-      "N’hésitez pas à nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3952,
-    "lastModified": "2023-11-16T17:15:05+00:00"
-  },
-  {
-    "name": "Recharge 30M",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Recharges",
-    "sku": null,
-    "description": "Nos Recharge 30M pour aiguille en fibre optique sont économiques , elles permettent une optimisation de temps et sont utilisables en toute sécurité pour le technicien.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/recharge-30m/01-recharge-30-69050bd0.png",
-    "gallery": [
-      "/images/shop/official/recharge-30m/01-recharge-30-69050bd0.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/recharge-30m/",
-    "slug": "recharge-30m",
-    "longDescription": [
-      "La r echarge 30M en fibre de verre, vous permet de remplacer une aiguille sans avoir à changer l’ensemble de votre dévidoir. Cette recharge est indispensable pour mener à bien les opérations de tirage associées au déploiement de la fibre optique dans les conduits, notamment le tirage de câble FTTH.",
-      "Caractéristiques :",
-      "• Diamètre : 3mm",
-      "• Longueur : 30M",
-      "N’hésitez pas à nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3939,
-    "lastModified": "2023-11-16T17:15:22+00:00"
-  },
-  {
-    "name": "Recharge 60M",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Recharges",
-    "sku": null,
-    "description": "Nos Recharge 60M pour aiguille en fibre optique sont économiques , elles permettent une optimisation de temps et sont utilisables en toute sécurité pour le technicien.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/recharge-60m/01-34-a2006894.png",
-    "gallery": [
-      "/images/shop/official/recharge-60m/01-34-a2006894.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/recharge-60m/",
-    "slug": "recharge-60m",
-    "longDescription": [
-      "A l’aide de notre Recharge 60M rechargez votre aiguille de tirage avec un jonc en fibre de verre revêtu de PVC, comprenant une olive et un câble de traction.",
-      "Points forts :",
-      "• Optimisation du temps",
-      "• Economique",
-      "• Sécurité pour le technicien",
-      "Caractéristiques :",
-      "• Diamètre : 4.5mm",
-      "• Longueur : 60M",
-      "• couleur : jaune",
-      "N’hésitez pas à nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3946,
-    "lastModified": "2023-11-16T17:18:33+00:00"
-  },
-  {
-    "name": "Recharge 150M",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Recharges",
-    "sku": null,
-    "description": "Recharge 150M pour aiguilles de tirage.\nNos recharge vous assure économie et optimisation tout en vous permettant une utilisation sécurisée pour le technicien.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/recharge-150m/01-35-9ae0161b.png",
-    "gallery": [
-      "/images/shop/official/recharge-150m/01-35-9ae0161b.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/recharge-150m/",
-    "slug": "recharge-150m",
-    "longDescription": [
-      "La recharge 150M est installée directement dans le dévidoir du châssis de l’aiguille, le jonc n’est libéré qu’une fois correctement fixé dans le dévidoir.",
-      "Points forts :",
-      "• Optimisation du temps",
-      "• Economique",
-      "• Sécurité pour le technicien",
-      "Caractéristiques :",
-      "• Diamètre : 9mm",
-      "• Longueur : 150M",
-      "• poids : 15kg",
-      "N’hésitez pas à nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3961,
-    "lastModified": "2023-11-20T10:54:29+00:00"
   },
   {
     "name": "Colliers de Serrage",
@@ -979,80 +556,6 @@ export const products = [
     "options": [],
     "productId": 2842,
     "lastModified": "2023-11-21T15:13:08+00:00"
-  },
-  {
-    "name": "Aiguille de tirage 100M 6-7MM",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Aiguilles de tirage",
-    "sku": null,
-    "description": "L’ aiguille de tirage 100M 6-7MM est une aiguille légère, flexible et résistante .\nElle est constitué de brins de fibre en verre tressés ou enroulés, avec un câble fin et solide.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/aiguille-de-tirage-100m-6-7mm/01-32-e7e74de6.png",
-    "gallery": [
-      "/images/shop/official/aiguille-de-tirage-100m-6-7mm/01-32-e7e74de6.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/aiguille-de-tirage-100m-6-7mm/",
-    "slug": "aiguille-de-tirage-100m-6-7mm",
-    "longDescription": [
-      "L’ aiguille de tirage 100M 6-7MM accélère et simplifie le processus d’installation des câbles, tout en prévenant d’éventuels dommages aux fibres optiques fragiles. Cet instrument s’avère indispensable pour les experts opérant dans le secteur des télécommunications, de la mise en place de réseaux, ou tout autre domaine exigeant la manipulation de câbles fins et souples.",
-      "Points forts :",
-      "• Résistantes aux contraintes et aux tensions lors du passage des câbles dans les espaces restreints",
-      "• Facilite la navigation dans les courbes et les angles serrés",
-      "• Equipées d’embouts magnétiques pour faciliter la récupération des câbles dans les conduits métalliques.",
-      "Caractéristiques :",
-      "• Matériau : Fibre de verre",
-      "• Diamètre : 6-7mm",
-      "• Longueur : 100M",
-      "• Résistant à la flexion",
-      "• Durable et résistante à la corrosion",
-      "• Légère, ce qui facilite la manipulation de l’aiguille",
-      "• Conductivité thermique : faible, la fibre de verre est un isolant thermique",
-      "• Conductivité électronique : faible, la fibre de verre est un isolant électrique",
-      "N’hésitez pas à consulter notre fiche technique Aiguille de tirage 100M 6-7MM ou nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3920,
-    "lastModified": "2023-12-07T10:26:36+00:00"
-  },
-  {
-    "name": "Aiguille de tirage 150M 9MM",
-    "brand": "ExpertCN",
-    "category": "Tirage et sécurité",
-    "subcategory": "Aiguilles de tirage",
-    "sku": null,
-    "description": "L’ aiguille de tirage 150M 9MM est une aiguille légère, flexible et résistante .\nElle est constitué de brins de fibre en verre tressés ou enroulés, avec un câble fin et solide.",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/aiguille-de-tirage-150m-9mm/01-33-afb54a61.png",
-    "gallery": [
-      "/images/shop/official/aiguille-de-tirage-150m-9mm/01-33-afb54a61.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/aiguille-de-tirage-150m-9mm/",
-    "slug": "aiguille-de-tirage-150m-9mm",
-    "longDescription": [
-      "L’ aiguille de tirage 150M 9MM accélère et simplifie le processus d’installation des câbles, tout en prévenant d’éventuels dommages aux fibres optiques fragiles. Cet instrument s’avère indispensable pour les experts opérant dans le secteur des télécommunications, de la mise en place de réseaux, ou tout autre domaine exigeant la manipulation de câbles fins et souples.",
-      "Points forts :",
-      "• Résistantes aux contraintes et aux tensions lors du passage des câbles dans les espaces restreints",
-      "• Facilite la navigation dans les courbes et les angles serrés",
-      "• Equipées d’embouts magnétiques pour faciliter la récupération des câbles dans les conduits métalliques.",
-      "Caractéristiques :",
-      "• Matériau : Fibre de verre",
-      "• Diamètre : 9mm",
-      "• Longueur : 150M",
-      "• Résistant à la flexion",
-      "• Durable et résistante à la corrosion",
-      "• Légère, ce qui facilite la manipulation de l’aiguille",
-      "• Conductivité thermique : faible, la fibre de verre est un isolant thermique",
-      "• Conductivité électronique : faible, la fibre de verre est un isolant électrique",
-      "N’hésitez pas à consulter notre fiche technique Aiguille de tirage 150M 9MM ou nous contacter pour plus de renseignements."
-    ],
-    "options": [],
-    "productId": 3927,
-    "lastModified": "2023-12-07T10:29:50+00:00"
   },
   {
     "name": "Soudeuse Fujikura 90S+",
@@ -1378,41 +881,6 @@ export const products = [
     "options": [],
     "productId": 3879,
     "lastModified": "2024-07-01T13:58:49+00:00"
-  },
-  {
-    "name": "PTO 1/2/4FO",
-    "brand": "ExpertCN",
-    "category": "Raccordement optique",
-    "subcategory": "PTO",
-    "sku": null,
-    "description": "PTO 1 2 ou 4 FO.\nSpécialement conçue pour être utilisée dans des applications de connexion finale FTTH , principalement destinées aux clients résidentiels. Cette PTO est capable de prendre en charge jusqu’à 4 pigtails SC/APC en fibre G657A2 ainsi que 4 épissures.\nOpérations d’installation et de connexion faciles et intuitives\nUn design intérieur compact et élégant pour une installation esthétique.\nLa PTO peut être montée sur mur ou rail DIN et le câble d’abonné peut être acheminé depuis l’arrière, le haut, le bas ou les côtés.\nAccès multiple pour le câble de connexion",
-    "status": "Garder",
-    "type": "Simple",
-    "image": "/images/shop/official/pto-1-2-4fo/01-15-7cefc0f6.png",
-    "gallery": [
-      "/images/shop/official/pto-1-2-4fo/01-15-7cefc0f6.png"
-    ],
-    "imageMode": "cover",
-    "sourceUrl": "https://www.expertcn.fr/produit/pto-1-2-4fo/",
-    "slug": "pto-1-2-4fo",
-    "longDescription": [
-      "Nos PTO 1/2/4FO sont capables de prendre en charge jusqu’à 4 pigtails SC/APC en fibre G657A2 ainsi que 4 épissures.",
-      "Points forts :",
-      "• Un design compact et élégant",
-      "• La prise peut être installée sur un mur ou sur un rail DIN, et le câble d’abonné peut être acheminé depuis l’arrière, le haut, le bas ou les côtés.",
-      "• La prise est équipée de fibre G657A2 à structure libre en standard, avec une gestion de la fibre garantissant un rayon de courbure minimal de 7,5 mm.",
-      "• Un couvercle supérieur amovible permet un accès facile à l’intérieur de la prise pour la maintenance.",
-      "Caractéristiques :",
-      "• Perte d’insertion : ≤ 0,3 dB",
-      "• Perte réfléchie : APC ≥ 60 dB",
-      "• Nombre d’opérations de connexion et de déconnexion > 1 000",
-      "• Rayon de courbure minimum 7,5 mm",
-      "• Résistance à la traction : ≥ 5daN",
-      "N’hésitez pas à consulter notre fiche technique PTO 1/2/4FO ou nous contacter pour plus d’informations."
-    ],
-    "options": [],
-    "productId": 2791,
-    "lastModified": "2024-07-07T20:58:51+00:00"
   },
   {
     "name": "Module Optique SFP compatible",
@@ -2173,6 +1641,25 @@ export const products = [
     "options": []
   },
   {
+    "name": "Analyseur de canaux DWDM VeEX FX92",
+    "brand": "VeEX",
+    "category": "Tests et mesures",
+    "subcategory": "Analyseurs de spectre (OCC)",
+    "sku": null,
+    "description": "Analyseur de canaux optiques DWDM VeEX FX92 pour le contrôle des réseaux à multiplexage dense en longueur d'onde.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "/images/shop/products/veex-fx92-analyseur-dwdm.jpg",
+    "imageMode": "cover",
+    "sourceUrl": "https://www.expertcn.fr/produit/analyseur-de-canaux-dwdm-veex-fx92/",
+    "slug": "analyseur-de-canaux-dwdm-veex-fx92",
+    "longDescription": [
+      "Analyseur de canaux optiques DWDM VeEX FX92 pour le contrôle des réseaux à multiplexage dense en longueur d'onde.",
+      "Le FX92 de VeEX est un analyseur de canaux optiques (OCC) dédié aux réseaux DWDM, permettant de visualiser et de mesurer la présence, la puissance et la longueur d'onde des canaux multiplexés. Il aide les opérateurs à valider la mise en service et à surveiller les infrastructures de transport optique à haute densité. Portable et adapté au terrain, il simplifie une mesure habituellement réservée aux analyseurs de spectre de laboratoire. Nombre de canaux et plages de mesure à confirmer sur la fiche fabricant."
+    ],
+    "options": []
+  },
+  {
     "name": "Analyseur de canaux xWDM VeEX FX182",
     "brand": "VeEX",
     "category": "Tests et mesures",
@@ -2343,6 +1830,44 @@ export const products = [
     ]
   },
   {
+    "name": "Soudeuse Sumitomo Q102-CA+ Quantum",
+    "brand": "Sumitomo",
+    "category": "Soudeuses fibre optique",
+    "subcategory": "Soudeuses",
+    "sku": null,
+    "description": "Soudeuse à alignement de cœur Sumitomo Q102-CA+ Quantum : soudure 5 s, chauffe 9 s, technologie NanoTune.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "/images/shop/products/sumitomo-q102-ca-plus-quantum-soudeuse.jpg",
+    "imageMode": "cover",
+    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-q102-ca-quantum/",
+    "slug": "soudeuse-sumitomo-q102-ca-quantum",
+    "longDescription": [
+      "Soudeuse à alignement de cœur Sumitomo Q102-CA+ Quantum : soudure 5 s, chauffe 9 s, technologie NanoTune.",
+      "La Q102-CA+ Quantum est la soudeuse phare de Sumitomo à alignement de cœur, conçue pour la productivité maximale : soudure en 5 secondes et chauffe de manchon en 9 secondes grâce à deux fours indépendants, avec ajustement automatique des paramètres par la technologie NanoTune. Elle vise les chantiers FTTH intensifs et les environnements de production où le débit et la faiblesse des pertes sont déterminants. Sa conception durcie et ses services cloud SumiCloud en font un outil haut de gamme pour installateurs et opérateurs. Spécifications complémentaires (autonomie, indices de protection) à confirmer sur la fiche fabricant."
+    ],
+    "options": []
+  },
+  {
+    "name": "Soudeuse Sumitomo Type-82C+",
+    "brand": "Sumitomo",
+    "category": "Soudeuses fibre optique",
+    "subcategory": "Soudeuses",
+    "sku": null,
+    "description": "Soudeuse à alignement de cœur Sumitomo Type-82C+, génération supérieure pour raccordements exigeants.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "/images/shop/products/sumitomo-type-82c-plus-soudeuse.jpg",
+    "imageMode": "cover",
+    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-type-82c/",
+    "slug": "soudeuse-sumitomo-type-82c",
+    "longDescription": [
+      "Soudeuse à alignement de cœur Sumitomo Type-82C+, génération supérieure pour raccordements exigeants.",
+      "La Type-82C+ de Sumitomo est une soudeuse à alignement de cœur positionnée au-dessus de la T-72C+, destinée aux applications de raccordement les plus exigeantes en précision et en cadence. Elle bénéficie des technologies d'automatisation et de durabilité de la gamme Sumitomo. À vérifier : présence réelle au catalogue ExpertCN. Spécifications détaillées à confirmer sur la fiche fabricant."
+    ],
+    "options": []
+  },
+  {
     "name": "Soudeuse Fujikura 90R (rubans)",
     "brand": "Fujikura",
     "category": "Soudeuses fibre optique",
@@ -2358,6 +1883,25 @@ export const products = [
     "longDescription": [
       "Soudeuse rubans Fujikura 90R pour applications haute densité en datacenter et réseaux Metro.",
       "La Fujikura 90R est une soudeuse pour fibres rubanées (mass fusion) conçue pour les applications à fort compte de fibres, adaptée aux datacenters, campus et réseaux Metro utilisant du câblage haute densité type SpiderWeb Ribbon (SWR). Elle automatise le démarrage de soudure, la chauffe du manchon, la protection contre le vent et le suivi/rotation de lame pour jusqu'à deux cliveuses, libérant du temps opérateur. Ses rainures en V remplaçables sur site prolongent la durée de vie, et son interface graphique s'affiche sur un écran tactile 5 pouces. À vérifier : demande client réelle pour ce produit spécialisé au catalogue ExpertCN."
+    ],
+    "options": []
+  },
+  {
+    "name": "Soudeuse Fujikura 31S+",
+    "brand": "Fujikura",
+    "category": "Soudeuses fibre optique",
+    "subcategory": "Soudeuses",
+    "sku": null,
+    "description": "Soudeuse Fujikura 31S+ d'entrée de gamme à alignement de gaine pour les installations FTTH courantes.",
+    "status": "Garder",
+    "type": "Simple",
+    "image": "/images/shop/products/fujikura-31s-plus-soudeuse.jpg",
+    "imageMode": "cover",
+    "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-fujikura-31s/",
+    "slug": "soudeuse-fujikura-31s",
+    "longDescription": [
+      "Soudeuse Fujikura 31S+ d'entrée de gamme à alignement de gaine pour les installations FTTH courantes.",
+      "La Fujikura 31S+ est une soudeuse à alignement de gaine positionnée en entrée de gamme, destinée aux installations et à la maintenance FTTH courantes. Elle reprend la robustesse et l'ergonomie de la série S de Fujikura dans une configuration plus accessible. À vérifier : présence réelle au catalogue ExpertCN et positionnement par rapport à la 41S+ pour éviter tout recouvrement commercial. Spécifications détaillées à confirmer sur la fiche fabricant."
     ],
     "options": []
   },
@@ -2412,261 +1956,397 @@ export const products = [
     ]
   },
   {
-    "name": "Boitier d'alimentation RPA0362-SI-220S12",
-    "brand": "Raisecom",
-    "category": "Équipements Actifs",
-    "subcategory": "Chargeur alimentation",
+    "name": "Recharge pour aiguille de tirage",
+    "brand": "ExpertCN",
+    "category": "Tirage et sécurité",
+    "subcategory": "Recharges",
     "sku": null,
-    "description": "Module d'alimentation AC 220V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Garantit une alimentation stable pour vos équipements réseau en environnement standard.",
-    "status": "À ajouter",
-    "type": "Simple",
-    "image": "/images/shop/products/raisecom-alimentation-ac.png",
+    "description": "Recharge pour aiguille de tirage disponible en cinq longueurs, de 30 à 300 mètres.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/official/recharge-100m/01-34-a2006894.png",
     "gallery": [
-      "/images/shop/products/raisecom-alimentation-ac.png"
+      "/images/shop/official/recharge-30m/01-recharge-30-69050bd0.png",
+      "/images/shop/official/recharge-60m/01-34-a2006894.png",
+      "/images/shop/official/recharge-100m/01-34-a2006894.png",
+      "/images/shop/official/recharge-150m/01-35-9ae0161b.png",
+      "/images/shop/official/recharge-300m/01-35-9ae0161b.png"
     ],
     "imageMode": "cover",
-    "sourceUrl": null,
-    "slug": "boitier-alimentation-raisecom-rpa0362-si-220s12",
+    "sourceUrl": "https://www.expertcn.fr/produit/recharge-100m/",
+    "slug": "recharge",
     "longDescription": [
-      "Ce module d'alimentation AC 220V délivre une puissance de 36W, dimensionné pour les switchs Raisecom RAX711-L-4GE de la gamme 1G (Gigabit). Il convertit le courant alternatif standard en une alimentation stable adaptée aux besoins électriques de ces équipements, garantissant un fonctionnement fiable au quotidien. Sa conception modulaire facilite le remplacement en cas de maintenance, sans intervention sur le châssis complet du switch. Il s'installe dans les environnements de bureaux, locaux techniques ou armoires réseau raccordées au secteur classique."
+      "A l’aide de notre Recharge 100M rechargez votre aiguille de tirage avec un jonc en fibre de verre revêtu de PVC, comprenant une olive et un câble de traction.",
+      "Points forts :",
+      "• Optimisation du temps",
+      "• Economique",
+      "• Sécurité pour le technicien",
+      "Caractéristiques :",
+      "• Diamètre : 7mm",
+      "• Longueur : 100M",
+      "• couleur : jaune",
+      "N’hésitez pas à nous contacter pour plus de renseignements."
     ],
-    "options": []
+    "options": [
+      {
+        "name": "Longueur",
+        "values": [
+          "30 m",
+          "60 m",
+          "100 m",
+          "150 m",
+          "300 m"
+        ]
+      }
+    ],
+    "productId": 3952,
+    "lastModified": "2023-11-16T17:15:05+00:00",
+    "variations": [
+      {
+        "label": "Recharge 30 m",
+        "attributes": {
+          "Longueur": "30 m"
+        },
+        "image": "/images/shop/official/recharge-30m/01-recharge-30-69050bd0.png"
+      },
+      {
+        "label": "Recharge 60 m",
+        "attributes": {
+          "Longueur": "60 m"
+        },
+        "image": "/images/shop/official/recharge-60m/01-34-a2006894.png"
+      },
+      {
+        "label": "Recharge 100 m",
+        "attributes": {
+          "Longueur": "100 m"
+        },
+        "image": "/images/shop/official/recharge-100m/01-34-a2006894.png"
+      },
+      {
+        "label": "Recharge 150 m",
+        "attributes": {
+          "Longueur": "150 m"
+        },
+        "image": "/images/shop/official/recharge-150m/01-35-9ae0161b.png"
+      },
+      {
+        "label": "Recharge 300 m",
+        "attributes": {
+          "Longueur": "300 m"
+        },
+        "image": "/images/shop/official/recharge-300m/01-35-9ae0161b.png"
+      }
+    ],
+    "legacySlugs": [
+      "recharge-30m",
+      "recharge-60m",
+      "recharge-100m",
+      "recharge-150m",
+      "recharge-300m"
+    ]
   },
   {
-    "name": "Boitier d'alimentation RPD0362-SI-48S12",
-    "brand": "Raisecom",
-    "category": "Équipements Actifs",
-    "subcategory": "Chargeur alimentation",
+    "name": "Aiguille de tirage",
+    "brand": "ExpertCN",
+    "category": "Tirage et sécurité",
+    "subcategory": "Aiguilles de tirage",
     "sku": null,
-    "description": "Module d'alimentation DC -48V 36W pour switchs Raisecom RAX711-L-4GE (gamme 1G). Conçu pour les installations télécoms alimentées en courant continu (baies, sites opérateurs).",
-    "status": "À ajouter",
-    "type": "Simple",
-    "image": "/images/shop/products/raisecom-alimentation-dc.png",
+    "description": "Aiguille de tirage légère, flexible et résistante. Chaque longueur est associée à un diamètre précis.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/official/aiguille-de-tirage-100m-6-7mm/01-32-e7e74de6.png",
     "gallery": [
-      "/images/shop/products/raisecom-alimentation-dc.png"
+      "/images/shop/official/aiguille/01-28-3-5616d94b.png",
+      "/images/shop/official/aiguille-de-tirage-30m/01-aiguilles-30m-b9ffebb5.webp",
+      "/images/shop/official/aiguille-de-tirage-60m-4-5mm/01-31-fcc39fbb.png",
+      "/images/shop/official/aiguille-de-tirage-100m-6-7mm/01-32-e7e74de6.png",
+      "/images/shop/official/aiguille-de-tirage-150m-9mm/01-33-afb54a61.png",
+      "/images/shop/official/aiguille-de-tirage-300m-11mm/01-30-bdd1a820.png"
     ],
     "imageMode": "cover",
-    "sourceUrl": null,
-    "slug": "boitier-alimentation-raisecom-rpd0362-si-48s12",
+    "sourceUrl": "https://www.expertcn.fr/produit/aiguille-de-tirage-100m-6-7mm/",
+    "slug": "aiguille-de-tirage",
     "longDescription": [
-      "Ce module d'alimentation DC -48V délivre une puissance de 36W, compatible avec les switchs Raisecom RAX711-L-4GE de la gamme 1G (Gigabit). Il est conçu pour les infrastructures télécoms alimentées en courant continu, typiques des baies opérateurs et sites techniques équipés de systèmes d'alimentation -48V redondants. Son format modulaire permet un remplacement rapide sans interruption prolongée du service, un point clé pour les environnements critiques. Recommandé pour les déploiements en shelters, centraux techniques ou nœuds de réseau nécessitant une alimentation continue sécurisée."
+      "L’ aiguille de tirage 100M 6-7MM accélère et simplifie le processus d’installation des câbles, tout en prévenant d’éventuels dommages aux fibres optiques fragiles. Cet instrument s’avère indispensable pour les experts opérant dans le secteur des télécommunications, de la mise en place de réseaux, ou tout autre domaine exigeant la manipulation de câbles fins et souples.",
+      "Points forts :",
+      "• Résistantes aux contraintes et aux tensions lors du passage des câbles dans les espaces restreints",
+      "• Facilite la navigation dans les courbes et les angles serrés",
+      "• Equipées d’embouts magnétiques pour faciliter la récupération des câbles dans les conduits métalliques.",
+      "Caractéristiques :",
+      "• Matériau : Fibre de verre",
+      "• Diamètre : 6-7mm",
+      "• Longueur : 100M",
+      "• Résistant à la flexion",
+      "• Durable et résistante à la corrosion",
+      "• Légère, ce qui facilite la manipulation de l’aiguille",
+      "• Conductivité thermique : faible, la fibre de verre est un isolant thermique",
+      "• Conductivité électronique : faible, la fibre de verre est un isolant électrique",
+      "N’hésitez pas à consulter notre fiche technique Aiguille de tirage 100M 6-7MM ou nous contacter pour plus de renseignements."
     ],
-    "options": []
+    "options": [
+      {
+        "name": "Longueur",
+        "values": [
+          "30 m",
+          "60 m",
+          "100 m",
+          "150 m",
+          "300 m"
+        ]
+      },
+      {
+        "name": "Diamètre",
+        "values": [
+          "À confirmer",
+          "4,5 mm",
+          "6-7 mm",
+          "9 mm",
+          "11 mm"
+        ]
+      }
+    ],
+    "productId": 3920,
+    "lastModified": "2023-12-07T10:26:36+00:00",
+    "variations": [
+      {
+        "label": "30 m - diamètre à confirmer",
+        "attributes": {
+          "Longueur": "30 m",
+          "Diamètre": "À confirmer"
+        },
+        "image": "/images/shop/official/aiguille-de-tirage-30m/01-aiguilles-30m-b9ffebb5.webp"
+      },
+      {
+        "label": "60 m - diamètre 4,5 mm",
+        "attributes": {
+          "Longueur": "60 m",
+          "Diamètre": "4,5 mm"
+        },
+        "image": "/images/shop/official/aiguille-de-tirage-60m-4-5mm/01-31-fcc39fbb.png"
+      },
+      {
+        "label": "100 m - diamètre 6-7 mm",
+        "attributes": {
+          "Longueur": "100 m",
+          "Diamètre": "6-7 mm"
+        },
+        "image": "/images/shop/official/aiguille-de-tirage-100m-6-7mm/01-32-e7e74de6.png"
+      },
+      {
+        "label": "150 m - diamètre 9 mm",
+        "attributes": {
+          "Longueur": "150 m",
+          "Diamètre": "9 mm"
+        },
+        "image": "/images/shop/official/aiguille-de-tirage-150m-9mm/01-33-afb54a61.png"
+      },
+      {
+        "label": "300 m - diamètre 11 mm",
+        "attributes": {
+          "Longueur": "300 m",
+          "Diamètre": "11 mm"
+        },
+        "image": "/images/shop/official/aiguille-de-tirage-300m-11mm/01-30-bdd1a820.png"
+      }
+    ],
+    "legacySlugs": [
+      "aiguille",
+      "aiguille-de-tirage-30m",
+      "aiguille-de-tirage-60m-4-5mm",
+      "aiguille-de-tirage-100m-6-7mm",
+      "aiguille-de-tirage-150m-9mm",
+      "aiguille-de-tirage-300m-11mm"
+    ]
   },
   {
-    "name": "Boitier d'alimentation RPA0602-SI-220S12",
-    "brand": "Raisecom",
-    "category": "Équipements Actifs",
-    "subcategory": "Chargeur alimentation",
+    "name": "PTO",
+    "brand": "ExpertCN",
+    "category": "Raccordement optique",
+    "subcategory": "PTO",
     "sku": null,
-    "description": "Module d'alimentation AC 220V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Assure une alimentation fiable pour vos infrastructures réseau à débit 10 Gigabit.",
-    "status": "À ajouter",
-    "type": "Simple",
-    "image": "/images/shop/products/raisecom-alimentation-ac.png",
+    "description": "Prise terminale optique disponible en 1, 2 ou 4 fibres pour les raccordements FTTH.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/official/pto-1-2-4fo/01-15-7cefc0f6.png",
     "gallery": [
-      "/images/shop/products/raisecom-alimentation-ac.png"
+      "/images/shop/official/pto-1-2-4fo/01-15-7cefc0f6.png"
     ],
     "imageMode": "cover",
-    "sourceUrl": null,
-    "slug": "boitier-alimentation-raisecom-rpa0602-si-220s12",
+    "sourceUrl": "https://www.expertcn.fr/produit/pto-1-2-4fo/",
+    "slug": "pto",
     "longDescription": [
-      "Ce module d'alimentation AC 220V délivre 60W, dimensionné pour les switchs Raisecom RAX711-C-R de la gamme 10G. Il fournit la puissance nécessaire au fonctionnement des ports 10 Gigabit, plus exigeants en énergie que les équipements 1G, tout en conservant un format modulaire facilitant l'entretien. Adapté aux environnements raccordés au secteur (locaux techniques, armoires réseau standards), il constitue une solution d'alimentation fiable pour vos infrastructures à haut débit."
+      "Nos PTO 1/2/4FO sont capables de prendre en charge jusqu’à 4 pigtails SC/APC en fibre G657A2 ainsi que 4 épissures.",
+      "Points forts :",
+      "• Un design compact et élégant",
+      "• La prise peut être installée sur un mur ou sur un rail DIN, et le câble d’abonné peut être acheminé depuis l’arrière, le haut, le bas ou les côtés.",
+      "• La prise est équipée de fibre G657A2 à structure libre en standard, avec une gestion de la fibre garantissant un rayon de courbure minimal de 7,5 mm.",
+      "• Un couvercle supérieur amovible permet un accès facile à l’intérieur de la prise pour la maintenance.",
+      "Caractéristiques :",
+      "• Perte d’insertion : ≤ 0,3 dB",
+      "• Perte réfléchie : APC ≥ 60 dB",
+      "• Nombre d’opérations de connexion et de déconnexion > 1 000",
+      "• Rayon de courbure minimum 7,5 mm",
+      "• Résistance à la traction : ≥ 5daN",
+      "N’hésitez pas à consulter notre fiche technique PTO 1/2/4FO ou nous contacter pour plus d’informations."
     ],
-    "options": []
+    "options": [
+      {
+        "name": "Nombre de fibres",
+        "values": [
+          "1 FO",
+          "2 FO",
+          "4 FO"
+        ]
+      }
+    ],
+    "productId": 2791,
+    "lastModified": "2024-07-07T20:58:51+00:00",
+    "variations": [
+      {
+        "label": "PTO 1 FO",
+        "attributes": {
+          "Nombre de fibres": "1 FO"
+        }
+      },
+      {
+        "label": "PTO 2 FO",
+        "attributes": {
+          "Nombre de fibres": "2 FO"
+        }
+      },
+      {
+        "label": "PTO 4 FO",
+        "attributes": {
+          "Nombre de fibres": "4 FO"
+        }
+      }
+    ],
+    "legacySlugs": [
+      "pto-1-2-4fo"
+    ]
   },
   {
-    "name": "Boitier d'alimentation RPD0602-SI-48S12",
-    "brand": "Raisecom",
-    "category": "Équipements Actifs",
-    "subcategory": "Chargeur alimentation",
+    "name": "Breakout optique",
+    "brand": "ExpertCN",
+    "category": "Raccordement optique",
+    "subcategory": "Breakout",
     "sku": null,
-    "description": "Module d'alimentation DC -48V 60W pour switchs Raisecom RAX711-C-R (gamme 10G). Compatible baies télécoms -48V pour environnements opérateurs.",
-    "status": "À ajouter",
-    "type": "Simple",
-    "image": "/images/shop/products/raisecom-alimentation-dc.png",
+    "description": "Breakout optique configurable en fibre monomode ou multimode selon votre infrastructure.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/official/breakout-monomode/01-5-d4347306.png",
     "gallery": [
-      "/images/shop/products/raisecom-alimentation-dc.png"
+      "/images/shop/official/breakout-monomode/01-5-d4347306.png",
+      "/images/shop/official/breakout-multimode/01-breackout-multi-bb4c7283.png"
     ],
     "imageMode": "cover",
-    "sourceUrl": null,
-    "slug": "boitier-alimentation-raisecom-rpd0602-si-48s12",
+    "sourceUrl": "https://www.expertcn.fr/produit/breakout-monomode/",
+    "slug": "breakout",
     "longDescription": [
-      "Ce module d'alimentation DC -48V délivre 60W, compatible avec les switchs Raisecom RAX711-C-R de la gamme 10G. Pensé pour les environnements télécoms en courant continu, il s'intègre aux baies et systèmes d'alimentation -48V des sites opérateurs, garantissant la continuité de service même en cas de coupure secteur (via batteries de secours). Son remplacement modulaire limite les interruptions lors des opérations de maintenance sur des infrastructures à fort trafic 10G."
+      "Nos Breakout monomode sont des composants essentiels pour optimiser la connectivité dans les réseaux fibre optique. Conçus pour simplifier le câblage et améliorer la flexibilité, ils jouent un rôle crucial dans l’expansion et la gestion de vos infrastructures de communication.",
+      "Caractéristiques techniques :",
+      "• Polissage : APC / UPC",
+      "• perte d’insertion : 0.5dB",
+      "• Réflectance : APC : 50dB / UPC : 45dB",
+      "• Résistance à la traction : <0.3dB (max 66N)",
+      "• Température Opérationnel : ~-20°C+70°C",
+      "• Température de stockage : ~-20°C + 70°C",
+      "Nos Breakout monomode sont adaptable en fonction de vos besoins :",
+      "• Type de fibre",
+      "• longueur de câble",
+      "• Longueur du fallout",
+      "• Connecteurs de début",
+      "• Connecteurs de fin",
+      "• Couleurs",
+      "N’hesitez pas à nous contacter où consulter notre fiche technique pour d’avantages d’informations."
     ],
-    "options": []
+    "options": [
+      {
+        "name": "Type de fibre",
+        "values": [
+          "Monomode",
+          "Multimode"
+        ]
+      }
+    ],
+    "productId": 2707,
+    "lastModified": "2023-11-08T10:43:41+00:00",
+    "variations": [
+      {
+        "label": "Breakout Monomode",
+        "attributes": {
+          "Type de fibre": "Monomode"
+        },
+        "image": "/images/shop/official/breakout-monomode/01-5-d4347306.png"
+      },
+      {
+        "label": "Breakout Multimode",
+        "attributes": {
+          "Type de fibre": "Multimode"
+        },
+        "image": "/images/shop/official/breakout-multimode/01-breackout-multi-bb4c7283.png"
+      }
+    ],
+    "legacySlugs": [
+      "breakout-monomode",
+      "breakout-multimode"
+    ]
   },
   {
-    "name": "Boitier d'alimentation RPD1241-220S12",
-    "brand": "Raisecom",
-    "category": "Équipements Actifs",
-    "subcategory": "Chargeur alimentation",
+    "name": "Câble fibre optique",
+    "brand": "ExpertCN",
+    "category": "Raccordement optique",
+    "subcategory": "Câbles optiques",
     "sku": null,
-    "description": "Module d'alimentation AC 220V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Haute puissance dédiée aux infrastructures cœur de réseau exigeantes.",
-    "status": "À ajouter",
-    "type": "Simple",
-    "image": "/images/shop/products/raisecom-alimentation-ac.png",
-    "gallery": [
-      "/images/shop/products/raisecom-alimentation-ac.png"
-    ],
+    "description": "Câble fibre optique configuré selon le type de fibre, la structure et la capacité requise.",
+    "status": "À configurer",
+    "type": "Variable",
+    "image": "/images/shop/products/breakout-optique.jpg",
+    "gallery": [],
     "imageMode": "cover",
     "sourceUrl": null,
-    "slug": "boitier-alimentation-raisecom-rpd1241-220s12",
+    "slug": "cable-fibre-optique",
     "longDescription": [
-      "Ce module d'alimentation haute puissance (1200W) est dimensionné pour le switch cœur de réseau Raisecom RAX721 (gamme 100G), conçu pour répondre aux besoins énergétiques importants des équipements cœur de réseau opérant à très haut débit. Il convertit une alimentation secteur 220V pour garantir un fonctionnement stable des ports 100G, particulièrement sollicités en bande passante. Sa conception modulaire permet, selon la configuration du châssis, d'associer plusieurs modules pour de la redondance d'alimentation. Réservé aux infrastructures cœur de réseau et data centers nécessitant une puissance élevée et une haute disponibilité."
+      "Le câble fibre optique sera proposé dans une configuration compatible avec le réseau et les conditions de pose.",
+      "Les combinaisons Type de fibre, Structure et Capacité doivent être validées avant publication afin de ne pas proposer de variantes inexistantes."
     ],
-    "options": []
-  },
-  {
-    "name": "Boitier d'alimentation RPD1241-48S12",
-    "brand": "Raisecom",
-    "category": "Équipements Actifs",
-    "subcategory": "Chargeur alimentation",
-    "sku": null,
-    "description": "Module d'alimentation DC -48V 1200W pour switch cœur de réseau Raisecom RAX721 (gamme 100G). Solution haute puissance pour sites télécoms alimentés en courant continu.",
-    "status": "À ajouter",
-    "type": "Simple",
-    "image": "/images/shop/products/raisecom-alimentation-dc.png",
-    "gallery": [
-      "/images/shop/products/raisecom-alimentation-dc.png"
+    "options": [
+      {
+        "name": "Type de fibre",
+        "values": [],
+        "pending": true
+      },
+      {
+        "name": "Structure",
+        "values": [],
+        "pending": true
+      },
+      {
+        "name": "Capacité",
+        "values": [],
+        "pending": true
+      }
     ],
-    "imageMode": "cover",
-    "sourceUrl": null,
-    "slug": "boitier-alimentation-raisecom-rpd1241-48s12",
-    "longDescription": [
-      "Ce module d'alimentation haute puissance (1200W) en courant continu -48V est dimensionné pour le switch cœur de réseau Raisecom RAX721 (gamme 100G). Il s'adresse aux infrastructures télécoms critiques (cœurs de réseau, data centers, sites opérateurs) alimentées en -48V, où la continuité de service est essentielle. Sa conception modulaire permet d'associer plusieurs unités pour une alimentation redondante, limitant les risques d'interruption en cas de défaillance d'un module. Solution recommandée pour les déploiements 100G à forte criticité opérationnelle."
-    ],
-    "options": []
+    "variations": []
   }
 ]
 
-const spreadsheetProductUpdates = {
-  'Soudeuse Fujikura 41S+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fujikura-41s-plus-soudeuse.jpg.jpg',
-  'Soudeuse Fujikura 90S+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fujikura-90s-plus-soudeuse.jpg',
-  'Cliveuse Sumitomo FC-8R': 'https://www.expertcn.fr/wp-content/uploads/2026/08/cliveuse_fc_8r.png',
-  'Cliveuse Sumitomo FC-6+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/cliveuse_f6.png',
-  'Soudeuse Sumitomo T-502S': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-502s-soudeuse.jpg',
-  'Soudeuse Sumitomo T-402S': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-402s-soudeuse.jpg.jpg',
-  'Soudeuse Sumitomo T72C+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-72c-plus-soudeuse.jpg.jpg',
-  'Soudeuse Sumitomo T-57C+': 'https://www.expertcn.fr/wp-content/uploads/2026/08/sumitomo-t-57c-plus-soudeuse.jpg.jpg',
-  'Multimètre optique VeEX FL150 FaultScout': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fl150.png',
-  'Photomètre PON VeEX FX81 / FX81T': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx81.png',
-  'Analyseur de canaux xWDM VeEX FX182': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx182.png',
-  'Analyseur de canaux CWDM VeEX FX180X': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx180x.png',
-  'Mini OTDR VeEX FX160 FiberBEAST': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fx160.png',
-  'Soudeuse Fujikura 90R (rubans)': 'https://www.expertcn.fr/wp-content/uploads/2026/08/fujikura-90r-soudeuse-rubans.jpg.jpg',
-  'CPE Ethernet Raisecom RAX711': 'https://www.connectyl.fr/wp-content/uploads/2024/03/40-300x300.png',
-  'CPE Ethernet Raisecom RAX721': 'https://www.connectyl.fr/wp-content/uploads/2024/03/40-300x300.png',
-}
-
-products.forEach((product) => {
-  const image = spreadsheetProductUpdates[product.name]
-  if (!image) return
-  product.image = image
-  product.gallery = [image]
-})
-
-const spreadsheetProductsToAdd = [
-  {
-    name: 'RAX701-GC', brand: 'Raisecom', category: 'Équipements Actifs', subcategory: 'CPE', sku: null,
-    description: 'CPE Ethernet Raisecom RAX701-GC pour les réseaux d’accès et les liaisons professionnelles.', status: 'À ajouter', type: 'Simple',
-    image: '/images/shop/products/raisecom-rax711-r-cpe-ethernet.jpg', imageMode: 'cover', sourceUrl: null, slug: 'raisecom-rax701-gc',
-    longDescription: ['Le RAX701-GC est un CPE Ethernet Raisecom destiné aux réseaux d’accès et aux liaisons professionnelles. Contactez notre équipe pour confirmer la configuration adaptée à votre infrastructure.'], options: [],
-  },
-  {
-    name: 'Switch Raisecom ISCOM S3600(A)', brand: 'Raisecom', category: 'Équipements Actifs', subcategory: 'Switches industriels', sku: null,
-    description: 'Switch Gigabit d’accès Raisecom ISCOM S3600(A) avec 6 uplinks 10G optiques et PoE++ jusqu’à 2920W, pour campus et réseaux d’entreprise.', status: 'À ajouter', type: 'Simple',
-    image: 'https://www.expertcn.fr/wp-content/uploads/2026/08/Switch_ISCOM_S3600A.png', imageMode: 'cover', sourceUrl: null, slug: 'switch-raisecom-iscom-s3600a',
-    longDescription: ['L’ISCOM S3600(A) est un switch Gigabit nouvelle génération signé Raisecom, conçu pour les réseaux d’accès campus et entreprise. Il offre jusqu’à 48 ports GE avec 6 uplinks 10GE optiques sur tous les modèles, une capacité de commutation de 216 Gbit/s et une gestion PoE++ 802.3bt jusqu’à 90W par port. Il intègre la virtualisation intelligente ISF, le routage dynamique IPv4/IPv6, la protection en anneau G.8032 ERPS et le provisionnement zéro-touch.'], options: [],
-  },
-  {
-    name: 'Module SFP 1G SR Newlinks 850nm 500m', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-SR-LCD',
-    description: 'Module SFP 1G SR Newlinks 850nm 500m LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-sr-newlinks-850nm-500m',
-    longDescription: ['Le module SFP 1G SR Newlinks est un émetteur-récepteur optique 1 Gigabit conçu pour les liaisons courte portée jusqu’à 500 mètres en fibre multimode OM2, OM3 ou OM4 à 850 nm. Compatible multi-constructeur et hot-pluggable, il est adapté aux interconnexions intra-datacenter et aux liaisons de courte portée.'], options: [{ name: 'Distance', values: ['500m'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module SFP 1G LR Newlinks 1310nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-LR-LCD-10',
-    description: 'Module SFP 1G LR Newlinks 1310nm 10km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-lr-newlinks-1310nm-10km',
-    longDescription: ['Le module SFP 1G LR Newlinks est un émetteur-récepteur optique 1 Gigabit pour liaisons monomode jusqu’à 10 km à 1310 nm en LC Duplex. Compatible multi-constructeur, il est adapté aux liaisons métropolitaines courtes et aux interconnexions entre bâtiments.'], options: [{ name: 'Distance', values: ['2km', '10km', '20km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module SFP 1G LR Newlinks 1310nm 20km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-LR-LCD-20',
-    description: 'Module SFP 1G LR Newlinks 1310nm 20km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-lr-newlinks-1310nm-20km',
-    longDescription: ['Le module SFP 1G LR Newlinks 20km est un émetteur-récepteur optique 1 Gigabit pour liaisons monomode jusqu’à 20 km à 1310 nm en LC Duplex. Compatible multi-constructeur, il est adapté aux liaisons métropolitaines et inter-sites sur fibre G.652D.'], options: [{ name: 'Distance', values: ['20km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module SFP 1G BX Newlinks 1310/1490nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-1G-BX-LCS-10',
-    description: 'Module SFP 1G BX Newlinks 1310/1490nm 10km LC Simplex WDM, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_duplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-1g-bx-newlinks-1310-1490nm-10km',
-    longDescription: ['Le module SFP 1G BX Newlinks est un émetteur-récepteur bidirectionnel WDM permettant une liaison 1 Gigabit sur une seule fibre monomode jusqu’à 10 km, en LC Simplex. Les deux longueurs d’onde distinctes réduisent de moitié le nombre de fibres utilisées.'], options: [{ name: 'Sens', values: ['TX1310/RX1490', 'TX1490/RX1310'] }, { name: 'Distance', values: ['3km', '10km', '20km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module SFP+ 10G SR Newlinks 850nm 300m', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-SR-LCD',
-    description: 'Module SFP+ 10G SR Newlinks 850nm 300m LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-sr-newlinks-850nm-300m',
-    longDescription: ['Le module SFP+ 10G SR Newlinks est un émetteur-récepteur optique 10 Gigabit courte portée jusqu’à 300 m sur fibre multimode OM3 ou OM4 à 850 nm en LC Duplex. Il convient aux interconnexions de switches 10G et aux liaisons intra-datacenter.'], options: [{ name: 'Distance', values: ['300m'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module SFP+ 10G LR Newlinks 1310nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-LR-LCD-10',
-    description: 'Module SFP+ 10G LR Newlinks 1310nm 10km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-lr-newlinks-1310nm-10km',
-    longDescription: ['Le module SFP+ 10G LR Newlinks est un émetteur-récepteur optique 10 Gigabit longue portée jusqu’à 10 km sur fibre monomode G.652D à 1310 nm en LC Duplex. Il est adapté aux uplinks 10G et aux liaisons inter-sites métropolitaines.'], options: [{ name: 'Distance', values: ['2km', '10km', '20km', '60km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module SFP+ 10G ER Newlinks 1310nm 40km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-ER-LCD',
-    description: 'Module SFP+ 10G ER Newlinks 1310nm 40km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-er-newlinks-1310nm-40km',
-    longDescription: ['Le module SFP+ 10G ER Newlinks est un émetteur-récepteur optique 10 Gigabit extended reach jusqu’à 40 km sur fibre monomode G.652D à 1310 nm en LC Duplex. Il est conçu pour les liaisons métropolitaines longue distance et les réseaux de collecte 10G.'], options: [{ name: 'Longueur d’onde', values: ['1310nm', '1550nm'] }, { name: 'Distance', values: ['40km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module SFP+ 10G ZR Newlinks 1550nm 80km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-SFP-10G-ZR-LCD',
-    description: 'Module SFP+ 10G ZR Newlinks 1550nm 80km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/SFP_simplex.png', imageMode: 'cover', sourceUrl: null, slug: 'module-sfp-plus-10g-zr-newlinks-1550nm-80km',
-    longDescription: ['Le module SFP+ 10G ZR Newlinks est un émetteur-récepteur optique 10 Gigabit très longue portée jusqu’à 80 km sur fibre monomode G.652D à 1550 nm en LC Duplex. Il convient aux liaisons régionales et aux interconnexions inter-datacenters.'], options: [{ name: 'Distance', values: ['80km', '100km'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module QSFP28 100G SR Newlinks 850nm 100m MTP/MPO', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-QSFP-100G-SR-MPO',
-    description: 'Module QSFP28 100G SR Newlinks 850nm 100m MTP/MPO, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/QSFP28.png', imageMode: 'cover', sourceUrl: null, slug: 'module-qsfp28-100g-sr-newlinks-850nm-100m-mtp-mpo',
-    longDescription: ['Le module QSFP28 100G SR Newlinks est un émetteur-récepteur optique 100 Gigabit courte portée jusqu’à 100 m sur fibre multimode OM4 à 850 nm via connecteur MTP/MPO. Il est conçu pour les interconnexions intra-datacenter haute densité et les architectures spine-leaf 100G.'], options: [{ name: 'Distance', values: ['100m', '300m'] }, { name: 'Connecteur', values: ['MTP/MPO'] }, { name: 'Grade', values: ['Standard', 'Industrial'] }],
-  },
-  {
-    name: 'Module QSFP28 100G LR Newlinks 1310nm 10km', brand: 'Newlinks', category: 'Équipements Actifs', subcategory: 'Modules optiques', sku: 'NL-QSFP-100G-LR-LCD',
-    description: 'Module QSFP28 100G LR Newlinks 1310nm 10km LC Duplex, compatible multi-constructeur.', status: 'À ajouter', type: 'Variable', image: 'https://www.expertcn.fr/wp-content/uploads/2026/09/QSFP28.png', imageMode: 'cover', sourceUrl: null, slug: 'module-qsfp28-100g-lr-newlinks-1310nm-10km',
-    longDescription: ['Le module QSFP28 100G LR Newlinks est un émetteur-récepteur optique 100 Gigabit longue portée jusqu’à 10 km sur fibre monomode G.652D à 1310 nm en LC Duplex. Il est adapté aux liaisons 100G inter-bâtiments, aux cœurs de réseau métropolitain et aux datacenters distribués.'], options: [{ name: 'Distance', values: ['500m', '2km', '10km'] }, { name: 'Connecteur', values: ['LC Duplex'] }, { name: 'Grade', values: ['Standard'] }],
-  },
-]
-
-spreadsheetProductsToAdd.forEach((product) => {
-  if (!products.some((existing) => existing.slug === product.slug)) products.push(product)
-})
-
-const aiguilleDeTirage = products.find((product) => product.slug === 'aiguille')
-if (aiguilleDeTirage) {
-  const image = 'https://www.expertcn.fr/wp-content/uploads/2023/10/28-3.png'
-  Object.assign(aiguilleDeTirage, {
-    name: 'Aiguille de tirage',
-    type: 'Variable',
-    image,
-    gallery: [
-      image,
-      '/images/shop/official/aiguille-de-tirage-30m/01-aiguilles-30m-b9ffebb5.webp',
-      '/images/shop/official/aiguille-de-tirage-60m-4-5mm/01-31-fcc39fbb.png',
-      '/images/shop/official/aiguille-de-tirage-100m-6-7mm/01-32-e7e74de6.png',
-      '/images/shop/official/aiguille-de-tirage-150m-9mm/01-33-afb54a61.png',
-      '/images/shop/official/aiguille-de-tirage-300m-11mm/01-30-bdd1a820.png',
-    ],
-    description: 'Aiguille de tirage fibre optique, disponible en plusieurs longueurs avec diamètre associé (30 à 300 m).',
-    longDescription: ['Cette aiguille de tirage fibre optique est proposée en plusieurs longueurs, chacune associée à un diamètre spécifique (60 m/4,5 mm, 100 m/6-7 mm, 150 m/9 mm, 300 m/11 mm ; diamètre du 30 m à confirmer), sous forme d’une page produit à variations. Elle sert à tirer les câbles dans les fourreaux lors des opérations d’installation. Seules les combinaisons longueur/diamètre réellement commercialisées sont proposées à la sélection.'],
-    options: [{
-      name: 'Longueur / diamètre',
-      values: ['30M — diamètre à confirmer', '60M — 4.5MM', '100M — 6-7MM', '150M — 9MM', '300M — 11MM'],
-    }],
-  })
-}
-
-const individualAiguilleSlugs = new Set([
-  'aiguille-de-tirage-30m',
-  'aiguille-de-tirage-60m-4-5mm',
-  'aiguille-de-tirage-100m-6-7mm',
-  'aiguille-de-tirage-150m-9mm',
-  'aiguille-de-tirage-300m-11mm',
-])
-for (let index = products.length - 1; index >= 0; index -= 1) {
-  if (individualAiguilleSlugs.has(products[index].slug)) products.splice(index, 1)
+export const productAliases = {
+  "recharge-30m": "recharge",
+  "recharge-60m": "recharge",
+  "recharge-100m": "recharge",
+  "recharge-150m": "recharge",
+  "recharge-300m": "recharge",
+  "aiguille": "aiguille-de-tirage",
+  "aiguille-de-tirage-30m": "aiguille-de-tirage",
+  "aiguille-de-tirage-60m-4-5mm": "aiguille-de-tirage",
+  "aiguille-de-tirage-100m-6-7mm": "aiguille-de-tirage",
+  "aiguille-de-tirage-150m-9mm": "aiguille-de-tirage",
+  "aiguille-de-tirage-300m-11mm": "aiguille-de-tirage",
+  "pto-1-2-4fo": "pto",
+  "breakout-monomode": "breakout",
+  "breakout-multimode": "breakout"
 }
 
 export const pendingProducts = []

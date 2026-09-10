@@ -335,6 +335,7 @@
   .shop-mobile-nav > a:hover,
   .shop-mobile-nav summary:hover { background: var(--chrome-soft); }
   .shop-mobile-nav summary::-webkit-details-marker { display: none; }
+  .shop-mobile-nav summary > a { color: inherit; font: inherit; }
   .shop-mobile-nav details > a { margin-left: 13px; padding: 8px 12px; display: block; color: var(--chrome-muted); font-size: .86rem; }
   .footer-main { grid-template-columns: 1.3fr repeat(2, 1fr); }
   .footer-contact { grid-column: 2 / 4; }

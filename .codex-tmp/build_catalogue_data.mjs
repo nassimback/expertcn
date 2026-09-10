@@ -1,8 +1,9 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { FileBlob, SpreadsheetFile } from '@oai/artifact-tool'
 
-const workspace = 'C:/Users/Nassim/Documents/expertcn 5.6'
+const workspace = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const workbookPath = path.join(workspace, 'Categorisation_Produits_ExpertCN_v6.xlsx')
 const imageDir = path.join(workspace, 'public', 'images', 'shop', 'products')
 const outputPath = path.join(workspace, 'src', 'catalogue.generated.js')
@@ -34,6 +35,7 @@ const subcategoryCopy = {
   PTO: 'Terminaison optique disponible selon le nombre de fibres.',
   MPO: 'Connectique haute densité pour infrastructures optiques.',
   Breakout: 'Distribution optique monomode ou multimode.',
+  'Câbles optiques': 'Câbles configurés selon la fibre, la structure et la capacité nécessaires.',
   CPE: 'Accès client et passerelles pour réseaux professionnels.',
   Switches: 'Commutation industrielle pour environnements exigeants.',
   OLT: 'Infrastructure d’accès PON pour déploiements opérateurs et entreprises.',
@@ -330,6 +332,168 @@ function officialProductToCatalogue(official) {
 }
 
 const officialCatalogueProducts = officialProducts.map(officialProductToCatalogue)
+
+function unique(values) {
+  return [...new Set(values.filter(Boolean))]
+}
+
+function getOfficialProducts(slugs) {
+  return slugs
+    .map((slug) => officialCatalogueProducts.find((product) => product.slug === slug))
+    .filter(Boolean)
+}
+
+function buildVariableFamily({
+  slug,
+  name,
+  sourceSlugs,
+  preferredSlug,
+  description,
+  options,
+  variations,
+}) {
+  const sources = getOfficialProducts(sourceSlugs)
+  const preferred = sources.find((product) => product.slug === preferredSlug) || sources[0]
+  if (!preferred) throw new Error(`Missing source product for ${name}`)
+
+  return {
+    ...preferred,
+    slug,
+    name,
+    description,
+    type: 'Variable',
+    sku: null,
+    gallery: unique(sources.flatMap((product) => product.gallery || [product.image])),
+    image: preferred.image,
+    sourceUrl: preferred.sourceUrl,
+    longDescription: preferred.longDescription,
+    options,
+    variations,
+    legacySlugs: sourceSlugs,
+  }
+}
+
+const rechargeSourceSlugs = ['recharge-30m', 'recharge-60m', 'recharge-100m', 'recharge-150m', 'recharge-300m']
+const rechargeLengths = rechargeRows.map(([, length]) => formatMetres(length))
+const rechargeSources = getOfficialProducts(rechargeSourceSlugs)
+const rechargeProduct = buildVariableFamily({
+  slug: 'recharge',
+  name: 'Recharge pour aiguille de tirage',
+  sourceSlugs: rechargeSourceSlugs,
+  preferredSlug: 'recharge-100m',
+  description: 'Recharge pour aiguille de tirage disponible en cinq longueurs, de 30 à 300 mètres.',
+  options: [{ name: 'Longueur', values: rechargeLengths }],
+  variations: rechargeLengths.map((length, index) => ({
+    label: `Recharge ${length}`,
+    attributes: { Longueur: length },
+    image: rechargeSources[index]?.image,
+  })),
+})
+
+const aiguilleSourceSlugs = [
+  'aiguille',
+  'aiguille-de-tirage-30m',
+  'aiguille-de-tirage-60m-4-5mm',
+  'aiguille-de-tirage-100m-6-7mm',
+  'aiguille-de-tirage-150m-9mm',
+  'aiguille-de-tirage-300m-11mm',
+]
+const aiguilleSourceByLength = new Map(getOfficialProducts(aiguilleSourceSlugs).map((product) => {
+  const match = product.slug.match(/-(30|60|100|150|300)m(?:-|$)/)
+  return [match?.[1], product]
+}))
+const aiguilleVariations = aiguilleRows.map(([, length, diameter]) => {
+  const lengthLabel = formatMetres(length)
+  const diameterLabel = /confirmer/i.test(diameter) ? 'À confirmer' : formatMillimetres(diameter)
+  return {
+    label: `${lengthLabel} - diamètre ${diameterLabel.toLocaleLowerCase('fr')}`,
+    attributes: { Longueur: lengthLabel, Diamètre: diameterLabel },
+    image: aiguilleSourceByLength.get(String(length).match(/\d+/)?.[0])?.image,
+  }
+})
+const aiguilleProduct = buildVariableFamily({
+  slug: 'aiguille-de-tirage',
+  name: 'Aiguille de tirage',
+  sourceSlugs: aiguilleSourceSlugs,
+  preferredSlug: 'aiguille-de-tirage-100m-6-7mm',
+  description: 'Aiguille de tirage légère, flexible et résistante. Chaque longueur est associée à un diamètre précis.',
+  options: [
+    { name: 'Longueur', values: unique(aiguilleVariations.map((variation) => variation.attributes.Longueur)) },
+    { name: 'Diamètre', values: unique(aiguilleVariations.map((variation) => variation.attributes.Diamètre)) },
+  ],
+  variations: aiguilleVariations,
+})
+
+const ptoValues = validatedOptions.PTO[0].values
+const ptoProduct = buildVariableFamily({
+  slug: 'pto',
+  name: 'PTO',
+  sourceSlugs: ['pto-1-2-4fo'],
+  preferredSlug: 'pto-1-2-4fo',
+  description: 'Prise terminale optique disponible en 1, 2 ou 4 fibres pour les raccordements FTTH.',
+  options: [{ name: 'Nombre de fibres', values: ptoValues }],
+  variations: ptoValues.map((value) => ({ label: `PTO ${value}`, attributes: { 'Nombre de fibres': value } })),
+})
+
+const breakoutSourceSlugs = ['breakout-monomode', 'breakout-multimode']
+const breakoutSources = getOfficialProducts(breakoutSourceSlugs)
+const breakoutValues = ['Monomode', 'Multimode']
+const breakoutProduct = buildVariableFamily({
+  slug: 'breakout',
+  name: 'Breakout optique',
+  sourceSlugs: breakoutSourceSlugs,
+  preferredSlug: 'breakout-monomode',
+  description: 'Breakout optique configurable en fibre monomode ou multimode selon votre infrastructure.',
+  options: [{ name: 'Type de fibre', values: breakoutValues }],
+  variations: breakoutValues.map((value, index) => ({
+    label: `Breakout ${value}`,
+    attributes: { 'Type de fibre': value },
+    image: breakoutSources[index]?.image,
+  })),
+})
+
+const cableProduct = {
+  name: 'Câble fibre optique',
+  brand: 'ExpertCN',
+  category: 'Raccordement optique',
+  subcategory: 'Câbles optiques',
+  sku: null,
+  description: 'Câble fibre optique configuré selon le type de fibre, la structure et la capacité requise.',
+  status: 'À configurer',
+  type: 'Variable',
+  image: imageBySlug.has('breakout-optique')
+    ? `/images/shop/products/${imageBySlug.get('breakout-optique')}`
+    : categoryFallback['Raccordement optique'],
+  gallery: [],
+  imageMode: 'cover',
+  sourceUrl: null,
+  slug: 'cable-fibre-optique',
+  longDescription: [
+    'Le câble fibre optique sera proposé dans une configuration compatible avec le réseau et les conditions de pose.',
+    'Les combinaisons Type de fibre, Structure et Capacité doivent être validées avant publication afin de ne pas proposer de variantes inexistantes.',
+  ],
+  options: [
+    { name: 'Type de fibre', values: [], pending: true },
+    { name: 'Structure', values: [], pending: true },
+    { name: 'Capacité', values: [], pending: true },
+  ],
+  variations: [],
+}
+
+const consolidatedSourceSlugs = new Set([
+  ...rechargeSourceSlugs,
+  ...aiguilleSourceSlugs,
+  'pto-1-2-4fo',
+  ...breakoutSourceSlugs,
+])
+const consolidatedProducts = [rechargeProduct, aiguilleProduct, ptoProduct, breakoutProduct, cableProduct]
+const productAliases = Object.fromEntries([
+  ...rechargeSourceSlugs.map((slug) => [slug, rechargeProduct.slug]),
+  ...aiguilleSourceSlugs.map((slug) => [slug, aiguilleProduct.slug]),
+  ['pto-1-2-4fo', ptoProduct.slug],
+  ...breakoutSourceSlugs.map((slug) => [slug, breakoutProduct.slug]),
+])
+const officialProductsAfterConsolidation = officialCatalogueProducts.filter((product) => !consolidatedSourceSlugs.has(product.slug))
 const replacedLocalSlugs = new Set([
   ...officialProducts.map((product) => product.slug),
   ...Object.values(officialAliasToLocalSlug),
@@ -344,23 +508,24 @@ const catalogueCategories = Object.entries(categoryCopy).map(([name, description
   name,
   description,
   subcategories: [...new Set(
-    [...officialCatalogueProducts, ...v6OnlyProducts]
+    [...officialProductsAfterConsolidation, ...v6OnlyProducts, ...consolidatedProducts]
       .filter((product) => product.category === name)
       .map((product) => product.subcategory),
   )],
 }))
 
 const partnerPage = allProducts.find((product) => product.type === 'Page WP (hors catalogue)')
-const products = [...officialCatalogueProducts, ...v6OnlyProducts]
+const products = [...officialProductsAfterConsolidation, ...v6OnlyProducts, ...consolidatedProducts]
 const pendingProducts = allProducts.filter((product) => product.status === 'À vérifier')
 
-const source = `// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v6.xlsx.\n// Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.\n\nexport const catalogueCategories = ${JSON.stringify(catalogueCategories, null, 2)}\n\nexport const products = ${JSON.stringify(products, null, 2)}\n\nexport const pendingProducts = ${JSON.stringify(pendingProducts, null, 2)}\n\nexport const partnerPage = ${JSON.stringify(partnerPage, null, 2)}\n`
+const source = `// Generated from ExpertCN product-sitemap.xml, WooCommerce Store API and Categorisation_Produits_ExpertCN_v6.xlsx.\n// Re-run .codex-tmp/scrape_expertcn_products.py then .codex-tmp/build_catalogue_data.mjs after source changes.\n\nexport const catalogueCategories = ${JSON.stringify(catalogueCategories, null, 2)}\n\nexport const products = ${JSON.stringify(products, null, 2)}\n\nexport const productAliases = ${JSON.stringify(productAliases, null, 2)}\n\nexport const pendingProducts = ${JSON.stringify(pendingProducts, null, 2)}\n\nexport const partnerPage = ${JSON.stringify(partnerPage, null, 2)}\n`
 
 await fs.writeFile(outputPath, source, 'utf8')
 console.log(JSON.stringify({
   categories: catalogueCategories.length,
   products: products.length,
   officialProducts: officialCatalogueProducts.length,
+  consolidatedFamilies: consolidatedProducts.length,
   v6OnlyProducts: v6OnlyProducts.length,
   pending: pendingProducts.length,
   partner: partnerPage?.name,

@@ -331,9 +331,8 @@ export function SiteHeader({
         <ShopBrand />
         <GlobalSearch />
         <nav className="shop-nav" aria-label="Navigation principale">
-          <a className={active === 'material' ? 'is-active' : ''} href="/materiel-telecom-fibre-optique/">Matériels</a>
           <div className="nav-menu-group">
-            <a className={active === 'boutique' ? 'is-active' : ''} href="/boutique/">Boutique <CaretDown weight="bold" /></a>
+            <a className={['material', 'boutique'].includes(active) ? 'is-active' : ''} href="/materiel-telecom-fibre-optique/">Matériels <CaretDown weight="bold" /></a>
             <MaterialMegaMenu />
           </div>
           <a className={active === 'sav' ? 'is-active' : ''} href="/sav/">SAV</a>
@@ -357,8 +356,7 @@ export function SiteHeader({
       </div>
       {menuOpen && (
         <nav className="shop-mobile-nav" aria-label="Navigation mobile">
-          <a href="/materiel-telecom-fibre-optique/">Matériels</a>
-          <details><summary>Boutique <CaretDown /></summary><a href="/boutique/">Voir toute la boutique</a>{catalogueCategories.map((category) => <a href={catalogueUrl(category.name)} key={category.name}>{category.name}</a>)}</details>
+          <details className="shop-mobile-materials"><summary><a href="/materiel-telecom-fibre-optique/" onClick={(event) => event.stopPropagation()}>Matériels</a><CaretDown /></summary><a href="/boutique/">Voir tout le catalogue</a>{catalogueCategories.map((category) => <a href={catalogueUrl(category.name)} key={category.name}>{category.name}</a>)}</details>
           <a href="/sav/">SAV</a>
           <details><summary>Formations <CaretDown /></summary>{formationCategories.map((category) => <a href={`/formations/?categorie=${category.slug}`} key={category.slug}>{category.name}</a>)}</details>
           <a href="/a-propos-de-notre-mission/">À propos</a>

@@ -13,12 +13,16 @@ import {
   Wrench,
   X,
 } from '@phosphor-icons/react'
-import { products } from './catalogue.generated'
+import { productAliases, products } from './catalogue.generated'
 import { ContactForm } from './contact-shared'
 import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
 import './boutique.css'
 import './product.css'
 import './contact.css'
+
+function uniqueValues(values) {
+  return [...new Set(values.filter(Boolean))]
+}
 
 function RelatedProduct({ product }) {
   return (
@@ -128,7 +132,8 @@ function ProductContactModal({ product, onClose }) {
 
 function ProductPage() {
   const slug = new URLSearchParams(window.location.search).get('produit')
-  const product = products.find((item) => item.slug === slug)
+  const canonicalSlug = productAliases[slug] || slug
+  const product = products.find((item) => item.slug === canonicalSlug)
   const [selections, setSelections] = useState({})
   const [activeImage, setActiveImage] = useState(product?.image || '')
   const [notice, setNotice] = useState('')
@@ -156,7 +161,11 @@ function ProductPage() {
   if (!product) return <ProductNotFound requestItems={requestItems} notice={notice} removeRequestItem={removeRequestItem} clearRequestItems={clearRequestItems} />
 
   const configurableOptions = product.options.filter((option) => !option.pending)
+  const selectedVariation = product.variations?.find((variation) => (
+    configurableOptions.every((option) => variation.attributes?.[option.name] === selections[option.name])
+  ))
   const allRequiredOptionsSelected = configurableOptions.every((option) => selections[option.name])
+    && (!product.variations?.length || Boolean(selectedVariation))
   const hasPendingOptions = product.options.some((option) => option.pending)
   const galleryImages = product.gallery?.length ? product.gallery : [product.image]
 
@@ -165,10 +174,40 @@ function ProductPage() {
       setNotice('Choisissez chaque option avant d’ajouter le produit.')
       return
     }
-    const optionSummary = configurableOptions.map((option) => selections[option.name]).filter(Boolean).join(', ')
+    const optionSummary = configurableOptions.map((option) => `${option.name} : ${selections[option.name]}`).filter(Boolean).join(', ')
     const requestLabel = optionSummary ? `${product.name} - ${optionSummary}` : product.name
     addRequestItem(requestLabel)
     setNotice(`${product.name} a été ajouté à votre panier.`)
+  }
+
+  const getAvailableValues = (optionName, fallbackValues) => {
+    if (!product.variations?.length) return fallbackValues
+    return uniqueValues(product.variations
+      .filter((variation) => configurableOptions.every((option) => (
+        option.name === optionName
+        || !selections[option.name]
+        || variation.attributes?.[option.name] === selections[option.name]
+      )))
+      .map((variation) => variation.attributes?.[optionName]))
+  }
+
+  const updateSelection = (optionName, value) => {
+    setSelections((current) => {
+      const next = { ...current, [optionName]: value }
+      if (!product.variations?.length) return next
+      configurableOptions.forEach((option) => {
+        if (option.name === optionName || !next[option.name]) return
+        const remainsValid = product.variations.some((variation) => configurableOptions.every((candidate) => (
+          !next[candidate.name] || variation.attributes?.[candidate.name] === next[candidate.name]
+        )))
+        if (!remainsValid) delete next[option.name]
+      })
+      const matchingVariation = product.variations.find((variation) => configurableOptions.every((option) => (
+        !next[option.name] || variation.attributes?.[option.name] === next[option.name]
+      )))
+      setActiveImage(matchingVariation?.image || product.image)
+      return next
+    })
   }
 
   return (
@@ -225,10 +264,10 @@ function ProductPage() {
                       <select
                         disabled={option.pending}
                         value={selections[option.name] || ''}
-                        onChange={(event) => setSelections((current) => ({ ...current, [option.name]: event.target.value }))}
+                        onChange={(event) => updateSelection(option.name, event.target.value)}
                       >
                         <option value="">{option.pending ? 'À définir avec ExpertCN' : 'Sélectionner une option'}</option>
-                        {option.values.map((value) => <option value={value} key={value}>{value}</option>)}
+                        {getAvailableValues(option.name, option.values).map((value) => <option value={value} key={value}>{value}</option>)}
                       </select>
                       <CaretDown weight="bold" />
                     </span>
