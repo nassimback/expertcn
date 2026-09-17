@@ -20,7 +20,7 @@ const services = [
     icon: Buildings,
     index: '01',
     title: 'Équipements télécoms',
-    text: 'Une sélection professionnelle du passif à l’actif, accompagnée par une expertise technique qui sécurise chaque choix.',
+    text: 'Sélection de matériels actifs et passifs, intégrant des solutions écoresponsables et durables.',
     className: 'service-equipment',
     href: '/boutique/',
   },
@@ -36,7 +36,7 @@ const services = [
     icon: GraduationCap,
     index: '03',
     title: 'Formations qualifiantes',
-    text: 'Des parcours concrets en fibre optique, 5G, habilitations et énergie pour développer les compétences qui comptent.',
+    text: 'Formations techniques spécifiques en Télécom et parcours de montée en compétences sur les métiers de demain (IoT, Énergie, Télécom).',
     className: 'service-training',
     href: '/formations/',
   },
@@ -148,9 +148,9 @@ function App() {
           <div className="hero-overlay" />
           <div className="hero-inner">
             <div className="hero-copy">
-              <p className="eyebrow hero-kicker">Télécoms et énergie, de bout en bout</p>
-              <h1>Vos projets avancent. Nous sécurisons la suite.</h1>
-              <p className="hero-description">Équipements, maintenance, formation et audit réunis au sein d’un partenaire technique unique.</p>
+              <p className="eyebrow hero-kicker">Concepteur et distributeur de solutions éco-responsables pour les infrastructures Télécom &amp; Énergie</p>
+              <h1>Votre partenaire de confiance pour les professionnels.</h1>
+              <p className="hero-description">Fourniture d’équipements, maintenance d’infrastructures et formation : l’expertise d’un partenaire technique unique.</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="/contact/#contact-form">Nous contacter <ArrowRight weight="bold" /></a>
                 <a className="button button-ghost" href="/boutique/">Découvrir le catalogue</a>
@@ -162,18 +162,18 @@ function App() {
         <section className="proof-strip" aria-label="Chiffres clés">
           <div className="proof-intro">
             <img src="/images/trust-results.jpg" alt="Signature d’un document professionnel" />
-            <span>La confiance se construit sur des résultats.</span>
+            <span>La performance de vos réseaux, notre priorité.</span>
           </div>
-          <div className="proof-number"><strong>494+</strong><span>projets réalisés</span></div>
-          <div className="proof-number"><strong>10 ans</strong><span>d’expertise terrain</span></div>
+          <div className="proof-number"><strong>+500</strong><span>clients accompagnés</span></div>
+          <div className="proof-number"><strong>10 ans</strong><span>d’ingénierie et de conseil</span></div>
           <div className="proof-number"><strong>4,5/5</strong><span>satisfaction client</span></div>
         </section>
 
         <section className="section expertise-section" id="expertises">
           <div className="expertise-heading" data-reveal>
             <div>
-              <p className="eyebrow">ExpertCN, partenaire opérationnel</p>
-              <h2>Une seule équipe pour faire avancer l’ensemble de vos enjeux télécoms.</h2>
+              <p className="eyebrow">Partenaire technique BtoB</p>
+              <h2>Un partenaire technique unique pour piloter l’ensemble de vos ressources Télécoms &amp; Énergie.</h2>
             </div>
             <p>Du matériel à la transmission des compétences, nous intervenons avec une lecture complète de votre activité et de vos priorités.</p>
           </div>
@@ -212,8 +212,8 @@ function App() {
           <div className="maintenance-image" data-reveal>
             <img src="/images/expertcn-maintenance.jpg" alt="Technicien calibrant une soudeuse fibre optique dans le laboratoire ExpertCN" loading="lazy" />
             <div className="image-stat">
-              <strong>100+</strong>
-              <span>équipements réparés chaque mois</span>
+              <strong>+100</strong>
+              <span>équipements réparés et étalonnés par mois</span>
             </div>
           </div>
           <div className="maintenance-copy" data-reveal>
