@@ -2,7 +2,7 @@ const categoryDefinitions = [
   {
     name: 'Fibre Optique',
     slug: 'fibre-optique',
-    image: '/images/expertcn-formation.jpg',
+    image: '/images/site/formations-categorie-fibre-optique.jpg',
     summary: 'Déployer, raccorder et maintenir les réseaux fibre en conditions terrain.',
     defaults: {
       duration: '5 jours - 35 heures',
@@ -17,7 +17,7 @@ const categoryDefinitions = [
   {
     name: 'Électricité',
     slug: 'electricite',
-    image: '/images/expertcn-hero.jpg',
+    image: '/images/site/formations-categorie-electricite.jpg',
     summary: 'Maîtriser les installations électriques et les infrastructures de recharge.',
     defaults: {
       duration: '5 jours - 35 heures',
@@ -32,7 +32,7 @@ const categoryDefinitions = [
   {
     name: 'Mesure',
     slug: 'mesure',
-    image: '/images/shop/products/veex-fx150-plus-otdr.jpg',
+    image: '/images/site/formations-categorie-mesure.jpg',
     summary: 'Qualifier les performances optiques et interpréter des résultats complexes.',
     defaults: {
       duration: '3 jours - 21 heures',
@@ -47,7 +47,7 @@ const categoryDefinitions = [
   {
     name: 'Rénovations Énergétiques',
     slug: 'renovations-energetiques',
-    image: '/images/expertcn-rse.jpg',
+    image: '/images/site/formations-categorie-renovations-energetiques.jpg',
     summary: 'Installer des solutions énergétiques performantes et conformes aux référentiels.',
     defaults: {
       duration: '3 à 5 jours selon le parcours',
@@ -62,7 +62,7 @@ const categoryDefinitions = [
   {
     name: 'Sécurité Incendie',
     slug: 'securite-incendie',
-    image: '/images/expertcn-maintenance.jpg',
+    image: '/images/site/formations-categorie-securite-incendie.jpg',
     summary: 'Prévenir les risques et coordonner la sécurité incendie en établissement.',
     defaults: {
       duration: 'Variable selon le niveau SSIAP',
@@ -77,7 +77,7 @@ const categoryDefinitions = [
   {
     name: 'Sécurité et Sûreté',
     slug: 'securite-surete',
-    image: '/images/expertcn-hero.jpg',
+    image: '/images/site/formations-categorie-securite-surete.jpg',
     summary: 'Acquérir les compétences opérationnelles des métiers de la sécurité privée.',
     defaults: {
       duration: 'Selon le référentiel du titre préparé',
@@ -92,7 +92,7 @@ const categoryDefinitions = [
   {
     name: 'Secourisme',
     slug: 'secourisme',
-    image: '/images/expertcn-formation.jpg',
+    image: '/images/site/formations-categorie-secourisme.jpg',
     summary: 'Savoir protéger, alerter et intervenir face à une situation d’accident.',
     defaults: {
       duration: '2 jours - 14 heures',
@@ -107,7 +107,7 @@ const categoryDefinitions = [
   {
     name: 'Habilitations Électriques',
     slug: 'habilitations-electriques',
-    image: '/images/expertcn-maintenance.jpg',
+    image: '/images/site/formations-categorie-habilitations-electriques.jpg',
     summary: 'Intervenir à proximité des réseaux et équipements électriques en sécurité.',
     defaults: {
       duration: '1 à 3 jours selon l’habilitation',
@@ -146,6 +146,32 @@ const courses = [
   ['Habilitations Électriques', 'AIPR Encadrant', 'aipr-encadrant', 'Encadrer les équipes intervenant à proximité des réseaux.'],
   ['Habilitations Électriques', 'AIPR Opérateur', 'aipr-operateur', 'Appliquer les règles de sécurité lors des travaux à proximité des réseaux.'],
 ]
+
+const courseImagesBySlug = {
+  'technicien-ftto': '/images/site/formation-technicien-ftto.jpg',
+  'technicien-ftth-d3': '/images/site/formation-technicien-ftth-d3.jpg',
+  'technicien-maintenance-reseau-fibre-optique': '/images/site/formation-technicien-maintenance-reseau-fibre-optique.jpg',
+  'electricien-du-batiment': '/images/site/formation-electricien-du-batiment.jpg',
+  'installateur-irve-p1-p2-p3': '/images/site/formation-installateur-irve-p1-p2-p3.jpg',
+  'mesureur-pmd-cd': '/images/site/formation-mesureur-pmd-cd.jpg',
+  'analyseur-pmd-cd': '/images/site/formation-analyseur-pmd-cd.jpg',
+  'qualipac-pompes-a-chaleur-rge': '/images/site/formation-qualipac-pompes-a-chaleur-rge.jpg',
+  'qualipv-500-electricite': '/images/site/formation-qualipv-500-electricite.jpg',
+  'qualipv-36-electricite': '/images/site/formation-qualipv-36-electricite.jpg',
+  'qualipv-batiment': '/images/site/formation-qualipv-batiment.jpg',
+  'ssiap-1': '/images/site/formation-ssiap-1.jpg',
+  'ssiap-2': '/images/site/formation-ssiap-2.jpg',
+  'ssiap-3': '/images/site/formation-ssiap-3.jpg',
+  'tfp-aps': '/images/site/formation-tfp-aps.jpg',
+  'cqp-aps-ge': '/images/site/formation-cqp-aps-ge.jpg',
+  sst: '/images/site/formation-sst.jpg',
+  'mac-sst': '/images/site/formation-mac-sst.jpg',
+  h0b0: '/images/site/formation-h0b0.jpg',
+  'b2v-br-bc': '/images/site/formation-b2v-br-bc.jpg',
+  'aipr-concepteur': '/images/site/formation-aipr-concepteur.jpg',
+  'aipr-encadrant': '/images/site/formation-aipr-encadrant.jpg',
+  'aipr-operateur': '/images/site/formation-aipr-operateur.jpg',
+}
 
 export const formationProgramDocuments = [
   'AIPR CONCEPTEUR.pdf',
@@ -219,7 +245,7 @@ function buildCourse([categoryName, title, slug, summary]) {
     category: categoryName,
     categorySlug: category.slug,
     summary,
-    image: category.image,
+    image: courseImagesBySlug[slug] || category.image,
     indicators: null,
     indicatorsUpdatedAt: null,
     practical: { ...category.defaults },

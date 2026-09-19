@@ -568,9 +568,9 @@ export const products = [
     "description": "La soudeuse Fujikara 90s est une soudeuse fibre optique assurant un alignement exact du cœur à cœur de la fibre. Elle a spécialement été conçu pour les raccordements dans le secteur du télécom notamment pour l’axe d1 et d2.",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/soudeuse-optique-fujikura-90s/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/fujikura-90s-plus-soudeuse.jpg",
     "gallery": [
-      "/images/shop/official/soudeuse-optique-fujikura-90s/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/fujikura-90s-plus-soudeuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-optique-fujikura-90s/",
@@ -592,9 +592,9 @@ export const products = [
     "description": "Grâce à son modèle compact, elle offre à l’utilisateur une flexibilité d’utilisation tout en garantissant une soudure de précision des câbles fibre optique dans un temps ultra-rapide allant vers 6 secondes avec un taux de perte très faible.",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/soudeuse-fujikura-41s/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/fujikura-41s-plus-soudeuse.jpg",
     "gallery": [
-      "/images/shop/official/soudeuse-fujikura-41s/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/fujikura-41s-plus-soudeuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-fujikura-41s/",
@@ -615,9 +615,9 @@ export const products = [
     "description": "La C liveuse Sumitomo FC-8R est le choix idéal pour vos opérations de clivage. Elle permet des coupes de haute précision.\nDotée d’un design ergonomique elle peut être utilisée à une main ou sur une table.\nLégère, rapide et robuste : C’est la cliveuse qu’il vous faut !",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/cliveuse-sumitomo-fc-8r/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/sumitomo-fc-8r-cliveuse.jpg",
     "gallery": [
-      "/images/shop/official/cliveuse-sumitomo-fc-8r/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/sumitomo-fc-8r-cliveuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/cliveuse-sumitomo-fc-8r/",
@@ -654,9 +654,9 @@ export const products = [
     "description": "La Cliveuse Sumitomo FC-6+ permet des coupes de haute précision.\nDotée d’un retour de chariot automatique et d’une grande poubelle, la durée de vie de la lame est de 60 000 coupes.\nLégère, rapide et robuste : C’est la cliveuse qu’il vous faut !",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/cliveuse-sumitomo-fc-6/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/sumitomo-fc-6-plus-cliveuse.jpg",
     "gallery": [
-      "/images/shop/official/cliveuse-sumitomo-fc-6/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/sumitomo-fc-6-plus-cliveuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/cliveuse-sumitomo-fc-6/",
@@ -685,9 +685,9 @@ export const products = [
     "description": "La Soudeuse Sumitomo T-502S est une soudeuse gaine à gaine active conçu pour les installateurs D3, dotée de la technologie Nano Tune elle permet des soudures de haute précision, elle est donc idéale pour les techniciens FFTH.\nCompacte et légère elle permet une utilisation très fluide et très simple.\nLivrée avec cliveuse au choix : FC-6RS ou FC-8R-F .",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/soudeuse-sumitomo-t-502s/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/sumitomo-t-502s-soudeuse.jpg",
     "gallery": [
-      "/images/shop/official/soudeuse-sumitomo-t-502s/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/sumitomo-t-502s-soudeuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-t-502s/",
@@ -731,9 +731,9 @@ export const products = [
     "description": "La Soudeuse Sumitomo T-402S est une soudeuse gaine à gaine dotée de la Technologie NanoTune.\nErgonomique et résistante , elle est idéale pour vos raccordements D3.\nLivrée avec cliveuse au choix : FC-6+ ou FC-8R-F .",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/soudeuse-sumitomo-t-402s/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/sumitomo-t-402s-soudeuse.jpg",
     "gallery": [
-      "/images/shop/official/soudeuse-sumitomo-t-402s/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/sumitomo-t-402s-soudeuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-t-402s/",
@@ -781,9 +781,9 @@ export const products = [
     "description": "Ergonomique, la Soudeuse Sumitomo T72C+ avec cliveuse est l’une des soudeuses la plus performante du marché, en effet elle offre de nombreuses fonctionnalités tout autant nécessaire pour augmenter votre productivité lors du déploiement de la fibre optique.\nUne vitesse de soudeuse inégalée avec un temps de 4 secondes par soudure , un four double ultra rapide de 9 secondes, une très faible perte de soudure et une identification systématique de toutes les fibre du marché.\nLivrée avec cliveuse au choix : FC-6RS ou FC-8R-F .",
     "status": "Garder",
     "type": "Variable",
-    "image": "/images/shop/official/soudeuse-sumitomo-t72c/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/sumitomo-t-72c-plus-soudeuse.jpg",
     "gallery": [
-      "/images/shop/official/soudeuse-sumitomo-t72c/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/sumitomo-t-72c-plus-soudeuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-t72c/",
@@ -833,9 +833,9 @@ export const products = [
     "description": "Electrodes Sumitomo ER-10\nPaires d’électrodes officielles du fabricants japonais Sumitomo\nCompatibles avec les soudeuses de la marque",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/electrodes-sumitomo-er-10/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/sumitomo-er-10-electrodes.jpg",
     "gallery": [
-      "/images/shop/official/electrodes-sumitomo-er-10/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/sumitomo-er-10-electrodes.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/electrodes-sumitomo-er-10/",
@@ -1293,9 +1293,9 @@ export const products = [
     "description": "Compacte, sans écran et entièrement pilotée via smartphone, l’imprimante M211 est pensée pour les techniciens terrain. Créez, éditez et imprimez vos étiquettes directement depuis l’appli mobile Brady Express Labels. Ultra robuste, elle résiste aux chutes, aux chocs et à la poussière.",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/kit-etiqueteuse-m211-brady/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/brady-m211-kit-etiqueteuse.jpg",
     "gallery": [
-      "/images/shop/official/kit-etiqueteuse-m211-brady/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/brady-m211-kit-etiqueteuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/kit-etiqueteuse-m211-brady/",
@@ -1329,6 +1329,99 @@ export const products = [
     "options": [],
     "productId": 12411,
     "lastModified": "2025-04-22T16:17:57+00:00"
+  },
+  {
+    "name": "Cartouches étiquettes Brady M21 (M210 / M211)",
+    "brand": "Brady",
+    "category": "Consommables",
+    "subcategory": "Étiquettes & Rubans",
+    "sku": null,
+    "description": "Cartouches d’étiquettes Brady M21 pour étiqueteuses M210 et M211 : plus de 90 références.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/brady-m21-cartouches-etiquettes.jpg",
+    "gallery": [
+      "/images/shop/products/brady-m21-cartouches-etiquettes.jpg"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": null,
+    "slug": "brady-m21-cartouches-etiquettes",
+    "longDescription": [
+      "La gamme de cartouches Brady M21, compatible avec les étiqueteuses M210 et M211, couvre les étiquettes auto-laminantes pour fils et câbles, les gaines thermorétractables et les étiquettes de panneaux de brassage.",
+      "Chaque matière et largeur répond à un usage précis d’identification en environnement télécom et data."
+    ],
+    "options": [
+      {
+        "name": "Matière",
+        "values": []
+      },
+      {
+        "name": "Largeur",
+        "values": []
+      }
+    ]
+  },
+  {
+    "name": "Étiquettes & rubans Brady M4/M5 (M410 / M510 / M511)",
+    "brand": "Brady",
+    "category": "Consommables",
+    "subcategory": "Étiquettes & Rubans",
+    "sku": null,
+    "description": "Étiquettes et rubans Brady pour étiqueteuses M410, M510 et M511, en larges choix de matières et largeurs.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/brady-m4-m5-etiquettes-rubans.jpg",
+    "gallery": [
+      "/images/shop/products/brady-m4-m5-etiquettes-rubans.jpg"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": null,
+    "slug": "brady-m4-m5-etiquettes-rubans",
+    "longDescription": [
+      "Cette gamme d’étiquettes et de rubans Brady est destinée aux étiqueteuses M410, M510 et M511, avec un large choix de matières et de largeurs pour l’identification des câbles, panneaux et composants réseau.",
+      "Elle facilite la sélection du consommable adapté à chaque application."
+    ],
+    "options": [
+      {
+        "name": "Matière",
+        "values": []
+      },
+      {
+        "name": "Largeur",
+        "values": []
+      }
+    ]
+  },
+  {
+    "name": "Étiquettes & rubans Brady M6/M7 (M610 / M611 / M710)",
+    "brand": "Brady",
+    "category": "Consommables",
+    "subcategory": "Étiquettes & Rubans",
+    "sku": null,
+    "description": "Étiquettes et rubans Brady pour étiqueteuses M610, M611 et M710 : nylon, PermaSleeve, étiquettes relief.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/brady-m6-m7-etiquettes-rubans.jpg",
+    "gallery": [
+      "/images/shop/products/brady-m6-m7-etiquettes-rubans.jpg"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": null,
+    "slug": "brady-m6-m7-etiquettes-rubans",
+    "longDescription": [
+      "Cette gamme équipe les étiqueteuses Brady M610, M611 et M710 avec des consommables durables, tels que le nylon auto-enroulant, les gaines thermorétractables PermaSleeve et les étiquettes en relief.",
+      "Chaque matière répond à un besoin d’identification robuste en environnement technique."
+    ],
+    "options": [
+      {
+        "name": "Matière",
+        "values": []
+      },
+      {
+        "name": "Largeur",
+        "values": []
+      }
+    ]
   },
   {
     "name": "Etiqueteuse M710 BRADY",
@@ -1541,9 +1634,9 @@ export const products = [
     "description": "La Soudeuse Sumitomo T-57C+ est une version améliorée de la soudeuse T-57 de Sumitomo, avec de meilleures fonctionnalités pour faciliter le processus de soudures des fibres optiques.\nElle est capable de réaliser des soudures de haute qualité et offre des fonctionnalités avancées telles que des programmes personnalisés, une interface conviviale et une précision élevée.\nLivrée avec cliveuse au choix : FC-6RS ou FC-8R-F .",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/official/soudeuse-sumitomo-t-57c/01-woocommerce-placeholder-fd5ec9e3.png",
+    "image": "/images/shop/products/sumitomo-t-57c-plus-soudeuse.jpg",
     "gallery": [
-      "/images/shop/official/soudeuse-sumitomo-t-57c/01-woocommerce-placeholder-fd5ec9e3.png"
+      "/images/shop/products/sumitomo-t-57c-plus-soudeuse.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/soudeuse-sumitomo-t-57c/",
@@ -1855,13 +1948,57 @@ export const products = [
     "description": "Accès client et passerelles pour réseaux professionnels.",
     "status": "Garder",
     "type": "Simple",
-    "image": "/images/shop/shop-hero.jpg",
+    "image": "/images/shop/products/raisecom-rax701-gc-cpe.jpg",
     "imageMode": "cover",
     "sourceUrl": null,
     "slug": "rax701-gc",
     "longDescription": [
       "Accès client et passerelles pour réseaux professionnels.",
       "RAX701-GC complète la gamme cpe d’ExpertCN, destinée aux professionnels des télécoms. Notre équipe peut vérifier la compatibilité avec votre matériel, votre réseau et les contraintes de votre chantier avant la commande."
+    ],
+    "options": []
+  },
+  {
+    "name": "CPE Ethernet Raisecom RAX711",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "CPE",
+    "sku": null,
+    "description": "CPE Ethernet Raisecom RAX711-R certifié MEF CE2.0, pour liaisons louées 1G/10G et backhaul mobile.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/raisecom-rax711-r-cpe-ethernet.jpg",
+    "gallery": [
+      "/images/shop/products/raisecom-rax711-r-cpe-ethernet.jpg"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": "https://www.raisecom.com/?page_id=43429&post_type=products",
+    "slug": "raisecom-rax711-r-cpe-ethernet",
+    "longDescription": [
+      "Le RAX711-R de Raisecom est un CPE Ethernet destiné aux liaisons louées 1G/10G et au backhaul mobile 4G/5G, certifié MEF CE2.0 pour les services E-Line, E-LAN et E-Tree.",
+      "Il apporte aux opérateurs les fonctions de démarcation, de qualité de service et de supervision nécessaires aux offres entreprise."
+    ],
+    "options": []
+  },
+  {
+    "name": "CPE Ethernet Raisecom RAX721",
+    "brand": "Raisecom",
+    "category": "Équipements Actifs",
+    "subcategory": "CPE",
+    "sku": null,
+    "description": "CPE Ethernet Raisecom RAX721 pour les infrastructures opérateur et les services Ethernet professionnels.",
+    "status": "Garder",
+    "type": "Variable",
+    "image": "/images/shop/products/raisecom-rax721-r-cpe-ethernet.jpg",
+    "gallery": [
+      "/images/shop/products/raisecom-rax721-r-cpe-ethernet.jpg"
+    ],
+    "imageMode": "contain",
+    "sourceUrl": null,
+    "slug": "raisecom-rax721-r-cpe-ethernet",
+    "longDescription": [
+      "Le CPE Ethernet Raisecom RAX721 est destiné aux infrastructures opérateur et aux services Ethernet professionnels.",
+      "Notre équipe peut confirmer la configuration et la compatibilité avec votre réseau avant la commande."
     ],
     "options": []
   },
@@ -2141,9 +2278,9 @@ export const products = [
     "description": "Prise terminale optique disponible en 1, 2 ou 4 fibres pour les raccordements FTTH.",
     "status": "Garder",
     "type": "Variable",
-    "image": "/images/shop/official/pto-1-2-4fo/01-15-7cefc0f6.png",
+    "image": "/images/shop/products/pto-point-terminaison-optique.jpg",
     "gallery": [
-      "/images/shop/official/pto-1-2-4fo/01-15-7cefc0f6.png"
+      "/images/shop/products/pto-point-terminaison-optique.jpg"
     ],
     "imageMode": "cover",
     "sourceUrl": "https://www.expertcn.fr/produit/pto-1-2-4fo/",

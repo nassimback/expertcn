@@ -143,7 +143,7 @@ function App() {
       <main>
         <section className="hero" id="accueil">
           <div className="hero-media" aria-hidden="true">
-            <img src="/images/expertcn-hero.jpg" alt="" fetchPriority="high" />
+            <img src="/images/site/accueil-hero-technicien-fibre.jpg" alt="" fetchPriority="high" />
           </div>
           <div className="hero-overlay" />
           <div className="hero-inner">
@@ -179,7 +179,7 @@ function App() {
           </div>
           <div className="expertise-layout">
             <div className="expertise-visual" data-reveal>
-              <img src="/images/expertcn-maintenance.jpg" alt="Intervention de précision sur un équipement fibre optique" loading="lazy" />
+              <img src="/images/site/accueil-vision-360-soudeuse-gros-plan.jpg" alt="Gros plan sur une soudeuse fibre optique en cours d’utilisation" loading="lazy" />
               <div className="expertise-visual-caption"><strong>Une vision 360°</strong><span>Conseil, service et savoir-faire au même endroit.</span></div>
             </div>
             <div className="services-grid">
@@ -202,7 +202,7 @@ function App() {
               </article>
             ))}
             <div className="expertise-secondary-image" data-reveal>
-              <img src="/images/expertcn-formation.jpg" alt="Professionnels en formation pratique sur des équipements fibre optique" loading="lazy" />
+              <img src="/images/site/accueil-vision-360-formation-groupe.jpg" alt="Groupe de techniciens en formation fibre optique" loading="lazy" />
             </div>
             </div>
           </div>
@@ -210,7 +210,7 @@ function App() {
 
         <section className="section maintenance-section" id="maintenance">
           <div className="maintenance-image" data-reveal>
-            <img src="/images/expertcn-maintenance.jpg" alt="Technicien calibrant une soudeuse fibre optique dans le laboratoire ExpertCN" loading="lazy" />
+            <img src="/images/site/sav-hero-soudeuse-reparation.jpg" alt="Soudeuse fibre optique en cours de réparation au centre de maintenance ExpertCN" loading="lazy" />
             <div className="image-stat">
               <strong>+100</strong>
               <span>équipements réparés et étalonnés par mois</span>
@@ -230,26 +230,6 @@ function App() {
           </div>
         </section>
 
-        <section className="section process-section">
-          <div className="process-board">
-            <div className="process-image" data-reveal>
-              <img src="/images/expertcn-hero.jpg" alt="Technicien ExpertCN préparant une intervention sur une infrastructure télécom" loading="lazy" />
-              <div className="process-image-label"><Wrench weight="duotone" /><span>Centre de maintenance certifié</span></div>
-            </div>
-            <div className="process-content" data-reveal>
-              <p className="eyebrow">Parcours RMA</p>
-              <h2>Chaque intervention est suivie avec rigueur, de la demande au rapport final.</h2>
-              <p className="process-lead">Un parcours lisible, des délais suivis et une information claire à chaque moment décisif.</p>
-              <ol className="process-list">
-                <li><span>01</span><div><strong>Décrivez votre besoin</strong><p>La demande RMA nous donne les premières informations utiles.</p></div></li>
-                <li><span>02</span><div><strong>Recevez votre ticket</strong><p>Un numéro unique centralise le suivi de votre équipement.</p></div></li>
-                <li><span>03</span><div><strong>Validez le diagnostic</strong><p>Nos techniciens vous informent avant toute intervention.</p></div></li>
-                <li><span>04</span><div><strong>Recevez le rapport</strong><p>Votre matériel repart avec son expertise documentée.</p></div></li>
-              </ol>
-            </div>
-          </div>
-        </section>
-
         <section className="section training-section" id="formations">
           <div className="training-copy" data-reveal>
             <span className="inline-icon"><GraduationCap weight="duotone" /></span>
@@ -262,13 +242,13 @@ function App() {
             <a className="button button-primary" href="/formations/">Voir les formations <ArrowRight weight="bold" /></a>
           </div>
           <div className="training-image" data-reveal>
-            <img src="/images/expertcn-formation.jpg" alt="Professionnels suivant une formation pratique à la fibre optique" loading="lazy" />
+            <img src="/images/site/accueil-formations-apprenants.jpg" alt="Apprenants en formation télécom ExpertCN" loading="lazy" />
           </div>
         </section>
 
         <section className="section commitments-section" id="engagements">
           <div className="commitment-media" data-reveal>
-            <img src="/images/expertcn-rse.jpg" alt="Technicien intervenant sur une infrastructure télécom à proximité de panneaux solaires" loading="lazy" />
+            <img src="/images/site/accueil-rse-technicien-solaire.jpg" alt="Technicien ExpertCN intervenant sur une infrastructure avec panneaux solaires" loading="lazy" />
             <div className="commitment-overlay">
               <p className="eyebrow">Notre démarche RSE</p>
               <h2>Développer les réseaux d’aujourd’hui sans perdre de vue demain.</h2>

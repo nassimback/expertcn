@@ -24,6 +24,7 @@ import {
   Wrench,
 } from '@phosphor-icons/react'
 import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-shared'
+import { products } from './catalogue.generated'
 import { formationCategories, formationProgramDocuments, formations } from './formation-data'
 import './service-pages.css'
 
@@ -217,7 +218,7 @@ function SavPage() {
 
   return (
     <PageShell active="sav">
-      <ServiceHero active="sav" kicker="Centre de maintenance télécom" title="Réparez. Reprenez le terrain." description="Révision, calibration et réparation de vos équipements fibre optique par une équipe spécialisée." image="/images/expertcn-maintenance.jpg" imageAlt="Technicien ExpertCN intervenant sur une soudeuse fibre optique" primary={{ href: '#demande', label: 'Soumettre une demande' }} secondary={{ href: '#prestations', label: 'Voir les prestations' }} />
+      <ServiceHero active="sav" kicker="Centre de maintenance télécom" title="Réparez. Reprenez le terrain." description="Révision, calibration et réparation de vos équipements fibre optique par une équipe spécialisée." image="/images/site/sav-hero-soudeuse-reparation.jpg" imageAlt="Soudeuse fibre optique en cours de réparation au centre SAV ExpertCN" primary={{ href: '#demande', label: 'Soumettre une demande' }} secondary={{ href: '#prestations', label: 'Voir les prestations' }} />
       <MetricsBand items={[{ value: '10+', label: 'ans d’expérience', note: 'en maintenance fibre optique' }, { value: '98 %', label: 'de satisfaction client' }, { value: '100+', label: 'équipements réparés', note: 'chaque mois' }]} />
 
       <section className="service-section intro-split" id="prestations">
@@ -231,7 +232,7 @@ function SavPage() {
       </section>
 
       <section className="process-panel service-section">
-        <div className="process-media"><img src="/images/expertcn-hero.jpg" alt="Technicien contrôlant une liaison fibre optique" /></div>
+        <div className="process-media"><img src="/images/site/sav-parcours-rma-technicien.jpg" alt="Technicien ExpertCN lors du parcours de prise en charge RMA" /></div>
         <div className="process-copy">
           <SectionHeading kicker="Parcours RMA" title="Une prise en charge lisible, du ticket au retour." text="À chaque étape, vous savez où se trouve votre équipement et quelle décision doit être prise." />
           <ol className="process-steps">
@@ -245,7 +246,7 @@ function SavPage() {
           <SectionHeading kicker="Calibration" title="Retrouvez un alignement fiable et des mesures cohérentes." text="Après un choc, une dérive ou une utilisation intensive, nous contrôlons les points critiques de votre soudeuse pour restaurer son niveau de performance." />
           <ul className="check-list"><li><Check weight="bold" /> Calibration de précision</li><li><Check weight="bold" /> Contrôle fonctionnel</li><li><Check weight="bold" /> Nettoyage en profondeur</li><li><Check weight="bold" /> Mise à jour logicielle si nécessaire</li></ul>
         </div>
-        <div className="calibration-media"><img src="/images/expertcn-hero.jpg" alt="Technicien calibrant une soudeuse fibre optique en atelier" /></div>
+        <div className="calibration-media"><img src="/images/site/sav-calibration-gros-plan.jpg" alt="Calibration de précision sur une soudeuse fibre optique" /></div>
       </section>
 
       <TestimonialSlider title="Ils recommandent notre centre SAV." testimonials={[
@@ -256,7 +257,7 @@ function SavPage() {
         { quote: 'Nous avons retrouvé une soudeuse parfaitement calibrée avec un suivi sérieux à chaque étape.', name: 'Karim', role: 'Chef d’équipe fibre, Connectis' },
         { quote: 'Un interlocuteur technique disponible et des délais tenus, même sur une panne difficile à identifier.', name: 'Laurent', role: 'Gérant, Fibre Services' },
       ]} />
-      <LeadForm title="Formulaire de demande RMA" intro="Renseignez votre équipement et les symptômes constatés. Notre équipe vous transmettra les prochaines étapes." fields={rmaFields} submitLabel="Envoyer la demande RMA" image="/images/expertcn-maintenance.jpg" imageAlt="Intervention de maintenance sur une soudeuse fibre optique" />
+      <LeadForm title="Formulaire de demande RMA" intro="Renseignez votre équipement et les symptômes constatés. Notre équipe vous transmettra les prochaines étapes." fields={rmaFields} submitLabel="Envoyer la demande RMA" image="/images/site/sav-hero-soudeuse-reparation.jpg" imageAlt="Intervention de maintenance sur une soudeuse fibre optique" />
       <Faq items={savFaq} />
     </PageShell>
   )
@@ -306,13 +307,17 @@ function AboutPage() {
 }
 
 const materialCategories = [
-  { title: 'Soudeuses fibre optique', description: 'Des équipements terrain sélectionnés pour des raccordements précis.', image: '/images/expertcn-maintenance.jpg' },
-  { title: 'Raccordement optique', description: 'Tiroirs, jarretières et accessoires pour organiser des liaisons fiables.', image: '/images/shop/products/tiroirs-optiques-actifs.png' },
-  { title: 'Tests et mesures', description: 'OTDR, photomètres et analyseurs pour qualifier chaque intervention.', image: '/images/shop/analyseur-pon.png' },
-  { title: 'Tirage et sécurité', description: 'Aiguilles, recharges et solutions adaptées aux contraintes de chantier.', image: '/images/shop/aiguille.png' },
-  { title: 'Câbles optiques', description: 'Des configurations monomode et multimode pour vos infrastructures.', image: '/images/shop/products/breakout-multimode.png' },
-  { title: 'Identification réseau', description: 'Étiqueteuses et consommables pour une documentation durable.', image: '/images/shop/products/etiqueteuse-m510-brady.png' },
+  { title: 'Tests et mesures', category: 'Tests et mesures', description: 'Mesurez, qualifiez et documentez vos réseaux fibre sur le terrain.', image: '/images/site/test_et_mesures.jpg' },
+  { title: 'Soudeuses fibre optique', category: 'Soudeuses fibre optique', description: 'Raccordez et préparez la fibre avec des équipements reconnus par les techniciens.', image: '/images/site/soudeuses_fibre_optique.jpg' },
+  { title: 'Raccordement optique', category: 'Raccordement optique', description: 'Organisez, terminez et interconnectez vos liaisons optiques.', image: '/images/site/raccordement_optique.jpg' },
+  { title: 'Équipements actifs', category: 'Équipements Actifs', description: 'Déployez les accès, la commutation et les infrastructures PON professionnelles.', image: '/images/site/equipement_actif.jpg' },
+  { title: 'Tirage et sécurité', category: 'Tirage et sécurité', description: 'Facilitez le passage de câbles et sécurisez chaque intervention.', image: '/images/site/tirage_et_securite.jpg' },
+  { title: 'Identification de réseau', category: 'Identification de réseau', description: 'Identifiez durablement câbles, panneaux et équipements.', image: '/images/site/identification_reseau.jpg' },
+  { title: 'Consommables', category: 'Consommables', description: 'Maintenez vos opérations avec les pièces et consommables adaptés.', image: '/images/site/consommables.jpg' },
 ]
+
+const materialCategoryHref = (category) => `/boutique/?categorie=${encodeURIComponent(category)}#catalogue`
+const materialCategoryCount = (category) => products.filter((product) => product.category === category).length
 
 const bestSellers = [
   { name: 'Analyseur PON FX120 VeEX', brand: 'Tests et mesures', description: 'Une plateforme compacte pour tester, diagnostiquer et documenter les réseaux PON.', image: '/images/shop/products/analyseur-pon-fx120-veex.png', slug: 'analyseur-pon-fx120-veex' },
@@ -324,19 +329,27 @@ const bestSellers = [
 function MaterialPage() {
   return (
     <PageShell active="material">
-      <ServiceHero active="material" kicker="Matériel télécom et fibre optique" title="Le bon équipement, bien choisi." description="Une sélection professionnelle pour raccorder, mesurer, identifier et sécuriser vos infrastructures fibre optique." image="/images/shop/shop-hero.jpg" imageAlt="Équipements professionnels pour la fibre optique" primary={{ href: '/boutique/', label: 'Visiter la boutique' }} secondary={{ href: '#gammes', label: 'Explorer les gammes' }} />
+      <ServiceHero active="material" kicker="Matériel télécom et fibre optique" title="Le bon équipement, bien choisi." description="Une sélection professionnelle pour raccorder, mesurer, identifier et sécuriser vos infrastructures fibre optique." image="/images/site/materiels-hero-equipements-groupes.jpg" imageAlt="Sélection d’équipements fibre optique professionnels ExpertCN" primary={{ href: '/boutique/', label: 'Visiter la boutique' }} secondary={{ href: '#gammes', label: 'Explorer les gammes' }} />
       <MetricsBand items={[{ value: '1 000+', label: 'références professionnelles' }, { value: '98 %', label: 'de stock disponible' }, { value: '24 h', label: 'pour les expéditions éligibles' }]} />
 
-      <section className="service-section" id="gammes">
-        <SectionHeading kicker="Nos gammes" title="Six univers pour équiper vos chantiers de bout en bout." text="Accédez rapidement aux familles de produits les plus utilisées par les équipes télécoms." />
-        <div className="range-catalog">
-          <a className="range-feature" href="/boutique/">
-            <div className="range-feature-media"><img src={materialCategories[0].image} alt={materialCategories[0].title} /></div>
-            <div className="range-feature-copy"><h3>{materialCategories[0].title}</h3><p>{materialCategories[0].description}</p><span>Voir les références <ArrowUpRight weight="bold" /></span></div>
-          </a>
-          <div className="range-list">
-            {materialCategories.slice(1).map((category) => <a className="range-row" href="/boutique/" key={category.title}><div className="range-row-media"><img src={category.image} alt={category.title} /></div><div className="range-row-copy"><h3>{category.title}</h3><p>{category.description}</p></div><ArrowUpRight className="range-row-arrow" weight="bold" /></a>)}
+      <section className="service-section material-universes" id="gammes">
+        <div className="universe-catalog">
+          <div className="universe-intro">
+            <p className="service-kicker">Nos univers métiers</p>
+            <h2>Tous vos univers métiers, un seul partenaire.</h2>
+            <p>Accédez directement à chaque univers métier et à ses références techniques.</p>
+            <ButtonLink href="/boutique/">Explorer tout le catalogue</ButtonLink>
           </div>
+          {materialCategories.map((category) => (
+            <a className="universe-card" href={materialCategoryHref(category.category)} key={category.category}>
+              <div className="universe-card-media"><img src={category.image} alt={category.title} /></div>
+              <div className="universe-card-copy">
+                <div className="universe-card-heading"><h3>{category.title}</h3><span>{materialCategoryCount(category.category)}</span></div>
+                <p>{category.description}</p>
+                <span className="universe-card-link">Voir les produits <ArrowUpRight weight="bold" /></span>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
@@ -430,12 +443,12 @@ function FormationsPage() {
 
   return (
     <PageShell active="formations">
-      <ServiceHero active="formations" kicker="Formations télécom et énergie" title="Maîtrisez les gestes du terrain." description="Des formations concrètes, encadrées par des experts, pour renforcer vos compétences et accélérer votre évolution professionnelle." image="/images/expertcn-formation.jpg" imageAlt="Formateur accompagnant des apprenants sur une soudeuse fibre optique" primary={{ href: '#formations-list', label: 'Découvrir les formations' }} secondary={{ href: '/contact/?sujet=Formation#contact-form', label: 'Être conseillé' }} />
+      <ServiceHero active="formations" kicker="Formations télécom et énergie" title="Maîtrisez les gestes du terrain." description="Des formations concrètes, encadrées par des experts, pour renforcer vos compétences et accélérer votre évolution professionnelle." image="/images/site/formations-hero-apprenants-soudeuse.jpg" imageAlt="Apprenants en formation télécom sur équipement de fusion fibre" primary={{ href: '#formations-list', label: 'Découvrir les formations' }} secondary={{ href: '/contact/?sujet=Formation#contact-form', label: 'Être conseillé' }} />
       <MetricsBand items={[{ value: '50+', label: 'entreprises partenaires' }, { value: '1 000+', label: 'clients formés avec succès' }, { value: '+20 %', label: 'd’évolution salariale', note: 'constatée après formation' }]} />
 
       <section className="service-section training-value">
         <div><SectionHeading kicker="Pourquoi ExpertCN" title="La technique s’apprend mieux quand elle se pratique." text="Nos parcours associent explications claires, équipements professionnels et mises en situation proches des conditions réelles d’intervention." /><ul className="value-list"><li><GraduationCap weight="duotone" /><div><strong>Formateurs experts</strong><span>Une expérience concrète des télécoms et de l’énergie.</span></div></li><li><Toolbox weight="duotone" /><div><strong>Matériel professionnel</strong><span>Des manipulations guidées sur les équipements du terrain.</span></div></li><li><TrendUp weight="duotone" /><div><strong>Accompagnement carrière</strong><span>Des conseils adaptés à votre projet et à votre expérience.</span></div></li></ul></div>
-        <div className="training-value-media"><img src="/images/expertcn-formation.jpg" alt="Session pratique de formation fibre optique" /><span>Une pédagogie orientée autonomie</span></div>
+        <div className="training-value-media"><img src="/images/site/formations-pedagogie-pratique.jpg" alt="Groupe d’apprenants en pratique sur soudeuse fibre optique" /><span>Une pédagogie orientée autonomie</span></div>
       </section>
 
       <section className="service-section" id="formations-list">
@@ -477,7 +490,7 @@ function FormationsPage() {
         </div>
       </section>
 
-      <LeadForm className="training-lead" title="Quelle formation correspond à votre projet ?" intro="Indiquez-nous votre objectif. Nous vous aiderons à identifier le bon parcours, le format et les possibilités de financement." fields={fields} submitLabel="Recevoir des informations" image="/images/expertcn-formation.jpg" imageAlt="Apprenants en formation fibre optique" />
+      <LeadForm className="training-lead" title="Quelle formation correspond à votre projet ?" intro="Indiquez-nous votre objectif. Nous vous aiderons à identifier le bon parcours, le format et les possibilités de financement." fields={fields} submitLabel="Recevoir des informations" image="/images/site/formations-hero-apprenants-soudeuse.jpg" imageAlt="Apprenants en formation fibre optique" />
 
       <TestimonialSlider title="Ce sont nos apprenants qui en parlent le mieux." testimonials={[
         { quote: 'Une formation fibre optique complète et motivante. En cinq jours, j’ai compris le métier et gagné en autonomie sur le terrain.', name: 'Amine', role: 'Formation fibre optique' },
