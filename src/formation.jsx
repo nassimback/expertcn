@@ -10,10 +10,8 @@ import {
   CheckCircle,
   Clock,
   CurrencyEur,
-  DownloadSimple,
   EnvelopeSimple,
   Exam,
-  FileText,
   GraduationCap,
   HandHeart,
   Monitor,
@@ -84,7 +82,6 @@ function FormationPage() {
             <p>{formation.summary}</p>
             <div>
               <FormationButton href={`/contact/?sujet=Formation&formation=${encodeURIComponent(formation.slug)}#contact-form`}>S’inscrire</FormationButton>
-              <FormationButton href="#programme-pdf" secondary>Télécharger le programme</FormationButton>
             </div>
           </div>
           <div className="formation-hero-media"><img src={formation.image} alt={`Formation ${formation.title} avec ExpertCN`} fetchPriority="high" /></div>
@@ -152,19 +149,6 @@ function FormationPage() {
               ))}
             </div>
             <aside><Exam weight="duotone" /><span>Évaluation finale</span><strong>{formation.finalEvaluation}</strong><p>Les résultats sont formalisés et restitués au participant à l’issue du parcours.</p></aside>
-          </div>
-        </section>
-
-        <section className="formation-section formation-download" id="programme-pdf">
-          <div className="formation-download-media"><img src={formation.image} alt="" /></div>
-          <div>
-            <FileText weight="duotone" />
-            <span>Programme détaillé</span>
-            <h2>Conservez toutes les informations de la formation.</h2>
-            <p>{formation.programPdfs?.length ? 'Téléchargez le programme détaillé et retrouvez les objectifs, prérequis et modalités du parcours.' : 'Le programme PDF spécifique sera disponible dès son ajout à la fiche média de cette formation.'}</p>
-            {formation.programPdfs?.length
-              ? <div className="formation-download-links">{formation.programPdfs.map((program) => <a href={program.href} download key={program.fileName}><DownloadSimple weight="bold" /> {formation.programPdfs.length > 1 ? program.title : 'Télécharger le programme'}</a>)}</div>
-              : <button type="button" disabled><DownloadSimple weight="bold" /> Programme en préparation</button>}
           </div>
         </section>
 
