@@ -148,8 +148,8 @@ function App() {
           <div className="hero-overlay" />
           <div className="hero-inner">
             <div className="hero-copy">
-              <p className="eyebrow hero-kicker">Concepteur et distributeur de solutions éco-responsables pour les infrastructures Télécom &amp; Énergie</p>
-              <h1>Votre partenaire de confiance pour les professionnels.</h1>
+              <p className="eyebrow hero-kicker">Votre partenaire de confiance pour les professionnels.</p>
+              <h1>Concepteur et distributeur de solutions éco-responsables pour les infrastructures Télécom &amp; Énergie</h1>
               <p className="hero-description">Fourniture d’équipements, maintenance d’infrastructures et formation : l’expertise d’un partenaire technique unique.</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="/contact/#contact-form">Nous contacter <ArrowRight weight="bold" /></a>
@@ -218,7 +218,7 @@ function App() {
           </div>
           <div className="maintenance-copy" data-reveal>
             <span className="inline-icon"><Wrench weight="duotone" /></span>
-            <h2>Un centre de maintenance qui réduit vraiment l’immobilisation.</h2>
+            <h2>Un centre de maintenance télécom adapté à chaque besoin.</h2>
             <p>Nos techniciens prennent en charge vos soudeuses, cliveuses et équipements de réflectométrie avec un suivi clair à chaque étape.</p>
             <div className="maintenance-services" aria-label="Prestations de maintenance">
               <span><Check weight="bold" /> Diagnostic</span>
@@ -251,8 +251,8 @@ function App() {
             <img src="/images/site/accueil-rse-technicien-solaire.jpg" alt="Technicien ExpertCN intervenant sur une infrastructure avec panneaux solaires" loading="lazy" />
             <div className="commitment-overlay">
               <p className="eyebrow">Notre démarche RSE</p>
-              <h2>Développer les réseaux d’aujourd’hui sans perdre de vue demain.</h2>
-              <p>Traçabilité, logistique, cycle de vie des produits et parcours inclusifs: nos décisions concrètes font partie intégrante de notre métier.</p>
+              <h2>Développer les réseaux d'aujourd'hui grâce à une démarche responsable.</h2>
+              <p>Sélection de composants durables, réemploi des équipements et maintenance préventive : des engagements concrets et mesurables.</p>
               <a className="text-link" href="/a-propos-de-notre-mission/#rse">Découvrir nos engagements <ArrowRight weight="bold" /></a>
             </div>
             <div className="commitment-proof" aria-label="Repères RSE">

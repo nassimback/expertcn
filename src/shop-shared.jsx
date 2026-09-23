@@ -384,7 +384,7 @@ export function SiteFooter() {
         <div className="footer-brand"><ShopBrand /><p>Formons, accompagnons et entretenons avec passion.</p></div>
         <div className="footer-column"><strong>Expertises</strong><a href="/materiel-telecom-fibre-optique/">Matériels</a><a href="/boutique/">Boutique</a><a href="/sav/">SAV</a><a href="/formations/">Formations</a></div>
         <div className="footer-column"><strong>ExpertCN</strong><a href="/a-propos-de-notre-mission/">À propos</a><a href="/contact/">Contact</a><a href="/a-propos-de-notre-mission/#rse">Engagement RSE</a><a href="/formations/#qualite">Certification Qualiopi</a></div>
-        <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33189624501"><Phone weight="duotone" /> +33 1 89 62 45 01</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Nous écrire</a></div>
+        <div className="footer-column footer-contact"><strong>Nous trouver</strong><span><MapPin weight="duotone" /> France</span><a href="tel:+33189624501"><Phone weight="duotone" /> +33 1 89 62 45 01</a><a href="mailto:service.client@expertcn.fr"><EnvelopeSimple weight="duotone" /> Demande d'informations</a></div>
       </div>
       <div className="footer-bottom"><span>© 2026 Expert Center Networks</span><div><a href="/mentions-legales/">Mentions légales</a><a href="/conditions-generales-dutilisation/">Conditions générales d’utilisation</a><a href="/politique-de-confidentialite/">Politique de confidentialité</a></div></div>
     </footer>
