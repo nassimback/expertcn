@@ -257,7 +257,8 @@ function App() {
             </div>
             <div className="commitment-proof" aria-label="Repères RSE">
               <div><img src="/images/ecovadis-expertcn.png" alt="Médaille Platinum EcoVadis obtenue par ExpertCN" /><strong>Platinum EcoVadis</strong><span>Parmi les 1 % les plus performantes</span></div>
-              <div><img src="/images/expertcn-trust-photo.png" alt="Équipe réunie autour d’un projet environnemental" /><strong>ISO 26000</strong><span>Une démarche RSE structurée</span></div>
+              <div><div className="commitment-iso-mark" aria-hidden="true">ISO<br />14001</div><strong>ISO 14001</strong><span>Management environnemental</span></div>
+              <div><img src="/images/rfar-label.jpg" alt="Logo du label RFAR" /><strong>Label RFAR</strong><span>Relations Fournisseurs &amp; Achats Responsables</span></div>
             </div>
           </div>
         </section>
