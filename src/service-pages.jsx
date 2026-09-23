@@ -390,7 +390,7 @@ function MaterialPage() {
 
       <section className="shop-cta">
         <div className="shop-cta-media"><img src="/images/shop/shop-hero.jpg" alt="Sélection d’outils et d’équipements fibre optique" /></div>
-        <div className="shop-cta-copy"><p className="service-kicker">Votre sélection en 30 secondes</p><h2>Décrivez votre chantier. Nous vérifions les références.</h2><p>Compatibilité, stock, délai et alternatives : notre équipe technique vous aide à composer une sélection cohérente.</p><ButtonLink href="/boutique/">Accéder à la boutique</ButtonLink></div>
+        <div className="shop-cta-copy"><p className="service-kicker">En 48h-72h partout en France</p><h2>Décrivez votre chantier. Nous vérifions les références.</h2><p>Compatibilité, stock, délai et alternatives : notre équipe technique vous aide à composer une sélection cohérente.</p><ButtonLink href="/boutique/">Accéder à la boutique</ButtonLink></div>
       </section>
 
       <section className="assurance-row service-section" aria-label="Services associés"><div><CurrencyEur weight="duotone" /><strong>Garantie du meilleur prix</strong><span>Une offre alignée sur votre besoin réel.</span></div><div><Package weight="duotone" /><strong>Retour facilité</strong><span>Une équipe disponible pour vous orienter.</span></div><div><Toolbox weight="duotone" /><strong>Support technique 6 j/7</strong><span>Des réponses par des spécialistes télécoms.</span></div></section>
