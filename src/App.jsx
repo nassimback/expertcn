@@ -173,7 +173,7 @@ function App() {
           <div className="expertise-heading" data-reveal>
             <div>
               <p className="eyebrow">Partenaire technique BtoB</p>
-              <h2>Un partenaire technique unique pour piloter l’ensemble de vos ressources Télécoms &amp; Énergie.</h2>
+              <h2>Un partenaire technique unique pour l&apos;ensemble de vos projets télécoms.</h2>
             </div>
             <p>Du matériel à la transmission des compétences, nous intervenons avec une lecture complète de votre activité et de vos priorités.</p>
           </div>
