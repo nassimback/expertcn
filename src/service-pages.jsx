@@ -318,6 +318,7 @@ const materialCategories = [
 
 const materialCategoryHref = (category) => `/boutique/?categorie=${encodeURIComponent(category)}#catalogue`
 const materialCategoryCount = (category) => products.filter((product) => product.category === category).length
+const officialPartners = ['VeEX', 'Brady', 'Timlead', 'Raisecom', 'Newlinks']
 
 const bestSellers = [
   { name: 'Analyseur PON FX120 VeEX', brand: 'Tests et mesures', description: 'Une plateforme compacte pour tester, diagnostiquer et documenter les réseaux PON.', image: '/images/shop/products/analyseur-pon-fx120-veex.png', slug: 'analyseur-pon-fx120-veex' },
@@ -354,12 +355,24 @@ function MaterialPage() {
       </section>
 
       <section className="partner-band" aria-label="Partenaires officiels">
-        <p>Partenaires et marques de référence</p>
+        <p>Nos partenaires officiels</p>
         <div className="partner-marquee" aria-label="Logos de nos partenaires">
           <div className="partner-track">
-            {[0, 1].map((group) => <div className="partner-logo-group" aria-hidden={group === 1} key={group}>{Array.from({ length: 6 }).map((_, index) => <img src="/images/partner-logoipsum.png" alt={group === 0 && index === 0 ? 'Logo partenaire' : ''} key={`${group}-${index}`} />)}</div>)}
+            {[0, 1].map((group) => <div className="partner-logo-group" aria-hidden={group === 1} key={group}>{officialPartners.map((partner) => <span className={`partner-wordmark partner-wordmark-${partner.toLowerCase()}`} key={`${group}-${partner}`}>{partner}</span>)}</div>)}
           </div>
         </div>
+      </section>
+
+      <section className="service-section new-arrival" aria-labelledby="new-arrival-title">
+        <div className="new-arrival-copy">
+          <p className="service-kicker">Nouveauté du moment</p>
+          <h2 id="new-arrival-title">VeEX PX92</h2>
+          <p>Un analyseur PON compact pour l’activation et le diagnostic des réseaux GPON et XGS-PON sur le terrain.</p>
+          <ButtonLink href="/produit.html?produit=analyseur-pon-px92">Découvrir le PX92</ButtonLink>
+        </div>
+        <a className="new-arrival-media" href="/produit.html?produit=analyseur-pon-px92" aria-label="Découvrir l’analyseur PON VeEX PX92">
+          <img src="/images/site/nouveaute-veex-px92.png" alt="Analyseur PON VeEX PX92" loading="lazy" />
+        </a>
       </section>
 
       <section className="service-section best-sellers">
