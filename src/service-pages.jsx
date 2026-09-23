@@ -308,12 +308,12 @@ function AboutPage() {
 
 const materialCategories = [
   { title: 'Tests et mesures', category: 'Tests et mesures', description: 'Mesurez, qualifiez et documentez vos réseaux fibre sur le terrain.', image: '/images/site/test_et_mesures.jpg', imageAlt: 'Équipements de test et mesure fibre optique VeEX' },
-  { title: 'Soudeuses fibre optique', category: 'Soudeuses fibre optique', description: 'Raccordez et préparez la fibre avec des équipements reconnus par les techniciens.', image: '/images/site/soudeuses_fibre_optique.jpg', imageAlt: 'Soudeuses fibre optique Fujikura, Sumitomo, Inno' },
-  { title: 'Raccordement optique', category: 'Raccordement optique', description: 'Organisez, terminez et interconnectez vos liaisons optiques.', image: '/images/site/raccordement_optique.jpg', imageAlt: 'Jarretières, MPO, tiroirs optiques et composants de raccordement' },
-  { title: 'Équipements actifs', category: 'Équipements Actifs', description: 'Déployez les accès, la commutation et les infrastructures PON professionnelles.', image: '/images/site/equipement_actif.jpg', imageAlt: 'Modules optiques SFP, CPE et switches réseau' },
-  { title: 'Tirage et sécurité', category: 'Tirage et sécurité', description: 'Facilitez le passage de câbles et sécurisez chaque intervention.', image: '/images/site/tirage_et_securite.jpg', imageAlt: 'Aiguilles de tirage fibre optique et équipements de sécurité' },
-  { title: 'Identification de réseau', category: 'Identification de réseau', description: 'Identifiez durablement câbles, panneaux et équipements.', image: '/images/site/identification_reseau.jpg', imageAlt: 'Étiqueteuses Brady et solutions d’identification réseau' },
-  { title: 'Consommables', category: 'Consommables', description: 'Maintenez vos opérations avec les pièces et consommables adaptés.', image: '/images/site/consommables.jpg', imageAlt: 'Électrodes, Smooves, colliers de serrage et consommables télécom' },
+  { title: 'Soudeuses fibre optique', category: 'Soudeuses fibre optique', description: 'Soudeuses cœur à cœur, cliveuses, dénudeuses et électrodes.', image: '/images/site/soudeuses_fibre_optique.jpg', imageAlt: 'Soudeuses fibre optique Fujikura, Sumitomo, Inno' },
+  { title: 'Raccordement optique', category: 'Raccordement optique', description: 'Tiroirs optiques, boîtiers, jarretières, breakouts.', image: '/images/site/raccordement_optique.jpg', imageAlt: 'Jarretières, MPO, tiroirs optiques et composants de raccordement' },
+  { title: 'Équipements actifs', category: 'Équipements Actifs', description: 'Switches industriels, convertisseurs de média, transceivers SFP/SFP, ONT...', image: '/images/site/equipement_actif.jpg', imageAlt: 'Modules optiques SFP, CPE et switches réseau' },
+  { title: 'Tirage et sécurité', category: 'Tirage et sécurité', description: 'Aiguilles de tirage, recharges d’aiguilles...', image: '/images/site/tirage_et_securite.jpg', imageAlt: 'Aiguilles de tirage fibre optique et équipements de sécurité' },
+  { title: 'Identification de réseau', category: 'Identification de réseau', description: 'Étiqueteuses portatives industrielles, rubans de repérage.', image: '/images/site/identification_reseau.jpg', imageAlt: 'Étiqueteuses Brady et solutions d’identification réseau' },
+  { title: 'Consommables', category: 'Consommables', description: 'Smooves, colliers de serrage, stylos nettoyeurs, lingettes.', image: '/images/site/consommables.jpg', imageAlt: 'Électrodes, Smooves, colliers de serrage et consommables télécom' },
 ]
 
 const materialCategoryHref = (category) => `/boutique/?categorie=${encodeURIComponent(category)}#catalogue`
@@ -330,15 +330,15 @@ const bestSellers = [
 function MaterialPage() {
   return (
     <PageShell active="material">
-      <ServiceHero active="material" kicker="Matériel télécom et fibre optique" title="Le bon équipement, bien choisi." description="Une sélection professionnelle pour raccorder, mesurer, identifier et sécuriser vos infrastructures fibre optique." image="/images/site/materiels-hero-equipements-groupes.jpg" imageAlt="Sélection d’équipements fibre optique professionnels ExpertCN" primary={{ href: '/boutique/', label: 'Visiter la boutique' }} secondary={{ href: '#gammes', label: 'Explorer les gammes' }} />
+      <ServiceHero active="material" kicker="Matériel télécom et fibre optique" title="Matériels et solutions de mesure pour réseaux fibre optique." description="Une sélection rigoureuse pour raccorder, mesurer, identifier et sécuriser les infrastructures fibre optique." image="/images/site/materiels-hero-equipements-groupes.jpg" imageAlt="Sélection d’équipements fibre optique professionnels ExpertCN" primary={{ href: '/boutique/', label: 'Visiter la boutique' }} secondary={{ href: '#gammes', label: 'Découvrir les gammes' }} />
       <MetricsBand items={[{ value: '1 000+', label: 'références professionnelles' }, { value: '98 %', label: 'de stock disponible' }, { value: '24 h', label: 'pour les expéditions éligibles' }]} />
 
       <section className="service-section material-universes" id="gammes">
         <div className="universe-catalog">
           <div className="universe-intro">
-            <p className="service-kicker">Nos univers métiers</p>
-            <h2>Tous vos univers métiers, un seul partenaire.</h2>
-            <p>Accédez directement à chaque univers métier et à ses références techniques.</p>
+            <p className="service-kicker">CATALOGUE PRODUITS</p>
+            <h2>Gammes techniques &amp; équipements de réseaux</h2>
+            <p>Toutes les gammes d'équipements pour réseaux optique</p>
             <ButtonLink href="/boutique/">Explorer tout le catalogue</ButtonLink>
           </div>
           {materialCategories.map((category) => (
