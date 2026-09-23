@@ -25,7 +25,7 @@ img { display: block; max-width: 100%; }
 .formation-hero-copy nav { margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 7px; color: var(--formation-muted); font-size: .78rem; }
 .formation-hero-copy nav a:hover { color: var(--formation-teal); }
 .formation-hero-copy nav strong { color: var(--formation-navy); font-weight: var(--font-weight-label); }
-.formation-hero h1 { max-width: 700px; margin: 0; font-size: clamp(3rem, 5.5vw, 5.5rem); line-height: 1.06; letter-spacing: -.05em; font-weight: var(--font-weight-display); }
+.formation-hero h1 { max-width: 825px; margin: 0; font-size: clamp(3rem, 5.5vw, 5.5rem); line-height: 1.06; letter-spacing: -.05em; font-weight: var(--font-weight-display); }
 .formation-hero-copy > p { max-width: 600px; margin: 24px 0 30px; color: var(--formation-muted); font-size: 1.08rem; line-height: 1.55; }
 .formation-hero-copy > div { display: flex; flex-wrap: wrap; gap: 10px; }
 .formation-button { min-height: 50px; padding: 0 19px; display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--formation-teal); border-radius: 11px; color: #f6fbfb; background: var(--formation-teal); font-weight: var(--font-weight-action); white-space: nowrap; }
