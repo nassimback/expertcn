@@ -246,6 +246,18 @@ function App() {
           </div>
         </section>
 
+        <section className="section homepage-new-arrivals" aria-labelledby="homepage-new-arrivals-title">
+          <div className="homepage-new-arrivals-copy" data-reveal>
+            <p className="eyebrow">Nos nouveautés du moment</p>
+            <h2 id="homepage-new-arrivals-title">VeEX PX92</h2>
+            <p>Un analyseur PON compact pour l’activation et le diagnostic des réseaux GPON et XGS-PON sur le terrain.</p>
+            <a className="button button-primary" href="/produit.html?produit=analyseur-pon-px92">Découvrir le produit <ArrowRight weight="bold" /></a>
+          </div>
+          <a className="homepage-new-arrivals-media" href="/produit.html?produit=analyseur-pon-px92" aria-label="Découvrir l’analyseur PON VeEX PX92">
+            <img src="/images/site/nouveaute-veex-px92.png" alt="Analyseur PON VeEX PX92" loading="lazy" />
+          </a>
+        </section>
+
         <section className="section commitments-section" id="engagements">
           <div className="commitment-media" data-reveal>
             <img src="/images/site/accueil-rse-technicien-solaire.jpg" alt="Technicien ExpertCN intervenant sur une infrastructure avec panneaux solaires" loading="lazy" />
