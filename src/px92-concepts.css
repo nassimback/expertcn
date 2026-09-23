@@ -1,0 +1,161 @@
+/* Review controls and all seven compositions are scoped to this one section. */
+.px92-review { --px92-pad: clamp(24px, 3.6vw, 52px); scroll-margin-top: 150px; }
+.px92-review-tools { min-height: 56px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--page-muted); font-size: .85rem; }
+.px92-review-tools > div { display: flex; align-items: center; gap: 8px; }
+.px92-review-tools select, .px92-review-tools button { height: 42px; border: 1px solid var(--page-line); border-radius: 10px; color: var(--page-navy); background: var(--page-surface); }
+.px92-review-tools select { min-width: 210px; padding: 0 12px; font: inherit; cursor: pointer; }
+.px92-review-tools button { width: 42px; display: grid; place-items: center; cursor: pointer; }
+.px92-review-tools button:hover { background: var(--page-soft); }
+.px92-review-tools svg { width: 18px; height: 18px; }
+.px92-design { height: clamp(650px, 49vw, 720px); display: grid; grid-template-rows: 104px minmax(0, 1fr); overflow: hidden; border-radius: var(--page-radius); color: var(--page-navy); background: var(--page-surface); }
+.px92-section-heading { padding: 0 var(--px92-pad); display: flex; align-items: center; }
+.px92-section-heading h2 { margin: 0; font-size: clamp(1.7rem, 2.7vw, 2.65rem); letter-spacing: -.04em; line-height: 1.12; font-weight: var(--font-weight-heading); }
+.px92-stage { min-width: 0; min-height: 0; }
+.px92-stage > div { height: 100%; }
+.px92-stage h3 { margin: 7px 0 22px; font-size: clamp(3.8rem, 6vw, 6.6rem); line-height: 1; letter-spacing: -.065em; font-weight: var(--font-weight-display); }
+.px92-stage p { max-width: 460px; margin: 0; font-size: clamp(1rem, 1.2vw, 1.12rem); line-height: 1.65; }
+.px92-brand { display: block; font-size: 1.1rem; font-weight: var(--font-weight-emphasis); letter-spacing: -.02em; }
+.px92-photo { min-width: 0; min-height: 0; overflow: hidden; background: var(--page-navy-deep); }
+.px92-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.px92-copy { min-width: 0; padding: var(--px92-pad); display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+.px92-copy footer { margin-top: auto; padding-top: 16px; }
+.px92-cta { white-space: nowrap; }
+.px92-copy-compact h3 { font-size: clamp(3.4rem, 5vw, 5.5rem); }
+.px92-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* 1. Split: full-height portrait beside a navy editorial panel. */
+.px92-design-1 { color: #f1f7f8; background: var(--page-navy); }
+.px92-design-1 .px92-section-heading { border-bottom: 1px solid rgba(255,255,255,.16); }
+.px92-split { display: grid; grid-template-columns: 1fr 1fr; }
+.px92-split .px92-copy { padding-top: 44px; }
+.px92-split .px92-brand { color: #79d4cd; }
+.px92-split p { color: #d0dde1; }
+
+/* 2. Card: an inset, self-contained product card on a soft teal surface. */
+.px92-design-2 { background: var(--page-soft); }
+.px92-card-scene { padding: 4px var(--px92-pad) var(--px92-pad); }
+.px92-product-card { height: 100%; max-width: 1020px; margin: auto; display: grid; grid-template-columns: .9fr 1.1fr; overflow: hidden; border-radius: var(--page-radius); background: var(--page-surface); box-shadow: 0 18px 38px rgba(16,45,71,.09); }
+.px92-product-card .px92-copy { padding: clamp(24px, 3vw, 42px); }
+.px92-networks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.px92-networks span { padding: 8px 12px; border-radius: 8px; background: var(--page-soft); color: var(--page-teal); font-size: .85rem; font-weight: var(--font-weight-label); }
+
+/* 3. Spotlight: the portrait is the central anchor; copy flanks it. */
+.px92-design-3 { color: #f1f7f8; background: var(--page-navy-deep); }
+.px92-design-3 .px92-section-heading { justify-content: center; text-align: center; }
+.px92-spotlight { display: grid; grid-template-columns: 1fr minmax(260px, 1.15fr) 1fr; grid-template-rows: minmax(0, 1fr) 90px; gap: 0 32px; padding: 0 var(--px92-pad); align-items: center; }
+.px92-spotlight .px92-photo { height: 100%; border-radius: var(--page-radius); }
+.px92-spotlight-name h3 { font-size: clamp(4rem, 7vw, 7rem); }
+.px92-spotlight-name p { color: #79d4cd; }
+.px92-spotlight-detail p { color: #d0dde1; }
+.px92-spotlight-detail > span { display: block; margin-top: 28px; font-size: .85rem; color: #79d4cd; }
+.px92-spotlight footer { grid-column: 1 / -1; text-align: center; }
+
+/* 4. Asymmetrical: large left image, overlapping pale copy panel. */
+.px92-design-4 { background: var(--page-soft); }
+.px92-asymmetric { display: grid; grid-template-columns: 1.35fr 1fr; padding: 0 var(--px92-pad) var(--px92-pad); align-items: end; }
+.px92-asymmetric > .px92-photo { height: 100%; border-radius: var(--page-radius); }
+.px92-asymmetric-panel { position: relative; margin-left: -80px; margin-bottom: 26px; border-radius: var(--page-radius); background: var(--page-surface); box-shadow: 0 18px 40px rgba(16,45,71,.1); }
+.px92-asymmetric-panel .px92-copy { min-height: 390px; padding: 34px; gap: 20px; }
+
+/* 5. Minimal: typographic hierarchy and generous unboxed whitespace. */
+.px92-design-5 { background: transparent; border-radius: 0; }
+.px92-design-5 .px92-section-heading { padding-left: 0; border-bottom: 1px solid var(--page-line); }
+.px92-minimal { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(35px, 7vw, 100px); padding: 36px 0 0; }
+.px92-minimal .px92-copy { padding: 12px 0; }
+.px92-minimal .px92-copy h3 { font-size: clamp(5rem, 9vw, 9rem); }
+.px92-minimal .px92-brand { color: var(--page-teal); }
+.px92-minimal .px92-photo { border-radius: var(--page-radius); }
+.px92-minimal p { color: var(--page-muted); }
+
+/* 6. Feature-led: portrait and an orderly, concise technical overview. */
+.px92-features { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--px92-pad); padding: 0 var(--px92-pad) 32px; }
+.px92-features > .px92-photo { border-radius: var(--page-radius); }
+.px92-features-copy { min-width: 0; display: flex; flex-direction: column; }
+.px92-features-copy h3 { font-size: clamp(3rem, 4.5vw, 4.6rem); margin-bottom: 12px; }
+.px92-features-copy > p { color: var(--page-muted); }
+.px92-features dl { margin: 26px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 22px; }
+.px92-features dl > div { display: grid; grid-template-columns: 22px 1fr; gap: 6px 10px; }
+.px92-features dl svg { width: 22px; height: 22px; color: var(--page-teal); }
+.px92-features dt { font-weight: var(--font-weight-emphasis); }
+.px92-features dd { grid-column: 2; margin: 0; color: var(--page-muted); font-size: .86rem; line-height: 1.5; }
+.px92-features footer { margin-top: auto; }
+
+/* 7. Carousel: manual navigation between three genuine product use cases. */
+.px92-design-7 { background: var(--page-soft); }
+.px92-carousel { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--px92-pad); padding: 0 var(--px92-pad) 32px; }
+.px92-carousel-photo { border-radius: var(--page-radius); }
+.px92-crop-1 img { object-fit: cover; object-position: 50% 38%; }
+.px92-crop-2 img { object-fit: cover; object-position: 50% 68%; }
+.px92-carousel-copy { min-width: 0; display: flex; flex-direction: column; padding: 20px 0 0; }
+.px92-carousel-copy .px92-brand { color: var(--page-teal); }
+.px92-slide-copy { margin-top: 18px; }
+.px92-slide-copy h3 { font-size: clamp(2.2rem, 3.5vw, 3.6rem); line-height: 1.08; letter-spacing: -.04em; }
+.px92-slide-copy p { color: var(--page-muted); }
+.px92-slide-controls { display: flex; align-items: center; gap: 16px; margin-top: auto; padding: 22px 0; }
+.px92-slide-controls > button { width: 42px; height: 42px; border: 1px solid var(--page-line); border-radius: 10px; background: var(--page-surface); color: var(--page-navy); cursor: pointer; display: grid; place-items: center; }
+.px92-slide-controls > button svg { width: 18px; height: 18px; }
+.px92-slide-controls > div { display: flex; }
+.px92-slide-controls > div button { width: 36px; height: 42px; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
+.px92-slide-controls > div span { width: 7px; height: 7px; border-radius: 50%; background: #9cadb6; }
+.px92-slide-controls button[aria-pressed="true"] span { width: 22px; border-radius: 4px; background: var(--page-teal); }
+.px92-slide-controls button:hover { background: var(--page-soft-strong); }
+.px92-carousel-copy footer { padding-top: 8px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .px92-stage { animation: px92-enter .22s ease-out; }
+  @keyframes px92-enter { from { opacity: .4; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (max-width: 1000px) and (min-width: 768px) {
+  .px92-design { height: 690px; }
+  .px92-spotlight { gap: 0 20px; grid-template-columns: .8fr 1fr .8fr; }
+  .px92-spotlight-name h3 { font-size: 4.2rem; }
+  .px92-features dl { gap: 16px; }
+  .px92-features { gap: 24px; }
+  .px92-asymmetric-panel { margin-left: -45px; }
+}
+@media (max-width: 767px) {
+  .px92-review-tools { align-items: flex-start; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+  .px92-review-tools > div { width: 100%; }
+  .px92-review-tools select { min-width: 0; flex: 1; }
+  .px92-design { height: auto; min-height: 800px; grid-template-rows: auto auto; }
+  .px92-section-heading { min-height: 100px; padding: 24px; }
+  .px92-section-heading h2 { font-size: 1.9rem; }
+  .px92-stage > div { height: auto; }
+  .px92-photo { height: 310px; }
+  .px92-copy { padding: 26px; gap: 22px; }
+  .px92-stage h3 { font-size: 3.6rem; }
+  .px92-stage p { font-size: 1rem; }
+  .px92-copy footer { padding-top: 0; }
+  .px92-split, .px92-product-card, .px92-minimal, .px92-features, .px92-carousel { grid-template-columns: minmax(0, 1fr); }
+  .px92-split .px92-photo { grid-row: 1; }
+  .px92-split .px92-copy { padding-top: 26px; }
+  .px92-card-scene { padding: 0 18px 24px; }
+  .px92-product-card { height: auto; }
+  .px92-product-card .px92-photo { height: 290px; }
+  .px92-networks { margin-top: 18px; }
+  .px92-spotlight { grid-template-columns: 1fr; grid-template-rows: auto 310px auto auto; gap: 22px; padding: 0 24px 28px; text-align: center; }
+  .px92-spotlight-name h3 { margin: 4px 0 12px; }
+  .px92-spotlight-name p { display: none; }
+  .px92-spotlight-detail > span { margin-top: 14px; }
+  .px92-spotlight-detail p { margin: auto; }
+  .px92-asymmetric { grid-template-columns: minmax(0, 1fr); padding: 0 18px 24px; }
+  .px92-asymmetric > .px92-photo { height: 340px; }
+  .px92-asymmetric-panel { margin: -34px 14px 0; }
+  .px92-asymmetric-panel .px92-copy { min-height: 0; padding: 26px; }
+  .px92-minimal { gap: 26px; padding-top: 26px; }
+  .px92-minimal .px92-photo { grid-row: 1; }
+  .px92-minimal .px92-copy { padding: 0 6px 24px; }
+  .px92-minimal .px92-copy h3 { font-size: 4.4rem; }
+  .px92-features, .px92-carousel { gap: 28px; padding: 0 24px 28px; }
+  .px92-features dl { gap: 22px 16px; }
+  .px92-features footer { margin-top: 8px; }
+  .px92-carousel-copy { padding-top: 0; }
+  .px92-slide-copy { min-height: 240px; }
+  .px92-slide-copy h3 { font-size: 2.4rem; }
+}
+@media (max-width: 380px) {
+  .px92-asymmetric-panel { margin-left: 0; margin-right: 0; }
+  .px92-asymmetric-panel .px92-copy { padding: 20px 16px; }
+  .px92-features dl { grid-template-columns: 1fr; }
+  .px92-product-card .px92-copy { padding: 20px 16px; }
+}

@@ -27,6 +27,7 @@ import { SiteFooter, SiteHeader, SiteNotice, useRequestList } from './shop-share
 import { products } from './catalogue.generated'
 import { formationCategories, formationProgramDocuments, formations } from './formation-data'
 import './service-pages.css'
+import Px92Concepts from './px92-concepts'
 
 function ButtonLink({ href, children, secondary = false }) {
   return <a className={`service-button ${secondary ? 'is-secondary' : ''}`} href={href}>{children} <ArrowRight weight="bold" /></a>
@@ -363,17 +364,7 @@ function MaterialPage() {
         </div>
       </section>
 
-      <section className="service-section new-arrival" aria-labelledby="new-arrival-title">
-        <div className="new-arrival-copy">
-          <p className="service-kicker">Nouveauté du moment</p>
-          <h2 id="new-arrival-title">VeEX PX92</h2>
-          <p>Un analyseur PON compact pour l’activation et le diagnostic des réseaux GPON et XGS-PON sur le terrain.</p>
-          <ButtonLink href="/produit.html?produit=analyseur-pon-px92">Découvrir le PX92</ButtonLink>
-        </div>
-        <a className="new-arrival-media" href="/produit.html?produit=analyseur-pon-px92" aria-label="Découvrir l’analyseur PON VeEX PX92">
-          <img src="/images/site/nouveaute-veex-px92.png" alt="Analyseur PON VeEX PX92" loading="lazy" />
-        </a>
-      </section>
+      <Px92Concepts />
 
       <section className="service-section best-sellers">
         <SectionHeading kicker="Sélection terrain" title="Les références les plus demandées." text="Des produits connus des techniciens, accompagnés par une équipe capable de valider leur compatibilité avec votre besoin." />
