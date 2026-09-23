@@ -13,9 +13,9 @@ img { display: block; max-width: 100%; }
 .contact-hero::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(7,29,48,.98) 0%, rgba(7,29,48,.9) 40%, rgba(7,29,48,.5) 72%, rgba(7,29,48,.64) 100%); pointer-events: none; }
 .contact-hero-media { width: 100%; height: 100%; position: absolute; inset: 0; z-index: 0; object-fit: cover; object-position: center; }
 .contact-hero-copy, .contact-hero aside { position: relative; z-index: 2; }
-.contact-hero-copy { max-width: 660px; }
+.contact-hero-copy { max-width: 700px; }
 .contact-hero-copy > p, .contact-form-intro > p { margin: 0 0 14px; color: #65cec7; font-size: .76rem; font-weight: var(--font-weight-kicker); letter-spacing: .11em; text-transform: uppercase; }
-.contact-hero h1 { max-width: 640px; margin: 0; font-size: clamp(3.2rem, 5.5vw, 5.6rem); line-height: 1.06; letter-spacing: -.055em; font-weight: var(--font-weight-display); }
+.contact-hero h1 { max-width: 700px; margin: 0; font-size: clamp(3.2rem, 5.5vw, 5.6rem); line-height: 1.06; letter-spacing: -.055em; font-weight: var(--font-weight-display); }
 .contact-hero-copy > span { max-width: 610px; margin-top: 24px; display: block; color: #d7e4e8; font-size: 1.05rem; line-height: 1.58; }
 .contact-hero aside { display: grid; gap: 12px; }
 .contact-hero aside > a, .contact-hero aside > div { min-width: 0; padding: 17px; display: flex; align-items: center; gap: 13px; border: 1px solid rgba(255,255,255,.14); border-radius: 13px; color: #f7fbfc; background: rgba(255,255,255,.06); }
