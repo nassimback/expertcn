@@ -142,8 +142,8 @@ function App() {
 
       <main>
         <section className="hero" id="accueil">
-          <div className="hero-media" aria-hidden="true">
-            <img src="/images/site/accueil-hero-technicien-fibre.jpg" alt="" fetchPriority="high" />
+          <div className="hero-media">
+            <img src="/images/site/accueil-hero-technicien-fibre.jpg" alt="Technicien ExpertCN raccordant un équipement fibre optique" fetchPriority="high" />
           </div>
           <div className="hero-overlay" />
           <div className="hero-inner">
@@ -161,7 +161,7 @@ function App() {
 
         <section className="proof-strip" aria-label="Chiffres clés">
           <div className="proof-intro">
-            <img src="/images/trust-results.jpg" alt="Signature d’un document professionnel" />
+            <img src="/images/site/accueil-bloc-confiance-miniature.jpg" alt="Illustration de la relation client ExpertCN" />
             <span>La performance de vos réseaux, notre priorité.</span>
           </div>
           <div className="proof-number"><strong>+500</strong><span>clients accompagnés</span></div>
@@ -210,7 +210,7 @@ function App() {
 
         <section className="section maintenance-section" id="maintenance">
           <div className="maintenance-image" data-reveal>
-            <img src="/images/site/sav-hero-soudeuse-reparation.jpg" alt="Soudeuse fibre optique en cours de réparation au centre de maintenance ExpertCN" loading="lazy" />
+            <img src="/images/site/accueil-maintenance-soudeuse-reparation.jpg" alt="Soudeuse fibre optique en cours de réparation au centre de maintenance ExpertCN" loading="lazy" />
             <div className="image-stat">
               <strong>+100</strong>
               <span>équipements réparés et étalonnés par mois</span>

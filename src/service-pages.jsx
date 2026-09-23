@@ -307,13 +307,13 @@ function AboutPage() {
 }
 
 const materialCategories = [
-  { title: 'Tests et mesures', category: 'Tests et mesures', description: 'Mesurez, qualifiez et documentez vos réseaux fibre sur le terrain.', image: '/images/site/test_et_mesures.jpg' },
-  { title: 'Soudeuses fibre optique', category: 'Soudeuses fibre optique', description: 'Raccordez et préparez la fibre avec des équipements reconnus par les techniciens.', image: '/images/site/soudeuses_fibre_optique.jpg' },
-  { title: 'Raccordement optique', category: 'Raccordement optique', description: 'Organisez, terminez et interconnectez vos liaisons optiques.', image: '/images/site/raccordement_optique.jpg' },
-  { title: 'Équipements actifs', category: 'Équipements Actifs', description: 'Déployez les accès, la commutation et les infrastructures PON professionnelles.', image: '/images/site/equipement_actif.jpg' },
-  { title: 'Tirage et sécurité', category: 'Tirage et sécurité', description: 'Facilitez le passage de câbles et sécurisez chaque intervention.', image: '/images/site/tirage_et_securite.jpg' },
-  { title: 'Identification de réseau', category: 'Identification de réseau', description: 'Identifiez durablement câbles, panneaux et équipements.', image: '/images/site/identification_reseau.jpg' },
-  { title: 'Consommables', category: 'Consommables', description: 'Maintenez vos opérations avec les pièces et consommables adaptés.', image: '/images/site/consommables.jpg' },
+  { title: 'Tests et mesures', category: 'Tests et mesures', description: 'Mesurez, qualifiez et documentez vos réseaux fibre sur le terrain.', image: '/images/site/test_et_mesures.jpg', imageAlt: 'Équipements de test et mesure fibre optique VeEX' },
+  { title: 'Soudeuses fibre optique', category: 'Soudeuses fibre optique', description: 'Raccordez et préparez la fibre avec des équipements reconnus par les techniciens.', image: '/images/site/soudeuses_fibre_optique.jpg', imageAlt: 'Soudeuses fibre optique Fujikura, Sumitomo, Inno' },
+  { title: 'Raccordement optique', category: 'Raccordement optique', description: 'Organisez, terminez et interconnectez vos liaisons optiques.', image: '/images/site/raccordement_optique.jpg', imageAlt: 'Jarretières, MPO, tiroirs optiques et composants de raccordement' },
+  { title: 'Équipements actifs', category: 'Équipements Actifs', description: 'Déployez les accès, la commutation et les infrastructures PON professionnelles.', image: '/images/site/equipement_actif.jpg', imageAlt: 'Modules optiques SFP, CPE et switches réseau' },
+  { title: 'Tirage et sécurité', category: 'Tirage et sécurité', description: 'Facilitez le passage de câbles et sécurisez chaque intervention.', image: '/images/site/tirage_et_securite.jpg', imageAlt: 'Aiguilles de tirage fibre optique et équipements de sécurité' },
+  { title: 'Identification de réseau', category: 'Identification de réseau', description: 'Identifiez durablement câbles, panneaux et équipements.', image: '/images/site/identification_reseau.jpg', imageAlt: 'Étiqueteuses Brady et solutions d’identification réseau' },
+  { title: 'Consommables', category: 'Consommables', description: 'Maintenez vos opérations avec les pièces et consommables adaptés.', image: '/images/site/consommables.jpg', imageAlt: 'Électrodes, Smooves, colliers de serrage et consommables télécom' },
 ]
 
 const materialCategoryHref = (category) => `/boutique/?categorie=${encodeURIComponent(category)}#catalogue`
@@ -342,7 +342,7 @@ function MaterialPage() {
           </div>
           {materialCategories.map((category) => (
             <a className="universe-card" href={materialCategoryHref(category.category)} key={category.category}>
-              <div className="universe-card-media"><img src={category.image} alt={category.title} /></div>
+              <div className="universe-card-media"><img src={category.image} alt={category.imageAlt} /></div>
               <div className="universe-card-copy">
                 <div className="universe-card-heading"><h3>{category.title}</h3><span>{materialCategoryCount(category.category)}</span></div>
                 <p>{category.description}</p>
@@ -464,7 +464,7 @@ function FormationsPage() {
             ))}
           </div>
           <div className="formation-directory-panel" role="tabpanel" key={selectedCategory.slug}>
-            <div className="formation-directory-image"><img src={selectedCategory.image} alt={`Formation ${selectedCategory.name} avec ExpertCN`} /></div>
+            <div className="formation-directory-image"><img src={selectedCategory.image} alt={selectedCategory.imageAlt} /></div>
             <div className="formation-directory-copy">
               <span>{selectedCategory.courses.length} parcours</span>
               <h3>{selectedCategory.name}</h3>

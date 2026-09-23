@@ -3,6 +3,7 @@ const categoryDefinitions = [
     name: 'Fibre Optique',
     slug: 'fibre-optique',
     image: '/images/site/formations-categorie-fibre-optique.jpg',
+    imageAlt: 'Formation fibre optique - Techniciens FTTO/FTTH',
     summary: 'Déployer, raccorder et maintenir les réseaux fibre en conditions terrain.',
     defaults: {
       duration: '5 jours - 35 heures',
@@ -18,6 +19,7 @@ const categoryDefinitions = [
     name: 'Électricité',
     slug: 'electricite',
     image: '/images/site/formations-categorie-electricite.jpg',
+    imageAlt: 'Formation électricité et IRVE',
     summary: 'Maîtriser les installations électriques et les infrastructures de recharge.',
     defaults: {
       duration: '5 jours - 35 heures',
@@ -33,6 +35,7 @@ const categoryDefinitions = [
     name: 'Mesure',
     slug: 'mesure',
     image: '/images/site/formations-categorie-mesure.jpg',
+    imageAlt: 'Formation mesure PMD/CD sur fibre optique',
     summary: 'Qualifier les performances optiques et interpréter des résultats complexes.',
     defaults: {
       duration: '3 jours - 21 heures',
@@ -48,6 +51,7 @@ const categoryDefinitions = [
     name: 'Rénovations Énergétiques',
     slug: 'renovations-energetiques',
     image: '/images/site/formations-categorie-renovations-energetiques.jpg',
+    imageAlt: 'Formation rénovation énergétique - QualiPV et Qualipac',
     summary: 'Installer des solutions énergétiques performantes et conformes aux référentiels.',
     defaults: {
       duration: '3 à 5 jours selon le parcours',
@@ -63,6 +67,7 @@ const categoryDefinitions = [
     name: 'Sécurité Incendie',
     slug: 'securite-incendie',
     image: '/images/site/formations-categorie-securite-incendie.jpg',
+    imageAlt: 'Formation sécurité incendie SSIAP',
     summary: 'Prévenir les risques et coordonner la sécurité incendie en établissement.',
     defaults: {
       duration: 'Variable selon le niveau SSIAP',
@@ -78,6 +83,7 @@ const categoryDefinitions = [
     name: 'Sécurité et Sûreté',
     slug: 'securite-surete',
     image: '/images/site/formations-categorie-securite-surete.jpg',
+    imageAlt: 'Formation sécurité et sûreté - TFP APS, CQP APS GE',
     summary: 'Acquérir les compétences opérationnelles des métiers de la sécurité privée.',
     defaults: {
       duration: 'Selon le référentiel du titre préparé',
@@ -93,6 +99,7 @@ const categoryDefinitions = [
     name: 'Secourisme',
     slug: 'secourisme',
     image: '/images/site/formations-categorie-secourisme.jpg',
+    imageAlt: 'Formation secourisme SST et Mac SST',
     summary: 'Savoir protéger, alerter et intervenir face à une situation d’accident.',
     defaults: {
       duration: '2 jours - 14 heures',
@@ -108,6 +115,7 @@ const categoryDefinitions = [
     name: 'Habilitations Électriques',
     slug: 'habilitations-electriques',
     image: '/images/site/formations-categorie-habilitations-electriques.jpg',
+    imageAlt: 'Formation habilitations électriques H0B0, B2V, AIPR',
     summary: 'Intervenir à proximité des réseaux et équipements électriques en sécurité.',
     defaults: {
       duration: '1 à 3 jours selon l’habilitation',
